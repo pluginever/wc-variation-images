@@ -2,151 +2,73 @@
 
 namespace Pluginever\WCVariationImages\Admin;
 class MetaBox {
-	
+
 	function __construct() {
-		//add metabox to variation box
-        add_action( 'woocommerce_product_after_variable_attributes', array( $this, 'variable_fields' ), 10,3 );
-		
-		add_action( 'woocommerce_product_after_variable_attributes_js', array( $this, 'variable_fields_js' ) );
-		
-		add_action( 'woocommerce_save_product_variation', array( $this, 'save_variable_fields' ), 10,1 );
+		add_action( 'save_post', array( $this, 'variation_image_save' ), 1, 2 );
+
+		add_action( 'woocommerce_save_product_variation', array( $this, 'save_product_variation' ), 10, 2 );
 	}
-	
-	
-	
-	function variable_fields( $loop, $variation_data, $variation ) {
-		//varriable
-		$variation_id   = absint( $variation->ID );
-		$gallery_images = get_post_meta( $variation_id, 'image_attachment_id', true );
-		
-		wp_enqueue_media();
-	
-		?>
-			
-			<div class='image-preview-wrapper'>
-				<img id='image-preview' src='<?php echo wp_get_attachment_url( get_post_meta($variation->ID, 'image_attachment_id', true)  ); ?>' height='100'>
-			</div>
-			<input id="upload_image_button" type="button" class="button" value="<?php _e( 'Upload image' ); ?>" />
-			
-			<?php
-			// Hidden field
-			woocommerce_wp_hidden_input(
-			array( 
-				'id'    => 'image_attachment_id['.$loop.']', 
-				'value' => get_post_meta($variation->ID, 'image_attachment_id', true)
-				)
-			);
-			?>
-			
-		<?php
-	
-		
-		
-		//jquery
-		$my_saved_attachment_post_id = get_post_meta($variation->ID, 'image_attachment_id', true);
-	
-		?><script type='text/javascript'>
-	
-			jQuery( document ).ready( function( $ ) {
-	
-				// Uploading files
-				var file_frame;
-				var wp_media_post_id = wp.media.model.settings.post.id; // Store the old id
-				var set_to_post_id = <?php echo $my_saved_attachment_post_id; ?>; // Set this
-	
-				jQuery('#upload_image_button').on('click', function( event ){
-	
-					event.preventDefault();
-	
-					// If the media frame already exists, reopen it.
-					if ( file_frame ) {
-						// Set the post ID to what we want
-						file_frame.uploader.uploader.param( 'post_id', set_to_post_id );
-						// Open frame
-						file_frame.open();
-						return;
-					} else {
-						// Set the wp.media post id so the uploader grabs the ID we want when initialised
-						wp.media.model.settings.post.id = set_to_post_id;
-					}
-	
-					// Create the media frame.
-					file_frame = wp.media.frames.file_frame = wp.media({
-						title: 'Select a image to upload',
-						button: {
-							text: 'Use this image',
-						},
-						multiple: true	// Set to true to allow multiple files to be selected
-					});
-	
-					// When an image is selected, run a callback.
-					file_frame.on( 'select', function() {
-						// We set multiple to false so only get one image from the uploader
-						attachment = file_frame.state().get('selection').first().toJSON();
-	
-						// Do something with attachment.id and/or attachment.url here
-						$( '#image-preview' ).attr( 'src', attachment.url ).css( 'width', 'auto' );
-						$( '#image_attachment_id' ).val( attachment.id );
-						alert(attachment.id);
-	
-						// Restore the main post ID
-						wp.media.model.settings.post.id = wp_media_post_id;
-					});
-	
-						// Finally, open the modal
-						file_frame.open();
-				});
-	
-				// Restore the main ID when the add media button is pressed
-				jQuery( 'a.add_media' ).on( 'click', function() {
-					wp.media.model.settings.post.id = wp_media_post_id;
-				});
-			});
-	
-		</script>
-			
-		<?php	
-	}
-	
-	
-	
-	function variable_fields_js() {
-		?>
-		<tr>
-			<td>
-				<?php
-				// Hidden field
-				woocommerce_wp_hidden_input(
-				array( 
-					'id'    => '_hidden_field[ + loop + ]', 
-					'value' =>  ''
-					)
-				);
-				?>
-			</td>
-		</tr>
-		<?php
-	}
-	
-	
-	
-	
-	function save_variable_fields( $post_id ){
-		
-		if (isset( $_POST['variable_sku'] ) ) {
-		$variable_sku          = $_POST['variable_sku'];
-		$variable_post_id      = $_POST['variable_post_id'];
-		error_log(print_r($_POST, true));
-		// Text Field
-		$_text_field = $_POST['image_attachment_id'];
-		for ( $i = 0; $i < sizeof( $variable_sku ); $i++ ){
-			$variation_id = (int) $variable_post_id[$i];
-			if ( isset( $_text_field[$i] ) ) {
-				update_post_meta( $variation_id, 'image_attachment_id', stripslashes( $_text_field[$i] ) );
+
+	public function variation_image_save() {
+		error_log( print_r( $_POST, true ) );
+		if ( empty( $post_id ) || empty( $post ) || ! isset( $_POST['wc_variation_images_thumbs'] ) ) {
+			return;
+		}
+
+		// Dont' save meta boxes for revisions or autosaves
+		if ( defined( 'DOING_AUTOSAVE' ) || is_int( wp_is_post_revision( $post ) ) || is_int( wp_is_post_autosave( $post ) ) ) {
+			return;
+		}
+
+		// Check the nonce
+		if ( empty( $_POST['woocommerce_meta_nonce'] ) || ! wp_verify_nonce( $_POST['woocommerce_meta_nonce'], 'woocommerce_save_data' ) ) {
+			return;
+		}
+
+		// Check the post being saved == the $post_id to prevent triggering this call for other save_post events
+		if ( empty( $_POST['post_ID'] ) || $_POST['post_ID'] != $post_id ) {
+			return;
+		}
+
+		// Check user has permission to edit
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return;
+		}
+
+		// Check the post type
+		if ( ! in_array( $post->post_type, array( 'product' ) ) ) {
+			return;
+		}
+
+		$ids = $_POST['wc_variation_images_thumbs'];
+
+		// sanitize
+		array_walk_recursive( $ids, 'sanitize_text_field' );
+
+		if ( 0 < count( $ids ) ) {
+			foreach ( $ids as $parent_id => $attachment_ids ) {
+				if ( isset( $attachment_ids ) ) {
+					update_post_meta( $parent_id, '_wc_variation_images_thumbs', $attachment_ids );
+				} else {
+					update_post_meta( $parent_id, '_wc_variation_images_thumbs', '' );
+				}
 			}
 		}
-		}
+
+		return true;
 	}
-		
-	
+
+	public function save_product_variation( $variation_id, $i ) {
+
+		if ( ! isset( $_POST['wc_variation_images_thumbs'] ) ) {
+			return;
+		}
+
+		$ids = sanitize_text_field( $_POST['wc_variation_images_thumbs'][ $variation_id ] );
+
+		update_post_meta( $variation_id, '_wc_variation_images', $ids );
+
+		return true;
+	}
+
 }

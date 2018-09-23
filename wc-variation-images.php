@@ -217,6 +217,11 @@ final class WCVariationImages {
 			include_once WPWVI_INCLUDES . '/class-frontend.php';
 		}
 
+		//if ajax
+	    if ( $this->is_request( 'ajax' ) ) {
+		    include_once WPWVI_INCLUDES . '/class-ajax.php';
+	    }
+
     }
 
     /**

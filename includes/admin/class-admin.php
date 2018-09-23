@@ -78,11 +78,19 @@ class Admin {
 
 	public function enqueue_scripts( $hook ) {
 		$suffix = ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? '' : '.min';
-		wp_register_style('wc-variation-images', WPWVI_ASSETS_URL."/css/admin{$suffix}.css", [], WPWVI_VERSION);
-		wp_register_script('wc-variation-images', WPWVI_ASSETS_URL."/js/admin/admin{$suffix}.js", ['jquery'], WPWVI_VERSION, true);
-		wp_localize_script('wc-variation-images', 'wpwvi', ['ajaxurl' => admin_url( 'admin-ajax.php' ), 'nonce' => 'wc-variation-images']);
-		wp_enqueue_style('wc-variation-images');
-		wp_enqueue_script('wc-variation-images');
+		wp_register_style( 'wc-variation-images', WPWVI_ASSETS_URL . "/css/admin{$suffix}.css", [], WPWVI_VERSION );
+		wp_register_script( 'wc-variation-images', WPWVI_ASSETS_URL . "/js/admin/admin{$suffix}.js", [ 'jquery' ], WPWVI_VERSION, true );
+		wp_localize_script( 'wc-variation-images', 'wpwvi', [
+			'ajaxurl'                    => admin_url( 'admin-ajax.php' ),
+			'nonce'                      => wp_create_nonce( 'wc_variation_images' ),
+			'variation_image_title'      => __( 'Variation Images', 'wc-variation-images' ),
+			'add_variation_image_text'   => __( 'Add Additional Images', 'wc-variation-images' ),
+			'admin_media_title'          => __( 'Variation Images', 'wc-variation-images' ),
+			'admin_media_add_image_text' => __( 'Add to Variation', 'wc-variation-images' ),
+			'admin_tip_message'          => __( 'Click on link below to add additional images. Click on image itself to remove the image. Click and drag image to re-order the image position.', 'wc-variation-images' ),
+		] );
+		wp_enqueue_style( 'wc-variation-images' );
+		wp_enqueue_script( 'wc-variation-images' );
 	}
 
 
