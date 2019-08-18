@@ -261,6 +261,7 @@ final class WCVariationImages {
 
     public function plugin_init() {
         new \Pluginever\WCVariationImages\PostTypes();
+        new \Pluginever\WCVariationImages\PostTypes();
     }
 
     /**

@@ -9,9 +9,9 @@ class MetaBox {
 		add_action( 'woocommerce_save_product_variation', array( $this, 'save_product_variation' ), 10, 2 );
 	}
 
-	public function variation_image_save() {
-		error_log( print_r( $_POST, true ) );
-		if ( empty( $post_id ) || empty( $post ) || ! isset( $_POST['wc_variation_images_thumbs'] ) ) {
+	public function variation_image_save( $post_id, $post ) {
+
+		if ( empty( $post_id ) || empty( $post ) || !isset($_POST['wpwvi_image_variation_thumb']) ) {
 			return;
 		}
 
@@ -40,17 +40,16 @@ class MetaBox {
 			return;
 		}
 
-		$ids = $_POST['wc_variation_images_thumbs'];
-
+		$ids = $_POST['wpwvi_image_variation_thumb'];
 		// sanitize
 		array_walk_recursive( $ids, 'sanitize_text_field' );
 
 		if ( 0 < count( $ids ) ) {
 			foreach ( $ids as $parent_id => $attachment_ids ) {
-				if ( isset( $attachment_ids ) ) {
-					update_post_meta( $parent_id, '_wc_variation_images_thumbs', $attachment_ids );
+				if ( !empty( $attachment_ids ) ) {
+					update_post_meta( $parent_id, 'wpwvi_variation_images', $attachment_ids );
 				} else {
-					update_post_meta( $parent_id, '_wc_variation_images_thumbs', '' );
+					update_post_meta( $parent_id, 'wpwvi_variation_images', '' );
 				}
 			}
 		}
@@ -60,13 +59,13 @@ class MetaBox {
 
 	public function save_product_variation( $variation_id, $i ) {
 
-		if ( ! isset( $_POST['wc_variation_images_thumbs'] ) ) {
+		if ( ! isset( $_POST['wpwvi_image_variation_thumb'] ) ) {
 			return;
 		}
 
-		$ids = sanitize_text_field( $_POST['wc_variation_images_thumbs'][ $variation_id ] );
+		$ids = sanitize_text_field( $_POST['wpwvi_image_variation_thumb'][ $variation_id ] );
 
-		update_post_meta( $variation_id, '_wc_variation_images', $ids );
+		update_post_meta( $variation_id, 'wpwvi_variation_images', $ids );
 
 		return true;
 	}

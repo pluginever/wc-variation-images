@@ -1,140 +1,69 @@
-/**
- * WC Variation Images Admin
- * https://www.pluginever.com
- *
- * Copyright (c) 2018 pluginever
- * Licensed under the GPLv2+ license.
- */
-
-/*jslint browser: true */
-/*global jQuery:false */
-jQuery(document).ready(function ($, window, document, undefined) {
+jQuery(document).ready(function ($) {
 	'use strict';
-	$.wc_variation_images = {
+	$.wc_variotion_images = {
+
 		init: function () {
-			this.show_variation_images();
-			$('.woocommerce_variable_attributes').on('click', '.add-variation-images', this.add_variation_images);
+
+			$('#woocommerce-product-data').on('woocommerce_variations_loaded', function () {
+				$.wc_variotion_images.add_images_box();
+			});
+
+			$('#variable_product_options').on('woocommerce_variations_added', function () {
+				$.wc_variotion_images.add_images_box();
+			});
 		},
-		show_variation_images: function () {
-			var $data = {
-				action: 'wc_variation_images_load_variation_images',
-				nonce: wpwvi.nonce,
-				variation_ids: $.wc_variation_images.get_variation_ids()
-			};
-			console.log($.wc_variation_images.get_variation_ids());
-			if ($.wc_variation_images.get_variation_ids().length) {
-				$.post(wpwvi.ajaxurl, $data, function (response) {
-					if (response.success !== true) {
-						return;
-					}
 
-					for (var id in response.data.images) {
-						if (response.data.images.hasOwnProperty(id)) {
-							var html = '<h4 class="wc-additional-variation-images-title">' + wpwvi.variation_image_title + ' <a href="#" class="wc-additional-variations-images-tip" data-tip="' + wpwvi.admin_tip_message + '">[?]</a></h4>' + response.data.images[id] + '<a href="#" class="add-variation-images">' +
-								wpwvi.add_variation_image_text + '</a>';
-						}
-
-						if (!$('#variable_product_options .woocommerce_variation a.upload_image_button[rel="' + id + '"]').parents('.upload_image').find('a.wc-variation-images-tip').length) {
-
-							$('#variable_product_options .woocommerce_variation a.upload_image_button[rel="' + id + '"]').after(html);
-						}
-
-					}
-
-					$('.wc-variation-images-tip').tipTip({
-						'attribute': 'data-tip',
-						'fadeIn': 50,
-						'fadeOut': 50
-					});
-
-					//shortable on pro version
-
-				});
-			}
+		add_images_box: function () {
+			$('.woocommerce_variation').each(function () {
+				var optionsTab = $(this).find('.options');
+				var wpwviGallery = $(this).find('.wpwvi-gallery-wrapper');
+				wpwviGallery.insertBefore(optionsTab);
+			});
 		},
-		add_variation_images: function () {
-			var id = $(this).parents('.upload_image').find('a.upload_image_button').prop('rel'),
-				thumbs = $(this).parents('.upload_image').find('ul.wc-variation-images-list'),
-				frame;
 
-			frame = wp.media.frames.frame = wp.media({
-
-				title: wpwvi.admin_media_title,
-
+		upload_images: function (e) {
+			e.preventDefault();
+			var self = $(this);
+			var variationID = $(this).data('wpwvi_variation_id');
+			// Create the media frame.
+			var file_frame = wp.media.frames.file_frame = wp.media({
+				title: wpwvi.variation_image_title,
 				button: {
-					text: wpwvi.admin_media_add_image_text
+					text: wpwvi.add_variation_image_text,
 				},
-
-				// only images
 				library: {
-					type: 'image'
+					type: ['image']
 				},
-
 				multiple: true
 			});
 
-			// after a file has been selected
-			frame.on('select', function () {
-				var selection = frame.state().get('selection');
-				selection.map(function (attachment) {
-					attachment = attachment.toJSON();
-					if (attachment.id) {
-						var url = attachment.sizes.thumbnail ? attachment.sizes.thumbnail.url : attachment.url;
-
-						thumbs.append('<li><a href="#" class="wc-variation-images-thumb" data-id="' + attachment.id + '"><img src="' + url + '" width="40" height="40" /><span class="overlay"></span></a></li>');
-					}
-				});
-
-				// make sure attachments are link to the variation post id instead of parent post id
-				wp.media.model.settings.post.id = id;
-				$.wc_variation_images.update_variation_selection(id);
+			file_frame.on('select', function () {
+				var images = file_frame.state().get('selection').toJSON();
+				var html = images.map(function (image) {
+					var imageID = image.id;
+					var imageUrl = image.sizes.thumbnail.url;
+					var template = wp.template('wpwvi-image');
+					return template({ image_id: imageID, image_url: imageUrl, variation_id: variationID });
+				}).join('');
+				self.parent().prev().find('.wpwvi-image-list').append(html);
 			});
-
-			frame.open();
-			return false;
-		},
-		update_variation_selection:function(variation_id){
-			console.log('update_variation_selection');
-			console.log(variation_id);
-			if ( variation_id.length <= 0 ) {
-				return;
-			}
-			var order = [],
-				container = $( '#variable_product_options .woocommerce_variation a.upload_image_button[rel="' + variation_id + '"]' ).parent( '.upload_image' );
-			if ( container.find( 'ul.wc-variation-images-list li' ).length ) {
-				$.each( container.find( 'ul.wc-variation-images-list li' ), function() {
-					console.log(this);
-					order.push( $( this ).find( 'a.wc-variation-images-thumb' ).data( 'id' ) );
-				});
-
-				container.find( 'input.wc-variation-images-thumbs-save' ).val( order );
-			}else{
-				container.find( 'input.wc-variation-images-thumbs-save' ).val( '' );
-			}
-			console.log(container.find( 'input.wc-variation-images-thumbs-save' ).val());
-			order.join( ',' );
-
-			// just to trigger a change so the save button enables
-			$( '#variable_product_options' ).find( 'input' ).eq( 0 ).change();
-
-			// add proper update class so WC knows to trigger a save for specific variation
-			container.parents( '.woocommerce_variation' ).eq( 0 ).addClass( 'variation-needs-update' );
-
-		},
-		get_variation_ids: function () {
-			var ids = [];
-
-			$.each($('#variable_product_options .woocommerce_variation'), function () {
-				ids.push($(this).find('.upload_image .upload_image_button').prop('rel'));
-			});
-
-			return ids;
+			file_frame.open();
 		},
 
+		variation_change_trigger: function(element){
+			$(element).closest('.woocommerce_variation').addClass('variation-needs-update');
+			$('button.cancel-variation-changes, button.save-variation-changes').removeAttr('disabled');
+			$('#variable_product_options').trigger('woocommerce_variations_input_changed');
+		},
+
+		remove_images: function(e){
+			var self = $(this);
+			e.preventDefault();
+			$(this).parent().remove();
+			$.wc_variotion_images.variation_change_trigger(self);
+		}
 	};
-	$.wc_variation_images.init();
-	$('body').on('woocommerce_variations_added woocommerce_variations_loaded', function () {
-		$.wc_variation_images.init();
-	});
-
+	$.wc_variotion_images.init();
+	$(document).on('click', '.wpwvi-add-image', $.wc_variotion_images.upload_images);
+	$(document).on('click', '.wpwvi-remove-image', $.wc_variotion_images.remove_images);
 });

@@ -46,12 +46,14 @@ class Admin {
 		require_once dirname( __FILE__ ) . '/class-admin-menu.php';
 		require_once dirname( __FILE__ ) . '/class-metabox.php';
 		require_once dirname( __FILE__ ) . '/class-settings.php';
+		require_once dirname( __FILE__ ) . '/class-hooks.php';
 	}
 
 	private function init_hooks() {
 		add_action( 'admin_init', array( $this, 'buffer' ), 1 );
 		add_action( 'init', array( $this, 'includes' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'admin_footer', array( $this, 'admin_template_js' ) );
 	}
 
 
@@ -62,6 +64,7 @@ class Admin {
 	 */
 	protected function instance() {
 		new Admin_Menu();
+		new Hooks();
 		new MetaBox();
 		new Settings();
 	}
@@ -91,6 +94,11 @@ class Admin {
 		] );
 		wp_enqueue_style( 'wc-variation-images' );
 		wp_enqueue_script( 'wc-variation-images' );
+	}
+
+	public function admin_template_js(){
+		require_once trailingslashit(WPWVI_TEMPLATES_DIR) . "wpwvi-variation-template.php";
+
 	}
 
 
