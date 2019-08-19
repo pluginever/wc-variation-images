@@ -5,8 +5,19 @@ class Hooks {
 
 	public function __construct() {
 		add_action('woocommerce_product_after_variable_attributes', array($this, 'upload_variation_images'), 10, 3);
+
 	}
 
+	/**
+	 * Upload variation images
+	 *
+	 * since 1.0.0
+	 * @param $loop
+	 * @param $variation_data
+	 * @param $variation
+	 *
+	 * @return void
+	 */
 	public function upload_variation_images($loop, $variation_data, $variation){
 		$variation_id = absint($variation->ID);
 		$variation_images = get_post_meta($variation_id, 'wpwvi_variation_images', true);
@@ -37,4 +48,5 @@ class Hooks {
 		</div>
 		<?php
 	}
+
 }

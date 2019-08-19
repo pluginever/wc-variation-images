@@ -62,9 +62,8 @@ class MetaBox {
 		if ( ! isset( $_POST['wpwvi_image_variation_thumb'] ) ) {
 			return;
 		}
-
-		$ids = sanitize_text_field( $_POST['wpwvi_image_variation_thumb'][ $variation_id ] );
-
+		//error_log(print_r($_POST['wpwvi_image_variation_thumb'],true));
+		$ids =  $_POST['wpwvi_image_variation_thumb'][ $variation_id ];
 		update_post_meta( $variation_id, 'wpwvi_variation_images', $ids );
 
 		return true;

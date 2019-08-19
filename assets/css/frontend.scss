@@ -5,3 +5,18 @@
  * Copyright (c) 2018 pluginever
  * Licensed under the GPLv2+ license.
  */
+.wpwvi-images {
+	float: left;
+	width: 48%;
+}
+.wpwvi-thumb-list {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	.woocommerce-product-gallery__image {
+		img {
+			width: 100px;
+			height: 100px;
+		}
+	}
+}

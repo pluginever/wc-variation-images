@@ -46,12 +46,13 @@ jQuery(document).ready(function ($) {
 					return template({ image_id: imageID, image_url: imageUrl, variation_id: variationID });
 				}).join('');
 				self.parent().prev().find('.wpwvi-image-list').append(html);
+				$.wc_variotion_images.variation_change_trigger(self);
 			});
 			file_frame.open();
 		},
 
 		variation_change_trigger: function(element){
-			$(element).closest('.woocommerce_variation').addClass('variation-needs-update');
+			element.closest('.woocommerce_variation').addClass('variation-needs-update');
 			$('button.cancel-variation-changes, button.save-variation-changes').removeAttr('disabled');
 			$('#variable_product_options').trigger('woocommerce_variations_input_changed');
 		},
@@ -59,8 +60,9 @@ jQuery(document).ready(function ($) {
 		remove_images: function(e){
 			var self = $(this);
 			e.preventDefault();
-			$(this).parent().remove();
 			$.wc_variotion_images.variation_change_trigger(self);
+			$(this).parent().remove();
+
 		}
 	};
 	$.wc_variotion_images.init();

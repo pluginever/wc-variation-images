@@ -49,6 +49,11 @@ class Admin {
 		require_once dirname( __FILE__ ) . '/class-hooks.php';
 	}
 
+	/**
+	 * Fire all hook
+	 *
+	 * since 1.0.0
+	 */
 	private function init_hooks() {
 		add_action( 'admin_init', array( $this, 'buffer' ), 1 );
 		add_action( 'init', array( $this, 'includes' ) );
@@ -78,7 +83,14 @@ class Admin {
 		ob_start();
 	}
 
-
+	/**
+	 * load script in wordpress admin
+	 *
+	 * since 1.0.0
+	 * @param $hook
+	 *
+	 * @return void
+	 */
 	public function enqueue_scripts( $hook ) {
 		$suffix = ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? '' : '.min';
 		wp_register_style( 'wc-variation-images', WPWVI_ASSETS_URL . "/css/admin{$suffix}.css", [], WPWVI_VERSION );
@@ -96,9 +108,15 @@ class Admin {
 		wp_enqueue_script( 'wc-variation-images' );
 	}
 
+	/**
+	 * load html in admin footer
+	 *
+	 * since 1.0.0
+	 *
+	 * @return void
+	 */
 	public function admin_template_js(){
 		require_once trailingslashit(WPWVI_TEMPLATES_DIR) . "wpwvi-variation-template.php";
-
 	}
 
 
