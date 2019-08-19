@@ -31,7 +31,7 @@ window.wc_variation_images = (function(window, document, $, undefined){
 					nonce: wpwvi.nonce,
 				},
 				success: function (res) {
-					$('.wc-inventory-product-add').html(res.data);
+					$(`#product-${productId}`).append(res.data.images);
 				},
 				error: function (error) {
 					alert('Something happend wrong');

@@ -59,8 +59,8 @@ class Frontend {
 	private function init_hooks() {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-		add_action( 'init', array($this, 'remove_woocommerce_default_template' ), 200);
-		add_action( 'woocommerce_before_single_product_summary', array($this,'woocommerce_override_product_images'), 22);
+		//add_action( 'init', array($this, 'remove_woocommerce_default_template' ), 200);
+		//add_action( 'woocommerce_before_single_product_summary', array($this,'woocommerce_override_product_images'), 22);
 		//add_filter('woocommerce_available_variation', array($this, 'add_aditional_variation_image'), 90, 3);
 	}
 
