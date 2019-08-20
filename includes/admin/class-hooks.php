@@ -25,7 +25,7 @@ class Hooks {
 		<div class="form-row form-row-full wpwvi-gallery-wrapper">
 			<h4><?php esc_html_e('Variation Images', 'wc-variation-image') ?></h4>
 			<div class="wpwvi-image-container">
-				<ul class="wpwvi-image-list">
+				<ul id="wpwvi-image-list-<?php echo absint($variation_id); ?>" class="wpwvi-image-list">
 					<?php
 					if (is_array($variation_images) && !empty($variation_images)) {
 						foreach ($variation_images as $image_id):

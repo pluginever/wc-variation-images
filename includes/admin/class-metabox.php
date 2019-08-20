@@ -47,6 +47,9 @@ class MetaBox {
 		if ( 0 < count( $ids ) ) {
 			foreach ( $ids as $parent_id => $attachment_ids ) {
 				if ( !empty( $attachment_ids ) ) {
+					if(count( $attachment_ids ) > 3 ){
+						$attachment_ids = array_slice( $attachment_ids, 0, 3);
+					}
 					update_post_meta( $parent_id, 'wpwvi_variation_images', $attachment_ids );
 				} else {
 					update_post_meta( $parent_id, 'wpwvi_variation_images', '' );
@@ -62,10 +65,12 @@ class MetaBox {
 		if ( ! isset( $_POST['wpwvi_image_variation_thumb'] ) ) {
 			return;
 		}
-		//error_log(print_r($_POST['wpwvi_image_variation_thumb'],true));
-		$ids =  $_POST['wpwvi_image_variation_thumb'][ $variation_id ];
-		update_post_meta( $variation_id, 'wpwvi_variation_images', $ids );
 
+		$ids =  $_POST['wpwvi_image_variation_thumb'][ $variation_id ];
+		if( count( $ids ) > 3){
+			$ids = array_slice( $ids, 0, 3);
+		}
+		update_post_meta( $variation_id, 'wpwvi_variation_images', $ids );
 		return true;
 	}
 

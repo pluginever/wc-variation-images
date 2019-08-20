@@ -23,8 +23,13 @@ jQuery(document).ready(function ($) {
 
 		upload_images: function (e) {
 			e.preventDefault();
-			var self = $(this);
 			var variationID = $(this).data('wpwvi_variation_id');
+			if ($.wc_variotion_images.is_cross_upload_limit(variationID)) {
+				alert('Upload limit 3 images in free version');
+				return false;
+			}
+			var self = $(this);
+
 			// Create the media frame.
 			var file_frame = wp.media.frames.file_frame = wp.media({
 				title: wpwvi.variation_image_title,
@@ -32,7 +37,7 @@ jQuery(document).ready(function ($) {
 					text: wpwvi.add_variation_image_text,
 				},
 				library: {
-					type: ['image']
+					type: ['image', 'video']
 				},
 				multiple: true
 			});
@@ -40,10 +45,16 @@ jQuery(document).ready(function ($) {
 			file_frame.on('select', function () {
 				var images = file_frame.state().get('selection').toJSON();
 				var html = images.map(function (image) {
+
 					var imageID = image.id;
-					var imageUrl = image.sizes.thumbnail.url;
+					if (image.type == 'video') {
+						var imageUrl = image.image.src;
+					} else {
+						var imageUrl = image.sizes.thumbnail.url;
+					}
+
 					var template = wp.template('wpwvi-image');
-					return template({ image_id: imageID, image_url: imageUrl, variation_id: variationID });
+					return template({image_id: imageID, image_url: imageUrl, variation_id: variationID});
 				}).join('');
 				self.parent().prev().find('.wpwvi-image-list').append(html);
 				$.wc_variotion_images.variation_change_trigger(self);
@@ -51,18 +62,24 @@ jQuery(document).ready(function ($) {
 			file_frame.open();
 		},
 
-		variation_change_trigger: function(element){
+		variation_change_trigger: function (element) {
 			element.closest('.woocommerce_variation').addClass('variation-needs-update');
 			$('button.cancel-variation-changes, button.save-variation-changes').removeAttr('disabled');
 			$('#variable_product_options').trigger('woocommerce_variations_input_changed');
 		},
 
-		remove_images: function(e){
+		remove_images: function (e) {
 			var self = $(this);
 			e.preventDefault();
 			$.wc_variotion_images.variation_change_trigger(self);
 			$(this).parent().remove();
 
+		},
+
+		is_cross_upload_limit: function (variationId) {
+			var selector = $(`#wpwvi-image-list-${variationId} li`);
+			var length = selector.length;
+			return (length >= 3) ? true : false;
 		}
 	};
 	$.wc_variotion_images.init();

@@ -20,7 +20,10 @@ window.wc_variation_images = (function(window, document, $, undefined){
 	$(formVariation).on( 'blur', selectVal, function(){
 		var productId = $(formVariation).data('product_id');
 		var variationID = $(inputVariation).val();
-		if( productId > 0 && variationID > 0) {
+		if( productId > 0) {
+
+			var productElement = $(`#product-${productId}`);
+			productElement.addClass('loader');
 			$.ajax({
 				url : wpwvi.ajaxurl,
 				type : 'post',
@@ -31,14 +34,20 @@ window.wc_variation_images = (function(window, document, $, undefined){
 					nonce: wpwvi.nonce,
 				},
 				success: function (res) {
-					$(`#product-${productId}`).append(res.data.images);
+					var gallerySelector = $('.woocommerce-product-gallery');
+					gallerySelector.replaceWith(res.data.images);
+					productElement.removeClass('loader');
+					$('.woocommerce-product-gallery').each( function() {
+						$( this ).wc_product_gallery();
+					} );
 				},
 				error: function (error) {
-					alert('Something happend wrong');
+					productElement.removeClass('loader');
 					console.log(error);
 				}
 			});
 		}
+
 
 	});
 
