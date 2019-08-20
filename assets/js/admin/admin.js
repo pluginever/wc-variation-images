@@ -44,6 +44,12 @@ jQuery(document).ready(function ($) {
 
 			file_frame.on('select', function () {
 				var images = file_frame.state().get('selection').toJSON();
+				var image_limit = $(`#wpwvi-image-list-${variationID} li`).length;
+				var total_image = image_limit+images.length;
+				if(total_image>3){
+					alert('Upload limit 3 images in free version');
+					return false;
+				}
 				var html = images.map(function (image) {
 
 					var imageID = image.id;
@@ -54,6 +60,7 @@ jQuery(document).ready(function ($) {
 					}
 
 					var template = wp.template('wpwvi-image');
+
 					return template({image_id: imageID, image_url: imageUrl, variation_id: variationID});
 				}).join('');
 				self.parent().prev().find('.wpwvi-image-list').append(html);

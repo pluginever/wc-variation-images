@@ -1,6 +1,5 @@
 <?php
 
-namespace Pluginever\WCVariationImages;
 
 class Ajax {
 
@@ -70,7 +69,7 @@ class Ajax {
 		if ( $has_variation_gallery_images ) {
 			$gallery_images = (array) get_post_meta( $variation_id, 'wpwvi_variation_images', true );
 			if ( count( $gallery_images ) > 3 ) {
-				$gallery_images = array_slice( $gallery_images , 0 ,3 );
+				$gallery_images = array_slice( $gallery_images, 0, 3 );
 			}
 		} else {
 			$product_gallery_images = get_post_meta( $product_id, '_product_image_gallery', true );
@@ -93,7 +92,7 @@ class Ajax {
 				$html = null;
 				if ( $gallery_images ) {
 					foreach ( $gallery_images as $attachment_id ) {
-						$type = get_post_mime_type($attachment_id);
+						$type = get_post_mime_type( $attachment_id );
 						$html .= wc_get_gallery_image_html( $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
 					}
 				} else {

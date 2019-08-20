@@ -1,6 +1,5 @@
 <?php
 
-namespace Pluginever\WCVariationImages;
 
 class Frontend {
 	/**
@@ -87,13 +86,16 @@ class Frontend {
 		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 
-		wp_register_script('wc-variation-images', $js_dir . "frontend/frontend{$suffix}.js", ['jquery'], WPWVI_VERSION, true);
-		wp_localize_script('wc-variation-images', 'wpwvi', ['ajaxurl' => admin_url( 'admin-ajax.php' ), 'nonce' => wp_create_nonce('wc_variation_images')]);
+		wp_register_script( 'wc-variation-images', $js_dir . "frontend/frontend{$suffix}.js", [ 'jquery' ], WPWVI_VERSION, true );
+		wp_localize_script( 'wc-variation-images', 'wpwvi', [
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			'nonce'   => wp_create_nonce( 'wc_variation_images' )
+		] );
 
-		wp_register_style('wc-variation-images', $css_dir . "frontend{$suffix}.css", [], WPWVI_VERSION);
-		wp_enqueue_style('wc-variation-images');
+		wp_register_style( 'wc-variation-images', $css_dir . "frontend{$suffix}.css", [], WPWVI_VERSION );
+		wp_enqueue_style( 'wc-variation-images' );
 
-		wp_enqueue_script('wc-variation-images');
+		wp_enqueue_script( 'wc-variation-images' );
 	}
 }
 

@@ -1,7 +1,5 @@
 <?php
 
-namespace Pluginever\WCVariationImages\Admin;
-
 class Admin {
 	/**
 	 * The single instance of the class.
@@ -87,6 +85,7 @@ class Admin {
 	 * load script in wordpress admin
 	 *
 	 * since 1.0.0
+	 *
 	 * @param $hook
 	 *
 	 * @return void
@@ -115,8 +114,8 @@ class Admin {
 	 *
 	 * @return void
 	 */
-	public function admin_template_js(){
-		require_once trailingslashit(WPWVI_TEMPLATES_DIR) . "wpwvi-variation-template.php";
+	public function admin_template_js() {
+		require_once trailingslashit( WPWVI_TEMPLATES_DIR ) . "wpwvi-variation-template.php";
 	}
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Pluginever\WCVariationImages\Admin;
+
 class MetaBox {
 
 	function __construct() {
@@ -11,7 +11,7 @@ class MetaBox {
 
 	public function variation_image_save( $post_id, $post ) {
 
-		if ( empty( $post_id ) || empty( $post ) || !isset($_POST['wpwvi_image_variation_thumb']) ) {
+		if ( empty( $post_id ) || empty( $post ) || ! isset( $_POST['wpwvi_image_variation_thumb'] ) ) {
 			return;
 		}
 
@@ -46,9 +46,9 @@ class MetaBox {
 
 		if ( 0 < count( $ids ) ) {
 			foreach ( $ids as $parent_id => $attachment_ids ) {
-				if ( !empty( $attachment_ids ) ) {
-					if(count( $attachment_ids ) > 3 ){
-						$attachment_ids = array_slice( $attachment_ids, 0, 3);
+				if ( ! empty( $attachment_ids ) ) {
+					if ( count( $attachment_ids ) > 3 ) {
+						$attachment_ids = array_slice( $attachment_ids, 0, 3 );
 					}
 					update_post_meta( $parent_id, 'wpwvi_variation_images', $attachment_ids );
 				} else {
@@ -66,11 +66,12 @@ class MetaBox {
 			return;
 		}
 
-		$ids =  $_POST['wpwvi_image_variation_thumb'][ $variation_id ];
-		if( count( $ids ) > 3){
-			$ids = array_slice( $ids, 0, 3);
+		$ids = $_POST['wpwvi_image_variation_thumb'][ $variation_id ];
+		if ( count( $ids ) > 3 ) {
+			$ids = array_slice( $ids, 0, 3 );
 		}
 		update_post_meta( $variation_id, 'wpwvi_variation_images', $ids );
+
 		return true;
 	}
 

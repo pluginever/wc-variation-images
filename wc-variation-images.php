@@ -31,7 +31,9 @@
  */
 
 // don't call the file directly
-if ( !defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 /**
  * Main initiation class
  *
@@ -44,120 +46,120 @@ if ( !defined( 'ABSPATH' ) ) exit;
  * @class WCVariationImages
  */
 final class WCVariationImages {
-    /**
-     * WCVariationImages version.
-     *
-     * @var string
-     */
-    public $version = '1.0.0';
+	/**
+	 * WCVariationImages version.
+	 *
+	 * @var string
+	 */
+	public $version = '1.0.0';
 
-    /**
-     * Minimum PHP version required
-     *
-     * @var string
-     */
-    private $min_php = '5.6.0';
+	/**
+	 * Minimum PHP version required
+	 *
+	 * @var string
+	 */
+	private $min_php = '5.6.0';
 
-    /**
-     * The single instance of the class.
-     *
-     * @var WCVariationImages
-     * @since 1.0.0
-     */
-    protected static $instance = null;
-
-
-    /**
-     * Holds various class instances
-     *
-     * @var array
-     */
-    private $container = array();
-
-    /**
-     * Main WCVariationImages Instance.
-     *
-     * Ensures only one instance of WCVariationImages is loaded or can be loaded.
-     *
-     * @since 1.0.0
-     * @static
-     * @return WCVariationImages - Main instance.
-     */
-    public static function instance() {
-        if ( is_null( self::$instance ) ) {
-            self::$instance = new self();
-            self::$instance->setup();
-        }
-
-        return self::$instance;
-    }
-
-    /**
-     * EverProjects Constructor.
-     */
-    public function setup() {
-        $this->check_environment();
-        $this->define_constants();
-        $this->includes();
-        $this->init_hooks();
-        $this->plugin_init();
-        do_action( 'wc_variation_images_loaded' );
-    }
-
-    /**
-     * Ensure theme and server variable compatibility
-     */
-    public function check_environment() {
-        if ( version_compare( PHP_VERSION, $this->min_php, '<=' ) ) {
-            deactivate_plugins( plugin_basename( __FILE__ ) );
-
-            wp_die( "Unsupported PHP version Min required PHP Version:{$this->min_php}" );
-        }
-    }
-
-    /**
-     * Define EverProjects Constants.
-     *
-     * @since 1.0.0
-     * @return void
-     */
-    private function define_constants() {
-        //$upload_dir = wp_upload_dir( null, false );
-        define( 'WPWVI_VERSION', $this->version );
-        define( 'WPWVI_FILE', __FILE__ );
-        define( 'WPWVI_PATH', dirname( WPWVI_FILE ) );
-        define( 'WPWVI_INCLUDES', WPWVI_PATH . '/includes' );
-        define( 'WPWVI_URL', plugins_url( '', WPWVI_FILE ) );
-        define( 'WPWVI_ASSETS_URL', WPWVI_URL . '/assets' );
-        define( 'WPWVI_TEMPLATES_DIR', WPWVI_PATH . '/templates' );
-    }
+	/**
+	 * The single instance of the class.
+	 *
+	 * @var WCVariationImages
+	 * @since 1.0.0
+	 */
+	protected static $instance = null;
 
 
-    /**
-     * What type of request is this?
-     *
-     * @param  string $type admin, ajax, cron or frontend.
-     *
-     * @return bool
-     */
-    private function is_request( $type ) {
-        switch ( $type ) {
-            case 'admin':
-                return is_admin();
-            case 'ajax':
-                return defined( 'DOING_AJAX' );
-            case 'cron':
-                return defined( 'DOING_CRON' );
-            case 'frontend':
-                return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' ) && ! defined( 'REST_REQUEST' );
-        }
-    }
+	/**
+	 * Holds various class instances
+	 *
+	 * @var array
+	 */
+	private $container = array();
+
+	/**
+	 * Main WCVariationImages Instance.
+	 *
+	 * Ensures only one instance of WCVariationImages is loaded or can be loaded.
+	 *
+	 * @since 1.0.0
+	 * @static
+	 * @return WCVariationImages - Main instance.
+	 */
+	public static function instance() {
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
+			self::$instance->setup();
+		}
+
+		return self::$instance;
+	}
+
+	/**
+	 * EverProjects Constructor.
+	 */
+	public function setup() {
+		$this->check_environment();
+		$this->define_constants();
+		$this->includes();
+		$this->init_hooks();
+		$this->plugin_init();
+		do_action( 'wc_variation_images_loaded' );
+	}
+
+	/**
+	 * Ensure theme and server variable compatibility
+	 */
+	public function check_environment() {
+		if ( version_compare( PHP_VERSION, $this->min_php, '<=' ) ) {
+			deactivate_plugins( plugin_basename( __FILE__ ) );
+
+			wp_die( "Unsupported PHP version Min required PHP Version:{$this->min_php}" );
+		}
+	}
+
+	/**
+	 * Define EverProjects Constants.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	private function define_constants() {
+
+		define( 'WPWVI_VERSION', $this->version );
+		define( 'WPWVI_FILE', __FILE__ );
+		define( 'WPWVI_PATH', dirname( WPWVI_FILE ) );
+		define( 'WPWVI_INCLUDES', WPWVI_PATH . '/includes' );
+		define( 'WPWVI_URL', plugins_url( '', WPWVI_FILE ) );
+		define( 'WPWVI_ASSETS_URL', WPWVI_URL . '/assets' );
+		define( 'WPWVI_TEMPLATES_DIR', WPWVI_PATH . '/templates' );
+	}
 
 
-    /**
-     * Include required core files used in admin and on the frontend.
-     */
-    public function includes() {
+	/**
+	 * What type of request is this?
+	 *
+	 * @param  string $type admin, ajax, cron or frontend.
+	 *
+	 * @return bool
+	 */
+	private function is_request( $type ) {
+		switch ( $type ) {
+			case 'admin':
+				return is_admin();
+			case 'ajax':
+				return defined( 'DOING_AJAX' );
+			case 'cron':
+				return defined( 'DOING_CRON' );
+			case 'frontend':
+				return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' ) && ! defined( 'REST_REQUEST' );
+		}
+	}
+
+
+	/**
+	 * Include required core files used in admin and on the frontend.
+	 */
+	public function includes() {
 
 		//admin includes
 		if ( $this->is_request( 'admin' ) ) {
@@ -170,85 +172,85 @@ final class WCVariationImages {
 		}
 
 		//if ajax
-	    if ( $this->is_request( 'ajax' ) ) {
-		    include_once WPWVI_INCLUDES . '/class-ajax.php';
-	    }
+		if ( $this->is_request( 'ajax' ) ) {
+			include_once WPWVI_INCLUDES . '/class-ajax.php';
+		}
 
-    }
+	}
 
-    /**
-     * Hook into actions and filters.
-     *
-     * @since 2.3
-     */
-    private function init_hooks() {
-        // Localize our plugin
-        add_action( 'init', array( $this, 'localization_setup' ) );
+	/**
+	 * Hook into actions and filters.
+	 *
+	 * @since 2.3
+	 */
+	private function init_hooks() {
+		// Localize our plugin
+		add_action( 'init', array( $this, 'localization_setup' ) );
 
-        //add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
-    }
 
-    /**
-     * Initialize plugin for localization
-     *
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function localization_setup() {
-        load_plugin_textdomain( 'wc-variation-images', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-    }
+	}
 
-    /**
-     * Plugin action links
-     *
-     * @param  array $links
-     *
-     * @return array
-     */
-    public function plugin_action_links( $links ) {
-        //$links[] = '<a href="' . admin_url( 'admin.php?page=' ) . '">' . __( 'Settings', '' ) . '</a>';
-        return $links;
-    }
+	/**
+	 * Initialize plugin for localization
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	public function localization_setup() {
+		load_plugin_textdomain( 'wc-variation-images', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	}
+
+	/**
+	 * Plugin action links
+	 *
+	 * @param  array $links
+	 *
+	 * @return array
+	 */
+	public function plugin_action_links( $links ) {
+		//$links[] = '<a href="' . admin_url( 'admin.php?page=' ) . '">' . __( 'Settings', '' ) . '</a>';
+		return $links;
+	}
 
 	/**
 	 * since 1.0.0
 	 */
-    public function plugin_init() {
+	public function plugin_init() {
 
-    }
+	}
 
-    /**
-     * Get the plugin url.
-     *
-     * @return string
-     */
-    public function plugin_url() {
-        return untrailingslashit( plugins_url( '/', WPWVI_FILE ) );
-    }
+	/**
+	 * Get the plugin url.
+	 *
+	 * @return string
+	 */
+	public function plugin_url() {
+		return untrailingslashit( plugins_url( '/', WPWVI_FILE ) );
+	}
 
-    /**
-     * Get the plugin path.
-     *
-     * @return string
-     */
-    public function plugin_path() {
-        return untrailingslashit( plugin_dir_path( WPWVI_FILE ) );
-    }
+	/**
+	 * Get the plugin path.
+	 *
+	 * @return string
+	 */
+	public function plugin_path() {
+		return untrailingslashit( plugin_dir_path( WPWVI_FILE ) );
+	}
 
-    /**
-     * Get the template path.
-     *
-     * @return string
-     */
-    public function template_path() {
-        return WPWVI_TEMPLATES_DIR;
-    }
+	/**
+	 * Get the template path.
+	 *
+	 * @return string
+	 */
+	public function template_path() {
+		return WPWVI_TEMPLATES_DIR;
+	}
 
 }
 
-function wc_variation_images(){
-    return WCVariationImages::instance();
+function wc_variation_images() {
+	return WCVariationImages::instance();
 }
 
 //fire off the plugin
