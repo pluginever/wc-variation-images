@@ -158,10 +158,6 @@ final class WCVariationImages {
      * Include required core files used in admin and on the frontend.
      */
     public function includes() {
-        //core includes
-		include_once WPWVI_INCLUDES . '/core-functions.php';
-		include_once WPWVI_INCLUDES . '/class-install.php';
-		include_once WPWVI_INCLUDES . '/class-post-types.php';
 
 		//admin includes
 		if ( $this->is_request( 'admin' ) ) {
@@ -215,9 +211,11 @@ final class WCVariationImages {
         return $links;
     }
 
+	/**
+	 * since 1.0.0
+	 */
     public function plugin_init() {
-        new \Pluginever\WCVariationImages\PostTypes();
-        new \Pluginever\WCVariationImages\PostTypes();
+
     }
 
     /**
