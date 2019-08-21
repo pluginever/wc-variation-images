@@ -13,7 +13,7 @@
  */
 
 /**
- * Copyright (c) 2018 pluginever (email : support@pluginever.com)
+ * Copyright (c) 2019 pluginever (email : support@pluginever.com)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or, at
@@ -61,6 +61,15 @@ final class WCVariationImages {
 	private $min_php = '5.6.0';
 
 	/**
+	 * admin notices
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var array
+	 */
+	protected $notices = array();
+
+	/**
 	 * The single instance of the class.
 	 *
 	 * @var WCVariationImages
@@ -68,13 +77,25 @@ final class WCVariationImages {
 	 */
 	protected static $instance = null;
 
+	/**
+	 * @var \Ever_Elements
+	 */
+	public $elements;
 
 	/**
-	 * Holds various class instances
+	 * @since 1.0.0
 	 *
-	 * @var array
+	 * @var string
 	 */
-	private $container = array();
+	protected $api_url;
+
+	/**
+	 * @since 1.0.0
+	 *
+	 * @var string
+	 */
+	public $plugin_name = 'Woocommerce Variation Images';
+
 
 	/**
 	 * Main WCVariationImages Instance.
@@ -184,10 +205,31 @@ final class WCVariationImages {
 	 * @since 2.3
 	 */
 	private function init_hooks() {
-		// Localize our plugin
+
+		add_action( 'admin_notices', array( $this, 'admin_notices' ), 15 );
 		add_action( 'init', array( $this, 'localization_setup' ) );
 
 
+
+	}
+
+	/**
+	 * Displays any admin notices added
+	 *
+	 * @internal
+	 *
+	 * @since 1.0.0
+	 */
+	public function admin_notices() {
+		$notices = (array) array_merge( $this->notices, get_option( sanitize_key( $this->plugin_name ), [] ) );
+		foreach ( $notices as $notice_key => $notice ) :
+			?>
+			<div class="notice notice-<?php echo sanitize_html_class( $notice['class'] ); ?>">
+				<p><?php echo wp_kses( $notice['message'], array( 'a' => array( 'href' => array() ), 'strong' => array() ) ); ?></p>
+			</div>
+			<?php
+			update_option( sanitize_key( $this->plugin_name ), [] );
+		endforeach;
 	}
 
 	/**
