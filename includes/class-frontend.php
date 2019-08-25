@@ -78,20 +78,20 @@ class Frontend {
 	 */
 	public function enqueue_scripts( $hook ) {
 
-		$js_dir     = WPWVI_ASSETS_URL . '/js/';
-		$css_dir    = WPWVI_ASSETS_URL . '/css/';
-		$vendor_dir = WPWVI_ASSETS_URL . '/vendor/';
+		$js_dir     = WC_VARIATION_IMAGES_ASSETS_URL . '/js/';
+		$css_dir    = WC_VARIATION_IMAGES_ASSETS_URL . '/css/';
+		$vendor_dir = WC_VARIATION_IMAGES_ASSETS_URL . '/vendor/';
 
 		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 
-		wp_register_script( 'wc-variation-images', $js_dir . "frontend/frontend{$suffix}.js", [ 'jquery' ], WPWVI_VERSION, true );
+		wp_register_script( 'wc-variation-images', $js_dir . "frontend/frontend{$suffix}.js", [ 'jquery' ], WC_VARIATION_IMAGES_VERSION, true );
 		wp_localize_script( 'wc-variation-images', 'wpwvi', [
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
 			'nonce'   => wp_create_nonce( 'wc_variation_images' )
 		] );
 
-		wp_register_style( 'wc-variation-images', $css_dir . "frontend{$suffix}.css", [], WPWVI_VERSION );
+		wp_register_style( 'wc-variation-images', $css_dir . "frontend{$suffix}.css", [], WC_VARIATION_IMAGES_VERSION );
 		wp_enqueue_style( 'wc-variation-images' );
 
 		wp_enqueue_script( 'wc-variation-images' );

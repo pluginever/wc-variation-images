@@ -1,5 +1,5 @@
 <?php
 
-class Admin_Menu{
+class Admin_Menu {
 
 }

@@ -43,6 +43,7 @@ class Admin {
 	public function includes() {
 		require_once dirname( __FILE__ ) . '/class-admin-menu.php';
 		require_once dirname( __FILE__ ) . '/class-metabox.php';
+		require_once dirname( __FILE__ ) . '/class-settings-api.php';
 		require_once dirname( __FILE__ ) . '/class-settings.php';
 		require_once dirname( __FILE__ ) . '/class-hooks.php';
 	}
@@ -92,8 +93,8 @@ class Admin {
 	 */
 	public function enqueue_scripts( $hook ) {
 		$suffix = ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? '' : '.min';
-		wp_register_style( 'wc-variation-images', WPWVI_ASSETS_URL . "/css/admin{$suffix}.css", [], WPWVI_VERSION );
-		wp_register_script( 'wc-variation-images', WPWVI_ASSETS_URL . "/js/admin/admin{$suffix}.js", [ 'jquery' ], WPWVI_VERSION, true );
+		wp_register_style( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . "/css/admin{$suffix}.css", [], WC_VARIATION_IMAGES_VERSION );
+		wp_register_script( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . "/js/admin/admin{$suffix}.js", [ 'jquery' ], WC_VARIATION_IMAGES_VERSION, true );
 		wp_localize_script( 'wc-variation-images', 'wpwvi', [
 			'ajaxurl'                    => admin_url( 'admin-ajax.php' ),
 			'nonce'                      => wp_create_nonce( 'wc_variation_images' ),
@@ -115,7 +116,7 @@ class Admin {
 	 * @return void
 	 */
 	public function admin_template_js() {
-		require_once trailingslashit( WPWVI_TEMPLATES_DIR ) . "wpwvi-variation-template.php";
+		require_once trailingslashit( WC_VARIATION_IMAGES_TEMPLATES_DIR ) . "wpwvi-variation-template.php";
 	}
 
 

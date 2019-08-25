@@ -8,6 +8,10 @@ class Ajax {
 	 */
 	public function __construct() {
 		add_action( 'wp_ajax_wc_variation_images_load_variation_images', array( $this, 'load_variation_images' ) );
+		add_action( 'wp_ajax_nopriv_wc_variation_images_load_variation_images', array(
+			$this,
+			'load_variation_images'
+		) );
 	}
 
 	/**
@@ -87,7 +91,7 @@ class Ajax {
 		<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"
 		     data-columns="<?php echo esc_attr( $columns ); ?>"
 		     style="opacity: 0; transition: opacity .25s ease-in-out;">
-			<figure class="woocommerce-product-gallery__wrapper">
+			<figure class="woocommerce-product-gallery__wrapper wpwvi-gallery">
 				<?php
 				$html = null;
 				if ( $gallery_images ) {

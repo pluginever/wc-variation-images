@@ -202,13 +202,13 @@ final class WCVariationImages {
 	 */
 	private function define_constants() {
 
-		define( 'WPWVI_VERSION', $this->version );
-		define( 'WPWVI_FILE', __FILE__ );
-		define( 'WPWVI_PATH', dirname( WPWVI_FILE ) );
-		define( 'WPWVI_INCLUDES', WPWVI_PATH . '/includes' );
-		define( 'WPWVI_URL', plugins_url( '', WPWVI_FILE ) );
-		define( 'WPWVI_ASSETS_URL', WPWVI_URL . '/assets' );
-		define( 'WPWVI_TEMPLATES_DIR', WPWVI_PATH . '/templates' );
+		define( 'WC_VARIATION_IMAGES_VERSION', $this->version );
+		define( 'WC_VARIATION_IMAGES_FILE', __FILE__ );
+		define( 'WC_VARIATION_IMAGES_PATH', dirname( WC_VARIATION_IMAGES_FILE ) );
+		define( 'WC_VARIATION_IMAGES_INCLUDES', WC_VARIATION_IMAGES_PATH . '/includes' );
+		define( 'WC_VARIATION_IMAGES_URL', plugins_url( '', WC_VARIATION_IMAGES_FILE ) );
+		define( 'WC_VARIATION_IMAGES_ASSETS_URL', WC_VARIATION_IMAGES_URL . '/assets' );
+		define( 'WC_VARIATION_IMAGES_TEMPLATES_DIR', WC_VARIATION_IMAGES_PATH . '/templates' );
 	}
 
 
@@ -240,33 +240,22 @@ final class WCVariationImages {
 
 		//admin includes
 		if ( $this->is_request( 'admin' ) ) {
-			include_once WPWVI_INCLUDES . '/admin/class-admin.php';
+			include_once WC_VARIATION_IMAGES_INCLUDES . '/admin/class-admin.php';
 		}
 
 		//frontend includes
 		if ( $this->is_request( 'frontend' ) ) {
-			include_once WPWVI_INCLUDES . '/class-frontend.php';
+			include_once WC_VARIATION_IMAGES_INCLUDES . '/class-frontend.php';
 		}
 
 		//if ajax
 		if ( $this->is_request( 'ajax' ) ) {
-			include_once WPWVI_INCLUDES . '/class-ajax.php';
+			include_once WC_VARIATION_IMAGES_INCLUDES . '/class-ajax.php';
 		}
 
+		include_once WC_VARIATION_IMAGES_INCLUDES . '/core-functions.php';
+		include_once WC_VARIATION_IMAGES_INCLUDES . '/action-functions.php';
 	}
-
-	/**
-	 * Plugin action links
-	 *
-	 * @param  array $links
-	 *
-	 * @return array
-	 */
-	public function plugin_action_links( $links ) {
-		//$links[] = '<a href="' . admin_url( 'admin.php?page=' ) . '">' . __( 'Settings', '' ) . '</a>';
-		return $links;
-	}
-
 
 	/**
 	 * Get the plugin url.
@@ -274,7 +263,7 @@ final class WCVariationImages {
 	 * @return string
 	 */
 	public function plugin_url() {
-		return untrailingslashit( plugins_url( '/', WPWVI_FILE ) );
+		return untrailingslashit( plugins_url( '/', WC_VARIATION_IMAGES_FILE ) );
 	}
 
 	/**
@@ -283,7 +272,7 @@ final class WCVariationImages {
 	 * @return string
 	 */
 	public function plugin_path() {
-		return untrailingslashit( plugin_dir_path( WPWVI_FILE ) );
+		return untrailingslashit( plugin_dir_path( WC_VARIATION_IMAGES_FILE ) );
 	}
 
 	/**
@@ -292,7 +281,7 @@ final class WCVariationImages {
 	 * @return string
 	 */
 	public function template_path() {
-		return WPWVI_TEMPLATES_DIR;
+		return WC_VARIATION_IMAGES_TEMPLATES_DIR;
 	}
 
 	/**
@@ -320,3 +309,4 @@ function wc_variation_images() {
 
 //fire off the plugin
 wc_variation_images();
+

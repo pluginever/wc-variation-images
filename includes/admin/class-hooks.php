@@ -4,7 +4,6 @@ class Hooks {
 
 	public function __construct() {
 		add_action( 'woocommerce_product_after_variable_attributes', array( $this, 'upload_variation_images' ), 10, 3 );
-
 	}
 
 	/**
@@ -48,5 +47,4 @@ class Hooks {
 		</div>
 		<?php
 	}
-
 }
