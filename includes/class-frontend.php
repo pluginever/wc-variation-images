@@ -1,6 +1,5 @@
 <?php
 
-
 class Frontend {
 	/**
 	 * The single instance of the class.

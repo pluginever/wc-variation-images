@@ -78,64 +78,120 @@ final class WCVariationImages {
 	protected static $instance = null;
 
 	/**
-	 * @var \Ever_Elements
-	 */
-	public $elements;
-
-	/**
-	 * @since 1.0.0
-	 *
-	 * @var string
-	 */
-	protected $api_url;
-
-	/**
 	 * @since 1.0.0
 	 *
 	 * @var string
 	 */
 	public $plugin_name = 'Woocommerce Variation Images';
 
+	/**
+	 * WCVariationImages constructor.
+	 */
+	public function __construct() {
+		register_activation_hook( __FILE__, array( $this, 'activation_check' ) );
+		add_action( 'admin_notices', array( $this, 'admin_notices' ), 15 );
+		add_action( 'init', array( $this, 'localization_setup' ) );
+		if ( $this->is_plugin_compatible() ) {
+			$this->define_constants();
+			$this->includes();
+			do_action( 'wc_variation_images_loaded' );
+		}
+	}
 
 	/**
-	 * Main WCVariationImages Instance.
+	 * Checks the server environment and other factors and deactivates plugins as necessary.
 	 *
-	 * Ensures only one instance of WCVariationImages is loaded or can be loaded.
+	 * @internal
 	 *
 	 * @since 1.0.0
-	 * @static
-	 * @return WCVariationImages - Main instance.
 	 */
-	public static function instance() {
-		if ( is_null( self::$instance ) ) {
-			self::$instance = new self();
-			self::$instance->setup();
-		}
+	public function activation_check() {
 
-		return self::$instance;
-	}
+		if ( ! version_compare( PHP_VERSION, $this->min_php, '>=' ) ) {
 
-	/**
-	 * EverProjects Constructor.
-	 */
-	public function setup() {
-		$this->check_environment();
-		$this->define_constants();
-		$this->includes();
-		$this->init_hooks();
-		$this->plugin_init();
-		do_action( 'wc_variation_images_loaded' );
-	}
-
-	/**
-	 * Ensure theme and server variable compatibility
-	 */
-	public function check_environment() {
-		if ( version_compare( PHP_VERSION, $this->min_php, '<=' ) ) {
 			deactivate_plugins( plugin_basename( __FILE__ ) );
 
-			wp_die( "Unsupported PHP version Min required PHP Version:{$this->min_php}" );
+			$message = sprintf( '%s could not be activated The minimum PHP version required for this plugin is %1$s. You are running %2$s.', $this->plugin_name, $this->min_php, PHP_VERSION );
+			wp_die( $message );
 		}
+
+	}
+
+	/**
+	 * Displays any admin notices added
+	 *
+	 * @internal
+	 *
+	 * @since 1.0.0
+	 */
+	public function admin_notices() {
+		$notices = (array) array_merge( $this->notices, get_option( sanitize_key( $this->plugin_name ), [] ) );
+		foreach ( $notices as $notice_key => $notice ) :
+			?>
+			<div class="notice notice-<?php echo sanitize_html_class( $notice['class'] ); ?>">
+				<p><?php echo wp_kses( $notice['message'], array(
+						'a'      => array( 'href' => array() ),
+						'strong' => array()
+					) ); ?></p>
+			</div>
+			<?php
+			update_option( sanitize_key( $this->plugin_name ), [] );
+		endforeach;
+	}
+
+	/**
+	 * Initialize plugin for localization
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	public function localization_setup() {
+		load_plugin_textdomain( 'wc-variation-images', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	}
+
+	/**
+	 * Determines if the plugin compatible.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return bool
+	 */
+	protected function is_plugin_compatible() {
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+			$this->add_notice( 'error', sprintf(
+				'<strong>%s</strong> requires <strong>WooCommerce</strong> installed and active.',
+				$this->plugin_name
+			) );
+
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Adds an admin notice to be displayed.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $class the notice class
+	 * @param string $message the notice message body
+	 */
+	public function add_notice( $class, $message ) {
+
+		$notices = get_option( sanitize_key( $this->plugin_name ), [] );
+		if ( is_string( $message ) && is_string( $class ) && ! wp_list_filter( $notices, array( 'message' => $message ) ) ) {
+
+			$notices[] = array(
+				'message' => $message,
+				'class'   => $class
+			);
+
+			update_option( sanitize_key( $this->plugin_name ), $notices );
+		}
+
 	}
 
 	/**
@@ -200,50 +256,6 @@ final class WCVariationImages {
 	}
 
 	/**
-	 * Hook into actions and filters.
-	 *
-	 * @since 2.3
-	 */
-	private function init_hooks() {
-
-		add_action( 'admin_notices', array( $this, 'admin_notices' ), 15 );
-		add_action( 'init', array( $this, 'localization_setup' ) );
-
-
-
-	}
-
-	/**
-	 * Displays any admin notices added
-	 *
-	 * @internal
-	 *
-	 * @since 1.0.0
-	 */
-	public function admin_notices() {
-		$notices = (array) array_merge( $this->notices, get_option( sanitize_key( $this->plugin_name ), [] ) );
-		foreach ( $notices as $notice_key => $notice ) :
-			?>
-			<div class="notice notice-<?php echo sanitize_html_class( $notice['class'] ); ?>">
-				<p><?php echo wp_kses( $notice['message'], array( 'a' => array( 'href' => array() ), 'strong' => array() ) ); ?></p>
-			</div>
-			<?php
-			update_option( sanitize_key( $this->plugin_name ), [] );
-		endforeach;
-	}
-
-	/**
-	 * Initialize plugin for localization
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return void
-	 */
-	public function localization_setup() {
-		load_plugin_textdomain( 'wc-variation-images', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-	}
-
-	/**
 	 * Plugin action links
 	 *
 	 * @param  array $links
@@ -255,12 +267,6 @@ final class WCVariationImages {
 		return $links;
 	}
 
-	/**
-	 * since 1.0.0
-	 */
-	public function plugin_init() {
-
-	}
 
 	/**
 	 * Get the plugin url.
@@ -287,6 +293,23 @@ final class WCVariationImages {
 	 */
 	public function template_path() {
 		return WPWVI_TEMPLATES_DIR;
+	}
+
+	/**
+	 * Main WCVariationImages Instance.
+	 *
+	 * Ensures only one instance of WCVariationImages is loaded or can be loaded.
+	 *
+	 * @since 1.0.0
+	 * @static
+	 * @return WCVariationImages - Main instance.
+	 */
+	public static function instance() {
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
 	}
 
 }
