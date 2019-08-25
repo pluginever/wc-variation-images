@@ -62,6 +62,17 @@ class Settings {
 					),
 				),
 				array(
+					'name'    => 'wpwvi_hide_image_lightbox',
+					'label'   => __( 'Hide Lightbox', 'wc-variation-images' ),
+					'desc'    => '<p class="description">' . __( 'Hide image lightbox for variable product', 'wc-variation-images' ) . '</p>',
+					'class'   => 'ever-field-inline',
+					'type'    => 'select',
+					'options' => array(
+						'no'  => __( 'No', 'wc-variation-images' ),
+						'yes' => __( 'Yes', 'wc-variation-images' )
+					),
+				),
+				array(
 					'name'    => 'wpwvi_hide_image_slider',
 					'label'   => __( 'Hide Image Slider', 'wc-variation-images' ),
 					'desc'    => '<p class="description">' . __( 'Hide image slider for variable product', 'wc-variation-images' ) . '</p>',

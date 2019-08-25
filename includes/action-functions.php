@@ -10,13 +10,19 @@ function control_wc_gallery() {
 	$product = wc_get_product( $post->ID );
 	if ( is_product() && 'variable' == $product->get_type() ) {
 		$hide_zoom    = wpwvi_get_settings( 'wpwvi_hide_image_zoom', 'no', 'wpwvi_general_settings' );
+		$hide_lightbox    = wpwvi_get_settings( 'wpwvi_hide_image_lightbox', 'no', 'wpwvi_general_settings' );
 		$hide_gallery = wpwvi_get_settings( 'wpwvi_hide_image_slider', 'no', 'wpwvi_general_settings' );;
 		if ( 'yes' == $hide_zoom ) {
 			remove_theme_support( 'wc-product-gallery-zoom' );
 		}
+		if ( 'yes' == $hide_lightbox ) {
+			remove_theme_support( 'wc-product-gallery-lightbox' );
+		}
 		if ( 'yes' == $hide_gallery ) {
 			remove_theme_support( 'wc-product-gallery-slider' );
+
 		}
+
 
 	}
 
