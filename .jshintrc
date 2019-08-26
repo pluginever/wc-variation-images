@@ -21,6 +21,7 @@
 		"jQuery": false,
 		"JSON": false,
 		"wp": false,
-		"WCVariationImages": false
+		"wpwvi": false,
+		"alert": false
 	}
 }

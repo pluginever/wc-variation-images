@@ -34,7 +34,7 @@ jQuery(document).ready(function ($) {
 			var file_frame = wp.media.frames.file_frame = wp.media({
 				title: wpwvi.variation_image_title,
 				button: {
-					text: wpwvi.add_variation_image_text,
+					text: wpwvi.add_variation_image_text
 				},
 				library: {
 					type: ['image', 'video']
@@ -44,21 +44,16 @@ jQuery(document).ready(function ($) {
 
 			file_frame.on('select', function () {
 				var images = file_frame.state().get('selection').toJSON();
-				var image_limit = $(`#wpwvi-image-list-${variationID} li`).length;
-				var total_image = image_limit+images.length;
-				if(total_image>3){
+				var image_limit = $('#wpwvi-image-list-' + variationID + 'li').length;
+				var total_image = image_limit + images.length;
+				if (total_image > 3) {
 					alert('Upload limit 3 images in free version');
 					return false;
 				}
 				var html = images.map(function (image) {
 
 					var imageID = image.id;
-					if (image.type == 'video') {
-						var imageUrl = image.image.src;
-					} else {
-						var imageUrl = image.sizes.thumbnail.url;
-					}
-
+					var imageUrl = image.sizes.thumbnail.url;
 					var template = wp.template('wpwvi-image');
 
 					return template({image_id: imageID, image_url: imageUrl, variation_id: variationID});
@@ -84,7 +79,7 @@ jQuery(document).ready(function ($) {
 		},
 
 		is_cross_upload_limit: function (variationId) {
-			var selector = $(`#wpwvi-image-list-${variationId} li`);
+			var selector = $('#wpwvi-image-list-' + variationId + ' li');
 			var length = selector.length;
 			return (length >= 3) ? true : false;
 		}

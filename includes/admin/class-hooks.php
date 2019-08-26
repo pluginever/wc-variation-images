@@ -22,7 +22,7 @@ class Hooks {
 		$variation_images = get_post_meta( $variation_id, 'wpwvi_variation_images', true );
 		?>
 		<div class="form-row form-row-full wpwvi-gallery-wrapper">
-			<h4><?php esc_html_e( 'Variation Images', 'wc-variation-image' ) ?></h4>
+			<h4><?php esc_html_e( 'Variation Images', 'wc-variation-images' ) ?></h4>
 			<div class="wpwvi-image-container">
 				<ul id="wpwvi-image-list-<?php echo absint( $variation_id ); ?>" class="wpwvi-image-list">
 					<?php
@@ -42,7 +42,7 @@ class Hooks {
 			</div>
 			<p class="wpwvi-add-container hide-if-no-js">
 				<a href="#" data-wpwvi_variation_id="<?php echo absint( $variation->ID ) ?>"
-				   class="button wpwvi-add-image"><?php _e( 'Add Variation Images', 'wc-variation-image' ) ?></a>
+				   class="button wpwvi-add-image"><?php _e( 'Add Variation Images', 'wc-variation-images' ) ?></a>
 			</p>
 		</div>
 		<?php

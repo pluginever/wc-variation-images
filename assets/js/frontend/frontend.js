@@ -9,7 +9,7 @@
 /*jslint browser: true */
 /*global jQuery:false */
 
-window.wc_variation_images = (function(window, document, $, undefined){
+window.wc_variation_images = (function (window, document, $, undefined) {
 	'use strict';
 
 	var inputVariation = 'input.variation_id',
@@ -17,33 +17,32 @@ window.wc_variation_images = (function(window, document, $, undefined){
 		selectVal = 'table.variations select';
 
 	// form on "blur" delegated event - AFTER
-	$(formVariation).on( 'blur', selectVal, function(){
+	$(formVariation).on('blur', selectVal, function () {
 		var productId = $(formVariation).data('product_id');
 		var variationID = $(inputVariation).val();
-		if( productId > 0) {
+		if (productId > 0) {
 
-			var productElement = $(`#product-${productId}`);
+			var productElement = $('#product-' + productId);
 			productElement.addClass('loader');
 			$.ajax({
-				url : wpwvi.ajaxurl,
-				type : 'post',
-				data : {
-					action : 'wc_variation_images_load_variation_images',
-					product_id : productId,
-					variation_id : variationID,
-					nonce: wpwvi.nonce,
+				url: wpwvi.ajaxurl,
+				type: 'post',
+				data: {
+					action: 'wc_variation_images_load_variation_images',
+					product_id: productId,
+					variation_id: variationID,
+					nonce: wpwvi.nonce
 				},
 				success: function (res) {
 					var gallerySelector = $('.woocommerce-product-gallery');
 					gallerySelector.replaceWith(res.data.images);
 					productElement.removeClass('loader');
-					$('.woocommerce-product-gallery').each( function() {
-						$( this ).wc_product_gallery();
-					} );
+					$('.woocommerce-product-gallery').each(function () {
+						$(this).wc_product_gallery();
+					});
 				},
-				error: function (error) {
+				error: function () {
 					productElement.removeClass('loader');
-					console.log(error);
 				}
 			});
 		}
