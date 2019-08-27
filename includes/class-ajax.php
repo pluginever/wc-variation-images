@@ -32,7 +32,7 @@ class Ajax {
 		}
 
 		$variation_id = isset( $_POST['variation_id'] ) ? $_POST['variation_id'] : '';
-		$product_id   = $_POST['product_id'];
+		$product_id   = absint( $_POST['product_id'] );
 
 		$image = $this->get_variation_images( $product_id, $variation_id );
 		wp_send_json_success( array( 'images' => $image ) );
