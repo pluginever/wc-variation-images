@@ -1,7 +1,5 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-} // Exit if accessed directly
+defined( 'ABSPATH' ) || die();
 
 class Settings {
 
@@ -30,7 +28,7 @@ class Settings {
 		$sections = array(
 
 			array(
-				'id'    => 'wpwvi_general_settings',
+				'id'    => 'wcvigeneral_settings',
 				'title' => __( 'General Settings', 'wc-variation-images' )
 			)
 		);
@@ -48,10 +46,10 @@ class Settings {
 
 		$settings_fields = array(
 
-			'wpwvi_general_settings' => array(
+			'wcvigeneral_settings' => array(
 
 				array(
-					'name'    => 'wpwvi_hide_image_zoom',
+					'name'    => 'wcvihide_image_zoom',
 					'label'   => __( 'Hide Image Zoom', 'wc-variation-images' ),
 					'desc'    => '<p class="description">' . __( 'Hide image zoom for variable product', 'wc-variation-images' ) . '</p>',
 					'class'   => 'ever-field-inline',
@@ -62,7 +60,7 @@ class Settings {
 					),
 				),
 				array(
-					'name'    => 'wpwvi_hide_image_lightbox',
+					'name'    => 'wcvihide_image_lightbox',
 					'label'   => __( 'Hide Lightbox', 'wc-variation-images' ),
 					'desc'    => '<p class="description">' . __( 'Hide image lightbox for variable product', 'wc-variation-images' ) . '</p>',
 					'class'   => 'ever-field-inline',
@@ -73,7 +71,7 @@ class Settings {
 					),
 				),
 				array(
-					'name'    => 'wpwvi_hide_image_slider',
+					'name'    => 'wcvihide_image_slider',
 					'label'   => __( 'Hide Image Slider', 'wc-variation-images' ),
 					'desc'    => '<p class="description">' . __( 'Hide image slider for variable product', 'wc-variation-images' ) . '</p>',
 					'class'   => 'ever-field-inline',

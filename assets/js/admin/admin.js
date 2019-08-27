@@ -23,7 +23,7 @@ jQuery(document).ready(function ($) {
 
 		upload_images: function (e) {
 			e.preventDefault();
-			var variationID = $(this).data('wpwvi_variation_id');
+			var variationID = $(this).data('wcvivariation_id');
 			if ($.wc_variotion_images.is_cross_upload_limit(variationID)) {
 				alert('Upload limit 3 images in free version');
 				return false;

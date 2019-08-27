@@ -1,5 +1,5 @@
 <?php
-
+defined( 'ABSPATH' ) || die();
 
 class Ajax {
 
@@ -56,7 +56,7 @@ class Ajax {
 			$variation_id = $product_id;
 		}
 		$columns                      = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
-		$has_variation_gallery_images = (bool) get_post_meta( $variation_id, 'wpwvi_variation_images', true );
+		$has_variation_gallery_images = (bool) get_post_meta( $variation_id, 'wcvivariation_images', true );
 		$variation_product            = wc_get_product( $variation_id );
 		$variation_parent             = $variation_product->get_data();
 		$variation_image_id           = $variation_parent['image_id'];
@@ -71,7 +71,7 @@ class Ajax {
 		$gallery_images = array();
 
 		if ( $has_variation_gallery_images ) {
-			$gallery_images = (array) get_post_meta( $variation_id, 'wpwvi_variation_images', true );
+			$gallery_images = (array) get_post_meta( $variation_id, 'wcvivariation_images', true );
 			if ( count( $gallery_images ) > 3 ) {
 				$gallery_images = array_slice( $gallery_images, 0, 3 );
 			}

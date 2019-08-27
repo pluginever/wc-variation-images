@@ -1,6 +1,5 @@
 <?php
-//function prefix wc_variation_images
-
+defined( 'ABSPATH' ) || die();
 /**
  * get settings options
  *
@@ -10,7 +9,7 @@
  *
  * @return string|array
  */
-function wpwvi_get_settings( $key, $default = '', $section = '' ) {
+function wcvi_get_settings( $key, $default = '', $section = '' ) {
 
 	$option = get_option( $section, [] );
 

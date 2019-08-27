@@ -1,5 +1,5 @@
 <?php
-
+defined( 'ABSPATH' ) || die();
 /**
  * Control Woocommerce Gallery Settings
  *
@@ -9,9 +9,9 @@ function control_wc_gallery() {
 	global $post;
 	$product = wc_get_product( $post->ID );
 	if ( is_product() && 'variable' == $product->get_type() ) {
-		$hide_zoom     = wpwvi_get_settings( 'wpwvi_hide_image_zoom', 'no', 'wpwvi_general_settings' );
-		$hide_lightbox = wpwvi_get_settings( 'wpwvi_hide_image_lightbox', 'no', 'wpwvi_general_settings' );
-		$hide_gallery  = wpwvi_get_settings( 'wpwvi_hide_image_slider', 'no', 'wpwvi_general_settings' );;
+		$hide_zoom     = wcviget_settings( 'wcvihide_image_zoom', 'no', 'wcvigeneral_settings' );
+		$hide_lightbox = wcviget_settings( 'wcvihide_image_lightbox', 'no', 'wcvigeneral_settings' );
+		$hide_gallery  = wcviget_settings( 'wcvihide_image_slider', 'no', 'wcvigeneral_settings' );;
 		if ( 'yes' == $hide_zoom ) {
 			remove_theme_support( 'wc-product-gallery-zoom' );
 		}
@@ -22,8 +22,6 @@ function control_wc_gallery() {
 			remove_theme_support( 'wc-product-gallery-slider' );
 
 		}
-
-
 	}
 
 }

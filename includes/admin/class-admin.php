@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || die();
 
 class Admin {
 	/**
@@ -67,7 +68,6 @@ class Admin {
 	 * @since 1.0.0
 	 */
 	protected function instance() {
-		new Admin_Menu();
 		new Hooks();
 		new MetaBox();
 		new Settings();

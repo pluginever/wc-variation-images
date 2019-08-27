@@ -2,10 +2,10 @@
 /**
  * Plugin Name: WC Variation Images
  * Plugin URI:  https://www.pluginever.com
- * Description: The Best WordPress Plugin ever made!
+ * Description: Add additional gallery images per product variation.
  * Version:     1.0.0
- * Author:      pluginever
- * Author URI:  https://www.pluginever.com
+ * Author:      manikmist09
+ * Author URI:  https://manik.me
  * Donate link: https://www.pluginever.com
  * License:     GPLv2+
  * Text Domain: wc-variation-images
@@ -150,7 +150,7 @@ final class WCVariationImages {
 	 * @return void
 	 */
 	public function localization_setup() {
-		load_plugin_textdomain( 'wc-variation-images', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'wc-variation-images', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/languages/' );
 	}
 
 	/**
@@ -204,7 +204,6 @@ final class WCVariationImages {
 	 * @return void
 	 */
 	private function define_constants() {
-
 		define( 'WC_VARIATION_IMAGES_VERSION', $this->version );
 		define( 'WC_VARIATION_IMAGES_FILE', __FILE__ );
 		define( 'WC_VARIATION_IMAGES_PATH', dirname( WC_VARIATION_IMAGES_FILE ) );
@@ -216,30 +215,12 @@ final class WCVariationImages {
 
 
 	/**
-	 * What type of request is this?
-	 *
-	 * @param  string $type admin, ajax, cron or frontend.
-	 *
-	 * @return bool
-	 */
-	private function is_request( $type ) {
-		switch ( $type ) {
-			case 'admin':
-				return is_admin();
-			case 'ajax':
-				return defined( 'DOING_AJAX' );
-			case 'cron':
-				return defined( 'DOING_CRON' );
-			case 'frontend':
-				return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' ) && ! defined( 'REST_REQUEST' );
-		}
-	}
-
-
-	/**
 	 * Include required core files used in admin and on the frontend.
 	 */
 	public function includes() {
+
+		include_once WC_VARIATION_IMAGES_INCLUDES . '/core-functions.php';
+		include_once WC_VARIATION_IMAGES_INCLUDES . '/action-functions.php';
 
 		//admin includes
 		if ( $this->is_request( 'admin' ) ) {
@@ -256,8 +237,6 @@ final class WCVariationImages {
 			include_once WC_VARIATION_IMAGES_INCLUDES . '/class-ajax.php';
 		}
 
-		include_once WC_VARIATION_IMAGES_INCLUDES . '/core-functions.php';
-		include_once WC_VARIATION_IMAGES_INCLUDES . '/action-functions.php';
 	}
 
 	/**
