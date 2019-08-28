@@ -2,10 +2,10 @@
 /**
  * Plugin Name: WC Variation Images
  * Plugin URI:  https://www.pluginever.com
- * Description: The Best WordPress Plugin ever made!
+ * Description: Adds additional gallery images per product variation.
  * Version:     1.0.0
- * Author:      pluginever
- * Author URI:  https://www.pluginever.com
+ * Author:      manikmist09
+ * Author URI:  https://manik.me
  * Donate link: https://www.pluginever.com
  * License:     GPLv2+
  * Text Domain: wc-variation-images
