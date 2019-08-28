@@ -1,11 +1,11 @@
-# Copyright (C) 2019 pluginever
+# Copyright (C) 2019 manikmist09
 # This file is distributed under the GPLv2+.
 msgid ""
 msgstr ""
 "Project-Id-Version: WC Variation Images 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wc-variation-images\n"
-"POT-Creation-Date: 2019-08-28 09:52:53+00:00\n"
+"POT-Creation-Date: 2019-08-28 18:10:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -95,14 +95,18 @@ msgstr ""
 msgid "WC Variation Images"
 msgstr ""
 
-#. Author URI of the plugin/theme
+#. Plugin URI of the plugin/theme
 msgid "https://www.pluginever.com"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "The Best WordPress Plugin ever made!"
+msgid "Adds additional gallery images per product variation."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "pluginever"
+msgid "manikmist09"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://manik.me"
 msgstr ""

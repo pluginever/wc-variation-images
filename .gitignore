@@ -10,7 +10,7 @@ project.properties
 *.sublime-project
 *.sublime-workspace
 .sublimelinterrc
-
+/build
 # Grunt
 /node_modules/
 none

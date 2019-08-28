@@ -8,15 +8,15 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WC variation images  plugin allows to add 3 additional images for each variation of product.
+WC variation images plugin allows adding additional images for each variation of the product.
 
 == Description ==
 
-Allows to insert multiple images for per variation to let your store customer to see a different images when WooCommerce product variations are changed.
+Allows inserting multiple images for per variation to let your store's customer see a different image when WooCommerce product variations are changed.
 
-By default, WooCommerce has only single image to insert as variation there is not gallery or multiple image add option.
+By default, WooCommerce support only a single image as variation image there is not a gallery or multiple images add option.
 
-By using this plugin, you can showcase different set of images when your visitors switch product variation like color, image, label style at the same time.
+By using this plugin, you can showcase a different set of images when your visitors switch product variation like color, image, label style at the same time.
 
 == Features ==
 
@@ -24,7 +24,7 @@ By using this plugin, you can showcase different set of images when your visitor
 * Unlimited WooCommerce Themes Support
 * Delete option for Variation images.
 * Zoom option for variation images.
-* Light box for variation images.
+* Lightbox for variation images.
 
 = Contribute =
 This may have bugs and lack of many features. If you want to contribute to this project, you are more than welcome. Please open an issue [here](https://github.com/pluginever/wc-variation-images/issues)
