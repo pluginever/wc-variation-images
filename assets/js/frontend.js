@@ -1,5 +1,5 @@
 /**
- * WC Variation Images Admin
+ * WC Variation Images frontend
  * https://www.pluginever.com
  *
  * Copyright (c) 2018 pluginever
@@ -20,26 +20,34 @@ window.wc_variation_images = (function (window, document, $, undefined) {
 	$(formVariation).on('blur', selectVal, function () {
 		var productId = $(formVariation).data('product_id');
 		var variationID = $(inputVariation).val();
+		var gallerySelector = $('.woocommerce-product-gallery');
+		var galleryImage = $( '.woocommerce-product-gallery__image' );
+		var width  = galleryImage.outerWidth();
+		var height = galleryImage.outerHeight();
 		if (productId > 0) {
-
 			var productElement = $('#product-' + productId);
 			productElement.addClass('loader');
 			$.ajax({
-				url: wpwvi.ajaxurl,
+				url: WC_VARIATION_IMAGES.ajaxurl,
 				type: 'post',
 				data: {
 					action: 'wc_variation_images_load_variation_images',
 					product_id: productId,
 					variation_id: variationID,
-					nonce: wpwvi.nonce
+					nonce: WC_VARIATION_IMAGES.nonce
 				},
 				success: function (res) {
-					var gallerySelector = $('.woocommerce-product-gallery');
 					gallerySelector.replaceWith(res.data.images);
-					productElement.removeClass('loader');
+
+					//set height width for fixed scroll
+					galleryImage.width( width ).height( height );
+					$( '.woocommerce-product-gallery__wrapper' ).width( width ).height( height );
+
+					//render gallery after load all image
 					$('.woocommerce-product-gallery').each(function () {
 						$(this).wc_product_gallery();
 					});
+					productElement.removeClass('loader');
 				},
 				error: function () {
 					productElement.removeClass('loader');

@@ -1,10 +1,10 @@
 <?php
 /**
- * WCVariationImages Uninstall
+ * WC_Variation_Images Uninstall
  *
- * Uninstalling WCVariationImages deletes user roles, pages, tables, and options.
+ * Uninstalling WC_Variation_Images deletes user roles, pages, tables, and options.
  *
- * @package WCVariationImages\Uninstaller
+ * @package WC_Variation_Images\Uninstaller
  * @version 1.0.0
  */
 

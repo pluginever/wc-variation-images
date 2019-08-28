@@ -5,11 +5,12 @@
  * Copyright (c) 2018 pluginever
  * Licensed under the GPLv2+ license.
  */
-.wpwvi-images {
+.wc-variation-images-images {
 	float: left;
 	width: 48%;
 }
-.wpwvi-thumb-list {
+
+.wc-variation-images-thumb-list {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
@@ -21,8 +22,8 @@
 	}
 }
 
-.wpwvi-gallery {
-	a{
+.wc-variation-images-gallery {
+	a {
 		img {
 			width: 100%;
 			height: 100%;
@@ -45,5 +46,20 @@
 	z-index: 1000;
 	background: #fff;
 	opacity: 0.7;
+}
+
+.wc-variation-images-product-gallery {
+
+	ol.flex-control-nav {
+		padding-left: 0px;
+		margin-top: 10px;
+
+		li {
+			margin-bottom: 10px;
+		}
+	}
+	div.woocommerce-product-gallery__image:first-child{
+		margin-bottom: 10px;
+	}
 }
 

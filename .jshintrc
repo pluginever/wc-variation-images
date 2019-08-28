@@ -12,16 +12,14 @@
 	"trailing": true,
 	"undef": true,
 	"unused": true,
-
 	"browser": true,
-
 	"globals": {
 		"_": false,
 		"Backbone": false,
 		"jQuery": false,
 		"JSON": false,
 		"wp": false,
-		"wpwvi": false,
+		"WC_VARIATION_IMAGES": false,
 		"alert": false
 	}
 }

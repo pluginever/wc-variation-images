@@ -37,20 +37,15 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
 /**
  * Main initiation class
  *
  * @since 1.0.0
  */
-
-/**
- * Main WCVariationImages Class.
- *
- * @class WCVariationImages
- */
-final class WCVariationImages {
+final class WC_Variation_Images {
 	/**
-	 * WCVariationImages version.
+	 * WC_Variation_Images version.
 	 *
 	 * @var string
 	 */
@@ -75,8 +70,9 @@ final class WCVariationImages {
 	/**
 	 * The single instance of the class.
 	 *
-	 * @var WCVariationImages
 	 * @since 1.0.0
+	 *
+	 * @var WC_Variation_Images
 	 */
 	protected static $instance = null;
 
@@ -88,7 +84,7 @@ final class WCVariationImages {
 	public $plugin_name = 'Woocommerce Variation Images';
 
 	/**
-	 * WCVariationImages constructor.
+	 * WC_Variation_Images constructor.
 	 */
 	public function __construct() {
 		register_activation_hook( __FILE__, array( $this, 'activation_check' ) );
@@ -214,50 +210,23 @@ final class WCVariationImages {
 		define( 'WC_VARIATION_IMAGES_TEMPLATES_DIR', WC_VARIATION_IMAGES_PATH . '/templates' );
 	}
 
-
-	/**
-	 * What type of request is this?
-	 *
-	 * @param  string $type admin, ajax, cron or frontend.
-	 *
-	 * @return bool
-	 */
-	private function is_request( $type ) {
-		switch ( $type ) {
-			case 'admin':
-				return is_admin();
-			case 'ajax':
-				return defined( 'DOING_AJAX' );
-			case 'cron':
-				return defined( 'DOING_CRON' );
-			case 'frontend':
-				return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' ) && ! defined( 'REST_REQUEST' );
-		}
-	}
-
-
 	/**
 	 * Include required core files used in admin and on the frontend.
 	 */
 	public function includes() {
 
-		//admin includes
-		if ( $this->is_request( 'admin' ) ) {
-			include_once WC_VARIATION_IMAGES_INCLUDES . '/admin/class-admin.php';
+		require_once( WC_VARIATION_IMAGES_INCLUDES . '/class-scripts.php' );
+
+		require_once( WC_VARIATION_IMAGES_INCLUDES . '/action-functions.php' );
+		require_once( WC_VARIATION_IMAGES_INCLUDES . '/core-functions.php' );
+		require_once( WC_VARIATION_IMAGES_INCLUDES . '/functions-ajax.php' );
+
+		if ( is_admin() ) {
+			require_once( WC_VARIATION_IMAGES_INCLUDES . '/admin/functions-metabox.php' );
+			require_once( WC_VARIATION_IMAGES_INCLUDES . '/admin/class-settings-api.php' );
+			require_once( WC_VARIATION_IMAGES_INCLUDES . '/admin/class-settings.php' );
 		}
 
-		//frontend includes
-		if ( $this->is_request( 'frontend' ) ) {
-			include_once WC_VARIATION_IMAGES_INCLUDES . '/class-frontend.php';
-		}
-
-		//if ajax
-		if ( $this->is_request( 'ajax' ) ) {
-			include_once WC_VARIATION_IMAGES_INCLUDES . '/class-ajax.php';
-		}
-
-		include_once WC_VARIATION_IMAGES_INCLUDES . '/core-functions.php';
-		include_once WC_VARIATION_IMAGES_INCLUDES . '/action-functions.php';
 	}
 
 	/**
@@ -288,13 +257,13 @@ final class WCVariationImages {
 	}
 
 	/**
-	 * Main WCVariationImages Instance.
+	 * Main WC_Variation_Images Instance.
 	 *
-	 * Ensures only one instance of WCVariationImages is loaded or can be loaded.
+	 * Ensures only one instance of WC_Variation_Images is loaded or can be loaded.
 	 *
 	 * @since 1.0.0
 	 * @static
-	 * @return WCVariationImages - Main instance.
+	 * @return WC_Variation_Images - Main instance.
 	 */
 	public static function instance() {
 		if ( is_null( self::$instance ) ) {
@@ -307,7 +276,7 @@ final class WCVariationImages {
 }
 
 function wc_variation_images() {
-	return WCVariationImages::instance();
+	return WC_Variation_Images::instance();
 }
 
 //fire off the plugin

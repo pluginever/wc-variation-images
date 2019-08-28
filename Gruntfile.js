@@ -20,10 +20,10 @@ module.exports = function (grunt) {
 			},
 			all: [
 				'Gruntfile.js',
-				'<%= dirs.js %>/admin/*.js',
-				'!<%= dirs.js %>/admin/*.min.js',
-				'<%= dirs.js %>/frontend/*.js',
-				'!<%= dirs.js %>/frontend/*.min.js'
+				'<%= dirs.js %>/*.js',
+				'!<%= dirs.js %>/*.min.js',
+				'<%= dirs.js %>/*.js',
+				'!<%= dirs.js %>/*.min.js'
 			]
 		},
 
@@ -51,12 +51,12 @@ module.exports = function (grunt) {
 			admin: {
 				files: [{
 					expand: true,
-					cwd: '<%= dirs.js %>/admin/',
+					cwd: '<%= dirs.js %>/',
 					src: [
 						'*.js',
 						'!*.min.js'
 					],
-					dest: '<%= dirs.js %>/admin/',
+					dest: '<%= dirs.js %>/',
 					ext: '.min.js'
 				}]
 			},
@@ -68,12 +68,12 @@ module.exports = function (grunt) {
 			frontend: {
 				files: [{
 					expand: true,
-					cwd: '<%= dirs.js %>/frontend/',
+					cwd: '<%= dirs.js %>/',
 					src: [
 						'*.js',
 						'!*.min.js'
 					],
-					dest: '<%= dirs.js %>/frontend/',
+					dest: '<%= dirs.js %>/',
 					ext: '.min.js'
 				}]
 			}
@@ -83,7 +83,7 @@ module.exports = function (grunt) {
 		sass: {
 			compile: {
 				options: {
-					sourceMap: 'none'
+					sourceMap: true
 				},
 				files: [{
 					expand: true,
@@ -124,10 +124,10 @@ module.exports = function (grunt) {
 			},
 			js: {
 				files: [
-					'<%= dirs.js %>/admin/*js',
-					'<%= dirs.js %>/frontend/*js',
-					'!<%= dirs.js %>/admin/*.min.js',
-					'!<%= dirs.js %>/frontend/*.min.js'
+					'<%= dirs.js %>/*js',
+					'<%= dirs.js %>/*js',
+					'!<%= dirs.js %>/*.min.js',
+					'!<%= dirs.js %>/*.min.js'
 				],
 				tasks: ['jshint', 'uglify']
 			}

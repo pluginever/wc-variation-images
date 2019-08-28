@@ -5,8 +5,8 @@
  * Copyright (c) 2018 pluginever
  * Licensed under the GPLv2+ license.
  */
-.wpwvi-image-container {
-	.wpwvi-image-info {
+.wc-variation-images-image-container {
+	.wc-variation-images-image-info {
 		list-style: none;
 		float: left;
 		position: relative;
@@ -16,7 +16,7 @@
 			height: 80px;
 		}
 	}
-	.wpwvi-remove-image {
+	.wc-variation-images-remove-image {
 		position: absolute;
 		right: -5px;
 		top: -5px;
@@ -24,6 +24,6 @@
 	}
 }
 
-.wpwvi-add-container {
+.wc-variation-images-add-container {
 	clear: both;
 }

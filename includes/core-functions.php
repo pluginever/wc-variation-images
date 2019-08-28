@@ -1,5 +1,8 @@
 <?php
-//function prefix wc_variation_images
+// don't call the file directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * get settings options
@@ -10,7 +13,7 @@
  *
  * @return string|array
  */
-function wpwvi_get_settings( $key, $default = '', $section = '' ) {
+function wc_variation_images_get_settings( $key, $default = '', $section = '' ) {
 
 	$option = get_option( $section, [] );
 
