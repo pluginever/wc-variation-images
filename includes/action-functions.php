@@ -62,7 +62,7 @@ function wc_variation_images_upload_images( $loop, $variation_data, $variation )
 							<input type="hidden"
 							       name="wc_variation_images_image_variation_thumb[<?php echo $variation_id ?>][]"
 							       value="<?php echo $image_id ?>">
-							<img src="<?php echo esc_url( $image_arr[0] ) ?>">
+							<img src="<?php echo esc_url( $image_arr[0] ) ?>" alt="">
 							<span class="wc-variation-images-remove-image dashicons dashicons-dismiss"></span>
 						</li>
 					<?php endforeach;
