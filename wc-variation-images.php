@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: WC Variation Images
- * Plugin URI:  https://www.pluginever.com
+ * Plugin Name: WooCommerce Variation Images
+ * Plugin URI:  https://www.pluginever.com/plugins/woocommerce-variation-images
  * Description: Adds additional gallery images per product variation.
  * Version:     1.0.0
- * Author:      manikmist09
- * Author URI:  https://manik.me
+ * Author:      pluginever
+ * Author URI:  https://pluginever.com
  * Donate link: https://www.pluginever.com
  * License:     GPLv2+
  * Text Domain: wc-variation-images
