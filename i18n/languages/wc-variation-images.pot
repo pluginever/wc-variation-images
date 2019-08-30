@@ -1,11 +1,11 @@
-# Copyright (C) 2019 manikmist09
+# Copyright (C) 2019 pluginever
 # This file is distributed under the GPLv2+.
 msgid ""
 msgstr ""
-"Project-Id-Version: WC Variation Images 1.0.0\n"
+"Project-Id-Version: WooCommerce Variation Images 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wc-variation-images\n"
-"POT-Creation-Date: 2019-08-29 04:45:24+00:00\n"
+"POT-Creation-Date: 2019-08-30 10:03:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -92,11 +92,11 @@ msgid "Awaiting product image"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "WC Variation Images"
+msgid "WooCommerce Variation Images"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://www.pluginever.com"
+msgid "https://www.pluginever.com/plugins/woocommerce-variation-images"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -104,9 +104,9 @@ msgid "Adds additional gallery images per product variation."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "manikmist09"
+msgid "pluginever"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://manik.me"
+msgid "https://pluginever.com"
 msgstr ""
