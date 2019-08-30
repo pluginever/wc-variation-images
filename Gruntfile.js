@@ -240,6 +240,7 @@ module.exports = function (grunt) {
 					'!**/css/src/**',
 					'!**/js/vendor/**',
 					'!**/css/vendor/**',
+					'!**/css/*.scss',
 					'!**/images/src/**',
 					'!**/sass/**',
 					'!build/**',
@@ -253,7 +254,9 @@ module.exports = function (grunt) {
 					'!package.json',
 					'!composer.json',
 					'!composer.lock',
+					'!package-lock.json',
 					'!debug.log',
+					'!none',
 					'!.gitignore',
 					'!.gitmodules',
 					'!phpcs.xml.dist',
@@ -276,7 +279,7 @@ module.exports = function (grunt) {
 			main: {
 				options: {
 					mode: 'zip',
-					archive: './build/'+pkg.name+'-v' + pkg.version + '.zip'
+					archive: './build/' + pkg.name + '-v' + pkg.version + '.zip'
 				},
 				expand: true,
 				cwd: 'build/',
@@ -325,25 +328,21 @@ module.exports = function (grunt) {
 	]);
 
 	// Only an alias to 'default' task.
-	grunt.registerTask('dev', [
-		'default'
-	]);
-
-	grunt.registerTask('i18n', [
-		'checktextdomain',
-		'makepot'
-	]);
-
 	grunt.registerTask('release',
 		[
 			'default',
 			'i18n'
 		]);
 
-	grunt.registerTask('zip',
+	grunt.registerTask('build',
 		[
 			'clean',
-			'copy',
+			'clean',
+			'copy'
+		]);
+
+	grunt.registerTask('zip',
+		[
 			'compress'
 		]);
 };
