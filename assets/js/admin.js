@@ -90,7 +90,7 @@ jQuery(document).ready(function ($) {
 		is_cross_upload_limit: function (variationId) {
 			var selector = $('#wc-variation-images-image-list-' + variationId + ' li');
 			var length = selector.length;
-			return (length >= 3) ? true : false;
+			return (length >= 3);
 		}
 	};
 	$.wc_variation_images.init();
