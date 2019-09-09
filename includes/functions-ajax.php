@@ -90,7 +90,8 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 			if ( $gallery_images ) {
 				foreach ( $gallery_images as $attachment_id ) {
 					if ( ! empty( $attachment_id ) ) {
-						$html .= wc_get_gallery_image_html( $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+						$variation_image = wc_get_gallery_image_html( $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+						$html            .= apply_filters( 'wc_variation_images_content', $variation_image, $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
 					}
 				}
 			} else {
