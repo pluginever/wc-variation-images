@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Variation Images
  * Plugin URI:  https://www.pluginever.com/plugins/woocommerce-variation-images
  * Description: Adds additional gallery images per product variation.
- * Version:     1.0.0
+ * Version:     1.0.1
  * Author:      pluginever
  * Author URI:  https://pluginever.com
  * Donate link: https://www.pluginever.com
@@ -49,7 +49,7 @@ final class WC_Variation_Images {
 	 *
 	 * @var string
 	 */
-	public $version = '1.0.0';
+	public $version = '1.0.1';
 
 	/**
 	 * Minimum PHP version required
@@ -90,6 +90,7 @@ final class WC_Variation_Images {
 		register_activation_hook( __FILE__, array( $this, 'activation_check' ) );
 		add_action( 'admin_notices', array( $this, 'admin_notices' ), 15 );
 		add_action( 'init', array( $this, 'localization_setup' ) );
+		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
 		if ( $this->is_plugin_compatible() ) {
 			$this->define_constants();
 			$this->includes();
@@ -147,6 +148,34 @@ final class WC_Variation_Images {
 	 */
 	public function localization_setup() {
 		load_plugin_textdomain( 'wc-variation-images', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	}
+
+
+	/**
+	 * Determines if the pro version installed.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return bool
+	 */
+	public function is_pro_installed() {
+		return is_plugin_active( 'wc-variation-images-pro/wc-variation-images-pro.php' ) == true;
+	}
+
+	/**
+	 * Plugin action links
+	 *
+	 * @param  array $links
+	 *
+	 * @return array
+	 */
+	public function plugin_action_links( $links ) {
+		$links[] = '<a href="https://www.pluginever.com/docs/wc-variation-images/">' . __( 'Documentation', 'wc-variation-images' ) . '</a>';
+		if ( ! $this->is_pro_installed() ) {
+			$links[] = '<a href="https://www.pluginever.com/plugins/wc-variation-images-pro/?utm_source=plugin_action_link&utm_medium=link&utm_campaign=wc-variation-images&utm_content=Upgrade%20to%20Pro" style="color: red;font-weight: bold;" target="_blank">' . __( 'Upgrade to PRO', 'wc-variation-images' ) . '</a>';
+		}
+
+		return $links;
 	}
 
 	/**

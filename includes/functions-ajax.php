@@ -66,14 +66,16 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 
 	if ( $has_variation_gallery_images ) {
 		$gallery_images = (array) get_post_meta( $variation_id, 'wc_variation_images_variation_images', true );
-		if ( count( $gallery_images ) > 3 ) {
-			$gallery_images = array_slice( $gallery_images, 0, 3 );
-		}
 	} else {
 		$product_gallery_images = get_post_meta( $product_id, '_product_image_gallery', true );
 		if ( ! empty( $product_gallery_images ) ) {
 			$gallery_images = explode( ',', $product_gallery_images );
 		}
+	}
+
+	//show only 3 image in free version
+	if ( count( $gallery_images ) > 3 && apply_filters( 'wc_variation_images_limit', true ) ) {
+		$gallery_images = array_slice( $gallery_images, 0, 3 );
 	}
 
 	//add product/variation image id in gallery image array

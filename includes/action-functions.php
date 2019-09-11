@@ -18,7 +18,7 @@ function wc_variation_images_gallery_control() {
 	if ( is_product() && 'variable' == $product->get_type() ) {
 		$hide_zoom     = wc_variation_images_get_settings( 'wc_variation_images_hide_image_zoom', 'no', 'wc_variation_images_general_settings' );
 		$hide_lightbox = wc_variation_images_get_settings( 'wc_variation_images_hide_image_lightbox', 'no', 'wc_variation_images_general_settings' );
-		$hide_gallery  = wc_variation_images_get_settings( 'wc_variation_images_hide_image_slider', 'no', 'wc_variation_images_general_settings' );;
+		$hide_gallery  = wc_variation_images_get_settings( 'wc_variation_images_hide_image_slider', 'no', 'wc_variation_images_general_settings' );
 		if ( 'yes' == $hide_zoom ) {
 			remove_theme_support( 'wc-product-gallery-zoom' );
 		}

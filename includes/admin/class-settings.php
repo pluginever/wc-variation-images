@@ -12,7 +12,7 @@ class WC_Variation_Images_Settings {
 
 		$this->settings_api = new \Ever_Settings_API();
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
-		add_action( 'admin_menu', array( $this, 'admin_menu' ), 99 );
+		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 
 	}
 
@@ -29,7 +29,6 @@ class WC_Variation_Images_Settings {
 	function get_settings_sections() {
 
 		$sections = array(
-
 			array(
 				'id'    => 'wc_variation_images_general_settings',
 				'title' => __( 'General Settings', 'wc-variation-images' )
@@ -82,8 +81,8 @@ class WC_Variation_Images_Settings {
 					'options' => array(
 						'no'  => __( 'No', 'wc-variation-images' ),
 						'yes' => __( 'Yes', 'wc-variation-images' )
-					),
-				),
+					)
+				)
 			)
 		);
 
