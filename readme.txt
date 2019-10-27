@@ -58,8 +58,8 @@ Yes, it does.
 = 1.0.1 =
 * WC compatibility with 3.7.1
 * WP compatibility with 5.2.4
-* Fix image preview in variation product 
-* Fix Hide variation slider when reset/clear variation option
+* [Fix] image preview in variation product 
+* [Fix] Hide variation slider when reset/clear variation option
 
 = 1.0.0 =
 * First release
