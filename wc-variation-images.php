@@ -3,16 +3,16 @@
  * Plugin Name: WooCommerce Variation Images
  * Plugin URI:  https://www.pluginever.com/plugins/woocommerce-variation-images
  * Description: Adds additional gallery images per product variation.
- * Version:     1.0.0
+ * Version:     1.0.1
  * Author:      pluginever
  * Author URI:  https://pluginever.com
  * Donate link: https://www.pluginever.com
  * License:     GPLv2+
  * Text Domain: wc-variation-images
  * Domain Path: /i18n/languages/
- * Tested up to: 5.2.2
+ * Tested up to: 5.2.4
  * WC requires at least: 3.0.0
- * WC tested up to: 3.7.0
+ * WC tested up to: 3.7.1
  */
 
 /**
@@ -49,7 +49,7 @@ final class WC_Variation_Images {
 	 *
 	 * @var string
 	 */
-	public $version = '1.0.0';
+	public $version = '1.0.1';
 
 	/**
 	 * Minimum PHP version required
