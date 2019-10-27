@@ -333,6 +333,16 @@ module.exports = function (grunt) {
 	]);
 
 	// Only an alias to 'default' task.
+	grunt.registerTask('dev', [
+		'default'
+	]);
+
+	grunt.registerTask('i18n', [
+		'checktextdomain',
+		'makepot'
+	]);
+
+	// Only an alias to 'default' task.
 	grunt.registerTask('release',
 		[
 			'default',

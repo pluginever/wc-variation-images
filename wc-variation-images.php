@@ -10,9 +10,9 @@
  * License:     GPLv2+
  * Text Domain: wc-variation-images
  * Domain Path: /i18n/languages/
- * Tested up to: 5.2.2
+ * Tested up to: 5.2.4
  * WC requires at least: 3.0.0
- * WC tested up to: 3.7.0
+ * WC tested up to: 3.7.1
  */
 
 /**

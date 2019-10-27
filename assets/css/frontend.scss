@@ -14,6 +14,7 @@
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+
 	.woocommerce-product-gallery__image {
 		img {
 			width: 100px;
@@ -44,21 +45,27 @@
 	text-align: center;
 	font-size: 2em;
 	z-index: 1000;
-	background: #fff;
+	background: #40464d;
 	opacity: 0.7;
 }
 
 .wc-variation-images-product-gallery {
 
 	ol.flex-control-nav {
-		padding-left: 0px;
+		padding-left: 0;
 		margin-top: 10px;
+		display: flex;
+		flex-wrap: wrap;
 
 		li {
+			width: 102px;
 			margin-bottom: 10px;
+			margin-right: 5px;
+
 		}
 	}
-	div.woocommerce-product-gallery__image:first-child{
+
+	div.woocommerce-product-gallery__image:first-child {
 		margin-bottom: 10px;
 	}
 }
