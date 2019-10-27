@@ -82,7 +82,7 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 	?>
 	<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"
 	     data-columns="<?php echo esc_attr( $columns ); ?>"
-	     style="opacity: 0;">
+	     style="opacity: 1;">
 		<figure class="woocommerce-product-gallery__wrapper wc-variation-images-gallery">
 			<?php
 			$html           = '';

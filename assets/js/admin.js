@@ -60,9 +60,8 @@ jQuery(document).ready(function ($) {
 					return false;
 				}
 				var html = images.map(function (image) {
-
 					var imageID = image.id;
-					var imageUrl = image.sizes.thumbnail.url;
+					var imageUrl = image.url;
 					var template = wp.template('wc-variation-images');
 
 					return template({image_id: imageID, image_url: imageUrl, variation_id: variationID});

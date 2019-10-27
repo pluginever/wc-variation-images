@@ -15,14 +15,13 @@ window.wc_variation_images = (function (window, document, $, undefined) {
 	var inputVariation = 'input.variation_id',
 		formVariation = 'form.variations_form',
 		selectVal = 'table.variations select';
-
 	// form on "blur" delegated event - AFTER
 	$(formVariation).on('blur', selectVal, function () {
 		var productId = $(formVariation).data('product_id');
 		var variationID = $(inputVariation).val();
 		var gallerySelector = $('.woocommerce-product-gallery');
-		var galleryImage = $( '.woocommerce-product-gallery__image' );
-		var width  = galleryImage.outerWidth();
+		var galleryImage = $('.woocommerce-product-gallery__image');
+		var width = galleryImage.outerWidth();
 		var height = galleryImage.outerHeight();
 		if (productId > 0) {
 			var productElement = $('#product-' + productId);
@@ -37,25 +36,26 @@ window.wc_variation_images = (function (window, document, $, undefined) {
 					nonce: WC_VARIATION_IMAGES.nonce
 				},
 				success: function (res) {
-					gallerySelector.replaceWith(res.data.images);
+					var gParent = gallerySelector.parent();
+					gallerySelector.remove();
 
+					gParent.prepend(res.data.images);
 					//set height width for fixed scroll
-					galleryImage.width( width ).height( height );
-					$( '.woocommerce-product-gallery__wrapper' ).width( width ).height( height );
+					galleryImage.width(width).height(height);
+					$('.woocommerce-product-gallery__wrapper').height(height);
 
 					//render gallery after load all image
 					$('.woocommerce-product-gallery').each(function () {
 						$(this).wc_product_gallery();
 					});
 					productElement.removeClass('loader');
+
 				},
 				error: function () {
 					productElement.removeClass('loader');
 				}
 			});
 		}
-
-
 	});
 
 })(window, document, jQuery);
