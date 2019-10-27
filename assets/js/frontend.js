@@ -25,7 +25,7 @@ window.wc_variation_images = (function (window, document, $, undefined) {
 		var height = galleryImage.outerHeight();
 		if (productId > 0) {
 			var productElement = $('#product-' + productId);
-			productElement.addClass('loader');
+			//productElement.addClass('loader');
 			$.ajax({
 				url: WC_VARIATION_IMAGES.ajaxurl,
 				type: 'post',
@@ -48,7 +48,8 @@ window.wc_variation_images = (function (window, document, $, undefined) {
 					$('.woocommerce-product-gallery').each(function () {
 						$(this).wc_product_gallery();
 					});
-					productElement.removeClass('loader');
+
+					//productElement.removeClass('loader');
 
 				},
 				error: function () {
