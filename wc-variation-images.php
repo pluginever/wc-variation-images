@@ -180,17 +180,6 @@ final class WC_Variation_Images {
 	}
 
 	/**
-	 * Determines if the pro version installed.
-	 *
-	 * @return bool
-	 * @since 1.0.0
-	 *
-	 */
-	public static function is_pro_installed() {
-		return is_plugin_active( 'wc-variation-images-pro/wc-variation-images-pro.php' ) == true;
-	}
-
-	/**
 	 * Plugin action links
 	 *
 	 * @param array $links
@@ -199,11 +188,23 @@ final class WC_Variation_Images {
 	 */
 	public function plugin_action_links( $links ) {
 		$links[] = '<a href="https://www.pluginever.com/docs/wc-variation-images/">' . __( 'Documentation', 'wc-variation-images' ) . '</a>';
-		if ( ! $this->is_pro_installed() ) {
+		if ( ! self::is_pro_installed() ) {
 			$links[] = '<a href="https://www.pluginever.com/plugins/wc-variation-images-pro/?utm_source=plugin_action_link&utm_medium=link&utm_campaign=wc-variation-images&utm_content=Upgrade%20to%20Pro" style="color: red;font-weight: bold;" target="_blank">' . __( 'Upgrade to PRO', 'wc-variation-images' ) . '</a>';
 		}
 
 		return $links;
+	}
+
+
+	/**
+	 * Determines if the pro version installed.
+	 *
+	 * @return bool
+	 * @since 1.0.0
+	 *
+	 */
+	public static function is_pro_installed() {
+		return is_plugin_active( 'wc-variation-images-pro/wc-variation-images-pro.php' ) == true;
 	}
 
 	/**
