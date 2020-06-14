@@ -91,7 +91,7 @@ class WC_Variation_Images_Scripts {
 			?>
             <style type="text/css">
                 .wc-variation-images-product-gallery {
-                    max-width: <?php echo $gallery_large_width;?>% !important;
+                    width: <?php echo $gallery_large_width;?>% !important;
                 }
 
                 <?php if($gallery_medium_width>0){?>

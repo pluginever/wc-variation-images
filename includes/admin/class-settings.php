@@ -128,9 +128,7 @@ class WC_Variation_Images_Settings {
 					'default' => 320,
 					'min'     => 0,
 					'max'     => 1000,
-				),
-
-
+				)
 			)
 		);
 

@@ -14,7 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function wc_variation_images_save_product_variation( $variation_id, $i ) {
 	$attachment_ids = array();
-	error_log( print_r( $_POST['wc_variation_images_image_variation_thumb'][ $variation_id ], true ) );
 
 	if ( isset( $_POST['wc_variation_images_image_variation_thumb'][ $variation_id ] ) ) {
 		//sanitize
