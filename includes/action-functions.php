@@ -48,32 +48,32 @@ function wc_variation_images_upload_images( $loop, $variation_data, $variation )
 	$variation_id     = absint( $variation->ID );
 	$variation_images = get_post_meta( $variation_id, 'wc_variation_images_variation_images', true );
 	?>
-	<div class="form-row form-row-full wc-variation-images-gallery-wrapper">
-		<h4><?php esc_html_e( 'Variation Images', 'wc-variation-images' ) ?></h4>
-		<div class="wc-variation-images-image-container">
-			<ul id="wc-variation-images-image-list-<?php echo absint( $variation_id ); ?>"
-			    class="wc-variation-images-image-list">
+    <div class="form-row form-row-full wc-variation-images-gallery-wrapper">
+        <h4><?php esc_html_e( 'Variation Images', 'wc-variation-images' ) ?></h4>
+        <div class="wc-variation-images-image-container">
+            <ul id="wc-variation-images-image-list-<?php echo absint( $variation_id ); ?>"
+                class="wc-variation-images-image-list">
 				<?php
 				if ( is_array( $variation_images ) && ! empty( $variation_images ) ) {
 					foreach ( $variation_images as $image_id ):
 						$image_arr = wp_get_attachment_image_src( $image_id );
 						?>
-						<li class="wc-variation-images-image-info">
-							<input type="hidden"
-							       name="wc_variation_images_image_variation_thumb[<?php echo $variation_id ?>][]"
-							       value="<?php echo $image_id ?>">
-							<img src="<?php echo esc_url( $image_arr[0] ) ?>" alt="">
-							<span class="wc-variation-images-remove-image dashicons dashicons-dismiss"></span>
-						</li>
+                        <li class="wc-variation-images-image-info">
+                            <input type="hidden"
+                                   name="wc_variation_images_image_variation_thumb[<?php echo $variation_id ?>][]"
+                                   value="<?php echo $image_id ?>">
+                            <img src="<?php echo esc_url( $image_arr[0] ) ?>" alt="">
+                            <span class="wc-variation-images-remove-image dashicons dashicons-dismiss"></span>
+                        </li>
 					<?php endforeach;
 				} ?>
-			</ul>
-		</div>
-		<p class="wc-variation-images-add-container hide-if-no-js">
-			<a href="#" data-wc_variation_images_variation_id="<?php echo absint( $variation->ID ) ?>"
-			   class="button wc-variation-images-add-image"><?php _e( 'Add Variation Images', 'wc-variation-images' ) ?></a>
-		</p>
-	</div>
+            </ul>
+        </div>
+        <p class="wc-variation-images-add-container hide-if-no-js">
+            <a href="#" data-wc_variation_images_variation_id="<?php echo absint( $variation->ID ) ?>"
+               class="button wc-variation-images-add-image"><?php _e( 'Add Variation Images', 'wc-variation-images' ) ?></a>
+        </p>
+    </div>
 	<?php
 }
 

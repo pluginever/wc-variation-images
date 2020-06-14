@@ -1,1 +1,38 @@
-.wc-variation-images-image-container .wc-variation-images-image-info{list-style:none;float:left;position:relative;margin:5px}.wc-variation-images-image-container .wc-variation-images-image-info img{width:80px;height:80px}.wc-variation-images-image-container .wc-variation-images-remove-image{position:absolute;right:-5px;top:-5px;color:#dc3232}.wc-variation-images-add-container{clear:both}
+/**
+ * WC Variation Images
+ * https://www.pluginever.com
+ *
+ * Copyright (c) 2018 pluginever
+ * Licensed under the GPLv2+ license.
+ */
+.wc-variation-images-image-container .wc-variation-images-image-list:before, .wc-variation-images-image-container .wc-variation-images-image-list:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.wc-variation-images-image-container .wc-variation-images-image-info {
+  list-style: none;
+  float: left;
+  position: relative;
+  margin: 5px;
+  cursor: move;
+  box-sizing: border-box;
+}
+.wc-variation-images-image-container .wc-variation-images-image-info img {
+  width: 80px;
+  height: auto;
+  display: block;
+}
+.wc-variation-images-image-container .wc-variation-images-remove-image {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  color: #dc3232;
+  cursor: pointer;
+}
+
+.wc-variation-images-add-container {
+  clear: both;
+}
+
+/*# sourceMappingURL=admin.css.map */
