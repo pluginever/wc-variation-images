@@ -31,7 +31,7 @@ class WC_Variation_Images_Scripts {
 		add_action( 'admin_footer', array( $this, 'admin_template_js' ) );
 	}
 
-	public function admin_scripts_handler(){
+	public function admin_scripts_handler() {
 		wp_enqueue_style( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . "/css/admin.css", [], WC_VARIATION_IMAGES_VERSION );
 		wp_register_script( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . "/js/admin{$this->suffix}.js", [ 'jquery' ], WC_VARIATION_IMAGES_VERSION, true );
 		wp_localize_script( 'wc-variation-images', 'WC_VARIATION_IMAGES', [
@@ -46,8 +46,9 @@ class WC_Variation_Images_Scripts {
 		wp_enqueue_script( 'wc-variation-images' );
 	}
 
-	public function frontend_scripts_handler(){
+	public function frontend_scripts_handler() {
 		wp_enqueue_style( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . "/css/frontend.css", [], WC_VARIATION_IMAGES_VERSION );
+		$this->add_inline_style();
 
 		wp_register_script( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . "/js/frontend{$this->suffix}.js", [ 'jquery' ], WC_VARIATION_IMAGES_VERSION, true );
 		wp_localize_script( 'wc-variation-images', 'WC_VARIATION_IMAGES', [
@@ -67,6 +68,72 @@ class WC_Variation_Images_Scripts {
 	 */
 	public function admin_template_js() {
 		require_once trailingslashit( WC_VARIATION_IMAGES_TEMPLATES_DIR ) . 'wc-variation-images-variation-template.php';
+	}
+
+	public function add_inline_style() {
+		global $post;
+		if ( ! $post ) {
+			return;
+		}
+		$product = wc_get_product( $post->ID );
+		if ( is_product() && 'variable' == $product->get_type() ) {
+			$gallery_large_width       = wc_variation_images_get_settings( 'wc_variation_images_gallery_width', 30, 'wc_variation_images_gallery_settings' );
+			$gallery_medium_width      = wc_variation_images_get_settings( 'wc_variation_images_gallery_medium_width', 0, 'wc_variation_images_gallery_settings' );
+			$gallery_small_width       = wc_variation_images_get_settings( 'wc_variation_images_gallery_small_width', 720, 'wc_variation_images_gallery_settings' );
+			$gallery_extra_small_width = wc_variation_images_get_settings( 'wc_variation_images_gallery_extra_small_width', 320, 'wc_variation_images_gallery_settings' );
+
+			ob_start();
+			?>
+            <style type="text/css">
+                .wc-variation-images-product-gallery {
+                    max-width: <?php echo $gallery_large_width;?>% !important;
+                }
+
+                <?php if($gallery_medium_width>0){?>
+                @media only screen and (max-width: 992px) {
+                    .wc-variation-images-product-gallery {
+                        width: <?php echo $gallery_medium_width;?>px !important;
+                        max-width: 100% !important;
+                    }
+                }
+
+                <?php }?>
+
+                <?php if($gallery_small_width>0){?>
+                @media only screen and (max-width: 768px) {
+                    .wc-variation-images-product-gallery {
+                        width: <?php echo $gallery_small_width;?>px !important;
+                        max-width: 100% !important;
+                    }
+                }
+
+                <?php }?>
+                <?php if($gallery_extra_small_width>0){?>
+                @media only screen and (max-width: 480px) {
+                    .wc-variation-images-product-gallery {
+                        width: <?php echo $gallery_extra_small_width;?>px !important;
+                        max-width: 100% !important;
+                    }
+                }
+
+                <?php }?>
+            </style>
+			<?php
+			$inline_css = ob_get_clean();
+			$inline_css = str_ireplace( array(
+				'<style type="text/css">',
+				'</style>',
+				"\r\n",
+				"\r",
+				"\n",
+				"\t"
+			), '', $inline_css );
+
+			$inline_css = preg_replace( "/\s+/", ' ', $inline_css );
+			$inline_css        = trim( $inline_css );
+
+			wp_add_inline_style( 'wc-variation-images', $inline_css );
+		}
 	}
 }
 

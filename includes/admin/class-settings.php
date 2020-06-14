@@ -32,7 +32,11 @@ class WC_Variation_Images_Settings {
 			array(
 				'id'    => 'wc_variation_images_general_settings',
 				'title' => __( 'General Settings', 'wc-variation-images' )
-			)
+			),
+			array(
+				'id'    => 'wc_variation_images_gallery_settings',
+				'title' => __( 'Gallery Settings', 'wc-variation-images' ),
+			),
 		);
 
 		return apply_filters( 'wc_variation_images_settings_sections', $sections );
@@ -83,6 +87,50 @@ class WC_Variation_Images_Settings {
 						'yes' => __( 'Yes', 'wc-variation-images' )
 					)
 				)
+			),
+			'wc_variation_images_gallery_settings' => array(
+				array(
+					'name'    => 'wc_variation_images_gallery_width',
+					'label'   => __( 'Large Device Gallery Width', 'wc-variation-images' ),
+					'desc'    => '<p class="description">' . __( '% For Large Devices. Slider Gallery Width in %. Default : 30. Limit: 10-100. ', 'wc-variation-images' ) . '</p>',
+					'class'   => 'ever-field-inline',
+					'type'    => 'number',
+					'default' => 30,
+					'min'     => 0,
+					'max'     => 100
+				),
+				array(
+					'name'    => 'wc_variation_images_gallery_medium_width',
+					'label'   => __( 'Medium Device Gallery Width', 'wc-variation-images' ),
+					'desc'    => '<p class="description">' . __( 'px For Medium Devices. Slider Gallery Width in pixel. Default : 0. Limit: 0-1000. ', 'wc-variation-images' ) . '</p>',
+					'class'   => 'ever-field-inline',
+					'type'    => 'number',
+					'default' => 0,
+					'min'     => 0,
+					'max'     => 1000,
+				),
+				array(
+					'name'    => 'wc_variation_images_gallery_small_width',
+					'label'   => __( 'Small Device Gallery Width', 'wc-variation-images' ),
+					'desc'    => '<p class="description">' . __( 'px For Small Devices. Slider Gallery Width in pixel. Default : 720. Limit: 0-1000. ', 'wc-variation-images' ) . '</p>',
+					'class'   => 'ever-field-inline',
+					'type'    => 'number',
+					'default' => 720,
+					'min'     => 0,
+					'max'     => 1000,
+				),
+				array(
+					'name'    => 'wc_variation_images_gallery_extra_small_width',
+					'label'   => __( 'Extra Small Device Gallery Width', 'wc-variation-images' ),
+					'desc'    => '<p class="description">' . __( 'px For Extra Small Devices. Slider Gallery Width in pixel. Default : 320. Limit: 0-1000. ', 'wc-variation-images' ) . '</p>',
+					'class'   => 'ever-field-inline',
+					'type'    => 'number',
+					'default' => 320,
+					'min'     => 0,
+					'max'     => 1000,
+				),
+
+
 			)
 		);
 

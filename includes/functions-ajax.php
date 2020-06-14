@@ -73,7 +73,7 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 		}
 	}
 
-	//show only 3 image in free version
+	//show only 5 image in free version
 	if ( count( $gallery_images ) > 5 && apply_filters( 'wc_variation_images_limit', true ) ) {
 		$gallery_images = array_slice( $gallery_images, 0, 5 );
 	}
