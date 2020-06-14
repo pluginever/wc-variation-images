@@ -55,8 +55,8 @@ jQuery(document).ready(function ($) {
 				var images = file_frame.state().get('selection').toJSON();
 				var image_limit = $('#wc-variation-images-image-list-' + variationID + ' li').length;
 				var total_image = image_limit + images.length;
-				if (total_image > 3) {
-					alert('Upload limit 3 images in free version');
+				if (total_image > 5) {
+					alert('Upload limit 5 images in free version');
 					return false;
 				}
 				var html = images.map(function (image) {
@@ -89,7 +89,7 @@ jQuery(document).ready(function ($) {
 		is_cross_upload_limit: function (variationId) {
 			var selector = $('#wc-variation-images-image-list-' + variationId + ' li');
 			var length = selector.length;
-			return (length >= 3);
+			return (length >= 5);
 		}
 	};
 	$.wc_variation_images.init();

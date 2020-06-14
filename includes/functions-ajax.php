@@ -74,18 +74,18 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 	}
 
 	//show only 3 image in free version
-	if ( count( $gallery_images ) > 3 && apply_filters( 'wc_variation_images_limit', true ) ) {
-		$gallery_images = array_slice( $gallery_images, 0, 3 );
+	if ( count( $gallery_images ) > 5 && apply_filters( 'wc_variation_images_limit', true ) ) {
+		$gallery_images = array_slice( $gallery_images, 0, 5 );
 	}
 
 	//add product/variation image id in gallery image array
 	array_unshift( $gallery_images, $variation_image_id );
 	ob_start();
 	?>
-	<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"
-	     data-columns="<?php echo esc_attr( $columns ); ?>"
-	     style="opacity: 1;">
-		<figure class="woocommerce-product-gallery__wrapper wc-variation-images-gallery">
+    <div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"
+         data-columns="<?php echo esc_attr( $columns ); ?>"
+         style="opacity: 1;">
+        <figure class="woocommerce-product-gallery__wrapper wc-variation-images-gallery">
 			<?php
 			$html           = '';
 			$gallery_images = array_filter( $gallery_images );
@@ -103,8 +103,8 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 			}
 			echo $html;
 			?>
-		</figure>
-	</div>
+        </figure>
+    </div>
 	<?php
 	return ob_get_clean();
 }
