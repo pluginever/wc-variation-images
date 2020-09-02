@@ -84,7 +84,7 @@ final class WC_Variation_Images {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cloning is forbidden.', 'wc-variation-images' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'wc-variation-images' ), '1.0.0' );
 	}
 
 	/**
@@ -94,7 +94,7 @@ final class WC_Variation_Images {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Unserializing instances of this class is forbidden.', 'wc-variation-images' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'wc-variation-images' ), '1.0.0' );
 	}
 
 
@@ -105,6 +105,7 @@ final class WC_Variation_Images {
 		$this->define_constants();
 		$this->includes();
 		$this->init_hooks();
+		add_action( 'admin_notices', array( $this, 'wc_missing_notice' ) );
 	}
 
 	/**
@@ -157,14 +158,25 @@ final class WC_Variation_Images {
 	/**
 	 * setup necessary settings data
 	 *
+	 * @since 1.0.0
 	 * @internal
 	 *
-	 * @since 1.0.0
 	 */
 	public static function install() {
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-		if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-			// deactivate plugin
+
+		return is_plugin_active( 'woocommerce/woocommerce.php' );
+	}
+
+	/**
+	 * WooCommerce plugin dependency notice
+	 * @since 1.0.0
+	 */
+	public function wc_missing_notice() {
+		if ( ! $this->install() ) {
+			$message = sprintf( __( '<strong>WooCommerce Variaion Images</strong> requires <strong>WooCommerce</strong> installed and activated. Please Install %s WooCommerce. %s', 'wc-serial-numbers' ),
+				'<a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a>' );
+			echo sprintf( '<div class="notice notice-error"><p>%s</p></div>', $message );
 		}
 	}
 
@@ -176,7 +188,7 @@ final class WC_Variation_Images {
 	 *
 	 */
 	public static function localization_setup() {
-		load_plugin_textdomain( 'wc-variation-images', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/languages/' );
+		load_plugin_textdomain( 'wc-variation-images', false, plugin_basename( dirname( __FILE__ ) ) . '/i18n/languages/' );
 	}
 
 	/**
@@ -211,18 +223,30 @@ final class WC_Variation_Images {
 	 * Get the plugin url.
 	 *
 	 * @return string
+	 * @since 1.0.0
 	 */
 	public function plugin_url() {
-		return untrailingslashit( plugins_url( '/', WC_VARIATION_IMAGES_FILE ) );
+		return untrailingslashit( plugins_url( '/', __FILE__ ) );
 	}
 
 	/**
 	 * Get the plugin path.
 	 *
 	 * @return string
+	 * @since 1.0.0
 	 */
 	public function plugin_path() {
-		return untrailingslashit( plugin_dir_path( WC_VARIATION_IMAGES_FILE ) );
+		return untrailingslashit( plugin_dir_path( __FILE__ ) );
+	}
+
+	/**
+	 * Plugin base path name getter.
+	 *
+	 * @return string
+	 * @since 1.0.0
+	 */
+	public function plugin_basename() {
+		return plugin_basename( __FILE__ );
 	}
 
 	/**

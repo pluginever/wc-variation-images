@@ -91,11 +91,20 @@ msgstr ""
 msgid "Awaiting product image"
 msgstr ""
 
-#: wc-variation-images.php:173
+#: wc-variation-images.php:87 wc-variation-images.php:97
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: wc-variation-images.php:177
+msgid ""
+"<strong>WooCommerce Variaion Images</strong> requires <strong>WooCommerce</strong> installed and activated. Please Install %s WooCommerce. %s"
+msgstr ""
+
+#: wc-variation-images.php:202
 msgid "Documentation"
 msgstr ""
 
-#: wc-variation-images.php:175
+#: wc-variation-images.php:204
 msgid "Upgrade to PRO"
 msgstr ""
 
