@@ -1,0 +1,6 @@
+[submodule "packages/plugin-framework"]
+	path = packages/plugin-framework
+	url = git@github.com:byteever/plugin-framework.git
+[submodule "packages/php-coding-standards"]
+	path = packages/php-coding-standards
+	url = git@github.com:byteever/php-coding-standards.git

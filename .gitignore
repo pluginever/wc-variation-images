@@ -1,51 +1,32 @@
-# Editors
-project.xml
-project.properties
-/nbproject/private/
-.buildpath
-.project
-.settings*
+node_modules
+bower_components
+release
+vendor
 .idea
-.vscode
-*.sublime-project
-*.sublime-workspace
-.sublimelinterrc
-/build
-# Grunt
-/node_modules/
-none
+*.log
 
-# Sass
-.sass-cache/
+# Project Files
+dist
+build
+framework
 
-# OS X metadata
+
+# Editors
+*.esproj
+*.tmproj
+*.tmproject
+tmtags
+.*.sw[a-z]
+*.un~
+Session.vim
+*.swp
+
+# Mac OSX
 .DS_Store
+._*
+.Spotlight-V100
+.Trashes
 
-# Windows junk
+# Windows
 Thumbs.db
-
-# ApiGen
-/wc-apidocs/
-
-# Behat/CLI Tests
-tests/cli/installer
-tests/cli/composer.phar
-tests/cli/composer.lock
-tests/cli/composer.json
-tests/cli/vendor
-
-# Unit tests
-/tmp
-/tests/bin/tmp
-/tests/e2e-tests/config/local-*.json
-/tests/e2e-tests/config/local.json
-
-# Logs
-/logs
-
-# Composer
-/vendor/
-contributors.md
-
-# Screenshots for e2e tests failures
-/screenshots/
+Desktop.ini

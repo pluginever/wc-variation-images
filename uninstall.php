@@ -1,11 +1,11 @@
 <?php
 /**
- * WC_Variation_Images Uninstall
+ * WC Variation Images Uninstall
  *
- * Uninstalling WC_Variation_Images deletes user roles, pages, tables, and options.
+ * Uninstalling WC Variation Images deletes user roles, pages, tables, and options.
  *
- * @package WC_Variation_Images\Uninstaller
- * @version 1.0.0
+ * @package     PluginEver\WC_Variation_Images
+ * @version     1.0.0
  */
 
 defined( 'WP_UNINSTALL_PLUGIN' ) || exit;

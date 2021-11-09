@@ -1,0 +1,66 @@
+{
+  "name": "pluginever/wc-variation-images",
+  "description": "Adds additional gallery images per product variation.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "sultan",
+      "email": "sultan@pluginever.com",
+      "homepage": "https://www.pluginever.com",
+      "role": "developer"
+    }
+  ],
+  "repositories": [
+    {
+      "url": "https://github.com/byteever/phpcs-composer",
+      "type": "git"
+    },
+    {
+      "url": "https://github.com/byteever/plugin-framework",
+      "type": "git"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "byteever/plugin-framework": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "PluginEver\\WC_Variation_Images\\": "src"
+    },
+    "files": [
+      "src/Functions.php"
+    ]
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "byteever/php-coding-standards": "dev-master"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "preferred-install": "dist"
+  },
+  "scripts": {
+    "pre-commit": [
+      "@phpcs"
+    ],
+    "phpcs": [
+      "phpcs -s -p ."
+    ],
+    "phpcbf": [
+      "phpcbf -p ."
+    ]
+  },
+  "extra": {
+    "scripts-description": {
+      "test": "Run unit tests",
+      "phpcs": "Analyze code against the WordPress coding standards with PHP_CodeSniffer",
+      "phpcbf": "Fix coding standards warnings/errors automatically with PHP Code Beautifier",
+      "makepot-audit": "Generate i18n/languages/starter_plugin.pot file and run audit",
+      "makepot": "Generate i18n/languages/starter_plugin.pot file"
+    }
+  }
+}
