@@ -99,7 +99,11 @@ class Plugin extends Framework\Plugin {
 	public function init() {
 		$this->register_service( LifeCycle::class, $this );
 		$this->register_service( Insight::class, $this );
-		$this->register_service( Settings::class, $this );
+		if ( is_admin() ) {
+			$this->register_service( Settings::class, $this );
+		}
+		$this->register_service( Ajax::class, $this );
+		$this->register_service( Scripts::class, $this );
 	}
 }
 

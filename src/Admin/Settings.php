@@ -53,16 +53,16 @@ class Settings extends Framework\Admin\Settings {
 	public function get_settings() {
 		return array(
 			'general' => array(
-				'title'    => __( 'General', '' ),
+				'title'    => __( 'General', 'wc-variation-images' ),
 				'sections' => array(
 					'main' => array(
 
-						'title'  => __( 'General', '' ),
+						'title'  => __( 'General', 'wc-variation-images' ),
 						'fields' => array(
 							array(
-								'title'   => esc_html__( 'General Settings', '' ),
+								'title'   => esc_html__( 'General Settings', 'wc-variation-images' ),
 								'type'    => 'section',
-								'tooltip' => esc_html__( 'The following options are for   globally.', '' ),
+								'tooltip' => esc_html__( 'The following options are for   globally.', 'wc-variation-images' ),
 								'id'      => 'section_general_settings',
 							),
 							array(
@@ -101,15 +101,15 @@ class Settings extends Framework\Admin\Settings {
 				)
 			),
 			'gallery' => array(
-				'title'    => __( 'Gallery', '' ),
+				'title'    => __( 'Gallery', 'wc-variation-images' ),
 				'sections' => array(
 					'main' => array(
-						'title'  => __( 'Gallery', '' ),
+						'title'  => __( 'Gallery', 'wc-variation-images' ),
 						'fields' => array(
 							array(
-								'title'   => esc_html__( 'Gallery Settings', '' ),
+								'title'   => esc_html__( 'Gallery Settings', 'wc-variation-images' ),
 								'type'    => 'section',
-								'tooltip' => esc_html__( 'The following options are for gallery settings.', '' ),
+								'tooltip' => esc_html__( 'The following options are for gallery settings.', 'wc-variation-images' ),
 								'id'      => 'section_gallery_settings',
 							),
 							array(
