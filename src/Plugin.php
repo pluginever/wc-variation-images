@@ -10,6 +10,7 @@
 namespace PluginEver\WC_Variation_Images;
 
 use \ByteEver\PluginFramework\v1_0_0 as Framework;
+use PluginEver\WC_Variation_Images\Admin\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -98,6 +99,7 @@ class Plugin extends Framework\Plugin {
 	public function init() {
 		$this->register_service( LifeCycle::class, $this );
 		$this->register_service( Insight::class, $this );
+		$this->register_service( Settings::class, $this );
 	}
 }
 
