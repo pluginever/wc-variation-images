@@ -3,7 +3,7 @@
  * WC Variation Images Settings Class
  *
  *
- * @package     PluginEver\WC_Variation_Images
+ * @package     PluginEver\WC_Variation_Images\Admin
  * @since     1.0.0
  */
 

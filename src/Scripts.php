@@ -51,7 +51,6 @@ class Scripts {
 		wc_variation_images()->register_style( 'wc-variation-images', "/css/admin/admin-style.css" );
 		wp_enqueue_style( 'wc-variation-images' );
 		wp_enqueue_script( 'jquery-ui-sortable' );
-		wp_enqueue_script( 'jquery-ui-sortable' );
 		wc_variation_images()->register_script( 'wc-variation-images', 'js/admin/admin-script.js', [ 'jquery', 'jquery-ui-sortable' ] );
 		wp_localize_script( 'wc-variation-images', 'WC_VARIATION_IMAGES', [
 			'ajaxurl'                    => admin_url( 'admin-ajax.php' ),
