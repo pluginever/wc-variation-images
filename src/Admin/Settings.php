@@ -56,7 +56,6 @@ class Settings extends Framework\Admin\Settings {
 				'title'    => __( 'General', 'wc-variation-images' ),
 				'sections' => array(
 					'main' => array(
-
 						'title'  => __( 'General', 'wc-variation-images' ),
 						'fields' => array(
 							array(
@@ -148,6 +147,55 @@ class Settings extends Framework\Admin\Settings {
 								'min'     => 0,
 								'max'     => 1000,
 							)
+						),
+					),
+				)
+			),
+			'youtube' => array(
+				'title'    => __( 'Video', 'wc-variation-images' ),
+				'sections' => array(
+					'main' => array(
+						'title'  => __( 'Video', 'wc-variation-images' ),
+						'fields' => array(
+							array(
+								'title'   => esc_html__( 'Video Settings', 'wc-variation-images' ),
+								'type'    => 'section',
+								'tooltip' => esc_html__( 'The following options are for youtube video settings.', 'wc-variation-images' ),
+								'id'      => 'section_youtube_settings',
+							),
+							array(
+								'title'   => esc_html__( 'Autoplay videos', 'wc-variation-images' ),
+								'id'      => 'autoplay_videos',
+								'desc'    => esc_html__( 'Choose either the videos will autoplay or not', 'wc-variation-images' ),
+								'type'    => 'select',
+								'default' => 'yes',
+								'options'     => array(
+									'no'  => __( 'No', 'wc-variation-images' ),
+									'yes' => __( 'Yes', 'wc-variation-images' )
+								),
+							),
+							array(
+								'title'   => esc_html__( 'Show fullscreen button', 'wc-variation-images' ),
+								'id'      => 'show_fullscreen_button',
+								'desc'    => esc_html__( 'Show FullScreen Button on the video', 'wc-variation-images' ),
+								'type'    => 'select',
+								'default' => 'yes',
+								'options'     => array(
+									'no'  => __( 'No', 'wc-variation-images' ),
+									'yes' => __( 'Yes', 'wc-variation-images' )
+								),
+							),
+							array(
+								'title'   => esc_html__( 'Show video player controls', 'wc-variation-images' ),
+								'id'      => 'show_video_player_controls',
+								'desc'    => esc_html__( 'Show video player controls on the video', 'wc-variation-images' ),
+								'type'    => 'select',
+								'default' => 'yes',
+								'options'     => array(
+									'no'  => __( 'No', 'wc-variation-images' ),
+									'yes' => __( 'Yes', 'wc-variation-images' )
+								),
+							),
 						),
 					),
 				)

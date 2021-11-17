@@ -23,6 +23,10 @@ class Metabox {
 	public function __construct() {
 		add_action( 'woocommerce_product_after_variable_attributes', array( __CLASS__, 'upload_images' ), 10, 3 );
 		add_action( 'woocommerce_save_product_variation', array( __CLASS__, 'save_product_variation' ), 10, 2 );
+
+		// add video links in the media upload
+		add_filter( 'attachment_fields_to_edit', array(__CLASS__, 'add_custom_fields_to_media') , 100,  2 );
+		add_filter( 'attachment_fields_to_save', array( __CLASS__, 'save_custom_text_attachment_field' ), 10, 2 );
 	}
 
 	/**
@@ -89,5 +93,45 @@ class Metabox {
 			$attachment_ids = array_unique( $attachment_ids );
 		}
 		update_post_meta( $variation_id, 'wc_variation_images_variation_images', $attachment_ids );
+	}
+
+	/**
+	 * Add custom link options in media
+	 *
+	 * @param array $form_fields Form fields
+	 * @param \WP_Post $post Post
+	 *
+	 * @since 1.0.3
+	 * @return array
+	*/
+	public static function add_custom_fields_to_media( $form_fields, $post  ) {
+		$text_field                                        = esc_url_raw( get_post_meta( $post->ID, 'wc_variation_images_pro_video_link', true ) );
+		$form_fields['wc_variation_images_pro_video_link'] = array(
+			'label' => __( 'Video Link', 'wc-variation-images' ),
+			'input' => 'text',
+			'value' => $text_field,
+			'helps' => wc_help_tip( 'Enter link' )
+		);
+
+		return $form_fields;
+	}
+
+	/**
+	 * Save the custom links
+	 *
+	 * @param \WP_Post $post Post
+	 * @param array $attachment Attachments
+	 *
+	 * @since 1.0.3
+	 * @return \WP_post
+	 */
+	public static function save_custom_text_attachment_field( $post, $attachment ) {
+		if ( isset( $attachment['wc_variation_images_pro_video_link'] ) ) {
+			update_post_meta( $post['ID'], 'wc_variation_images_pro_video_link', sanitize_text_field( $attachment['wc_variation_images_pro_video_link'] ) );
+		} else {
+			delete_post_meta( $post['ID'], 'wc_variation_images_pro_video_link' );
+		}
+
+		return $post;
 	}
 }
