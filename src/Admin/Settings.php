@@ -146,7 +146,29 @@ class Settings extends Framework\Admin\Settings {
 								'default' => 320,
 								'min'     => 0,
 								'max'     => 1000,
-							)
+							),
+							array(
+								'title' => esc_html__('Slider Navigation', 'wc-variation-images' ),
+								'id' => 'gallery_navigation',
+								'desc' => __( 'Show slider navigation', ''),
+								'type' => 'select',
+								'default' => 'no',
+								'options' => array(
+									'no'  => __( 'No', 'wc-variation-images' ),
+									'yes' => __( 'Yes', 'wc-variation-images' )
+								),
+							),
+							array(
+								'title' => esc_html__('SlideShow', 'wc-variation-images' ),
+								'id' => 'gallery_slideshow',
+								'desc' => __( 'Enable gallery slideshow', 'wc-variation-images' ),
+								'type' => 'select',
+								'default' => 'no',
+								'options' => array(
+									'no'  => __( 'No', 'wc-variation-images' ),
+									'yes' => __( 'Yes', 'wc-variation-images' )
+								),
+							),
 						),
 					),
 				)

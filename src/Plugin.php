@@ -127,6 +127,7 @@ class Plugin extends Framework\Plugin {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts' ) );
 		add_filter( 'woocommerce_single_product_image_gallery_classes', array( __CLASS__, 'add_gallery_class' ) );
 		add_action( 'wp', array( __CLASS__, 'gallery_control' ), 100 );
+		add_filter( 'woocommerce_single_product_carousel_options', array( __CLASS__, 'slider_navigations' ) );
 		if ( is_admin() ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 			add_action( 'admin_footer', array( __CLASS__, 'admin_template_js' ) );
@@ -261,6 +262,28 @@ class Plugin extends Framework\Plugin {
 		}
 	}
 
+	/**
+	 * Update slider navigations for the variable products
+	 *
+	 * @param array $options Options
+	 *
+	 * @since 1..03
+	 * @return array
+	*/
+	public static function slider_navigations( $options ) {
+		$slider_navigation = self::get_option('wc_variation_images_settings[gallery_navigation]', 'no' );
+		$gallery_slideshow = self::get_option('wc_variation_images_settings[gallery_slideshow]', 'no' );
+
+		if ( 'yes' === $slider_navigation ) {
+			$options['directionNav'] = true;
+		}
+
+		if( 'yes' === $gallery_slideshow ) {
+			$options['slideshow'] = true;
+		}
+
+		return $options;
+	}
 	/**
 	 * Enqueue admin scripts and styles
 	 *

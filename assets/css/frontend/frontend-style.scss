@@ -69,4 +69,53 @@
 		margin-bottom: 10px;
 	}
 }
+.flex-direction-nav {
+	position: absolute;
+	top: 35%;
+	z-index: 99999;
+	width: 100%;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 
+	li.flex-nav-prev {
+		float: left;
+		margin-left: 0;
+	}
+
+	li.flex-nav-next {
+		float: right;
+
+	}
+
+	a.flex-next {
+		visibility: hidden;
+		text-decoration: none;
+
+		&:after {
+			visibility: visible;
+			font-family: 'Dashicons';
+			content: "\f345";
+			text-decoration: none;
+			margin-right: 10px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+	}
+
+	a.flex-prev {
+		visibility: hidden;
+		text-decoration: none;
+
+		&:before {
+			visibility: visible;
+			font-family: 'Dashicons';
+			content: "\f341";
+			text-decoration: none;
+			margin-left: 10px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+	}
+}
