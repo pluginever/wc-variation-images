@@ -34,7 +34,6 @@ class Ajax {
 		if ( ! wp_verify_nonce( $_POST['nonce'], 'wc_variation_images' ) ) {
 			wp_send_json_error( 'error' );
 		}
-		error_log( print_r( $_REQUEST , true ));
 
 		if ( ! isset( $_POST['product_id'] ) ) {
 			wp_send_json_error( 'error' );
@@ -65,8 +64,8 @@ class Ajax {
 		$columns = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
 		$has_variation_gallery_images = (bool) get_post_meta( $variation_id, 'wc_variation_images_variation_images', true );
 		$variation_product            = wc_get_product( $variation_id );
-		$variation_parent             = $variation_product->get_data();
-		$variation_image_id           = absint( $variation_parent['image_id'] );
+		$variation_parent             = ( $variation_product ) ? $variation_product->get_data() : '';
+		$variation_image_id           = ( $variation_product ) ? absint( $variation_parent['image_id'] ) : '';
 		if ( empty( $variation_image_id ) ) {
 			$variation_image_id = get_post_thumbnail_id( $product_id );
 		}
@@ -76,8 +75,6 @@ class Ajax {
 			'woocommerce-product-gallery--columns-' . absint( $columns ),
 			'images',
 		) );
-
-		$gallery_images = array();
 
 		$gallery_images = array();
 

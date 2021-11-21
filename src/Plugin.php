@@ -143,6 +143,7 @@ class Plugin extends Framework\Plugin {
 	 * @since 1.0.0
 	 */
 	public function enqueue_frontend_scripts() {
+		wp_enqueue_style( 'dashicons' );
 		$this->register_style( 'wc-variation-images', 'css/frontend-style.css' );
 		wp_enqueue_style( 'wc-variation-images' );
 
@@ -308,37 +309,45 @@ class Plugin extends Framework\Plugin {
 	 * @since 1.0.3
 	*/
 	public static function variations_video_content( $markup, $attachment_id ) {
-		$video_link = get_post_meta( $attachment_id, 'wc_variation_images_video_link', true );
-		if ( ! empty( $video_link ) ) {
-			$find_str = strpos( $video_link, 'youtube.com' );
-			if ( $find_str !== false ) {
-				$auto_play         = self::get_option( 'wc_variation_images_settings[autoplay_videos]', 'yes' );
-				$fullscreen_button = self::get_option( 'wc_variation_images_settings[show_fullscreen_button]', 'yes' );
-				$play_control      = self::get_option( 'wc_variation_images_settings[show_video_player_controls]', 'yes' );
+		$media_video_link = get_post_meta( $attachment_id, 'wc_variation_images_video_link', true );
+		$video_link = '';
 
-				//control youtube video
-				$auto_play         = ( $auto_play == 'yes' ) ? 1 : 0;
-				$fullscreen_button = ( $fullscreen_button == 'yes' ) ? 1 : 0;
-				$play_control      = ( $play_control == 'yes' ) ? 1 : 0;
-				$parameters        = "?autoplay=" . $auto_play . "&fs=" . $fullscreen_button . "&controls=" . $play_control;
-				$video_link        = $video_link . $parameters;
+		if ( ! empty( $media_video_link ) ) {
+			$find_str = strpos( $media_video_link, 'youtube.com' );
+			if ( $find_str !== false ) {
+				$video_link        = $media_video_link;
 			}
 		}
-
 		if ( !empty( $video_link ) ) {
 			$url_parts = explode('/', $video_link );
 			$video_id = explode( '&', str_replace( 'watch?v=','', end( $url_parts ) ) );
 
 			$api_key = self::get_option('wc_variation_images_settings[youtube_api_key]', '' );
-			if( !empty( $youtube_api_key ) ) {
-				$youtube_end_point = "https://www.googleapis.com/youtube/v3/videos?id={$video_id}&key={$api_key}&part=id,snippet,contentDetails,statistics,player";
+
+			if( !empty( $api_key ) ) {
+				$youtube_end_point = "https://www.googleapis.com/youtube/v3/videos?id={$video_id[0]}&key={$api_key}&part=id,snippet,contentDetails,statistics,player";
 				$request = wp_remote_get( $youtube_end_point );
-				$response = wp_remote_retrieve_body( $request );
-				error_log( print_r( $request, true));
-				error_log( print_r( $response,true ));
+				if ( is_wp_error( $request ) ) {
+					return $request->get_error_message();
+				}
+				$response = json_decode( wp_remote_retrieve_body( $request ), true );
+				$item = $response['items'][0];
+
+				$gallery_thumbnail = wc_get_image_size( 'gallery_thumbnail' );
+				$thumbnail_size = apply_filters( "woocommerce_gallery_thumbnail_size", array(
+					$gallery_thumbnail['width'],
+					$gallery_thumbnail['height']
+				) );
+				$thumbnail_src = wp_get_attachment_image_src( $attachment_id, $thumbnail_size );
+
+				$embed_html = $item['player']['embedHtml'];
+				$markup = '<div data-thumb="' . esc_url( $thumbnail_src[0] ) . '" class="woocommerce-product-gallery__image wc-variation-images-pro-video" >';
+				$markup .= $embed_html;
+				$markup .= '</div>';
 
 			}
 		}
+
 
 		return $markup;
 	}

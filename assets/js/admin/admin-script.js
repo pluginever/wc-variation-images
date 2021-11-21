@@ -78,10 +78,10 @@ jQuery(document).ready(function ($) {
 			const variationID = $(this).data(
 				'wc_variation_images_variation_id'
 			);
-			if ($.wc_variation_images.is_cross_upload_limit(variationID)) {
-				alert('Upload limit 5 images in free version');
-				return false;
-			}
+			// if ($.wc_variation_images.is_cross_upload_limit(variationID)) {
+			// 	alert('Upload limit 5 images in free version');
+			// 	return false;
+			// }
 			const self = $(this);
 
 			// Create the media frame.
@@ -91,21 +91,21 @@ jQuery(document).ready(function ($) {
 					text: WC_VARIATION_IMAGES.add_variation_image_text,
 				},
 				library: {
-					type: ['image', 'video'],
+					type: ['image'],
 				},
 				multiple: true,
 			}));
 
 			file_frame.on('select', function () {
 				const images = file_frame.state().get('selection').toJSON();
-				const image_limit = $(
-					'#wc-variation-images-image-list-' + variationID + ' li'
-				).length;
-				const total_image = image_limit + images.length;
-				if (total_image > 5) {
-					alert('Upload limit 5 images in free version');
-					return false;
-				}
+				// const image_limit = $(
+				// 	'#wc-variation-images-image-list-' + variationID + ' li'
+				// ).length;
+				// const total_image = image_limit + images.length;
+				// if (total_image > 5) {
+				// 	alert('Upload limit 5 images in free version');
+				// 	return false;
+				// }
 				const html = images
 					.map(function (image) {
 						const imageID = image.id;
@@ -147,13 +147,13 @@ jQuery(document).ready(function ($) {
 			$(this).parent().remove();
 		},
 
-		is_cross_upload_limit(variationId) {
-			const selector = $(
-				'#wc-variation-images-image-list-' + variationId + ' li'
-			);
-			const length = selector.length;
-			return length >= 5;
-		},
+		// is_cross_upload_limit(variationId) {
+		// 	const selector = $(
+		// 		'#wc-variation-images-image-list-' + variationId + ' li'
+		// 	);
+		// 	const length = selector.length;
+		// 	return length >= 5;
+		// },
 	};
 	$.wc_variation_images.init();
 	$(document).on(

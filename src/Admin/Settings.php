@@ -191,39 +191,6 @@ class Settings extends Framework\Admin\Settings {
 								'desc' => esc_html__('Youtube play api key','wc-variation-images'),
 								'type'    => 'text',
 							),
-							array(
-								'title'   => esc_html__( 'Autoplay videos', 'wc-variation-images' ),
-								'id'      => 'autoplay_videos',
-								'desc'    => esc_html__( 'Choose either the videos will autoplay or not', 'wc-variation-images' ),
-								'type'    => 'select',
-								'default' => 'yes',
-								'options'     => array(
-									'no'  => __( 'No', 'wc-variation-images' ),
-									'yes' => __( 'Yes', 'wc-variation-images' )
-								),
-							),
-							array(
-								'title'   => esc_html__( 'Show fullscreen button', 'wc-variation-images' ),
-								'id'      => 'show_fullscreen_button',
-								'desc'    => esc_html__( 'Show FullScreen Button on the video', 'wc-variation-images' ),
-								'type'    => 'select',
-								'default' => 'yes',
-								'options'     => array(
-									'no'  => __( 'No', 'wc-variation-images' ),
-									'yes' => __( 'Yes', 'wc-variation-images' )
-								),
-							),
-							array(
-								'title'   => esc_html__( 'Show video player controls', 'wc-variation-images' ),
-								'id'      => 'show_video_player_controls',
-								'desc'    => esc_html__( 'Show video player controls on the video', 'wc-variation-images' ),
-								'type'    => 'select',
-								'default' => 'yes',
-								'options'     => array(
-									'no'  => __( 'No', 'wc-variation-images' ),
-									'yes' => __( 'Yes', 'wc-variation-images' )
-								),
-							),
 						),
 					),
 				)
