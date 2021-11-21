@@ -21,6 +21,7 @@ defined( 'ABSPATH' ) || exit;
  */
 class Plugin extends Framework\Plugin {
 	use Framework\Traits\Option;
+
 	/**
 	 * Single instance of plugin.
 	 *
@@ -122,12 +123,14 @@ class Plugin extends Framework\Plugin {
 	 * Add necessary hooks for this plugin
 	 *
 	 * @since 1.0.0
-	*/
+	 */
 	public function register_hooks() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts' ) );
 		add_filter( 'woocommerce_single_product_image_gallery_classes', array( __CLASS__, 'add_gallery_class' ) );
 		add_action( 'wp', array( __CLASS__, 'gallery_control' ), 100 );
 		add_filter( 'woocommerce_single_product_carousel_options', array( __CLASS__, 'slider_navigations' ) );
+		add_filter( 'wc_variation_images_limit', array( __CLASS__, 'change_image_limit' ) );
+		add_filter( 'wc_variation_images_content', array( __CLASS__, 'variations_video_content' ), 10, 2 );
 		if ( is_admin() ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 			add_action( 'admin_footer', array( __CLASS__, 'admin_template_js' ) );
@@ -138,9 +141,9 @@ class Plugin extends Framework\Plugin {
 	 * Enqueue frontend scripts
 	 *
 	 * @since 1.0.0
-	*/
+	 */
 	public function enqueue_frontend_scripts() {
-		$this->register_style('wc-variation-images', 'css/frontend-style.css' );
+		$this->register_style( 'wc-variation-images', 'css/frontend-style.css' );
 		wp_enqueue_style( 'wc-variation-images' );
 
 		$this->register_script( 'wc-variation-images', 'js/frontend-script.js', array( 'jquery' ) );
@@ -222,8 +225,8 @@ class Plugin extends Framework\Plugin {
 	 *
 	 * @param array $class Class
 	 *
-	 * @since 1.0.0
 	 * @return array
+	 * @since 1.0.0
 	 */
 	public static function add_gallery_class( $class ) {
 		$class[] = sanitize_html_class( 'wc-variation-images-product-gallery' );
@@ -235,7 +238,7 @@ class Plugin extends Framework\Plugin {
 	 * Add gallery controls for the variations
 	 *
 	 * @since 1.0.0
-	*/
+	 */
 	public static function gallery_control() {
 		global $post;
 		if ( ! $post ) {
@@ -244,9 +247,9 @@ class Plugin extends Framework\Plugin {
 		$product = wc_get_product( $post->ID );
 
 		if ( is_product() && 'variable' === $product->get_type() ) {
-			$hide_zoom = self::get_option( 'wc_variation_images_settings[hide_image_zoom]', 'no' );
-			$hide_lightbox = self::get_option('wc_variation_images_settings[hide_image_lightbox]', 'no' );
-			$hide_gallery = self::get_option('wc_variation_images_settings[hide_image_slider]', 'no' );
+			$hide_zoom     = self::get_option( 'wc_variation_images_settings[hide_image_zoom]', 'no' );
+			$hide_lightbox = self::get_option( 'wc_variation_images_settings[hide_image_lightbox]', 'no' );
+			$hide_gallery  = self::get_option( 'wc_variation_images_settings[hide_image_slider]', 'no' );
 
 			if ( 'yes' == $hide_zoom ) {
 				remove_theme_support( 'wc-product-gallery-zoom' );
@@ -267,23 +270,79 @@ class Plugin extends Framework\Plugin {
 	 *
 	 * @param array $options Options
 	 *
-	 * @since 1..03
 	 * @return array
-	*/
+	 * @since 1..03
+	 */
 	public static function slider_navigations( $options ) {
-		$slider_navigation = self::get_option('wc_variation_images_settings[gallery_navigation]', 'no' );
-		$gallery_slideshow = self::get_option('wc_variation_images_settings[gallery_slideshow]', 'no' );
+		$slider_navigation = self::get_option( 'wc_variation_images_settings[gallery_navigation]', 'no' );
+		$gallery_slideshow = self::get_option( 'wc_variation_images_settings[gallery_slideshow]', 'no' );
 
 		if ( 'yes' === $slider_navigation ) {
 			$options['directionNav'] = true;
 		}
 
-		if( 'yes' === $gallery_slideshow ) {
+		if ( 'yes' === $gallery_slideshow ) {
 			$options['slideshow'] = true;
 		}
 
 		return $options;
 	}
+
+	/**
+	 * Images limit
+	 *
+	 * @since 1.0.3
+	 * @return bool
+	*/
+	public static function change_image_limit() {
+		return false;
+	}
+
+	/**
+	 * Add video content
+	 *
+	 * @param string $markup MarkUP
+	 * @param int $attachment_id Attachment ID
+	 *
+	 * @return string
+	 * @since 1.0.3
+	*/
+	public static function variations_video_content( $markup, $attachment_id ) {
+		$video_link = get_post_meta( $attachment_id, 'wc_variation_images_video_link', true );
+		if ( ! empty( $video_link ) ) {
+			$find_str = strpos( $video_link, 'youtube.com' );
+			if ( $find_str !== false ) {
+				$auto_play         = self::get_option( 'wc_variation_images_settings[autoplay_videos]', 'yes' );
+				$fullscreen_button = self::get_option( 'wc_variation_images_settings[show_fullscreen_button]', 'yes' );
+				$play_control      = self::get_option( 'wc_variation_images_settings[show_video_player_controls]', 'yes' );
+
+				//control youtube video
+				$auto_play         = ( $auto_play == 'yes' ) ? 1 : 0;
+				$fullscreen_button = ( $fullscreen_button == 'yes' ) ? 1 : 0;
+				$play_control      = ( $play_control == 'yes' ) ? 1 : 0;
+				$parameters        = "?autoplay=" . $auto_play . "&fs=" . $fullscreen_button . "&controls=" . $play_control;
+				$video_link        = $video_link . $parameters;
+			}
+		}
+
+		if ( !empty( $video_link ) ) {
+			$url_parts = explode('/', $video_link );
+			$video_id = explode( '&', str_replace( 'watch?v=','', end( $url_parts ) ) );
+
+			$api_key = self::get_option('wc_variation_images_settings[youtube_api_key]', '' );
+			if( !empty( $youtube_api_key ) ) {
+				$youtube_end_point = "https://www.googleapis.com/youtube/v3/videos?id={$video_id}&key={$api_key}&part=id,snippet,contentDetails,statistics,player";
+				$request = wp_remote_get( $youtube_end_point );
+				$response = wp_remote_retrieve_body( $request );
+				error_log( print_r( $request, true));
+				error_log( print_r( $response,true ));
+
+			}
+		}
+
+		return $markup;
+	}
+
 	/**
 	 * Enqueue admin scripts and styles
 	 *
@@ -295,7 +354,7 @@ class Plugin extends Framework\Plugin {
 			$this->register_style( 'wc-variation-images', 'css/admin-style.css' );
 			wp_enqueue_style( 'wc-variation-images' );
 			wp_enqueue_script( 'jquery-ui-sortable' );
-			$this->register_script('wc-variation-images', 'js/admin-script.js', array( 'jquery', 'jquery-ui-sortable' ));
+			$this->register_script( 'wc-variation-images', 'js/admin-script.js', array( 'jquery', 'jquery-ui-sortable' ) );
 			wp_localize_script( 'wc-variation-images', 'WC_VARIATION_IMAGES', [
 				'ajaxurl'                    => admin_url( 'admin-ajax.php' ),
 				'nonce'                      => wp_create_nonce( 'wc_variation_images' ),

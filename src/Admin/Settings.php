@@ -186,6 +186,12 @@ class Settings extends Framework\Admin\Settings {
 								'id'      => 'section_youtube_settings',
 							),
 							array(
+								'title'   => esc_html__( 'Youtube Api Key', 'wc-variation-images' ),
+								'id'   => 'youtube_api_key',
+								'desc' => esc_html__('Youtube play api key','wc-variation-images'),
+								'type'    => 'text',
+							),
+							array(
 								'title'   => esc_html__( 'Autoplay videos', 'wc-variation-images' ),
 								'id'      => 'autoplay_videos',
 								'desc'    => esc_html__( 'Choose either the videos will autoplay or not', 'wc-variation-images' ),

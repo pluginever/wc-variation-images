@@ -34,7 +34,7 @@ class Ajax {
 		if ( ! wp_verify_nonce( $_POST['nonce'], 'wc_variation_images' ) ) {
 			wp_send_json_error( 'error' );
 		}
-
+		error_log( print_r( $_REQUEST , true ));
 
 		if ( ! isset( $_POST['product_id'] ) ) {
 			wp_send_json_error( 'error' );
