@@ -30,14 +30,6 @@ class Plugin extends Framework\Plugin {
 	protected static $instance;
 
 	/**
-	 * Plugin file
-	 *
-	 * @since 1.0.0
-	 * @var object
-	 */
-	public $plugin_file;
-
-	/**
 	 * Returns the main Plugin instance.
 	 *
 	 * Ensures only one instance is loaded at one time.
@@ -94,8 +86,6 @@ class Plugin extends Framework\Plugin {
 	 * @since 1.0.0
 	 */
 	public function get_plugin_file() {
-		$this->plugin_file = WC_VARIATION_IMAGES_PLUGIN_FILE;
-
 		return WC_VARIATION_IMAGES_PLUGIN_FILE;
 	}
 
@@ -109,12 +99,12 @@ class Plugin extends Framework\Plugin {
 	 * @since 1.0.0
 	 */
 	public function init() {
-		$this->register_service( LifeCycle::class, $this );
-		$this->register_service( Ajax::class, $this );
+		$this->init_service( LifeCycle::class, $this );
+		$this->init_service( Ajax::class, $this );
 		$this->register_hooks();
 		if ( is_admin() ) {
-			$this->register_service( Settings::class, $this );
-			$this->register_service( Metabox::class, $this );
+			$this->init_service( Settings::class, $this );
+			$this->init_service( Metabox::class, $this );
 		}
 	}
 
