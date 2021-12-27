@@ -180,6 +180,11 @@ module.exports = function (grunt) {
 				],
 				tasks: ['jshint', 'uglify']
 			}
+		},
+
+		// Verify build
+		shell: {
+			command: [ 'rm -rf @next', 'npm install', 'npm run build', 'rsync -rc --exclude-from="./.distignore" "." "./@next/" --delete --delete-excluded', 'echo ', 'echo === NOW COMPARE WITH ORG/GIT VERSION===' ].join(' && ')
 		}
 
 	});
