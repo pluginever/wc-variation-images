@@ -10,9 +10,9 @@
  * License:     GPLv2+
  * Text Domain: wc-variation-images
  * Domain Path: /i18n/languages/
- * Tested up to: 5.8.2
+ * Tested up to: 5.9.2
  * WC requires at least: 3.0.0
- * WC tested up to: 6.0.0
+ * WC tested up to: 6.3.1
  */
 
 /**
@@ -49,7 +49,7 @@ final class WC_Variation_Images {
 	 *
 	 * @var string
 	 */
-	public $version = '1.0.2';
+	public $version = '1.0.3';
 
 	/**
 	 * The single instance of the class.

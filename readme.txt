@@ -55,8 +55,8 @@ Yes, it does.
 
 == Changelog ==
 = 1.0.3 =
-* WC compatibility with 6.0.0
-* WP compatibility with 5.8.2
+* [Fix] WC compatibility with 6.3.1
+* [Fix] WP compatibility with 5.9.2
 
 = 1.0.1 =
 * WC compatibility with 3.7.1
