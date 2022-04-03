@@ -33,9 +33,9 @@ window.wc_variation_images = (function (window, document, $, undefined) {
 					action: 'wc_variation_images_load_variation_images',
 					product_id: productId,
 					variation_id: variationID,
-					nonce: WC_VARIATION_IMAGES.nonce
+					nonce: WC_VARIATION_IMAGES.nonce,
 				},
-				success: function (res) {
+				success(res) {
 					var gParent = gallerySelector.parent();
 					gallerySelector.remove();
 
@@ -50,13 +50,11 @@ window.wc_variation_images = (function (window, document, $, undefined) {
 					});
 
 					//productElement.removeClass('loader');
-
 				},
-				error: function () {
+				error() {
 					productElement.removeClass('loader');
-				}
+				},
 			});
 		}
 	});
-
 })(window, document, jQuery);

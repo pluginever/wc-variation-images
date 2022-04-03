@@ -32,10 +32,10 @@ class WC_Variation_Images_Scripts {
 	}
 
 	public function admin_scripts_handler() {
-		wp_enqueue_style( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . "/css/admin.css", [], WC_VARIATION_IMAGES_VERSION );
+		wp_enqueue_style( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . "/dist/css/admin.css", [], WC_VARIATION_IMAGES_VERSION );
 //		wp_enqueue_script( 'jquery-ui-core' );
 		wp_enqueue_script( 'jquery-ui-sortable' );
-		wp_register_script( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . "/js/admin{$this->suffix}.js", [
+		wp_register_script( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . "/dist/js/admin.js", [
 			'jquery',
 			'jquery-ui-sortable'
 		], WC_VARIATION_IMAGES_VERSION, true );
@@ -55,7 +55,7 @@ class WC_Variation_Images_Scripts {
 		wp_enqueue_style( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . "/css/frontend.css", [], WC_VARIATION_IMAGES_VERSION );
 		$this->add_inline_style();
 
-		wp_register_script( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . "/js/frontend{$this->suffix}.js", [ 'jquery' ], WC_VARIATION_IMAGES_VERSION, true );
+		wp_register_script( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . "/js/frontend.js", [ 'jquery' ], WC_VARIATION_IMAGES_VERSION, true );
 		wp_localize_script( 'wc-variation-images', 'WC_VARIATION_IMAGES', [
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
 			'nonce'   => wp_create_nonce( 'wc_variation_images' )
