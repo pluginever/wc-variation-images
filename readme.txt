@@ -2,7 +2,7 @@
 Contributors: manikmist09,pluginever
 Tags: WooCommerce Variation Images, Product Variation, Variation Images, Gallery, woocommerce
 Requires at least: 4.4
-Tested up to: 5.2.4
+Tested up to: 5.9.2
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -54,6 +54,9 @@ Yes, it does.
 3. Settings
 
 == Changelog ==
+= 1.0.2 =
+* WC compatibility with 6.3.1
+* WP compatibility with 5.9.2
 
 = 1.0.1 =
 * WC compatibility with 3.7.1

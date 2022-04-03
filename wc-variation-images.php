@@ -3,16 +3,16 @@
  * Plugin Name: WooCommerce Variation Images
  * Plugin URI:  https://www.pluginever.com/plugins/woocommerce-variation-images
  * Description: Adds additional gallery images per product variation.
- * Version:     1.0.1
+ * Version:     1.0.2
  * Author:      pluginever
  * Author URI:  https://pluginever.com
  * Donate link: https://www.pluginever.com
  * License:     GPLv2+
  * Text Domain: wc-variation-images
  * Domain Path: /i18n/languages/
- * Tested up to: 5.2.4
+ * Tested up to: 5.9.2
  * WC requires at least: 3.0.0
- * WC tested up to: 3.7.1
+ * WC tested up to: 6.3.1
  */
 
 /**
@@ -49,7 +49,7 @@ final class WC_Variation_Images {
 	 *
 	 * @var string
 	 */
-	public $version = '1.0.1';
+	public $version = '1.0.2';
 
 	/**
 	 * The single instance of the class.
@@ -174,7 +174,7 @@ final class WC_Variation_Images {
 	 */
 	public function wc_missing_notice() {
 		if ( ! $this->install() ) {
-			$message = sprintf( __( '<strong>WooCommerce Variaion Images</strong> requires <strong>WooCommerce</strong> installed and activated. Please Install %s WooCommerce. %s', 'wc-serial-numbers' ),
+			$message = sprintf( __( '<strong>WooCommerce Variaion Images</strong> requires <strong>WooCommerce</strong> installed and activated. Please Install %s WooCommerce. %s', 'wc-variation-images' ),
 				'<a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a>' );
 			echo sprintf( '<div class="notice notice-error"><p>%s</p></div>', $message );
 		}
