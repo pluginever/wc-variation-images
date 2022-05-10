@@ -1,21 +1,32 @@
-# Copyright (C) 2019 pluginever
+# Copyright (C) 2022 pluginever
 # This file is distributed under the GPLv2+.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Variation Images 1.0.1\n"
+"Project-Id-Version: WooCommerce Variation Images 1.0.3\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wc-variation-images\n"
-"POT-Creation-Date: 2019-10-27 05:33:25+00:00\n"
+"POT-Creation-Date: 2022-05-10 06:14:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: includes/action-functions.php:52 includes/class-scripts.php:40
-#: includes/class-scripts.php:42
+#: includes/action-functions.php:52 includes/class-scripts.php:45
+#: includes/class-scripts.php:47
 msgid "Variation Images"
 msgstr ""
 
@@ -31,57 +42,101 @@ msgstr ""
 msgid "General Settings"
 msgstr ""
 
-#: includes/admin/class-settings.php:55
+#: includes/admin/class-settings.php:38
+msgid "Gallery Settings"
+msgstr ""
+
+#: includes/admin/class-settings.php:59
 msgid "Hide Image Zoom"
 msgstr ""
 
-#: includes/admin/class-settings.php:56
+#: includes/admin/class-settings.php:60
 msgid "Hide image zoom for variable product"
 msgstr ""
 
-#: includes/admin/class-settings.php:60 includes/admin/class-settings.php:71
-#: includes/admin/class-settings.php:82
+#: includes/admin/class-settings.php:64 includes/admin/class-settings.php:75
+#: includes/admin/class-settings.php:86
 msgid "No"
 msgstr ""
 
-#: includes/admin/class-settings.php:61 includes/admin/class-settings.php:72
-#: includes/admin/class-settings.php:83
+#: includes/admin/class-settings.php:65 includes/admin/class-settings.php:76
+#: includes/admin/class-settings.php:87
 msgid "Yes"
 msgstr ""
 
-#: includes/admin/class-settings.php:66
+#: includes/admin/class-settings.php:70
 msgid "Hide Lightbox"
 msgstr ""
 
-#: includes/admin/class-settings.php:67
+#: includes/admin/class-settings.php:71
 msgid "Hide image lightbox for variable product"
 msgstr ""
 
-#: includes/admin/class-settings.php:77
+#: includes/admin/class-settings.php:81
 msgid "Hide Image Slider"
 msgstr ""
 
-#: includes/admin/class-settings.php:78
+#: includes/admin/class-settings.php:82
 msgid "Hide image slider for variable product"
 msgstr ""
 
-#: includes/admin/class-settings.php:93
+#: includes/admin/class-settings.php:94
+msgid "Large Device Gallery Width"
+msgstr ""
+
+#: includes/admin/class-settings.php:95
+msgid ""
+"% For Large Devices. Slider Gallery Width in %. Default : 30. Limit: "
+"10-100. "
+msgstr ""
+
+#: includes/admin/class-settings.php:104
+msgid "Medium Device Gallery Width"
+msgstr ""
+
+#: includes/admin/class-settings.php:105
+msgid ""
+"px For Medium Devices. Slider Gallery Width in pixel. Default : 0. Limit: "
+"0-1000. "
+msgstr ""
+
+#: includes/admin/class-settings.php:114
+msgid "Small Device Gallery Width"
+msgstr ""
+
+#: includes/admin/class-settings.php:115
+msgid ""
+"px For Small Devices. Slider Gallery Width in pixel. Default : 720. Limit: "
+"0-1000. "
+msgstr ""
+
+#: includes/admin/class-settings.php:124
+msgid "Extra Small Device Gallery Width"
+msgstr ""
+
+#: includes/admin/class-settings.php:125
+msgid ""
+"px For Extra Small Devices. Slider Gallery Width in pixel. Default : 320. "
+"Limit: 0-1000. "
+msgstr ""
+
+#: includes/admin/class-settings.php:139
 msgid "Variation Image"
 msgstr ""
 
-#: includes/admin/class-settings.php:103
+#: includes/admin/class-settings.php:149
 msgid "WC Variation Images Settings"
 msgstr ""
 
-#: includes/class-scripts.php:41
+#: includes/class-scripts.php:46
 msgid "Add Additional Images"
 msgstr ""
 
-#: includes/class-scripts.php:43
+#: includes/class-scripts.php:48
 msgid "Add to Variation"
 msgstr ""
 
-#: includes/class-scripts.php:44
+#: includes/class-scripts.php:49
 msgid ""
 "Click on link below to add additional images. Click on image itself to "
 "remove the image. Click and drag image to re-order the image position."
@@ -97,7 +152,9 @@ msgstr ""
 
 #: wc-variation-images.php:177
 msgid ""
-"<strong>WooCommerce Variaion Images</strong> requires <strong>WooCommerce</strong> installed and activated. Please Install %s WooCommerce. %s"
+"<strong>WooCommerce Variaion Images</strong> requires "
+"<strong>WooCommerce</strong> installed and activated. Please Install %s "
+"WooCommerce. %s"
 msgstr ""
 
 #: wc-variation-images.php:202

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<ruleset name="byteever Coding Standards">
+	<description>byteever PHPCS extended.</description>
+	<rule ref="byteever-Default" />
+	<exclude-pattern>*/bin/*</exclude-pattern>
+</ruleset>
