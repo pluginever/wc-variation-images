@@ -1,363 +1,93 @@
-/* jshint node:true */
-module.exports = function (grunt) {
+module.exports = function( grunt ) {
 	'use strict';
-	var pkg = grunt.file.readJSON('package.json');
 
-	grunt.initConfig({
+	// Load all grunt tasks matching the `grunt-*` pattern
+	require( 'load-grunt-tasks' )( grunt );
 
-		// Setting folder templates.
-		dirs: {
-			css: 'assets/css',
-			fonts: 'assets/fonts',
-			images: 'assets/images',
-			js: 'assets/js'
-		},
+	// Show elapsed time
+	require( '@lodder/time-grunt' )( grunt );
 
-		// JavaScript linting with JSHint.
-		jshint: {
-			options: {
-				jshintrc: '.jshintrc'
-			},
-			all: [
-				'Gruntfile.js',
-				'<%= dirs.js %>/*.js',
-				'!<%= dirs.js %>/*.min.js',
-				'<%= dirs.js %>/*.js',
-				'!<%= dirs.js %>/*.min.js'
-			]
-		},
-
-		// Sass linting with Stylelint.
-		stylelint: {
-			options: {
-				configFile: '.stylelintrc'
-			},
-			all: [
-				'<%= dirs.css %>/*.scss'
-			]
-		},
-
-		// Minify .js files.
-		uglify: {
-			options: {
-				ie8: true,
-				parse: {
-					strict: false
-				},
-				output: {
-					comments: /@license|@preserve|^!/
-				}
-			},
-			admin: {
-				files: [{
+	// Project configuration
+	grunt.initConfig(
+		{
+			package: grunt.file.readJSON( 'package.json' ),
+			addtextdomain: {
+				options: {
 					expand: true,
-					cwd: '<%= dirs.js %>/',
-					src: [
-						'*.js',
-						'!*.min.js'
+					text_domain: 'wc-variation-images',
+					updateDomains: [ 'framework-text-domain' ],
+				},
+				plugin: {
+					files: {
+						src: [
+							'*.php',
+							'**/*.php',
+							'!node_modules/**',
+							'!tests/**',
+							'!vendor/**',
+						],
+					},
+				},
+			},
+			checktextdomain: {
+				options: {
+					text_domain: 'wc-variation-images',
+					keywords: [
+						'__:1,2d',
+						'_e:1,2d',
+						'_x:1,2c,3d',
+						'esc_html__:1,2d',
+						'esc_html_e:1,2d',
+						'esc_html_x:1,2c,3d',
+						'esc_attr__:1,2d',
+						'esc_attr_e:1,2d',
+						'esc_attr_x:1,2c,3d',
+						'_ex:1,2c,3d',
+						'_n:1,2,4d',
+						'_nx:1,2,4c,5d',
+						'_n_noop:1,2,3d',
+						'_nx_noop:1,2,3c,4d',
 					],
-					dest: '<%= dirs.js %>/',
-					ext: '.min.js'
-				}]
-			},
-			vendor: {
+				},
 				files: {
-					// '<%= dirs.js %>/file.min.js': ['<%= dirs.js %>/file.js'],
-				}
-			},
-			frontend: {
-				files: [{
-					expand: true,
-					cwd: '<%= dirs.js %>/',
 					src: [
-						'*.js',
-						'!*.min.js'
+						'**/*.php',
+						'!packages/**',
+						'!node_modules/**',
+						'!tests/**',
+						'!vendor/**',
 					],
-					dest: '<%= dirs.js %>/',
-					ext: '.min.js'
-				}]
-			}
-		},
-
-		// Compile all .scss files.
-		sass: {
-			compile: {
-				options: {
-					sourceMap: true
-				},
-				files: [{
 					expand: true,
-					cwd: '<%= dirs.css %>/',
-					src: ['*.scss'],
-					dest: '<%= dirs.css %>/',
-					ext: '.css'
-				}]
-			}
-		},
-
-		// Minify all .css files.
-		cssmin: {
-			minify: {
-				expand: true,
-				cwd: '<%= dirs.css %>/',
-				src: ['*.css'],
-				dest: '<%= dirs.css %>/',
-				ext: '.css'
-			}
-		},
-
-		// Concatenate files.
-		concat: {
-			admin: {
-				files: {
-					// '<%= dirs.css %>/admin.css' : ['<%= dirs.css %>/select2.css', '<%= dirs.css %>/admin.css'],
-					// '<%= dirs.css %>/admin-rtl.css' : ['<%= dirs.css %>/select2.css', '<%= dirs.css %>/admin-rtl.css']
-				}
-			}
-		},
-
-		// Watch changes for assets.
-		watch: {
-			css: {
-				files: ['<%= dirs.css %>/*.scss'],
-				tasks: ['sass', 'postcss', 'cssmin', 'concat']
-			},
-			js: {
-				files: [
-					'<%= dirs.js %>/*js',
-					'<%= dirs.js %>/*js',
-					'!<%= dirs.js %>/*.min.js',
-					'!<%= dirs.js %>/*.min.js'
-				],
-				tasks: ['jshint', 'uglify']
-			}
-		},
-
-		// Generate POT files.
-		makepot: {
-			options: {
-				type: 'wp-plugin',
-				domainPath: 'i18n/languages',
-				potHeaders: {
-					'language-team': 'LANGUAGE <EMAIL@ADDRESS>'
-				}
-			},
-			dist: {
-				options: {
-					potFilename: 'wc-variation-images.pot',
-					exclude: [
-						'apigen/.*',
-						'vendor/.*',
-						'tests/.*',
-						'tmp/.*'
-					]
-				}
-			}
-		},
-
-		// Check textdomain errors.
-		checktextdomain: {
-			options: {
-				text_domain: 'wc-variation-images',
-				keywords: [
-					'__:1,2d',
-					'_e:1,2d',
-					'_x:1,2c,3d',
-					'esc_html__:1,2d',
-					'esc_html_e:1,2d',
-					'esc_html_x:1,2c,3d',
-					'esc_attr__:1,2d',
-					'esc_attr_e:1,2d',
-					'esc_attr_x:1,2c,3d',
-					'_ex:1,2c,3d',
-					'_n:1,2,4d',
-					'_nx:1,2,4c,5d',
-					'_n_noop:1,2,3d',
-					'_nx_noop:1,2,3c,4d'
-				]
-			},
-			files: {
-				src: [
-					'**/*.php',               // Include all files
-					'!apigen/**',             // Exclude apigen/
-					'!includes/libraries/**', // Exclude libraries/
-					'!node_modules/**',       // Exclude node_modules/
-					'!tests/**',              // Exclude tests/
-					'!vendor/**',             // Exclude vendor/
-					'!tmp/**'                 // Exclude tmp/
-				],
-				expand: true
-			}
-		},
-
-		// PHP Code Sniffer.
-		phpcs: {
-			options: {
-				bin: 'vendor/bin/phpcs'
-			},
-			dist: {
-				src: [
-					'**/*.php',                                                  // Include all files
-					'!includes/libraries/**',                                    // Exclude libraries/
-					'!node_modules/**',                                          // Exclude node_modules/
-					'!tests/cli/**',                                             // Exclude tests/cli/
-					'!tmp/**',                                                   // Exclude tmp/
-					'!vendor/**'                                                 // Exclude vendor/
-				]
-			}
-		},
-
-		// Autoprefixer.
-		postcss: {
-			options: {
-				processors: [
-					require('autoprefixer')({
-						browsers: [
-							'> 0.1%',
-							'ie 8',
-							'ie 9'
-						]
-					})
-				]
-			},
-			dist: {
-				src: [
-					'<%= dirs.css %>/*.css'
-				]
-			}
-		},
-
-		// Clean up build directory
-		clean: {
-			main: ['build/']
-		},
-		copy: {
-			main: {
-				src: [
-					'**',
-					'!node_modules/**',
-					'!**/js/src/**',
-					'!**/css/src/**',
-					'!**/js/vendor/**',
-					'!**/css/vendor/**',
-					'!**/css/*.scss',
-					'!**/images/src/**',
-					'!**/sass/**',
-					'!build/**',
-					'!**/*.md',
-					'!**/*.map',
-					'!**/*.sh',
-					'!.idea/**',
-					'!bin/**',
-					'!.git/**',
-					'!Gruntfile.js',
-					'!package.json',
-					'!composer.json',
-					'!composer.lock',
-					'!package-lock.json',
-					'!debug.log',
-					'!none',
-					'!.gitignore',
-					'!.gitmodules',
-					'!phpcs.xml.dist',
-					'!npm-debug.log',
-					'!plugin-deploy.sh',
-					'!export.sh',
-					'!config.codekit',
-					'!nbproject/*',
-					'!tests/**',
-					'!.csscomb.json',
-					'!.editorconfig',
-					'!.jshintrc',
-					'!.tmp'
-				],
-				dest: 'build/'
-			}
-		},
-
-		compress: {
-			main: {
-				options: {
-					mode: 'zip',
-					archive: './build/' + pkg.name + '-v' + pkg.version + '.zip'
 				},
-				expand: true,
-				cwd: 'build/',
-				src: ['**/*'],
-				dest: pkg.name
-			}
+			},
+			makepot: {
+				target: {
+					options: {
+						domainPath: 'languages',
+						exclude: [ 'packages/*', '.git/*', 'node_modules/*', 'tests/*' ],
+						mainFile: '<%= package.name %>.php',
+						potFilename: '<%= package.name %>.pot',
+						potHeaders: {
+							'report-msgid-bugs-to': '<%= package.homepage %>',
+							'project-id-version': '<%= package.title %> <%= package.version %>',
+							poedit: true,
+							'x-poedit-keywordslist': true,
+						},
+						type: 'wp-plugin',
+						updateTimestamp: false,
+					},
+				},
+			},
+			wp_readme_to_markdown: {
+				your_target: {
+					files: {
+						'readme.md': 'readme.txt',
+					},
+				},
+			},
 		}
+	);
 
-	});
-
-	// Load NPM tasks to be used here.
-	grunt.loadNpmTasks('grunt-sass');
-	grunt.loadNpmTasks('grunt-phpcs');
-	grunt.loadNpmTasks('grunt-postcss');
-	grunt.loadNpmTasks('grunt-stylelint');
-	grunt.loadNpmTasks('grunt-wp-i18n');
-	grunt.loadNpmTasks('grunt-checktextdomain');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-compress');
-	grunt.loadNpmTasks('grunt-prompt');
-
-	// Register tasks.
-	grunt.registerTask('default', [
-		'js',
-		'css',
-		'i18n'
-	]);
-
-	grunt.registerTask('js', [
-		'jshint',
-		'uglify:admin',
-		'uglify:frontend'
-	]);
-
-	grunt.registerTask('css', [
-		'sass',
-		'postcss',
-		'cssmin',
-		'concat'
-	]);
-
-	grunt.registerTask('i18n', [
-		'checktextdomain',
-		'makepot'
-	]);
-
-	// Only an alias to 'default' task.
-	grunt.registerTask('dev', [
-		'default'
-	]);
-
-	grunt.registerTask('i18n', [
-		'checktextdomain',
-		'makepot'
-	]);
-
-	// Only an alias to 'default' task.
-	grunt.registerTask('release',
-		[
-			'default',
-			'i18n'
-		]);
-
-	grunt.registerTask('build',
-		[
-			'clean',
-			'clean',
-			'copy'
-		]);
-
-	grunt.registerTask('zip',
-		[
-			'compress'
-		]);
+	grunt.registerTask( 'i18n', [ 'addtextdomain', 'checktextdomain', 'makepot' ] );
+	grunt.registerTask( 'build', [ 'i18n' ] );
 };
