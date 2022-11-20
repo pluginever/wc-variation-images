@@ -49,7 +49,7 @@ final class WC_Variation_Images {
 	 *
 	 * @var string
 	 */
-	public $version = '1.0.1';
+	public $version = '1.0.3';
 
 	/**
 	 * Minimum PHP version required
