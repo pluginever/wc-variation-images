@@ -83,7 +83,7 @@ final class WC_Variation_Images {
 	 *
 	 * @var string
 	 */
-	public $plugin_name = 'Woocommerce Variation Images';
+	public $plugin_name = 'Product Variation Images for WooCommerce';
 
 	/**
 	 * WC_Variation_Images constructor.
