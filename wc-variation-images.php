@@ -51,14 +51,14 @@ final class WC_Variation_Images {
 	 *
 	 * @var string
 	 */
-	public $version = '1.0.3';
+	public $version = '1.0.4';
 
 	/**
 	 * Minimum PHP version required
 	 *
 	 * @var string
 	 */
-	private $min_php = '5.6.0';
+	private $min_php = '7.0.0';
 
 	/**
 	 * admin notices
@@ -92,11 +92,24 @@ final class WC_Variation_Images {
 		register_activation_hook( __FILE__, array( $this, 'activation_check' ) );
 		add_action( 'admin_notices', array( $this, 'admin_notices' ), 15 );
 		add_action( 'init', array( $this, 'localization_setup' ) );
+		add_action( 'before_woocommerce_init', array( $this, 'on_before_woocommerce_init' ) );
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
 		if ( $this->is_plugin_compatible() ) {
 			$this->define_constants();
 			$this->includes();
 			do_action( 'wc_variation_images_loaded' );
+		}
+	}
+
+	/**
+	 * Run on before WooCommerce init.
+	 *
+	 * @since 1.0.4
+	 * @return void
+	 */
+	public function on_before_woocommerce_init() {
+		if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
 		}
 	}
 
