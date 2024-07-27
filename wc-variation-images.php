@@ -1,22 +1,24 @@
 <?php
 /**
- * Plugin Name: Product Variation Images for WooCommerce
- * Plugin URI:  https://www.pluginever.com/plugins/woocommerce-variation-images
- * Description: Adds additional gallery images per product variation.
- * Version:     1.0.3
- * Author:      PluginEver
- * Author URI:  https://pluginever.com
- * Donate link: https://www.pluginever.com
- * License:     GPLv2+
- * Text Domain: wc-variation-images
- * Domain Path: /i18n/languages/
- * Tested up to: 6.1
- * WC requires at least: 3.0.0
- * WC tested up to: 7.1
+ * Plugin Name:          Product Variation Images for WooCommerce
+ * Plugin URI:           https://www.pluginever.com/plugins/woocommerce-variation-images
+ * Description:          Adds additional gallery images per product variation.
+ * Version:              1.0.4
+ * Author:               PluginEver
+ * Author URI:           https://pluginever.com
+ * Donate link:          https://www.pluginever.com
+ * License:              GPLv2+
+ * Text Domain:          wc-variation-images
+ * Domain Path:          /i18n/languages/
+ * Requires at least:    5.0.0
+ * Tested up to:         6.6.1
+ * Requires PHP:         7.0
+ * WC requires at least: 6.0.0
+ * WC tested up to:      9.1.4
  */
 
 /**
- * Copyright (c) 2019 pluginever (email : support@pluginever.com)
+ * Copyright (c) 2024 pluginever (email : support@pluginever.com)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or, at
