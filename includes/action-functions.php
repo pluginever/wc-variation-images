@@ -60,8 +60,8 @@ function wc_variation_images_upload_images( $loop, $variation_data, $variation )
 						?>
 						<li class="wc-variation-images-image-info">
 							<input type="hidden"
-							       name="wc_variation_images_image_variation_thumb[<?php echo $variation_id ?>][]"
-							       value="<?php echo $image_id ?>">
+							       name="wc_variation_images_image_variation_thumb[<?php echo esc_attr( $variation_id ); ?>][]"
+							       value="<?php echo esc_attr( $image_id ); ?>">
 							<img src="<?php echo esc_url( $image_arr[0] ) ?>" alt="">
 							<span class="wc-variation-images-remove-image dashicons dashicons-dismiss"></span>
 						</li>
@@ -71,7 +71,7 @@ function wc_variation_images_upload_images( $loop, $variation_data, $variation )
 		</div>
 		<p class="wc-variation-images-add-container hide-if-no-js">
 			<a href="#" data-wc_variation_images_variation_id="<?php echo absint( $variation->ID ) ?>"
-			   class="button wc-variation-images-add-image"><?php _e( 'Add Variation Images', 'wc-variation-images' ) ?></a>
+			   class="button wc-variation-images-add-image"><?php esc_html_e( 'Add Variation Images', 'wc-variation-images' ) ?></a>
 		</p>
 	</div>
 	<?php

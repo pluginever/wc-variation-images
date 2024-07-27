@@ -100,7 +100,7 @@ class WC_Variation_Images_Settings {
 	function settings_page() {
 
 		echo '<div class="wrap">';
-		echo sprintf( "<h2>%s</h2>", __( 'WC Variation Images Settings', 'wc-variation-images' ) );
+		echo sprintf( "<h2>%s</h2>", esc_html__( 'WC Variation Images Settings', 'wc-variation-images' ) );
 		$this->settings_api->show_settings();
 		echo '</div>';
 

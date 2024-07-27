@@ -343,7 +343,7 @@ if ( ! class_exists( 'Ever_Settings_API' ) ):
 		function callback_wysiwyg( $args ) {
 			$value = $this->get_option( $args['id'], $args['section'], $args['std'] );
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : '500px';
-			echo '<div style="max-width: ' . $size . ';">';
+			echo '<div style="max-width: ' . esc_attr( $size ) . ';">';
 			$editor_settings = array(
 				'teeny'         => true,
 				'textarea_name' => $args['section'] . '[' . $args['id'] . ']',
@@ -509,7 +509,7 @@ if ( ! class_exists( 'Ever_Settings_API' ) ):
 			?>
 			<div class="ever-settings-content">
 				<?php foreach ( $this->settings_sections as $form ) { ?>
-					<div id="<?php echo $form['id']; ?>" class="group" style="display: none;">
+					<div id="<?php echo esc_attr( $form['id'] ); ?>" class="group" style="display: none;">
 						<form method="post" action="options.php">
 							<?php
 							do_action( 'wsa_form_top_' . $form['id'], $form );
