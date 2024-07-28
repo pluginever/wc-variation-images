@@ -33,6 +33,7 @@ echo "ℹ︎ SLUG is $SLUG"
 
 # Log the version.
 echo "ℹ︎ VERSION is $VERSION"
+echo "version=$VERSION" >> "${GITHUB_OUTPUT}"
 
 # Log the SVN URL.
 echo "ℹ︎ SVN_URL is $SVN_URL"

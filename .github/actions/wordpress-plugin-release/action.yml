@@ -37,7 +37,7 @@ inputs:
   slack_message:
     description: 'Slack message'
     required: false
-    default: 'Deployed to wordpress.org/plugins/${{ steps.deploy.inputs.slug }}'
+    default: ''
 
 outputs:
   zip_path:
@@ -67,9 +67,9 @@ runs:
       env:
         SLACK_COLOR: ${{ job.status }}
         SLACK_ICON: ':rocket:'
-        SLACK_TITLE: ":rocket: ${{ inputs.slug }} v${{ inputs.version }} has been released"
+        SLACK_TITLE: ":rocket: ${{ inputs.slug }} v${{ steps.deploy.outputs.version }} has been released"
         SLACK_USERNAME: 'GitHub Actions'
         SLACK_WEBHOOK: ${{ inputs.slack_webhook }}
         SLACK_FOOTER: ${{ inputs.slug }}-v${{ steps.deploy.outputs.version }}
-        SLACK_MESSAGE: ${{ inputs.slack_message }}
+        SLACK_MESSAGE: ${{ inputs.slack_message != '' && inputs.slack_message || format('Deployed to wordpress.org/plugins/%s', steps.deploy.inputs.slug) }}
         MSG_MINIMAL: true
