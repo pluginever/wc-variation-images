@@ -89,4 +89,14 @@ fi
 
 # Copy tag
 echo "➤ Copying tag..."
-svn cp "trunk" "tags/$VERSION" --delete --delete-excluded
+if svn ls "https://plugins.svn.wordpress.org/$SLUG/tags/$VERSION" >>/dev/null 2>&1; then
+	echo "ℹ︎ Tag already exists. Pulling files ..."
+	svn update --set-depth infinity "$SVN_DIR/tags/$VERSION"
+	rsync -rc "$SVN_DIR/trunk/" "$SVN_DIR/tags/$VERSION/" --delete --delete-excluded
+	echo "✓ Tag files synced !"
+else
+	echo "ℹ︎ Tag does not exist. Creating tag ..."
+	svn copy "$SVN_DIR/trunk" "$SVN_DIR/tags/$VERSION" >>/dev/null
+	echo "✓ Tag created!"
+fi
+echo "✓ Tag copied!"
