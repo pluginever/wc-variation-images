@@ -100,3 +100,40 @@ else
 	echo "✓ Tag created!"
 fi
 echo "✓ Tag copied!"
+
+
+# Update contents.
+echo "➤ Preparing files..."
+svn add . --force > /dev/null
+
+# SVN delete all deleted files
+# Also suppress stdout here
+svn status | grep '^\!' | sed 's/! *//' | xargs -I% svn rm %@ > /dev/null
+svn update # Fix directory is out of date error
+svn status
+echo "✓ Files updated!"
+
+# Generate zip file
+if $GENERATE_ZIP; then
+    echo "➤ Generating zip file..."
+    ln -s "${SVN_DIR}/trunk" "${SVN_DIR}/${SLUG}"
+    zip -r "${GITHUB_WORKSPACE}/${SLUG}.zip" "$SLUG"
+    unlink "${SVN_DIR}/${SLUG}"
+
+    echo "zip_path=${GITHUB_WORKSPACE}/${SLUG}.zip" >> "${GITHUB_OUTPUT}"
+    echo "✓ Zip file generated!"
+fi
+
+# If dry run, then exit.
+if $DRY_RUN; then
+  echo "ℹ︎ Dry run: Files not committed."
+  exit 0
+fi
+
+# Check if there are changes to commit.
+if [[ -n "$(svn status "$SVN_DIR")" ]]; then
+  echo "➤ Committing changes..."
+  echo "✓ Plugin deployed!"
+else
+  echo "ℹ︎ No changes to commit."
+fi

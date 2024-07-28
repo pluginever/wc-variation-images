@@ -37,7 +37,7 @@ inputs:
   slack_message:
     description: 'Slack message'
     required: false
-    default: 'Deployed to wordpress.org successfully'
+    default: 'Deployed to wordpress.org/plugins/${{ steps.deploy.inputs.slug }}'
 
 outputs:
   zip_path:
@@ -52,7 +52,7 @@ runs:
   steps:
     - id: deploy
       shell: bash
-      run: ./.github/actions/wordpress-plugin-release/run.sh
+      run: ./.github/actions/wordpress-plugin-release/release.sh
       env:
         USERNAME: ${{ inputs.username }}
         PASSWORD: ${{ inputs.password }}

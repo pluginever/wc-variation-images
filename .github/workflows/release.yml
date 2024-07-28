@@ -17,5 +17,5 @@ jobs:
         with:
           username: 'test'
           password: 'test'
-          version: 1.0.3
+          version: 1.0.4
           slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
