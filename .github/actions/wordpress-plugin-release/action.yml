@@ -65,7 +65,7 @@ runs:
       shell: bash
       run: |
           if [ -z "${{ inputs.slack_message }}" ]; then
-          echo "SLACK_MESSAGE=Attention Team! '**${{ inputs.slug }}**' version **v${{ steps.deploy.outputs.version }}** has been successfully released! You can view it at wordpress.org/plugins/${{ inputs.slug }}. Please take a moment to test the new version and share your feedback or report any issues!" >> $GITHUB_ENV
+          echo "SLACK_MESSAGE=Hello Team! Version v${{ steps.deploy.outputs.version }} of ${{ inputs.slug }} has been successfully released! Check out: wordpress.org/plugins/${{ inputs.slug }}. Please take a moment to test the new version and share your feedback or report any issues!" >> $GITHUB_ENV
           else
           echo "SLACK_MESSAGE=${{ inputs.slack_message }}" >> $GITHUB_ENV
           fi
