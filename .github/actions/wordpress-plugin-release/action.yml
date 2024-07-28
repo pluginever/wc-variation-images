@@ -60,6 +60,16 @@ runs:
         VERSION: ${{ inputs.version }}
         GENERATE_ZIP: ${{ inputs.generate_zip }}
         DRY_RUN: ${{ inputs.dry_run }}
+        
+    - name: Set Default Slack Message
+      shell: bash
+      run: |
+          if [ -z "${{ inputs.slack_message }}" ]; then
+            echo "SLACK_MESSAGE=Deployed to wordpress.org/plugins/${{ inputs.slug }}" >> $GITHUB_ENV
+          else
+            echo "SLACK_MESSAGE=${{ inputs.slack_message }}" >> $GITHUB_ENV
+          fi
+        
       # Post message to Slack channel
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
@@ -71,5 +81,5 @@ runs:
         SLACK_USERNAME: 'GitHub Actions'
         SLACK_WEBHOOK: ${{ inputs.slack_webhook }}
         SLACK_FOOTER: ${{ inputs.slug }}-v${{ steps.deploy.outputs.version }}
-        SLACK_MESSAGE: ${{ inputs.slack_message != '' && inputs.slack_message || format('Deployed to wordpress.org/plugins/%s', inputs.slug) }}
+        SLACK_MESSAGE: ${{ env.SLACK_MESSAGE }}
         MSG_MINIMAL: true
