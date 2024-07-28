@@ -65,9 +65,9 @@ runs:
       shell: bash
       run: |
           if [ -z "${{ inputs.slack_message }}" ]; then
-            echo "SLACK_MESSAGE=Deployed to wordpress.org/plugins/${{ inputs.slug }}" >> $GITHUB_ENV
+          echo "SLACK_MESSAGE=📢 Attention Team! The plugin '${{ inputs.slug }}' has been successfully released (v${{ steps.deploy.outputs.version }}). You can view it at wordpress.org/plugins/${{ inputs.slug }}. Please take a moment to test the new version and provide your feedback or report any issues if found!" >> $GITHUB_ENV
           else
-            echo "SLACK_MESSAGE=${{ inputs.slack_message }}" >> $GITHUB_ENV
+          echo "SLACK_MESSAGE=${{ inputs.slack_message }}" >> $GITHUB_ENV
           fi
         
       # Post message to Slack channel
@@ -76,10 +76,9 @@ runs:
       if: ${{ success() && inputs.slack_webhook != '' }}
       env:
         SLACK_COLOR: ${{ job.status }}
-        SLACK_ICON: ':rocket:'
         SLACK_TITLE: ":rocket: ${{ inputs.slug }} v${{ steps.deploy.outputs.version }} has been released"
         SLACK_USERNAME: 'GitHub Actions'
         SLACK_WEBHOOK: ${{ inputs.slack_webhook }}
-        SLACK_FOOTER: ${{ inputs.slug }}-v${{ steps.deploy.outputs.version }}
+        SLACK_FOOTER: "🎉 Well done, team! Let’s keep the momentum going!"
         SLACK_MESSAGE: ${{ env.SLACK_MESSAGE }}
         MSG_MINIMAL: true
