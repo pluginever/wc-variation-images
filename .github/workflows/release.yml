@@ -19,3 +19,9 @@ jobs:
           password: 'test'
           version: 1.0.4
           slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
+          generate_zip: 'true'
+          
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.event.repository.name }}
+          path: ${{ steps.release.outputs.zip_path }}
