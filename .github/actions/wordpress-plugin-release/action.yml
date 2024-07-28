@@ -71,5 +71,5 @@ runs:
         SLACK_USERNAME: 'GitHub Actions'
         SLACK_WEBHOOK: ${{ inputs.slack_webhook }}
         SLACK_FOOTER: ${{ inputs.slug }}-v${{ steps.deploy.outputs.version }}
-        SLACK_MESSAGE: ${{ inputs.slack_message != '' && inputs.slack_message || format('Deployed to wordpress.org/plugins/%s', steps.deploy.inputs.slug) }}
+        SLACK_MESSAGE: ${{ inputs.slack_message != '' && inputs.slack_message || format('Deployed to wordpress.org/plugins/%s', inputs.slug) }}
         MSG_MINIMAL: true
