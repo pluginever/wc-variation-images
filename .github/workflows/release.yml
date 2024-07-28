@@ -1,0 +1,21 @@
+name: "Build and Release plugin"
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+        
+      - name: Release
+        uses: ./.github/actions/wordpress-plugin-release
+        with:
+          username: 'test'
+          password: 'test'
+          version: 1.0.3
+          slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
