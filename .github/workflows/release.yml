@@ -13,6 +13,7 @@ jobs:
         
         
       - name: Release
+        id: release
         uses: ./.github/actions/wordpress-plugin-release
         with:
           username: 'test'
