@@ -1,20 +1,21 @@
 <?php
 /**
- * Plugin Name:          Product Variation Images for WooCommerce
+ * Plugin Name:          WC Variation Images
  * Plugin URI:           https://www.pluginever.com/plugins/woocommerce-variation-images
  * Description:          Adds additional gallery images per product variation.
  * Version:              1.0.4
  * Author:               PluginEver
  * Author URI:           https://pluginever.com
- * Donate link:          https://www.pluginever.com
  * License:              GPLv2+
  * Text Domain:          wc-variation-images
  * Domain Path:          /i18n/languages/
- * Requires at least:    5.0.0
- * Tested up to:         6.6.1
- * Requires PHP:         7.0
+ * Requires at least:    5.2
+ * Tested up to:         6.6
+ * Requires PHP:         7.4
  * WC requires at least: 6.0.0
- * WC tested up to:      9.1.4
+ * WC tested up to:      9.1
+ *
+ * @package              WC_Variation_Images
  */
 
 /**
@@ -129,7 +130,6 @@ final class WC_Variation_Images {
 			$message = sprintf( '%s could not be activated The minimum PHP version required for this plugin is %1$s. You are running %2$s.', $this->plugin_name, $this->min_php, PHP_VERSION );
 			wp_die( $message );
 		}
-
 	}
 
 	/**
@@ -140,17 +140,24 @@ final class WC_Variation_Images {
 	 * @since 1.0.0
 	 */
 	public function admin_notices() {
-		$notices = (array) array_merge( $this->notices, get_option( sanitize_key( $this->plugin_name ), [] ) );
+		$notices = (array) array_merge( $this->notices, get_option( sanitize_key( $this->plugin_name ), array() ) );
 		foreach ( $notices as $notice_key => $notice ) :
 			?>
 			<div class="notice notice-<?php echo sanitize_html_class( $notice['class'] ); ?>">
-				<p><?php echo wp_kses( $notice['message'], array(
+				<p>
+				<?php
+				echo wp_kses(
+					$notice['message'],
+					array(
 						'a'      => array( 'href' => array() ),
-						'strong' => array()
-					) ); ?></p>
+						'strong' => array(),
+					)
+				);
+				?>
+					</p>
 			</div>
 			<?php
-			update_option( sanitize_key( $this->plugin_name ), [] );
+			update_option( sanitize_key( $this->plugin_name ), array() );
 		endforeach;
 	}
 
@@ -201,12 +208,15 @@ final class WC_Variation_Images {
 	 * @return bool
 	 */
 	protected function is_plugin_compatible() {
-		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		include_once ABSPATH . 'wp-admin/includes/plugin.php';
 		if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-			$this->add_notice( 'error', sprintf(
-				'<strong>%s</strong> requires <strong>WooCommerce</strong> installed and active.',
-				$this->plugin_name
-			) );
+			$this->add_notice(
+				'error',
+				sprintf(
+					'<strong>%s</strong> requires <strong>WooCommerce</strong> installed and active.',
+					$this->plugin_name
+				)
+			);
 
 			return false;
 		}
@@ -224,17 +234,16 @@ final class WC_Variation_Images {
 	 */
 	public function add_notice( $class, $message ) {
 
-		$notices = get_option( sanitize_key( $this->plugin_name ), [] );
+		$notices = get_option( sanitize_key( $this->plugin_name ), array() );
 		if ( is_string( $message ) && is_string( $class ) && ! wp_list_filter( $notices, array( 'message' => $message ) ) ) {
 
 			$notices[] = array(
 				'message' => $message,
-				'class'   => $class
+				'class'   => $class,
 			);
 
 			update_option( sanitize_key( $this->plugin_name ), $notices );
 		}
-
 	}
 
 	/**
@@ -259,18 +268,17 @@ final class WC_Variation_Images {
 	 */
 	public function includes() {
 
-		require_once( WC_VARIATION_IMAGES_INCLUDES . '/class-scripts.php' );
+		require_once WC_VARIATION_IMAGES_INCLUDES . '/class-scripts.php';
 
-		require_once( WC_VARIATION_IMAGES_INCLUDES . '/action-functions.php' );
-		require_once( WC_VARIATION_IMAGES_INCLUDES . '/core-functions.php' );
-		require_once( WC_VARIATION_IMAGES_INCLUDES . '/functions-ajax.php' );
+		require_once WC_VARIATION_IMAGES_INCLUDES . '/action-functions.php';
+		require_once WC_VARIATION_IMAGES_INCLUDES . '/core-functions.php';
+		require_once WC_VARIATION_IMAGES_INCLUDES . '/functions-ajax.php';
 
 		if ( is_admin() ) {
-			require_once( WC_VARIATION_IMAGES_INCLUDES . '/admin/functions-metabox.php' );
-			require_once( WC_VARIATION_IMAGES_INCLUDES . '/admin/class-settings-api.php' );
-			require_once( WC_VARIATION_IMAGES_INCLUDES . '/admin/class-settings.php' );
+			require_once WC_VARIATION_IMAGES_INCLUDES . '/admin/functions-metabox.php';
+			require_once WC_VARIATION_IMAGES_INCLUDES . '/admin/class-settings-api.php';
+			require_once WC_VARIATION_IMAGES_INCLUDES . '/admin/class-settings.php';
 		}
-
 	}
 
 	/**
@@ -316,13 +324,12 @@ final class WC_Variation_Images {
 
 		return self::$instance;
 	}
-
 }
 
 function wc_variation_images() {
 	return WC_Variation_Images::instance();
 }
 
-//fire off the plugin
+// fire off the plugin
 wc_variation_images();
 

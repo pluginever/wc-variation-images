@@ -23,14 +23,12 @@ jobs:
 
       - name: Build
         run: |
-          # composer install
-          # composer update --no-dev --no-scripts
-          # npm install && npm run build
+          npm install && npm run build
         
       - name: Release
         id: release
         uses: sultann/wordpress-plugin-deploy@master
         with:
-          username: 'test'
-          password: 'test'
+          username: ${{ secrets.SVN_USERNAME }}
+          password: ${{ secrets.SVN_PASSWORD }}
           slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
