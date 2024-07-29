@@ -1,7 +1,11 @@
 /* jshint node:true */
 module.exports = function (grunt) {
 	'use strict';
-	var sass = require('node-sass');
+	// Load multiple grunt tasks using globbing patterns
+	require('load-grunt-tasks')(grunt);
+
+	var sass = require('sass');
+
 	grunt.initConfig({
 
 		// Setting folder templates.
@@ -10,20 +14,6 @@ module.exports = function (grunt) {
 			fonts: 'assets/fonts',
 			images: 'assets/images',
 			js: 'assets/js'
-		},
-
-		// JavaScript linting with JSHint.
-		jshint: {
-			options: {
-				jshintrc: '.jshintrc'
-			},
-			all: [
-				'Gruntfile.js',
-				'<%= dirs.js %>/*.js',
-				'!<%= dirs.js %>/*.min.js',
-				'<%= dirs.js %>/*.js',
-				'!<%= dirs.js %>/*.min.js'
-			]
 		},
 
 		// Minify .js files.
@@ -48,11 +38,6 @@ module.exports = function (grunt) {
 					dest: '<%= dirs.js %>/',
 					ext: '.min.js'
 				}]
-			},
-			vendor: {
-				files: {
-					// '<%= dirs.js %>/file.min.js': ['<%= dirs.js %>/file.js'],
-				}
 			},
 			frontend: {
 				files: [{
@@ -111,21 +96,11 @@ module.exports = function (grunt) {
 			}
 		},
 
-		// Concatenate files.
-		concat: {
-			admin: {
-				files: {
-					// '<%= dirs.css %>/admin.css' : ['<%= dirs.css %>/select2.css', '<%= dirs.css %>/admin.css'],
-					// '<%= dirs.css %>/admin-rtl.css' : ['<%= dirs.css %>/select2.css', '<%= dirs.css %>/admin-rtl.css']
-				}
-			}
-		},
-
 		// Watch changes for assets.
 		watch: {
 			css: {
 				files: ['<%= dirs.css %>/*.scss'],
-				tasks: ['sass', 'postcss', 'cssmin', 'concat']
+				tasks: ['sass', 'postcss', 'cssmin']
 			},
 			js: {
 				files: [
@@ -134,71 +109,28 @@ module.exports = function (grunt) {
 					'!<%= dirs.js %>/*.min.js',
 					'!<%= dirs.js %>/*.min.js'
 				],
-				tasks: ['jshint', 'uglify']
+				tasks: ['uglify']
 			}
 		},
 
 		// Generate POT files.
 		makepot: {
-			options: {
-				type: 'wp-plugin',
-				domainPath: 'i18n/languages',
-				potHeaders: {
-					'language-team': 'LANGUAGE <EMAIL@ADDRESS>'
-				}
-			},
-			dist: {
+			target: {
 				options: {
+					mainFile: 'wc-variation-images.php',
+					type: 'wp-plugin',
+					domainPath: 'i18n/languages',
 					potFilename: 'wc-variation-images.pot',
 					exclude: [
-						'apigen/.*',
 						'vendor/.*',
 						'tests/.*',
 						'tmp/.*'
 					]
 				}
 			}
-		},
-
-		// Check textdomain errors.
-		checktextdomain: {
-			options: {
-				text_domain: 'wc-variation-images',
-				keywords: [
-					'__:1,2d',
-					'_e:1,2d',
-					'_x:1,2c,3d',
-					'esc_html__:1,2d',
-					'esc_html_e:1,2d',
-					'esc_html_x:1,2c,3d',
-					'esc_attr__:1,2d',
-					'esc_attr_e:1,2d',
-					'esc_attr_x:1,2c,3d',
-					'_ex:1,2c,3d',
-					'_n:1,2,4d',
-					'_nx:1,2,4c,5d',
-					'_n_noop:1,2,3d',
-					'_nx_noop:1,2,3c,4d'
-				]
-			},
-			files: {
-				src: [
-					'**/*.php',               // Include all files
-					'!apigen/**',             // Exclude apigen/
-					'!includes/libraries/**', // Exclude libraries/
-					'!node_modules/**',       // Exclude node_modules/
-					'!tests/**',              // Exclude tests/
-					'!vendor/**',             // Exclude vendor/
-					'!tmp/**'                 // Exclude tmp/
-				],
-				expand: true
-			}
 		}
 	});
 
-	// Saves having to declare each dependency
-	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
-
 	// Register tasks.
-	grunt.registerTask('build', ['jshint', 'uglify', 'sass', 'postcss', 'cssmin', 'concat', 'checktextdomain', 'makepot']);
+	grunt.registerTask('build', [ 'uglify', 'sass', 'postcss', 'cssmin', 'makepot']);
 };
