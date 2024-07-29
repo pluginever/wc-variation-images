@@ -1,4 +1,4 @@
-=== Product Variation Images for WooCommerce ===
+=== WC Variation Images - Additional Variation Images for WooCommerce ===
 Contributors: manikmist09, pluginever
 Tags: Product Variation Images for WooCommerce, Product Variation, Variation Images, Gallery, woocommerce
 Requires at least: 4.4

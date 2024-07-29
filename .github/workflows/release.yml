@@ -25,19 +25,12 @@ jobs:
         run: |
           # composer install
           # composer update --no-dev --no-scripts
-          npm install && npm run build
+          # npm install && npm run build
         
       - name: Release
         id: release
-        uses: ./.github/actions/wordpress-plugin-release
+        uses: sultann/wordpress-plugin-release@master
         with:
           username: 'test'
           password: 'test'
-          version: 1.0.4
           slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
-          generate_zip: 'true'
-          
-      - uses: actions/upload-artifact@v4
-        with:
-          name: ${{ github.event.repository.name }}
-          path: ${{ steps.release.outputs.zip_path }}
