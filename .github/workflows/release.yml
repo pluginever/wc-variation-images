@@ -1,8 +1,7 @@
 name: "Build and Release plugin"
 on:
-  push:
-    branches:
-      - master
+  release:
+    types: [published]
 
 jobs:
   release:
