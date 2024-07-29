@@ -1,22 +1,24 @@
 <?php
 /**
- * Plugin Name: Product Variation Images for WooCommerce
- * Plugin URI:  https://www.pluginever.com/plugins/woocommerce-variation-images
- * Description: Adds additional gallery images per product variation.
- * Version:     1.0.3
- * Author:      PluginEver
- * Author URI:  https://pluginever.com
- * Donate link: https://www.pluginever.com
- * License:     GPLv2+
- * Text Domain: wc-variation-images
- * Domain Path: /i18n/languages/
- * Tested up to: 6.1
- * WC requires at least: 3.0.0
- * WC tested up to: 7.1
+ * Plugin Name:          Product Variation Images for WooCommerce
+ * Plugin URI:           https://www.pluginever.com/plugins/woocommerce-variation-images
+ * Description:          Adds additional gallery images per product variation.
+ * Version:              1.0.4
+ * Author:               PluginEver
+ * Author URI:           https://pluginever.com
+ * Donate link:          https://www.pluginever.com
+ * License:              GPLv2+
+ * Text Domain:          wc-variation-images
+ * Domain Path:          /i18n/languages/
+ * Requires at least:    5.0.0
+ * Tested up to:         6.6.1
+ * Requires PHP:         7.0
+ * WC requires at least: 6.0.0
+ * WC tested up to:      9.1.4
  */
 
 /**
- * Copyright (c) 2019 pluginever (email : support@pluginever.com)
+ * Copyright (c) 2024 pluginever (email : support@pluginever.com)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or, at
@@ -49,14 +51,14 @@ final class WC_Variation_Images {
 	 *
 	 * @var string
 	 */
-	public $version = '1.0.3';
+	public $version = '1.0.4';
 
 	/**
 	 * Minimum PHP version required
 	 *
 	 * @var string
 	 */
-	private $min_php = '5.6.0';
+	private $min_php = '7.0.0';
 
 	/**
 	 * admin notices
@@ -81,7 +83,7 @@ final class WC_Variation_Images {
 	 *
 	 * @var string
 	 */
-	public $plugin_name = 'Woocommerce Variation Images';
+	public $plugin_name = 'Product Variation Images for WooCommerce';
 
 	/**
 	 * WC_Variation_Images constructor.
@@ -90,11 +92,24 @@ final class WC_Variation_Images {
 		register_activation_hook( __FILE__, array( $this, 'activation_check' ) );
 		add_action( 'admin_notices', array( $this, 'admin_notices' ), 15 );
 		add_action( 'init', array( $this, 'localization_setup' ) );
+		add_action( 'before_woocommerce_init', array( $this, 'on_before_woocommerce_init' ) );
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
 		if ( $this->is_plugin_compatible() ) {
 			$this->define_constants();
 			$this->includes();
 			do_action( 'wc_variation_images_loaded' );
+		}
+	}
+
+	/**
+	 * Run on before WooCommerce init.
+	 *
+	 * @since 1.0.4
+	 * @return void
+	 */
+	public function on_before_woocommerce_init() {
+		if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
 		}
 	}
 
