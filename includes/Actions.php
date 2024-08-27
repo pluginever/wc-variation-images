@@ -15,7 +15,7 @@ class Actions {
 	/**
 	 * Actions constructor
 	 *
-	 * @return void
+	 * @since 1.0.0
 	 */
 	function __construct() {
 		add_action( 'wp', array( $this, 'wc_variation_images_gallery_control' ), 100 );

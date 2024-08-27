@@ -15,12 +15,17 @@ class Admin {
 
 	private $settings_api;
 
+	/**
+	 * Admin constructor.
+	 *
+	 * @since 1.1.0
+	 */
 	function __construct() {
 		$this->settings_api = new SettingsAPI();
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts_handler' ) );
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-		add_action( 'woocommerce_save_product_variation', array( $this, 'wc_variation_images_save_product_variation', 10, 2 ) );
+		add_action( 'woocommerce_save_product_variation', array( $this, 'wc_variation_images_save_product_variation' ), 10, 2 );
 		add_action( 'admin_footer', array( $this, 'admin_template_js' ) );
 	}
 

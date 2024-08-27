@@ -24,6 +24,11 @@ class SettingsAPI {
 	 */
 	protected $settings_fields = array();
 
+	/**
+	 * SettingsAPI constructor.
+	 *
+	 * @since 1.1.0
+	 */
 	public function __construct() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 	}
