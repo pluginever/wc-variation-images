@@ -10,25 +10,34 @@
     "url": "https://www.pluginever.com"
   },
   "scripts": {
-    "build": "grunt build",
-    "watch": "grunt watch"
+    "build": "wp-scripts build --webpack-src-dir=.assets && grunt build",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "lint:md:docs": "wp-scripts lint-md-docs",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "packages-update": "wp-scripts packages-update",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "start": "wp-scripts start --webpack-src-dir=.assets",
+    "test:e2e": "wp-scripts test-e2e",
+    "test:unit": "wp-scripts test-unit-js"
   },
   "devDependencies": {
     "@lodder/time-grunt": "^4.0.0",
-    "autoprefixer": "^9.7.4",
-    "grunt": "^1.5.3",
-    "grunt-contrib-cssmin": "^4.0.0",
-    "grunt-contrib-uglify": "^5.2.2",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-postcss": "^0.9.0",
-    "grunt-sass": "^3.1.0",
+    "@wordpress/scripts": "^27.9.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "grunt": "^1.6.1",
+    "grunt-checktextdomain": "^1.0.1",
     "grunt-wp-i18n": "^1.0.3",
     "load-grunt-tasks": "^5.1.0",
-    "sass": "^1.77.8"
+    "webpack-remove-empty-scripts": "^1.0.4"
   },
   "browserslist": [
-    "last 1 version",
-    "> 1%",
-    "IE 10"
+    "> 0.1%",
+    "ie 8",
+    "ie 9"
   ]
 }

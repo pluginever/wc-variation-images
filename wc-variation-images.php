@@ -8,7 +8,7 @@
  * Author URI:           https://pluginever.com
  * License:              GPLv2+
  * Text Domain:          wc-variation-images
- * Domain Path:          /i18n/languages/
+ * Domain Path:          /languages/
  * Requires at least:    5.2
  * Tested up to:         6.6
  * Requires PHP:         7.4
