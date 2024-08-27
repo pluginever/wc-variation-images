@@ -6,6 +6,9 @@ module.exports = [
 		entry: {
 			...defaultConfig.entry(),
 			'css/admin': './.assets/css/admin.scss',
+			'css/frontend': './.assets/css/frontend.scss',
+			'js/admin': './.assets/js/admin.js',
+			'js/frontend': './.assets/js/frontend.js',
 		},
 		output: {
 			...defaultConfig.output,
