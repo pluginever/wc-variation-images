@@ -121,14 +121,18 @@ final class Plugin extends ByteKit\Plugin {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	public function frontend_scripts_handler(){
-		wp_enqueue_style( 'wc-variation-images-frontend', WC_VARIATION_IMAGES_ASSETS_URL . "css/frontend.css", array(), WC_VARIATION_IMAGES_VERSION );
+	public function frontend_scripts_handler() {
+		wp_enqueue_style( 'wc-variation-images-frontend', WC_VARIATION_IMAGES_ASSETS_URL . 'css/frontend.css', array(), WC_VARIATION_IMAGES_VERSION );
 
-		wp_register_script( 'wc-variation-images-frontend', WC_VARIATION_IMAGES_ASSETS_URL . "js/frontend.js", array( 'jquery' ), WC_VARIATION_IMAGES_VERSION, true );
-		wp_localize_script( 'wc-variation-images-frontend', 'WC_VARIATION_IMAGES', [
-			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-			'nonce'   => wp_create_nonce( 'wc_variation_images' )
-		] );
+		wp_register_script( 'wc-variation-images-frontend', WC_VARIATION_IMAGES_ASSETS_URL . 'js/frontend.js', array( 'jquery' ), WC_VARIATION_IMAGES_VERSION, true );
+		wp_localize_script(
+			'wc-variation-images-frontend',
+			'WC_VARIATION_IMAGES',
+			array(
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'nonce'   => wp_create_nonce( 'wc_variation_images' ),
+			)
+		);
 
 		wp_enqueue_script( 'wc-variation-images-frontend' );
 	}

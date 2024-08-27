@@ -2,7 +2,6 @@
 
 namespace WooCommerceVariationImages\Admin;
 
-
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -13,6 +12,11 @@ defined( 'ABSPATH' ) || exit;
  */
 class Admin {
 
+	/**
+	 * Settings Api.
+	 *
+	 * @var $settings_api
+	 */
 	private $settings_api;
 
 	/**
@@ -20,12 +24,12 @@ class Admin {
 	 *
 	 * @since 1.1.0
 	 */
-	function __construct() {
+	public function __construct() {
 		$this->settings_api = new SettingsAPI();
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts_handler' ) );
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-		add_action( 'woocommerce_save_product_variation', array( $this, 'wc_variation_images_save_product_variation' ), 10, 2 );
+		add_action( 'woocommerce_save_product_variation', array( $this, 'wc_variation_images_save_product_variation' ), 10, 1 );
 		add_action( 'admin_footer', array( $this, 'admin_template_js' ) );
 	}
 
@@ -35,18 +39,22 @@ class Admin {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	public function admin_scripts_handler(){
-		wp_enqueue_style( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . "css/admin.css", array(), WC_VARIATION_IMAGES_VERSION );
-		wp_register_script( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . "js/admin.js", array( 'jquery' ), WC_VARIATION_IMAGES_VERSION, true );
-		wp_localize_script( 'wc-variation-images', 'WC_VARIATION_IMAGES', [
-			'ajaxurl'                    => admin_url( 'admin-ajax.php' ),
-			'nonce'                      => wp_create_nonce( 'wc_variation_images' ),
-			'variation_image_title'      => __( 'Variation Images', 'wc-variation-images' ),
-			'add_variation_image_text'   => __( 'Add Additional Images', 'wc-variation-images' ),
-			'admin_media_title'          => __( 'Variation Images', 'wc-variation-images' ),
-			'admin_media_add_image_text' => __( 'Add to Variation', 'wc-variation-images' ),
-			'admin_tip_message'          => __( 'Click on link below to add additional images. Click on image itself to remove the image. Click and drag image to re-order the image position.', 'wc-variation-images' ),
-		] );
+	public function admin_scripts_handler() {
+		wp_enqueue_style( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . 'css/admin.css', array(), WC_VARIATION_IMAGES_VERSION );
+		wp_register_script( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . 'js/admin.js', array( 'jquery' ), WC_VARIATION_IMAGES_VERSION, true );
+		wp_localize_script(
+			'wc-variation-images',
+			'WC_VARIATION_IMAGES',
+			array(
+				'ajaxurl'                    => admin_url( 'admin-ajax.php' ),
+				'nonce'                      => wp_create_nonce( 'wc_variation_images' ),
+				'variation_image_title'      => __( 'Variation Images', 'wc-variation-images' ),
+				'add_variation_image_text'   => __( 'Add Additional Images', 'wc-variation-images' ),
+				'admin_media_title'          => __( 'Variation Images', 'wc-variation-images' ),
+				'admin_media_add_image_text' => __( 'Add to Variation', 'wc-variation-images' ),
+				'admin_tip_message'          => __( 'Click on link below to add additional images. Click on image itself to remove the image. Click and drag image to re-order the image position.', 'wc-variation-images' ),
+			)
+		);
 		wp_enqueue_script( 'wc-variation-images' );
 	}
 
@@ -60,39 +68,47 @@ class Admin {
 		require_once trailingslashit( WC_VARIATION_IMAGES_TEMPLATES_DIR ) . 'wc-variation-images-variation-template.php';
 	}
 
-	function admin_init() {
-		//set the settings
+	/**
+	 * Admin init function.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function admin_init() {
+		// Set the settings.
 		$this->settings_api->set_sections( $this->get_settings_sections() );
 		$this->settings_api->set_fields( $this->get_settings_fields() );
 
-		//initialize settings
+		// Initialize settings.
 		$this->settings_api->admin_init();
 	}
 
-	function get_settings_sections() {
-
+	/**
+	 * Get settings section.
+	 *
+	 * @since 1.0.0
+	 * @return array
+	 */
+	public function get_settings_sections() {
 		$sections = array(
 			array(
 				'id'    => 'wc_variation_images_general_settings',
-				'title' => __( 'General Settings', 'wc-variation-images' )
-			)
+				'title' => __( 'General Settings', 'wc-variation-images' ),
+			),
 		);
 
 		return apply_filters( 'wc_variation_images_settings_sections', $sections );
 	}
 
 	/**
-	 * Returns all the settings fields
+	 * Returns all the settings fields.
 	 *
-	 * @return array settings fields
+	 * @since 1.0.0
+	 * @return array
 	 */
-
-	function get_settings_fields() {
-
+	public function get_settings_fields() {
 		$settings_fields = array(
-
 			'wc_variation_images_general_settings' => array(
-
 				array(
 					'name'    => 'wc_variation_images_hide_image_zoom',
 					'label'   => __( 'Hide Image Zoom', 'wc-variation-images' ),
@@ -101,7 +117,7 @@ class Admin {
 					'type'    => 'select',
 					'options' => array(
 						'no'  => __( 'No', 'wc-variation-images' ),
-						'yes' => __( 'Yes', 'wc-variation-images' )
+						'yes' => __( 'Yes', 'wc-variation-images' ),
 					),
 				),
 				array(
@@ -112,7 +128,7 @@ class Admin {
 					'type'    => 'select',
 					'options' => array(
 						'no'  => __( 'No', 'wc-variation-images' ),
-						'yes' => __( 'Yes', 'wc-variation-images' )
+						'yes' => __( 'Yes', 'wc-variation-images' ),
 					),
 				),
 				array(
@@ -123,48 +139,67 @@ class Admin {
 					'type'    => 'select',
 					'options' => array(
 						'no'  => __( 'No', 'wc-variation-images' ),
-						'yes' => __( 'Yes', 'wc-variation-images' )
-					)
-				)
-			)
+						'yes' => __( 'Yes', 'wc-variation-images' ),
+					),
+				),
+			),
 		);
 
 		return apply_filters( 'wc_variation_images_settings_fields', $settings_fields );
 	}
 
-	function admin_menu() {
-		add_menu_page( __( 'Variation Image', 'wc-variation-images' ), __( 'Variation Image', 'wc-variation-images' ), 'manage_woocommerce', 'wc-variation-images', array(
-			$this,
-			'settings_page'
-		), 'dashicons-images-alt2', '55.9' );
+	/**
+	 * Admin Menu
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function admin_menu() {
+		add_menu_page(
+			__( 'Variation Image', 'wc-variation-images' ),
+			__( 'Variation Image', 'wc-variation-images' ),
+			'manage_woocommerce',
+			'wc-variation-images',
+			array(
+				$this,
+				'settings_page',
+			),
+			'dashicons-images-alt2',
+			'55.9'
+		);
 	}
 
-	function settings_page() {
+	/**
+	 * Settings page text.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function settings_page() {
 		echo '<div class="wrap">';
-		echo sprintf( "<h2>%s</h2>", esc_html__( 'WC Variation Images Settings', 'wc-variation-images' ) );
+		printf( '<h2>%s</h2>', esc_html__( 'WC Variation Images Settings', 'wc-variation-images' ) );
 		$this->settings_api->show_settings();
 		echo '</div>';
 	}
 
 	/**
-	 * since 1.0.0
+	 * Save Variation Product.
 	 *
-	 * @param $variation_id
-	 * @param $i
+	 * @param int $variation_id Variation ID.
 	 *
-	 * @return void|int
+	 * @since 1.0.0
+	 * @return void
 	 */
-	public function wc_variation_images_save_product_variation( $variation_id, $i ) {
+	public function wc_variation_images_save_product_variation( $variation_id ) {
 		$attachment_ids = array();
 		if ( isset( $_POST['wc_variation_images_image_variation_thumb'][ $variation_id ] ) ) {
-			//sanitize
+			// Sanitize.
 			$attachment_ids = array_map( 'absint', $_POST['wc_variation_images_image_variation_thumb'][ $variation_id ] );
-			//filter
+			// Filter.
 			$attachment_ids = array_filter( $attachment_ids );
-			//unique
+			// Unique.
 			$attachment_ids = array_unique( $attachment_ids );
 		}
 		update_post_meta( $variation_id, 'wc_variation_images_variation_images', $attachment_ids );
 	}
-
 }
