@@ -1,6 +1,6 @@
 {
   "name": "pluginever/wc-variation-images",
-  "description": "WC Variation Images.",
+  "description": "Adds additional gallery images per product variation.",
   "homepage": "https://pluginever.com/plugins/wc-variation-images-pro/",
   "type": "wordpress-plugin",
   "license": "GPL-3.0-or-later",

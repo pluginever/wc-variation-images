@@ -1,13 +1,13 @@
 {
   "name": "wc-variation-images",
   "title": "WC Variation Images",
-  "description": "The Best WordPress Plugin ever made!",
-  "version": "1.0.4",
-  "homepage": "https://www.pluginever.com",
+  "description": "Adds additional gallery images per product variation.",
+  "version": "1.1.0",
+  "homepage": "https://pluginever.com",
   "author": {
     "name": "pluginever",
     "email": "support@pluginever.com",
-    "url": "https://www.pluginever.com"
+    "url": "https://pluginever.com"
   },
   "scripts": {
     "build": "wp-scripts build --webpack-src-dir=.assets && grunt build",
