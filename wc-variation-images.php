@@ -48,6 +48,6 @@ require_once __DIR__ . '/vendor/autoload.php';
 WooCommerceVariationImages\Plugin::create(
 	array(
 		'file'         => __FILE__,
-		'settings_url' => admin_url( 'edit.php?post_type=wc_category_slider' ),
+		'settings_url' => admin_url( 'admin.php?page=wc-variation-images' ),
 	)
 );
