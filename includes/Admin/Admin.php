@@ -1,19 +1,26 @@
 <?php
-// don't call the file directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
 
-class WC_Variation_Images_Settings {
+namespace WooCommerceVariationImages\Admin;
+
+
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * Admin class.
+ *
+ * @since 1.0.0
+ * @package WooCommerceVariationImages\Admin
+ */
+class Admin {
 
 	private $settings_api;
 
 	function __construct() {
 
-		$this->settings_api = new \Ever_Settings_API();
+		$this->settings_api = new SettingsAPI();
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-
+		add_action( 'woocommerce_save_product_variation', array( $this, 'wc_variation_images_save_product_variation', 10, 2 ) );
 	}
 
 	function admin_init() {
@@ -106,6 +113,25 @@ class WC_Variation_Images_Settings {
 
 	}
 
-}
+	/**
+	 * since 1.0.0
+	 *
+	 * @param $variation_id
+	 * @param $i
+	 *
+	 * @return void|int
+	 */
+	public function wc_variation_images_save_product_variation( $variation_id, $i ) {
+		$attachment_ids = array();
+		if ( isset( $_POST['wc_variation_images_image_variation_thumb'][ $variation_id ] ) ) {
+			//sanitize
+			$attachment_ids = array_map( 'absint', $_POST['wc_variation_images_image_variation_thumb'][ $variation_id ] );
+			//filter
+			$attachment_ids = array_filter( $attachment_ids );
+			//unique
+			$attachment_ids = array_unique( $attachment_ids );
+		}
+		update_post_meta( $variation_id, 'wc_variation_images_variation_images', $attachment_ids );
+	}
 
-new WC_Variation_Images_Settings();
+}

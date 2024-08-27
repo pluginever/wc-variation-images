@@ -111,9 +111,8 @@ final class Plugin extends ByteKit\Plugin {
 		require_once WC_VARIATION_IMAGES_INCLUDES . '/functions-ajax.php';
 
 		if ( is_admin() ) {
-			require_once WC_VARIATION_IMAGES_INCLUDES . '/admin/functions-metabox.php';
-			require_once WC_VARIATION_IMAGES_INCLUDES . '/admin/class-settings-api.php';
-			require_once WC_VARIATION_IMAGES_INCLUDES . '/admin/class-settings.php';
+			$this->set( Admin\Admin::class );
+			$this->set( Admin\SettingsAPI::class );
 		}
 
 		// Init action.

@@ -10,6 +10,6 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.0.1
  * @return WooCommerceVariationImages\Plugin
  */
-function wc_variation_images_pro() {
+function wc_variation_images() {
 	return Plugin::instance();
 }
