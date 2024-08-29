@@ -41,7 +41,7 @@ function wc_variation_images_get_settings( $key, $default_value = '', $section =
 function wc_variation_images_get_variation_images( $product_id, $variation_id ) {
 
 	// When variation id not found replace product_id as variation id.
-	if ( '' === $variation_id ) {
+	if ( empty( $variation_id ) ) {
 		$variation_id = $product_id;
 	}
 	$columns                      = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
