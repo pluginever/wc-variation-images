@@ -1,10 +1,10 @@
 # Copyright (C) 2024 PluginEver
-# This file is distributed under the GPLv2+.
+# This file is distributed under the GPL v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WC Variation Images 1.0.4\n"
+"Project-Id-Version: WC Variation Images 1.1.0\n"
 "Report-Msgid-Bugs-To: https://pluginever.com/support/\n"
-"POT-Creation-Date: 2024-08-27 11:45:02+00:00\n"
+"POT-Creation-Date: 2024-08-28 05:59:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,89 +24,89 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: includes/Plugin.php:92
-#. translators: 1: plugin name 2: WooCommerce
-msgid "%1$s requires %2$s to be installed and active."
-msgstr ""
-
-#: includes/Plugin.php:94
-msgid "WooCommerce"
-msgstr ""
-
-#: includes/action-functions.php:52 includes/class-scripts.php:40
-#: includes/class-scripts.php:42
+#: includes/Actions.php:55 includes/Admin/Admin.php:51
+#: includes/Admin/Admin.php:53
 msgid "Variation Images"
 msgstr ""
 
-#: includes/action-functions.php:74
+#: includes/Actions.php:79
 msgid "Add Variation Images"
 msgstr ""
 
-#: includes/admin/class-settings-api.php:369
-msgid "Choose File"
-msgstr ""
-
-#: includes/admin/class-settings.php:34
-msgid "General Settings"
-msgstr ""
-
-#: includes/admin/class-settings.php:55
-msgid "Hide Image Zoom"
-msgstr ""
-
-#: includes/admin/class-settings.php:56
-msgid "Hide image zoom for variable product"
-msgstr ""
-
-#: includes/admin/class-settings.php:60 includes/admin/class-settings.php:71
-#: includes/admin/class-settings.php:82
-msgid "No"
-msgstr ""
-
-#: includes/admin/class-settings.php:61 includes/admin/class-settings.php:72
-#: includes/admin/class-settings.php:83
-msgid "Yes"
-msgstr ""
-
-#: includes/admin/class-settings.php:66
-msgid "Hide Lightbox"
-msgstr ""
-
-#: includes/admin/class-settings.php:67
-msgid "Hide image lightbox for variable product"
-msgstr ""
-
-#: includes/admin/class-settings.php:77
-msgid "Hide Image Slider"
-msgstr ""
-
-#: includes/admin/class-settings.php:78
-msgid "Hide image slider for variable product"
-msgstr ""
-
-#: includes/admin/class-settings.php:93
-msgid "Variation Image"
-msgstr ""
-
-#: includes/admin/class-settings.php:103
-msgid "WC Variation Images Settings"
-msgstr ""
-
-#: includes/class-scripts.php:41
+#: includes/Admin/Admin.php:52
 msgid "Add Additional Images"
 msgstr ""
 
-#: includes/class-scripts.php:43
+#: includes/Admin/Admin.php:54
 msgid "Add to Variation"
 msgstr ""
 
-#: includes/class-scripts.php:44
+#: includes/Admin/Admin.php:55
 msgid ""
 "Click on link below to add additional images. Click on image itself to "
 "remove the image. Click and drag image to re-order the image position."
 msgstr ""
 
-#: includes/functions-ajax.php:101
+#: includes/Admin/Admin.php:96
+msgid "General Settings"
+msgstr ""
+
+#: includes/Admin/Admin.php:114
+msgid "Hide Image Zoom"
+msgstr ""
+
+#: includes/Admin/Admin.php:115
+msgid "Hide image zoom for variable product"
+msgstr ""
+
+#: includes/Admin/Admin.php:119 includes/Admin/Admin.php:130
+#: includes/Admin/Admin.php:141
+msgid "No"
+msgstr ""
+
+#: includes/Admin/Admin.php:120 includes/Admin/Admin.php:131
+#: includes/Admin/Admin.php:142
+msgid "Yes"
+msgstr ""
+
+#: includes/Admin/Admin.php:125
+msgid "Hide Lightbox"
+msgstr ""
+
+#: includes/Admin/Admin.php:126
+msgid "Hide image lightbox for variable product"
+msgstr ""
+
+#: includes/Admin/Admin.php:136
+msgid "Hide Image Slider"
+msgstr ""
+
+#: includes/Admin/Admin.php:137
+msgid "Hide image slider for variable product"
+msgstr ""
+
+#: includes/Admin/Admin.php:159 includes/Admin/Admin.php:160
+msgid "Variation Image"
+msgstr ""
+
+#: includes/Admin/Admin.php:180
+msgid "WC Variation Images Settings"
+msgstr ""
+
+#: includes/Admin/SettingsAPI.php:404
+msgid "Choose File"
+msgstr ""
+
+#: includes/Plugin.php:93
+#. translators: 1: plugin name 2: WooCommerce
+msgid "%1$s requires %2$s to be installed and active."
+msgstr ""
+
+#: includes/Plugin.php:95
+msgid "WooCommerce"
+msgstr ""
+
+#: includes/functions.php:101
 msgid "Awaiting product image"
 msgstr ""
 
