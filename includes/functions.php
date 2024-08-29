@@ -77,6 +77,7 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 	if ( count( $gallery_images ) > 3 && apply_filters( 'wc_variation_images_limit', true ) ) {
 		$gallery_images = array_slice( $gallery_images, 0, 3 );
 	}
+	$hide_slider = wc_variation_images_get_settings( 'wc_variation_images_hide_image_slider', 'no', 'wc_variation_images_general_settings' );
 
 	// Add product/variation image id in gallery image array.
 	array_unshift( $gallery_images, $variation_image_id );
@@ -90,18 +91,28 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 			$html           = '';
 			$gallery_images = array_filter( $gallery_images );
 			if ( $gallery_images ) {
+				$flag = true;
 				foreach ( $gallery_images as $attachment_id ) {
+					if ( ! $flag ) {
+						add_filter(
+							'woocommerce_gallery_image_size',
+							function () {
+								return array( 100, 100 );
+							}
+						);
+					}
 					if ( ! empty( $attachment_id ) ) {
 						$variation_image = wc_get_gallery_image_html( $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
 						$html           .= apply_filters( 'wc_variation_images_content', $variation_image, $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
 					}
+					$flag = false;
 				}
 			} else {
 				$html  = '<div class="woocommerce-product-gallery__image--placeholder">';
 				$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'wc-variation-images' ) );
 				$html .= '</div>';
 			}
-			echo $html;
+			echo wp_kses_post( $html );
 			?>
 		</figure>
 	</div>
