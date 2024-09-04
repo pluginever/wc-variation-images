@@ -5,8 +5,8 @@ Requires at least: 5.2
 Tested up to: 6.6
 Requires PHP: 7.4
 Stable tag: 1.1.0
-License: GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Product Variation Images for WooCommerce allows adding additional images for each variation of the product.
 
@@ -52,9 +52,9 @@ Yes, it is compatible with Most of the popular WooCommerce themes.
 Yes, it does.
 
 == Screenshots ==
-1. Variation Images
-2. Product variation
-3. Settings
+1. Variation Settings
+2. Product variation Settings
+3. Product Single Page view
 
 == Changelog ==
 = 1.1.0 =

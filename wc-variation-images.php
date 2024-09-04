@@ -6,15 +6,15 @@
  * Version:              1.1.0
  * Author:               PluginEver
  * Author URI:           https://pluginever.com
- * License:              GPL v3 or later
- * License URI:          https://www.gnu.org/licenses/gpl-3.0.html
+ * License:              GPL v2 or later
+ * License URI:          https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:          wc-variation-images
  * Domain Path:          languages/
  * Requires Plugins:     woocommerce
  * Requires at least:    5.2
  * Tested up to:         6.6
  * Requires PHP:         7.4
- * WC requires at least: 6.0.0
+ * WC requires at least: 3.0.0
  * WC tested up to:      9.2
  *
  * @package WooCommerceVariationImages
