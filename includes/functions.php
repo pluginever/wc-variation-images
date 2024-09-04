@@ -78,6 +78,8 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 		$gallery_images = array_slice( $gallery_images, 0, 3 );
 	}
 
+	$hide_gallery  = wc_variation_images_get_settings( 'wc_variation_images_hide_image_slider', 'no', 'wc_variation_images_general_settings' );
+
 	// Add product/variation image id in gallery image array.
 	array_unshift( $gallery_images, $variation_image_id );
 	ob_start();
@@ -92,7 +94,7 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 			if ( $gallery_images ) {
 				$flag = true;
 				foreach ( $gallery_images as $attachment_id ) {
-					if ( ! $flag ) {
+					if ( ! $flag && 'yes' === $hide_gallery ) {
 						add_filter(
 							'woocommerce_gallery_image_size',
 							function () {
