@@ -16,13 +16,13 @@ defined( 'ABSPATH' ) || exit;
 	</div>
 	<div class="notice-content">
 		<h3>
-			<?php esc_html_e( 'Enjoying WC Category Slider?', 'wc-variation-images' ); ?>
+			<?php esc_html_e( 'Enjoying WC Variation Images?', 'wc-variation-images' ); ?>
 		</h3>
 		<p>
 			<?php
 			echo wp_kses_post(
 				sprintf(
-				// translators: %1$s: WC Category Slider Pro link, %2$s: Coupon code.
+				// translators: %1$s: WC Variation Images Pro link, %2$s: Coupon code.
 					__( 'We hope you had a wonderful experience using %1$s. Please take a moment to show us your support by leaving a 5-star review on <a href="%2$s" target="_blank"><strong>WordPress.org</strong></a>. Thank you! 😊', 'wc-variation-images' ),
 					'<a href="https://wordpress.org/plugins/wc-variation-images/" target="_blank"><strong>WC Variation Images</strong></a>',
 					'https://wordpress.org/support/plugin/wc-variation-images/reviews/?filter=5#new-post'

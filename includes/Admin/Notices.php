@@ -42,7 +42,7 @@ class Notices {
 		}
 
 		// Show after 5 days.
-		if ( $installed_time && $installed_time * 5 * DAY_IN_SECONDS > $current_time ) {
+		if ( $installed_time && $current_time > ( $installed_time + ( 5 * DAY_IN_SECONDS ) ) ) {
 			wc_variation_images()->notices->add(
 				array(
 					'message'     => __DIR__ . '/views/notices/review.php',
