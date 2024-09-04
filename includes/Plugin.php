@@ -60,10 +60,22 @@ final class Plugin extends ByteKit\Plugin {
 	 * @return void
 	 */
 	public function init_hooks() {
+		register_activation_hook( $this->get_file(), array( $this, 'install' ) );
 		add_action( 'before_woocommerce_init', array( $this, 'on_before_woocommerce_init' ) );
 		add_action( 'admin_notices', array( $this, 'dependencies_notices' ) );
 		add_action( 'woocommerce_init', array( $this, 'init' ), 0 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts_handler' ) );
+	}
+
+	/**
+	 * Run on plugin activation.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function install() {
+		// Add option for installed time.
+		add_option( 'wc_variation_images_installed', wp_date( 'U' ) );
 	}
 
 	/**
@@ -110,6 +122,7 @@ final class Plugin extends ByteKit\Plugin {
 		if ( is_admin() ) {
 			$this->set( Admin\Admin::class );
 			$this->set( Admin\SettingsAPI::class );
+			$this->set( Admin\Notices::class );
 		}
 
 		// Init action.
