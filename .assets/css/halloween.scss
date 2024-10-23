@@ -1,0 +1,86 @@
+.notice.notice-halloween {
+	position: relative;
+	background-image: url('../images/halloween-banner.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border: 1px solid #5900a8;
+	border-left-width: 4px;
+	.notice-content {
+		max-width: 75%;
+		color: #ffffff;
+		h3 {
+			color: #ffffff;
+			font-size: 1.6rem;
+			line-height: 1.3;
+		}
+		p {
+			font-size: .9rem;
+			line-height: 1.6;
+		}
+	}
+	.notice-footer {
+		justify-content: space-between;
+		border-top: 1px solid #5900a8;
+		.footer-btn {
+			display: flex;
+			gap: 20px;
+		}
+		.halloween-upgrade-btn {
+			background-color: #ffffff;
+			padding: 5px 12px;
+			color: #4203A0;
+			border-radius: 3px;
+			&:hover{
+				background-color: #D6CDE4;
+			}
+		}
+		.halloween-remind-btn {
+			background-color: #FFFFFF52;
+			padding: 5px 12px;
+			color: #FFFFFF;
+			border-radius: 3px;
+			&:hover{
+				background-color: #FFFFFF66;
+			}
+		}
+		.halloween-remove-btn {
+			color: #ffffff;
+			&:hover{
+				color: #D6CDE4;
+			}
+		}
+		.halloween-dismiss-btn{
+			position: absolute;
+			top: 20px;
+			right: 30px;
+			color: #FFFFFF;
+			&:hover {
+				color: #D6CDE4;
+			}
+		}
+		.halloween-footer-text {
+			float: right;
+			color: #ffffff;
+		}
+	}
+	@media screen and (max-width: 500px )  {
+		background-position:right;
+		.notice-body {
+			align-items: flex-start;
+			padding-top: 36px;
+		}
+		.notice-footer {
+			flex-direction: column;
+			.footer-btn {
+				flex-direction: column;
+				align-items: center;
+				gap: 10px;
+			}
+			.halloween-dismiss-btn {
+				top: 8px;
+				right: 20px;
+			}
+		}
+	}
+}
