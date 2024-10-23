@@ -40,6 +40,7 @@ class Admin {
 	 * @return void
 	 */
 	public function admin_scripts_handler() {
+		wc_variation_images()->scripts->register_style( 'wc-variation-images-halloween', 'css/halloween.css' );
 		wp_enqueue_style( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . 'css/admin.css', array(), WC_VARIATION_IMAGES_VERSION );
 		wp_register_script( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . 'js/admin.js', array( 'jquery' ), WC_VARIATION_IMAGES_VERSION, true );
 		wp_localize_script(

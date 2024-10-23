@@ -7,6 +7,7 @@ module.exports = [
 		...defaultConfig,
 		entry: {
 			...defaultConfig.entry(),
+			'css/halloween': './.assets/css/halloween.scss',
 			'css/admin': './.assets/css/admin.scss',
 			'css/frontend': './.assets/css/frontend.scss',
 			'js/admin': './.assets/js/admin.js',

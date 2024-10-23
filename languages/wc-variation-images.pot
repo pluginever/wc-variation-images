@@ -1,10 +1,10 @@
 # Copyright (C) 2024 PluginEver
-# This file is distributed under the GPL v3 or later.
+# This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: WC Variation Images 1.1.0\n"
 "Report-Msgid-Bugs-To: https://pluginever.com/support/\n"
-"POT-Creation-Date: 2024-08-29 08:41:28+00:00\n"
+"POT-Creation-Date: 2024-10-23 08:17:09+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,8 +24,8 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: includes/Actions.php:55 includes/Admin/Admin.php:51
-#: includes/Admin/Admin.php:53
+#: includes/Actions.php:55 includes/Admin/Admin.php:52
+#: includes/Admin/Admin.php:54
 msgid "Variation Images"
 msgstr ""
 
@@ -33,63 +33,63 @@ msgstr ""
 msgid "Add Variation Images"
 msgstr ""
 
-#: includes/Admin/Admin.php:52
+#: includes/Admin/Admin.php:53
 msgid "Add Additional Images"
 msgstr ""
 
-#: includes/Admin/Admin.php:54
+#: includes/Admin/Admin.php:55
 msgid "Add to Variation"
 msgstr ""
 
-#: includes/Admin/Admin.php:55
+#: includes/Admin/Admin.php:56
 msgid ""
 "Click on link below to add additional images. Click on image itself to "
 "remove the image. Click and drag image to re-order the image position."
 msgstr ""
 
-#: includes/Admin/Admin.php:96
+#: includes/Admin/Admin.php:97
 msgid "General Settings"
 msgstr ""
 
-#: includes/Admin/Admin.php:114
+#: includes/Admin/Admin.php:115
 msgid "Hide Image Zoom"
 msgstr ""
 
-#: includes/Admin/Admin.php:115
+#: includes/Admin/Admin.php:116
 msgid "Hide image zoom for variable product"
-msgstr ""
-
-#: includes/Admin/Admin.php:119 includes/Admin/Admin.php:130
-#: includes/Admin/Admin.php:141
-msgid "No"
 msgstr ""
 
 #: includes/Admin/Admin.php:120 includes/Admin/Admin.php:131
 #: includes/Admin/Admin.php:142
+msgid "No"
+msgstr ""
+
+#: includes/Admin/Admin.php:121 includes/Admin/Admin.php:132
+#: includes/Admin/Admin.php:143
 msgid "Yes"
 msgstr ""
 
-#: includes/Admin/Admin.php:125
+#: includes/Admin/Admin.php:126
 msgid "Hide Lightbox"
 msgstr ""
 
-#: includes/Admin/Admin.php:126
+#: includes/Admin/Admin.php:127
 msgid "Hide image lightbox for variable product"
 msgstr ""
 
-#: includes/Admin/Admin.php:136
+#: includes/Admin/Admin.php:137
 msgid "Hide Image Slider"
 msgstr ""
 
-#: includes/Admin/Admin.php:137
+#: includes/Admin/Admin.php:138
 msgid "Hide image slider for variable product"
 msgstr ""
 
-#: includes/Admin/Admin.php:159 includes/Admin/Admin.php:160
+#: includes/Admin/Admin.php:160 includes/Admin/Admin.php:161
 msgid "Variation Image"
 msgstr ""
 
-#: includes/Admin/Admin.php:180
+#: includes/Admin/Admin.php:181
 msgid "WC Variation Images Settings"
 msgstr ""
 
@@ -97,20 +97,92 @@ msgstr ""
 msgid "Choose File"
 msgstr ""
 
-#: includes/Plugin.php:93
+#: includes/Admin/views/notices/halloween.php:20
+msgid "Limited Time Offer! PluginEver Halloween Sale: 30% OFF!!"
+msgstr ""
+
+#: includes/Admin/views/notices/halloween.php:27
+#. translators: 1.Offer Percentage, 2. Coupon Code.
+msgid ""
+"Spectacular Halloween Deal! Get %1$s on all premium plugins with code %2$s. "
+"Don't miss out — this offer vanishes soon! 👻"
+msgstr ""
+
+#: includes/Admin/views/notices/halloween.php:40
+msgid "Claim your discount!!"
+msgstr ""
+
+#: includes/Admin/views/notices/halloween.php:44
+msgid "Remind me later"
+msgstr ""
+
+#: includes/Admin/views/notices/halloween.php:48
+msgid "Never show this again!"
+msgstr ""
+
+#: includes/Admin/views/notices/halloween.php:52
+msgid "DISMISS"
+msgstr ""
+
+#: includes/Admin/views/notices/halloween.php:55
+msgid "Valid until November 10, 2024"
+msgstr ""
+
+#: includes/Admin/views/notices/review.php:19
+msgid "Enjoying WC Variation Images?"
+msgstr ""
+
+#: includes/Admin/views/notices/review.php:26
+#. translators: %1$s: WC Variation Images Pro link, %2$s: Coupon code.
+msgid ""
+"We hope you had a wonderful experience using %1$s. Please take a moment to "
+"show us your support by leaving a 5-star review on <a href=\"%2$s\" "
+"target=\"_blank\"><strong>WordPress.org</strong></a>. Thank you! 😊"
+msgstr ""
+
+#: includes/Admin/views/notices/review.php:38
+msgid "Sure, I'd love to help!"
+msgstr ""
+
+#: includes/Admin/views/notices/review.php:42
+#: includes/Admin/views/notices/upgrade.php:40
+msgid "Maybe later"
+msgstr ""
+
+#: includes/Admin/views/notices/review.php:46
+msgid "I've already left a review"
+msgstr ""
+
+#: includes/Admin/views/notices/upgrade.php:18
+msgid "Flash Sale Alert!"
+msgstr ""
+
+#: includes/Admin/views/notices/upgrade.php:24
+#. translators: %1$s: WC Category Slider Pro link, %2$s: Coupon code.
+msgid ""
+"Get access to %1$s with a <strong>20%% discount</strong> for the next "
+"<strong>72 hours</strong> only! Use coupon code %2$s at checkout. Hurry up, "
+"the offer ends soon."
+msgstr ""
+
+#: includes/Admin/views/notices/upgrade.php:36
+msgid "Upgrade now"
+msgstr ""
+
+#: includes/Plugin.php:106
 #. translators: 1: plugin name 2: WooCommerce
 msgid "%1$s requires %2$s to be installed and active."
 msgstr ""
 
-#: includes/Plugin.php:95
+#: includes/Plugin.php:108
 msgid "WooCommerce"
 msgstr ""
 
-#: includes/functions.php:112
+#: includes/functions.php:113
 msgid "Awaiting product image"
 msgstr ""
 
-#: lib/ByteKit/Admin/Notices.php:139
+#: lib/ByteKit/Admin/Notices.php:130
 msgid "Dismiss this notice"
 msgstr ""
 
