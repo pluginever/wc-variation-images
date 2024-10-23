@@ -51,5 +51,8 @@ WooCommerceVariationImages\Plugin::create(
 	array(
 		'file'         => __FILE__,
 		'settings_url' => admin_url( 'admin.php?page=wc-variation-images' ),
+		'docs_url'     => 'https://pluginever.com/docs/wc-variation-images/',
+		'support_url'  => 'https://pluginever.com/support/',
+		'review_url'   => 'https://wordpress.org/support/plugin/wc-variation-images/reviews/#new-post',
 	)
 );
