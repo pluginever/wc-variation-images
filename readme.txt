@@ -2,9 +2,9 @@
 Contributors: manikmist09, pluginever
 Tags: Product Variation Images for WooCommerce, Product Variation, Variation Images, Gallery, woocommerce
 Requires at least: 5.2
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,6 +57,11 @@ Yes, it does.
 3. Product Single Page view
 
 == Changelog ==
+= 1.1.2 (28th November 2024) =
+* Enhance - Framework update
+* Compatible with WC New Version
+* Compatible with WP New Version
+
 = 1.1.1 ( 23th October, 2024 )=
 * Fix - Fixed some known issues
 * Compatibility - Checked compatibility with WP latest version
