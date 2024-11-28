@@ -47,8 +47,8 @@
   "extra": {
     "strauss": {
       "target_directory": "vendor-prefixed",
-      "classmap_prefix": "WooCommerceCategorySlider_",
-      "namespace_prefix": "WooCommerceCategorySlider",
+      "classmap_prefix": "WooCommerceVariationImages_",
+      "namespace_prefix": "WooCommerceVariationImages",
       "delete_vendor_packages": true,
       "delete_vendor_files": true,
       "packages": [
