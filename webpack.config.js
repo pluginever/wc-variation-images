@@ -7,11 +7,11 @@ module.exports = [
 		...defaultConfig,
 		entry: {
 			...defaultConfig.entry(),
-			'css/halloween': './.assets/css/halloween.scss',
-			'css/admin': './.assets/css/admin.scss',
-			'css/frontend': './.assets/css/frontend.scss',
-			'js/admin': './.assets/js/admin.js',
-			'js/frontend': './.assets/js/frontend.js',
+			'css/halloween': './assets/css/halloween.scss',
+			'css/admin': './assets/css/admin.scss',
+			'css/frontend': './assets/css/frontend.scss',
+			'js/admin': './assets/js/admin.js',
+			'js/frontend': './assets/js/frontend.js',
 		},
 		output: {
 			...defaultConfig.output,
@@ -37,8 +37,8 @@ module.exports = [
 			new CopyWebpackPlugin({
 				patterns: [
 					{
-						from: path.resolve(__dirname, '.assets/images'),
-						to: path.resolve(__dirname, 'assets/images'),
+						from: path.resolve(__dirname, 'assets/images'),
+						to: path.resolve(__dirname, 'build/images'),
 					},
 				]
 			}),

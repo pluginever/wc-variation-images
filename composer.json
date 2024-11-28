@@ -13,24 +13,11 @@
     }
   ],
   "require": {
-    "php": ">=7.4"
+    "php": ">=7.4",
+    "byteever/bytekit-plugin": "^1.0"
   },
   "require-dev": {
-    "byteever/byteever-sniffs": "dev-master",
-    "codeception/lib-innerbrowser": "^1.0",
-    "codeception/module-asserts": "^1.1",
-    "codeception/module-cli": "^1.0",
-    "codeception/module-db": "^1.0",
-    "codeception/module-filesystem": "^1.0",
-    "codeception/module-phpbrowser": "^1.0",
-    "codeception/module-rest": "^1.2",
-    "codeception/module-webdriver": "^1.0",
-    "codeception/util-universalframework": "^1.0",
-    "coenjacobs/mozart": "^0.7.1",
-    "level-level/wp-browser-woocommerce": "^0.1.8",
-    "lucatume/wp-browser": "^3.1",
-    "phpcompatibility/php-compatibility": "9.3.5",
-    "byteever/bytekit-plugin": "dev-master"
+    "byteever/byteever-sniffs": "dev-master"
   },
   "config": {
     "optimize-autoloader": true,
@@ -42,42 +29,28 @@
   },
   "autoload" : {
     "psr-4" : {
-      "WooCommerceVariationImages\\": ["includes/", "lib/"]
+      "WooCommerceVariationImages\\": ["includes/"]
     }
   },
   "autoload-dev": {},
   "scripts": {
-    "post-install-cmd": [
-      "\"vendor/bin/mozart\" compose",
-      "composer dump-autoload"
-    ],
-    "post-update-cmd": [
-      "\"vendor/bin/mozart\" compose",
-      "composer dump-autoload"
-    ],
+    "post-install-cmd":"@strauss",
+    "post-update-cmd": "@strauss",
     "phpcs": "@php ./vendor/bin/phpcs --standard=phpcs.xml -s -v",
     "phpcbf": "@php ./vendor/bin/phpcbf --standard=phpcs.xml -v",
-    "selenium:start": "selenium-server -port 4444",
-    "test:build": "@php ./vendor/bin/codecept build",
-    "test:acceptance": "@php ./vendor/bin/codecept run acceptance",
-    "test:functional": "@php ./vendor/bin/codecept run functional",
-    "test:wpunit": "@php ./vendor/bin/codecept run wpunit",
-    "test": "composer test:acceptance && composer test:functional && composer test:wpunit",
-    "test:gen:acceptance": "@php vendor/bin/codecept generate:cept",
-    "test:gen:func": "@php vendor/bin/codecept generate:cest",
-    "test:gen:wpunit": "@php vendor/bin/codecept generate:wpunit wpunit",
-    "test:clean": "@php ./vendor/bin/codecept clean",
-    "test:coverage": "@php ./vendor/bin/codecept run wpunit --coverage --coverage-xml --coverage-html",
-    "test:generate": "@php vendor/bin/codecept generate:scenarios",
-    "codecept": "@php vendor/bin/codecept"
+    "strauss": [
+      "test -d ./bin || mkdir bin",
+      "test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/latest/download/strauss.phar",
+      "@php bin/strauss.phar"
+    ]
   },
   "extra": {
-    "mozart": {
-      "dep_namespace": "WooCommerceVariationImages\\",
-      "dep_directory": "/lib/",
-      "classmap_directory": "/lib/classes/",
-      "classmap_prefix": "WooCommerceVariationImages_",
-      "delete_vendor_directories": true,
+    "strauss": {
+      "target_directory": "vendor-prefixed",
+      "classmap_prefix": "WooCommerceCategorySlider_",
+      "namespace_prefix": "WooCommerceCategorySlider",
+      "delete_vendor_packages": true,
+      "delete_vendor_files": true,
       "packages": [
         "byteever/bytekit-plugin"
       ]
