@@ -1,0 +1,57 @@
+.notice.notice-black-friday {
+	position: relative;
+	.notice-content {
+		width: 85%;
+		h3{
+			font-size: 1.5rem;
+		}
+	}
+	.notice-footer {
+		justify-content: space-between;
+		.footer-btn {
+			display: flex;
+			gap: 20px;
+		}
+		.black-friday-dismiss-btn{
+			position: absolute;
+			top: 12px;
+			right: 12px;
+			background-color: transparent;
+			border-color: transparent;
+			color: #64748B;
+			&:hover {
+				color: #000;
+			}
+		}
+		.black-friday-footer-text {
+			float: right;
+			color: #8c8f94;
+		}
+	}
+	@media screen and (max-width: 500px )  {
+		.notice-body {
+			align-items: flex-start;
+			h3{
+				font-size: 18px;
+			}
+		}
+		.notice-footer {
+			flex-direction: column;
+			.footer-btn {
+				flex-direction: column;
+				align-items: center;
+				gap: 10px;
+			}
+			.black-friday-dismiss-btn {
+				top: -6px;
+				right: 3px;
+				z-index: 1;
+				padding: 0;
+				color: red;
+			}
+			.btn-text{
+				display: none;
+			}
+		}
+	}
+}

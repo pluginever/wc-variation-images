@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WC Variation Images 1.1.2\n"
 "Report-Msgid-Bugs-To: https://pluginever.com/support/\n"
-"POT-Creation-Date: 2024-11-28 06:54:00+00:00\n"
+"POT-Creation-Date: 2024-11-28 07:09:04+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,8 +24,8 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: includes/Actions.php:55 includes/Admin/Admin.php:54
-#: includes/Admin/Admin.php:56
+#: includes/Actions.php:55 includes/Admin/Admin.php:55
+#: includes/Admin/Admin.php:57
 msgid "Variation Images"
 msgstr ""
 
@@ -33,84 +33,113 @@ msgstr ""
 msgid "Add Variation Images"
 msgstr ""
 
-#: includes/Admin/Admin.php:55
+#: includes/Admin/Admin.php:56
 msgid "Add Additional Images"
 msgstr ""
 
-#: includes/Admin/Admin.php:57
+#: includes/Admin/Admin.php:58
 msgid "Add to Variation"
 msgstr ""
 
-#: includes/Admin/Admin.php:58
+#: includes/Admin/Admin.php:59
 msgid ""
 "Click on link below to add additional images. Click on image itself to "
 "remove the image. Click and drag image to re-order the image position."
 msgstr ""
 
-#: includes/Admin/Admin.php:99
+#: includes/Admin/Admin.php:100
 msgid "General Settings"
 msgstr ""
 
-#: includes/Admin/Admin.php:117
+#: includes/Admin/Admin.php:118
 msgid "Hide Image Zoom"
 msgstr ""
 
-#: includes/Admin/Admin.php:118
+#: includes/Admin/Admin.php:119
 msgid "Hide image zoom for variable product"
-msgstr ""
-
-#: includes/Admin/Admin.php:122 includes/Admin/Admin.php:133
-#: includes/Admin/Admin.php:144
-msgid "No"
 msgstr ""
 
 #: includes/Admin/Admin.php:123 includes/Admin/Admin.php:134
 #: includes/Admin/Admin.php:145
+msgid "No"
+msgstr ""
+
+#: includes/Admin/Admin.php:124 includes/Admin/Admin.php:135
+#: includes/Admin/Admin.php:146
 msgid "Yes"
 msgstr ""
 
-#: includes/Admin/Admin.php:128
+#: includes/Admin/Admin.php:129
 msgid "Hide Lightbox"
 msgstr ""
 
-#: includes/Admin/Admin.php:129
+#: includes/Admin/Admin.php:130
 msgid "Hide image lightbox for variable product"
 msgstr ""
 
-#: includes/Admin/Admin.php:139
+#: includes/Admin/Admin.php:140
 msgid "Hide Image Slider"
 msgstr ""
 
-#: includes/Admin/Admin.php:140
+#: includes/Admin/Admin.php:141
 msgid "Hide image slider for variable product"
 msgstr ""
 
-#: includes/Admin/Admin.php:162 includes/Admin/Admin.php:163
+#: includes/Admin/Admin.php:163 includes/Admin/Admin.php:164
 msgid "Variation Image"
 msgstr ""
 
-#: includes/Admin/Admin.php:183
+#: includes/Admin/Admin.php:184
 msgid "WC Variation Images Settings"
 msgstr ""
 
-#: includes/Admin/Admin.php:221
+#: includes/Admin/Admin.php:222
 #. translators: 1: Plugin name 2: WordPress
 msgid ""
 "Thank you for using %1$s. If you like it, please leave us a %2$s rating. A "
 "huge thank you from PluginEver in advance!"
 msgstr ""
 
-#: includes/Admin/Admin.php:223
+#: includes/Admin/Admin.php:224
 msgid "Thanks :)"
 msgstr ""
 
-#: includes/Admin/Admin.php:241
+#: includes/Admin/Admin.php:242
 #. translators: 1: Plugin version
 msgid "Version %s"
 msgstr ""
 
 #: includes/Admin/SettingsAPI.php:404
 msgid "Choose File"
+msgstr ""
+
+#: includes/Admin/views/notices/black-friday.php:19
+msgid "Black Friday & Cyber Monday: Flat 40% OFF on All Premium Plugins!"
+msgstr ""
+
+#: includes/Admin/views/notices/black-friday.php:26
+#. translators: 1.Offer Percentage, 2. Coupon Code.
+msgid ""
+"Boost your WooCommerce store this Black Friday! Get %1$s on all premium "
+"plugins with code %2$s. Don’t miss this limited-time deal!"
+msgstr ""
+
+#: includes/Admin/views/notices/black-friday.php:39
+msgid "Claim your 40% discount!!"
+msgstr ""
+
+#: includes/Admin/views/notices/black-friday.php:43
+#: includes/Admin/views/notices/halloween.php:44
+msgid "Remind me later"
+msgstr ""
+
+#: includes/Admin/views/notices/black-friday.php:47
+#: includes/Admin/views/notices/halloween.php:52
+msgid "DISMISS"
+msgstr ""
+
+#: includes/Admin/views/notices/black-friday.php:50
+msgid "Valid until December 07, 2024"
 msgstr ""
 
 #: includes/Admin/views/notices/halloween.php:20
@@ -128,16 +157,8 @@ msgstr ""
 msgid "Claim your discount!!"
 msgstr ""
 
-#: includes/Admin/views/notices/halloween.php:44
-msgid "Remind me later"
-msgstr ""
-
 #: includes/Admin/views/notices/halloween.php:48
 msgid "Never show this again!"
-msgstr ""
-
-#: includes/Admin/views/notices/halloween.php:52
-msgid "DISMISS"
 msgstr ""
 
 #: includes/Admin/views/notices/halloween.php:55

@@ -31,16 +31,30 @@ class Notices {
 		$current_time   = wp_date( 'U' );
 
 		// Halloween offer notice.
-		$halloween_time = date_i18n( strtotime( '2024-11-11 00:00:00' ) );
-		if ( $current_time < $halloween_time ) {
-			wp_enqueue_style( 'wc-variation-images-halloween' );
+//		$halloween_time = date_i18n( strtotime( '2024-11-11 00:00:00' ) );
+//		if ( $current_time < $halloween_time ) {
+//			wp_enqueue_style( 'wc-variation-images-halloween' );
+//			wc_variation_images()->notices->add(
+//				array(
+//					'message'     => __DIR__ . '/views/notices/halloween.php',
+//					'dismissible' => false,
+//					'notice_id'   => 'wc_variation_images_promotion',
+//					'style'       => 'border-left-color: #8500ff;',
+//					'class'       => 'notice-halloween',
+//				)
+//			);
+//		}
+
+		$offer_time = date_i18n( strtotime( '2024-12-07 00:00:00' ) );
+		if ( $current_time < $offer_time ) {
+			wp_enqueue_style( 'wc-variation-images-black-friday' );
 			wc_variation_images()->notices->add(
 				array(
-					'message'     => __DIR__ . '/views/notices/halloween.php',
+					'message'     => __DIR__ . '/views/notices/black-friday.php',
+					'notice_id'   => 'wc_variation_images_friday_promotion_24',
+					'class'       => 'notice-black-friday',
+					'style'       => 'border-left-color:#2271b1;',
 					'dismissible' => false,
-					'notice_id'   => 'wc_variation_images_promotion',
-					'style'       => 'border-left-color: #8500ff;',
-					'class'       => 'notice-halloween',
 				)
 			);
 		}

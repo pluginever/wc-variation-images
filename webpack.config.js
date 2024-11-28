@@ -7,7 +7,8 @@ module.exports = [
 		...defaultConfig,
 		entry: {
 			...defaultConfig.entry(),
-			'css/halloween': './assets/css/halloween.scss',
+			// 'css/halloween': './assets/css/halloween.scss',
+			'css/black-friday': './assets/css/black-friday.scss',
 			'css/admin': './assets/css/admin.scss',
 			'css/frontend': './assets/css/frontend.scss',
 			'js/admin': './assets/js/admin.js',
@@ -16,7 +17,6 @@ module.exports = [
 		output: {
 			...defaultConfig.output,
 			filename: '[name].js',
-			path: __dirname + '/assets/',
 		},
 		module: {
 			rules: [
