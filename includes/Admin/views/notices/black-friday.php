@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 ?>
 <div class="notice-body">
 	<div class="notice-icon">
-		<img src="<?php echo esc_url( wc_variation_images()->get_assets_url( 'images/black-friday-icon.svg' ) ); ?>" alt="Woo Category Slider">
+		<img src="<?php echo esc_url( wc_variation_images()->get_assets_url( 'images/black-friday-icon.svg' ) ); ?>" alt="WC Variation Images">
 	</div>
 	<div class="notice-content">
 		<h3>
