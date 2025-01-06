@@ -1,13 +1,7 @@
-node_modules
-bower_components
-release
-/vendor
-.idea
-*.log
-lib
-
-
-# Editors
+# IDE related files
+/.settings
+/.project
+/.idea
 *.esproj
 *.tmproj
 *.tmproject
@@ -16,19 +10,48 @@ tmtags
 *.un~
 Session.vim
 *.swp
-.husky
 
-# Mac OSX
+# Mac OSX specific files
 .DS_Store
 ._*
 .Spotlight-V100
 .Trashes
 
-# Windows
+# Windows specific files
 Thumbs.db
 Desktop.ini
 
-# Asset Files
-/assets
+# NPM and Grunt.js related files
+node_modules
+bower_components
+.idea
+*.log
+npm-debug.log
 
-# Plugin Specific
+# Composer related files
+/vendor
+/vendor-prefixed
+
+# PHPUnit related files
+/tmp
+
+# Miscellaneous files
+*.zip
+.cache
+.sass-cache*
+.husky
+*.lock
+
+# Tests related files
+codeception.yml
+.env
+/tests/_data/dump.sql
+.env.testing
+
+# Language files
+languages/*.
+
+# Build related files
+/bin/strauss.phar
+/bin
+build

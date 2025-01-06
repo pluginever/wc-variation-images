@@ -21,7 +21,7 @@
  */
 
 /**
- * Copyright (c) 2024 PluginEver (email : support@pluginever.com)
+ * Copyright (c) 2025 PluginEver (email : support@pluginever.com)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or, at
@@ -38,13 +38,12 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-use WooCommerceVariationImages\Plugin;
-
 // don't call the file directly.
 defined( 'ABSPATH' ) || exit();
 
 // Require the autoloader.
 require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor-prefixed/autoload.php';
 
 // Instantiate the plugin.
 WooCommerceVariationImages\Plugin::create(
