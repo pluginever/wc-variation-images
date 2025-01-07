@@ -121,7 +121,7 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 		$this->set( Actions::class );
 		if ( is_admin() ) {
 			$this->set( Admin\Admin::class );
-			$this->set( Admin\SettingsAPI::class );
+			$this->set( Admin\Settings::instance() );
 			$this->set( Admin\Notices::class );
 		}
 

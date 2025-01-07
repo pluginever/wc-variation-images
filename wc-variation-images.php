@@ -12,10 +12,10 @@
  * Domain Path:          languages/
  * Requires Plugins:     woocommerce
  * Requires at least:    5.2
- * Tested up to:         6.6
+ * Tested up to:         6.7
  * Requires PHP:         7.4
- * WC requires at least: 3.0.0
- * WC tested up to:      9.3
+ * WC requires at least: 6.0.0
+ * WC tested up to:      9.5
  *
  * @package WooCommerceVariationImages
  */
