@@ -2,16 +2,16 @@
 Contributors: manikmist09, pluginever
 Tags: Product Variation Images for WooCommerce, Product Variation, Variation Images, Gallery, woocommerce
 Requires at least: 5.2
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1.1
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Product Variation Images for WooCommerce allows adding additional images for each variation of the product.
 
 == Description ==
-Product Variation Images for WooCommerce is a great WooCommerce extension that allows you to add and display multiple images per product variation with necessary controls for your variable products. 
+Product Variation Images for WooCommerce is a great WooCommerce extension that allows you to add and display multiple images per product variation with necessary controls for your variable products.
 
 WooCommerce by default offers to show only one image per variation but we all know that how much customers love images. More image of the variation helps the customer make a quick decision and also create purchase intention.
 
@@ -57,6 +57,12 @@ Yes, it does.
 3. Product Single Page view
 
 == Changelog ==
+= 1.2.0 ( 9th January, 2025 )=
+* Enhance - Update Framework
+* Fix - Fixed some known issues
+* Compatibility - Checked compatibility with WP latest version
+* Compatibility - Checked compatibility with WC latest version
+
 = 1.1.1 ( 23th October, 2024 )=
 * Fix - Fixed some known issues
 * Compatibility - Checked compatibility with WP latest version
@@ -81,7 +87,7 @@ Yes, it does.
 = 1.0.1 =
 * WC compatibility with 3.7.1
 * WP compatibility with 5.2.4
-* [Fix] image preview in variation product 
+* [Fix] image preview in variation product
 * [Fix] Hide variation slider when reset/clear variation option
 
 = 1.0.0 =

@@ -17,26 +17,58 @@ class Admin {
 	 * @since 1.1.0
 	 */
 	public function __construct() {
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts_handler' ) );
-		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-		add_action( 'woocommerce_save_product_variation', array( $this, 'wc_variation_images_save_product_variation' ), 10, 1 );
-		add_action( 'admin_footer', array( $this, 'admin_template_js' ) );
+		add_filter( 'woocommerce_screen_ids', array( $this, 'screen_ids' ) );
 		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ), PHP_INT_MAX );
 		add_filter( 'update_footer', array( $this, 'update_footer' ), PHP_INT_MAX );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+		add_action( 'admin_footer', array( $this, 'admin_template_js' ) );
+	}
+
+	/**
+	 * Add the plugin screens to the WooCommerce screens.
+	 * This will load the WooCommerce admin styles and scripts.
+	 *
+	 * @param array $ids Screen ids.
+	 *
+	 * @return array
+	 */
+	public function screen_ids( $ids ) {
+		return array_merge( $ids, self::get_screen_ids() );
+	}
+
+	/**
+	 * Get screen ids.
+	 *
+	 * @since 1.0.0
+	 * @return array
+	 */
+	public static function get_screen_ids() {
+		$screen_ids = array(
+			'woocommerce_page_wc-variation-images',
+			'post.php',
+			'post-new.php',
+		);
+		return apply_filters( 'wc_variation_images_screen_ids', $screen_ids );
 	}
 
 	/**
 	 * Admin enqueue scripts.
 	 *
+	 * @param string $hook Hook name.
+	 *
 	 * @since 1.0.0
 	 * @return void
 	 */
-	public function admin_scripts_handler() {
-		wc_variation_images()->scripts->register_style( 'wc-variation-images-halloween', 'css/halloween.css' );
+	public function enqueue_scripts( $hook ) {
+		$screen_ids = self::get_screen_ids();
 		wp_enqueue_style( 'bytekit-components' );
 		wp_enqueue_style( 'bytekit-layout' );
-		wp_enqueue_style( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . 'css/admin.css', array(), WC_VARIATION_IMAGES_VERSION );
-		wp_register_script( 'wc-variation-images', WC_VARIATION_IMAGES_ASSETS_URL . 'js/admin.js', array( 'jquery' ), WC_VARIATION_IMAGES_VERSION, true );
+
+		/** wc_variation_images()->scripts->register_style( 'wc-variation-images-halloween', 'css/halloween.css' ); */
+		wc_variation_images()->scripts->register_style( 'wc-variation-images', 'css/admin.css' );
+		wc_variation_images()->scripts->register_script( 'wc-variation-images', 'js/admin.js' );
+
 		wp_localize_script(
 			'wc-variation-images',
 			'WC_VARIATION_IMAGES',
@@ -50,7 +82,11 @@ class Admin {
 				'admin_tip_message'          => __( 'Click on link below to add additional images. Click on image itself to remove the image. Click and drag image to re-order the image position.', 'wc-variation-images' ),
 			)
 		);
-		wp_enqueue_script( 'wc-variation-images' );
+
+		if ( in_array( $hook, $screen_ids, true ) ) {
+			wp_enqueue_style( 'wc-variation-images' );
+			wp_enqueue_script( 'wc-variation-images' );
+		}
 	}
 
 	/**
@@ -70,36 +106,14 @@ class Admin {
 	 * @return void
 	 */
 	public function admin_menu() {
-		add_menu_page(
+		add_submenu_page(
+			'woocommerce',
 			__( 'Variation Image', 'wc-variation-images' ),
 			__( 'Variation Image', 'wc-variation-images' ),
 			'manage_options',
 			'wc-variation-images',
-			array( Settings::class, 'output' ),
-			'dashicons-images-alt2',
-			'55.9'
+			array( Settings::class, 'output' )
 		);
-	}
-
-	/**
-	 * Save Variation Product.
-	 *
-	 * @param int $variation_id Variation ID.
-	 *
-	 * @since 1.0.0
-	 * @return void
-	 */
-	public function wc_variation_images_save_product_variation( $variation_id ) {
-		$attachment_ids = array();
-		if ( isset( $_POST['wc_variation_images_image_variation_thumb'][ $variation_id ] ) ) {
-			// Sanitize.
-			$attachment_ids = array_map( 'absint', $_POST['wc_variation_images_image_variation_thumb'][ $variation_id ] );
-			// Filter.
-			$attachment_ids = array_filter( $attachment_ids );
-			// Unique.
-			$attachment_ids = array_unique( $attachment_ids );
-		}
-		update_post_meta( $variation_id, 'wc_variation_images_variation_images', $attachment_ids );
 	}
 
 	/**

@@ -119,9 +119,12 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 	 */
 	public function init() {
 		$this->set( Actions::class );
+		$this->set( Products::class );
+
 		if ( is_admin() ) {
 			$this->set( Admin\Admin::class );
 			$this->set( Admin\Settings::instance() );
+			$this->set( Admin\Products::class );
 			$this->set( Admin\Notices::class );
 		}
 
@@ -144,7 +147,7 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 			'WC_VARIATION_IMAGES',
 			array(
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
-				'nonce'   => wp_create_nonce( 'wc_variation_images' ),
+				'nonce'   => wp_create_nonce( 'wc_variation_images_ajax' ),
 			)
 		);
 
