@@ -125,7 +125,7 @@ class Admin {
 	 * @return string
 	 */
 	public function admin_footer_text( $footer_text ) {
-		if ( wc_variation_images()->get_review_url() && in_array( get_current_screen()->id, array( 'toplevel_page_wc-variation-images' ), true ) ) {
+		if ( wc_variation_images()->get_review_url() && in_array( get_current_screen()->id, array( 'woocommerce_page_wc-variation-images' ), true ) ) {
 			$footer_text = sprintf(
 			/* translators: 1: Plugin name 2: WordPress */
 				__( 'Thank you for using %1$s. If you like it, please leave us a %2$s rating. A huge thank you from PluginEver in advance!', 'wc-variation-images' ),
@@ -146,7 +146,7 @@ class Admin {
 	 * @return string
 	 */
 	public function update_footer( $footer_text ) {
-		if ( in_array( get_current_screen()->id, array( 'toplevel_page_wc-variation-images' ), true ) ) {
+		if ( in_array( get_current_screen()->id, array( 'woocommerce_page_wc-variation-images' ), true ) ) {
 			/* translators: 1: Plugin version */
 			$footer_text = sprintf( esc_html__( 'Version %s', 'wc-variation-images' ), wc_variation_images()->get_version() );
 		}

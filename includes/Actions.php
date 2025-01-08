@@ -19,6 +19,7 @@ class Actions {
 	 */
 	public function __construct() {
 		add_action( 'wp_ajax_wc_variation_images_load_variation_images', array( $this, 'wc_variation_images_load_variation_images' ) );
+		add_action( 'wp_ajax_nopriv_wc_variation_images_load_variation_images', array( $this, 'wc_variation_images_load_variation_images' ) );
 	}
 
 	/**

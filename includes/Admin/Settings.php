@@ -2,6 +2,8 @@
 
 namespace WooCommerceVariationImages\Admin;
 
+use WooCommerceVariationImages\Controllers\Helpers;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -39,7 +41,7 @@ class Settings extends \WooCommerceVariationImages\ByteKit\Admin\Settings {
 			case 'general':
 				$settings = array(
 					array(
-						'title' => __( 'General settings', 'wc-variation-images' ),
+						'title' => __( 'Gallery settings', 'wc-variation-images' ),
 						'type'  => 'title',
 						'desc'  => __( 'The following options affect how the plugin will work.', 'wc-variation-images' ),
 						'id'    => 'general_options',
@@ -47,35 +49,47 @@ class Settings extends \WooCommerceVariationImages\ByteKit\Admin\Settings {
 					array(
 						'id'      => 'wc_variation_images_hide_image_zoom',
 						'title'   => __( 'Hide Image Zoom', 'wc-variation-images' ),
-						'desc'    => '<p class="description">' . __( 'Hide image zoom for variable product', 'wc-variation-images' ) . '</p>',
+						'desc'    => __( 'Hide image zoom for variable product', 'wc-variation-images' ),
 						'class'   => 'ever-field-inline',
 						'type'    => 'select',
 						'options' => array(
 							'no'  => __( 'No', 'wc-variation-images' ),
 							'yes' => __( 'Yes', 'wc-variation-images' ),
 						),
+						'default' => 'no',
 					),
 					array(
 						'id'      => 'wc_variation_images_hide_image_lightbox',
 						'title'   => __( 'Hide Lightbox', 'wc-variation-images' ),
-						'desc'    => '<p class="description">' . __( 'Hide image lightbox for variable product', 'wc-variation-images' ) . '</p>',
+						'desc'    => __( 'Hide image lightbox for variable product', 'wc-variation-images' ),
 						'class'   => 'ever-field-inline',
 						'type'    => 'select',
 						'options' => array(
 							'no'  => __( 'No', 'wc-variation-images' ),
 							'yes' => __( 'Yes', 'wc-variation-images' ),
 						),
+						'default' => 'no',
 					),
 					array(
 						'id'      => 'wc_variation_images_hide_image_slider',
 						'title'   => __( 'Hide Image Slider', 'wc-variation-images' ),
-						'desc'    => '<p class="description">' . __( 'Hide image slider for variable product', 'wc-variation-images' ) . '</p>',
+						'desc'    => __( 'Hide image slider for variable product', 'wc-variation-images' ),
 						'class'   => 'ever-field-inline',
 						'type'    => 'select',
 						'options' => array(
 							'no'  => __( 'No', 'wc-variation-images' ),
 							'yes' => __( 'Yes', 'wc-variation-images' ),
 						),
+						'default' => 'no',
+					),
+					array(
+						'id'       => 'wcvi_gallery_position',
+						'title'    => __( 'Gallery Position', 'wc-variation-images' ),
+						'desc'     => __( 'Set Gallery image position', 'wc-variation-images' ),
+						'desc_tip' => __( 'Set Gallery image position', 'wc-variation-images' ),
+						'type'     => 'select',
+						'options'  => Helpers::gallery_position_list(),
+						'default'  => 'bottom',
 					),
 					array(
 						'type' => 'sectionend',

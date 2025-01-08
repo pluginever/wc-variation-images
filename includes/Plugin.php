@@ -120,6 +120,7 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 	public function init() {
 		$this->set( Actions::class );
 		$this->set( Products::class );
+		$this->set( Controllers\Helpers::class );
 
 		if ( is_admin() ) {
 			$this->set( Admin\Admin::class );
@@ -127,7 +128,7 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 			$this->set( Admin\Products::class );
 			$this->set( Admin\Notices::class );
 		}
-
+		add_theme_support( 'wc-product-gallery-zoom' );
 		// Init action.
 		do_action( 'wc_variation_images_init' );
 	}
@@ -139,9 +140,13 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 	 * @return void
 	 */
 	public function frontend_scripts_handler() {
-		wp_enqueue_style( 'wc-variation-images-frontend', WC_VARIATION_IMAGES_ASSETS_URL . 'css/frontend.css', array(), WC_VARIATION_IMAGES_VERSION );
+		wc_variation_images()->scripts->register_style( 'wc-variation-images-frontend', 'css/frontend.css' );
+		wc_variation_images()->scripts->register_style( 'wc-variation-images-slider', 'css/slider.css' );
+		wc_variation_images()->scripts->register_style( 'wc-variation-images-fancybox', 'css/fancybox.css' );
+		wc_variation_images()->scripts->register_script( 'wc-variation-images-frontend', 'js/frontend.js', array( 'jquery' ), true );
+		wc_variation_images()->scripts->register_script( 'wc-variation-images-slider', 'js/slider.js', array(), true );
+		wc_variation_images()->scripts->register_script( 'wc-variation-images-fancybox', 'js/fancybox.js', array(), true );
 
-		wp_register_script( 'wc-variation-images-frontend', WC_VARIATION_IMAGES_ASSETS_URL . 'js/frontend.js', array( 'jquery' ), WC_VARIATION_IMAGES_VERSION, true );
 		wp_localize_script(
 			'wc-variation-images-frontend',
 			'WC_VARIATION_IMAGES',
@@ -151,6 +156,13 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 			)
 		);
 
-		wp_enqueue_script( 'wc-variation-images-frontend' );
+		if ( is_product() ) {
+			wp_enqueue_script( 'wc-variation-images-fancybox' );
+			wp_enqueue_style( 'wc-variation-images-fancybox' );
+			wp_enqueue_style( 'wc-variation-images-frontend' );
+			wp_enqueue_style( 'wc-variation-images-slider' );
+			wp_enqueue_script( 'wc-variation-images-slider' );
+			wp_enqueue_script( 'wc-variation-images-frontend' );
+		}
 	}
 }

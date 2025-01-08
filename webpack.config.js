@@ -40,6 +40,14 @@ module.exports = [
 						from: path.resolve(__dirname, 'assets/images'),
 						to: path.resolve(__dirname, 'build/images'),
 					},
+					{
+						from: path.resolve(__dirname, 'assets/js/slider'),
+						to: path.resolve(__dirname, 'build/js'),
+					},
+					{
+						from: path.resolve(__dirname, 'assets/css/slider'),
+						to: path.resolve(__dirname, 'build/css'),
+					},
 				]
 			}),
 

@@ -2,7 +2,7 @@
  * WC Variation Images admin
  * https://www.pluginever.com
  *
- * Copyright (c) 2018 pluginever
+ * Copyright (c) 2025 PluginEver
  * Licensed under the GPLv2+ license.
  */
 
@@ -12,7 +12,6 @@ jQuery(document).ready(function ($) {
 	'use strict';
 	$.wc_variation_images = {
 		init: function () {
-
 			$('#woocommerce-product-data').on('woocommerce_variations_loaded', function () {
 				$.wc_variation_images.add_images_box();
 			});
@@ -55,7 +54,7 @@ jQuery(document).ready(function ($) {
 				var images = file_frame.state().get('selection').toJSON();
 				var image_limit = $('#wc-variation-images-image-list-' + variationID + ' li').length;
 				var total_image = image_limit + images.length;
-				if (total_image > 3) {
+				if (total_image > 8) {
 					alert('Upload limit 3 images in free version');
 					return false;
 				}
@@ -89,7 +88,7 @@ jQuery(document).ready(function ($) {
 		is_cross_upload_limit: function (variationId) {
 			var selector = $('#wc-variation-images-image-list-' + variationId + ' li');
 			var length = selector.length;
-			return (length >= 3);
+			return (length >= 8);
 		}
 	};
 	$.wc_variation_images.init();

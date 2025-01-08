@@ -59,7 +59,7 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 	}
 
 	// Show only 3 image in free version.
-	if ( count( $gallery_images ) > 3 && apply_filters( 'wc_variation_images_limit', true ) ) {
+	if ( count( $gallery_images ) > 8 && apply_filters( 'wc_variation_images_limit', true ) ) {
 		$gallery_images = array_slice( $gallery_images, 0, 3 );
 	}
 
@@ -67,39 +67,80 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 
 	// Add product/variation image id in gallery image array.
 	array_unshift( $gallery_images, $variation_image_id );
+
+	$gallery_position = get_option( 'wcvi_gallery_position', 'bottom' );
 	ob_start();
 	?>
 	<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"
 		data-columns="<?php echo esc_attr( $columns ); ?>"
 		style="opacity: 1;">
-		<figure class="woocommerce-product-gallery__wrapper wc-variation-images-gallery">
-			<?php
-			$html           = '';
-			$gallery_images = array_filter( $gallery_images );
-			if ( $gallery_images ) {
-				$flag = true;
-				foreach ( $gallery_images as $attachment_id ) {
-					if ( ! $flag && 'yes' === $hide_gallery ) {
-						add_filter(
-							'woocommerce_gallery_image_size',
-							function () {
-								return array( 100, 100 );
-							}
-						);
+		<figure class="woocommerce-product-gallery__wrapper wc-variation-images-gallery" style="height: auto;">
+			<div class="wc-variation-images-viewer __<?php echo esc_attr( $gallery_position ); ?>">
+				<?php if ( 'no' !== get_option( 'wc_variation_images_hide_image_slider', 'no' ) ) { ?>
+				<div class="selected-image">
+					<a href="" id="image-link" data-fancybox="gallery"><img class="zoomImg main-image" id="main-image" src="" alt="Selected Image"></a>
+				</div>
+				<div class="image-list" id="image-list">
+					<?php
+					$html           = '';
+					$gallery_images = array_filter( $gallery_images );
+					if ( $gallery_images ) {
+						foreach ( $gallery_images as $attachment_id ) {
+							/**  sizes: thumbnail, medium, large, and full. */
+							$image_url = wp_get_attachment_image_src( $attachment_id, 'full' );
+							$html     .= '<img class="thumbnail" src="' . $image_url[0] . '" alt="image">';
+						}
+					} else {
+						$html  = '<div class="woocommerce-product-gallery__image--placeholder">';
+						$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'wc-variation-images' ) );
+						$html .= '</div>';
 					}
-					if ( ! empty( $attachment_id ) ) {
-						$variation_image = wc_get_gallery_image_html( $attachment_id );
-						$html           .= apply_filters( 'wc_variation_images_content', $variation_image, $attachment_id );
-					}
-					$flag = false;
+					echo wp_kses_post( $html );
+				} else {
+					?>
+						<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+							<div class="swiper-wrapper">
+								<?php
+								if ( $gallery_images ) {
+									foreach ( $gallery_images as $attachment_id ) {
+										/**  sizes: thumbnail, medium, large, and full. */
+										$image_url = wp_get_attachment_image_src( $attachment_id, 'full' );
+										?>
+										<div class="swiper-slide">
+											<a href="<?php echo esc_url( $image_url[0] ); ?>" data-fancybox="gallery">
+												<img class="product-image" src="<?php echo esc_url( $image_url[0] ); ?>"  alt="slider-img" data-zoom-image="large-image-url.jpg"/>
+											</a>
+										</div>
+										<?php
+									}
+								}
+								?>
+							</div>
+							<div class="swiper-button-next"></div>
+							<div class="swiper-button-prev"></div>
+						</div>
+						<div thumbsSlider="" class="swiper mySwiper">
+							<div class="swiper-wrapper gallery-bottom">
+								<?php
+								if ( $gallery_images ) {
+									foreach ( $gallery_images as $attachment_id ) {
+										/**  sizes: thumbnail, medium, large, and full. */
+										$image_url = wp_get_attachment_image_src( $attachment_id, 'full' );
+										?>
+										<div class="swiper-slide">
+											<img src="<?php echo esc_url( $image_url[0] ); ?>"  alt="slider-img"/>
+										</div>
+										<?php
+									}
+								}
+								?>
+							</div>
+						</div>
+					<?php
 				}
-			} else {
-				$html  = '<div class="woocommerce-product-gallery__image--placeholder">';
-				$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'wc-variation-images' ) );
-				$html .= '</div>';
-			}
-			echo wp_kses_post( $html );
-			?>
+				?>
+			</div>
+			</div>
 		</figure>
 	</div>
 	<?php
