@@ -55,9 +55,12 @@ $hide_lightbox    = 'no' === get_option( 'wc_variation_images_hide_image_lightbo
 	<figure class="woocommerce-product-gallery__wrapper wc-variation-images-gallery" style="height: 100%;">
 		<div class="wc-variation-images-viewer __<?php echo esc_attr( $gallery_position ); ?>">
 			<div class="selected-image">
-				<a href="<?php echo esc_url( $image_url[0] ); ?>" id="image-link" <?php echo esc_attr( $hide_lightbox ); ?>>
-					<img class="main-image" id="main-image" src="<?php echo esc_url( $image_url[0] ); ?>" alt="Selected Image">
+				<a href="<?php echo esc_url( $image_url[0] ); ?>" class="light-box-icon" id="image-link" <?php echo esc_attr( $hide_lightbox ); ?>>
+					<svg fill="white" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1.05 1.05" enable-background="new 0 0 42 42" xml:space="preserve">
+						<path d="M0.383 0.503c0 0.078 0.065 0.143 0.143 0.143s0.143 -0.065 0.143 -0.143 -0.065 -0.143 -0.143 -0.143 -0.143 0.065 -0.143 0.143m0.203 0.308C0.753 0.772 1.012 0.55 1.012 0.55s-0.193 -0.3 -0.45 -0.333c-0.015 -0.003 -0.065 -0.003 -0.075 -0.003 -0.25 0.025 -0.45 0.343 -0.45 0.343s0.217 0.215 0.425 0.248c0.023 0.01 0.098 0.01 0.123 0.005M0.278 0.517c0 -0.13 0.11 -0.235 0.248 -0.235s0.248 0.105 0.248 0.235S0.663 0.75 0.525 0.75s-0.248 -0.105 -0.248 -0.233"/>
+					</svg>
 				</a>
+				<img class="main-image" id="main-image" src="<?php echo esc_url( $image_url[0] ); ?>" alt="Selected Image">
 			</div>
 			<div class="image-list" id="image-list">
 				<?php

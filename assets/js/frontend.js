@@ -75,6 +75,10 @@
 						mainImageLink.attr("href", firstThumbnail.attr('src'));
 						// $(".wc-variation-images-gallery").css( 'height', '100%');
 						load_slider();
+						if ( 'no' === WC_VARIATION_IMAGES.i18n.hide_image_zoom ) {
+							zoomFunction();
+							dataZoom();
+						}
 					}
 				},
 				error: function () {
@@ -93,9 +97,9 @@
 		const mainImageLink = $("#image-link");
 		var newSrc = $(this).attr("src");
 		mainImage.attr("src", newSrc);
-		mainImageLink.attr("src", newSrc);
 		mainImageLink.attr("href", newSrc);
 		mainImageLink.data("zoom-image", newSrc);
+		$('.wcvi-image-zoom').css({ 'background-image': 'url(' + $(this).attr('src') + ')' })
 	});
 
 	function load_slider() {
@@ -109,10 +113,6 @@
 		var swiper2 = new Swiper(".mySwiper2", {
 			loop: true,
 			spaceBetween: 10,
-			autoplay: {
-				delay: 2500,
-				disableOnInteraction: false,
-			},
 			navigation: {
 				nextEl: ".swiper-button-next",
 				prevEl: ".swiper-button-prev",
@@ -126,13 +126,50 @@
 			loop: true,
 			protect: true,
 			buttons: [
-				'slideShow',
 				'fullScreen',
-				'thumbs',
 				'close'
 			],
 		});
 	}
+
+	function zoomFunction() {
+		$('.selected-image')
+			.on('mouseover', function () {
+				$(this).children('.wcvi-image-zoom').css({
+					'transform': 'scale(' + $(this).attr('data-scale') + ')',
+					'transition': 'all .5s'
+				});
+			})
+			.on('mouseout', function () {
+				$(this).children('.wcvi-image-zoom').css({ 'transform': 'scale(1)', 'transition': 'all .5s' });
+			})
+			.on('mousemove', function (e) {
+				$(this).children('.wcvi-image-zoom').css({
+					'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 + '%', 'transition': 'transform 1s ease-in'
+				});
+			})
+			.each(function () {
+				var icon = $(this).find('img').data('type');
+				var photoLength = $(this).find('.wcvi-image-zoom').length;
+				if (photoLength === 0 && !icon) {
+					$(this).append('<div class="wcvi-image-zoom"></div>');
+				}
+				$(this).children('.wcvi-image-zoom').css({ 'background-image': 'url(' + $(this).find('img').attr('src') + ')' });
+			});
+	}
+
+	function dataZoom() {
+		$('.selected-image').on('mouseenter mouseleave', function () {
+			$(this).attr('data-scale', '1.5');
+			var img = $(this).find('img').attr('src');
+			$(this).attr('data-image', img);
+		});
+	}
+
 	load_slider();
+	if ( 'no' === WC_VARIATION_IMAGES.i18n.hide_image_zoom ) {
+		zoomFunction();
+		dataZoom();
+	}
 
 })(window, document, jQuery);

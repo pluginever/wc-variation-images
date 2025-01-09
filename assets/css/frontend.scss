@@ -201,3 +201,44 @@
 		}
 	}
 }
+
+
+.wcvi-image-zoom {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	opacity: 0;
+	-webkit-transition: opacity 0.2s linear;
+	transition: opacity 0.2s linear;
+	background-color: #fff;
+}
+
+.wcvi-image-zoom:hover {
+	opacity: 1;
+}
+
+.selected-image {
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.light-box-icon{
+	display: flex;
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	z-index: 99;
+	text-decoration: none;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 4px;
+	border-radius: 50%;
+}
+.light-box-icon:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+}

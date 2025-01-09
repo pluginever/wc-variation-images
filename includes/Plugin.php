@@ -153,6 +153,9 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 			array(
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 				'nonce'   => wp_create_nonce( 'wc_variation_images_ajax' ),
+				'i18n'    => array(
+					'hide_image_zoom' => get_option( 'wc_variation_images_hide_image_zoom', 'no' ),
+				),
 			)
 		);
 

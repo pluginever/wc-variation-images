@@ -63,10 +63,13 @@ $hide_lightbox    = 'no' === get_option( 'wc_variation_images_hide_image_lightbo
 							/**  sizes: thumbnail, medium, large, and full. */
 							$image_url = wp_get_attachment_image_src( $attachment_id, 'full' );
 							?>
-							<div class="swiper-slide">
-								<a href="<?php echo esc_url( $image_url[0] ); ?>" <?php echo esc_attr( $hide_lightbox ); ?>>
-									<img class="product-image" src="<?php echo esc_url( $image_url[0] ); ?>"  alt="slider-img"/>
+							<div class="swiper-slide selected-image">
+								<a href="<?php echo esc_url( $image_url[0] ); ?>" class="light-box-icon" <?php echo esc_attr( $hide_lightbox ); ?>>
+									<svg fill="white" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1.05 1.05" enable-background="new 0 0 42 42" xml:space="preserve">
+										<path d="M0.383 0.503c0 0.078 0.065 0.143 0.143 0.143s0.143 -0.065 0.143 -0.143 -0.065 -0.143 -0.143 -0.143 -0.143 0.065 -0.143 0.143m0.203 0.308C0.753 0.772 1.012 0.55 1.012 0.55s-0.193 -0.3 -0.45 -0.333c-0.015 -0.003 -0.065 -0.003 -0.075 -0.003 -0.25 0.025 -0.45 0.343 -0.45 0.343s0.217 0.215 0.425 0.248c0.023 0.01 0.098 0.01 0.123 0.005M0.278 0.517c0 -0.13 0.11 -0.235 0.248 -0.235s0.248 0.105 0.248 0.235S0.663 0.75 0.525 0.75s-0.248 -0.105 -0.248 -0.233"/>
+									</svg>
 								</a>
+								<img class="product-image" src="<?php echo esc_url( $image_url[0] ); ?>"  alt="slider-img"/>
 							</div>
 							<?php
 						}
