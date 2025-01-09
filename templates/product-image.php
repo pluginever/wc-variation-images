@@ -47,15 +47,16 @@ $gallery_images = array_filter( $gallery_images );
 $image_url      = wp_get_attachment_image_src( $gallery_images[0], 'full' );
 
 $gallery_position = get_option( 'wcvi_gallery_position', 'bottom' );
+$hide_lightbox    = 'no' === get_option( 'wc_variation_images_hide_image_lightbox', 'no' ) ? 'data-fancybox=gallery' : '';
 ?>
 <div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"
 	data-columns="<?php echo esc_attr( $columns ); ?>"
 	style="opacity: 1;">
 	<figure class="woocommerce-product-gallery__wrapper wc-variation-images-gallery" style="height: 100%;">
 		<div class="wc-variation-images-viewer __<?php echo esc_attr( $gallery_position ); ?>">
-			<div class="selected-image woocommerce-product-gallery__image" style="height: 100%;">
-				<a href="<?php echo esc_url( $image_url[0] ); ?>" id="image-link">
-					<img class="zoomImg main-image" id="main-image" src="<?php echo esc_url( $image_url[0] ); ?>" data-zoom-image="<?php echo esc_url( $image_url[0] ); ?>" alt="Selected Image">
+			<div class="selected-image">
+				<a href="<?php echo esc_url( $image_url[0] ); ?>" id="image-link" <?php echo esc_attr( $hide_lightbox ); ?>>
+					<img class="main-image" id="main-image" src="<?php echo esc_url( $image_url[0] ); ?>" alt="Selected Image">
 				</a>
 			</div>
 			<div class="image-list" id="image-list">

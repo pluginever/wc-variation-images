@@ -69,6 +69,8 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 	array_unshift( $gallery_images, $variation_image_id );
 
 	$gallery_position = get_option( 'wcvi_gallery_position', 'bottom' );
+	$hide_lightbox    = 'no' === get_option( 'wc_variation_images_hide_image_lightbox', 'no' ) ? 'data-fancybox=gallery' : '';
+
 	ob_start();
 	?>
 	<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"
@@ -78,7 +80,9 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 			<div class="wc-variation-images-viewer __<?php echo esc_attr( $gallery_position ); ?>">
 				<?php if ( 'no' !== get_option( 'wc_variation_images_hide_image_slider', 'no' ) ) { ?>
 				<div class="selected-image">
-					<a href="" id="image-link" data-fancybox="gallery"><img class="zoomImg main-image" id="main-image" src="" alt="Selected Image"></a>
+					<a href="" id="image-link" <?php echo esc_attr( $hide_lightbox ); ?>>
+						<img class="main-image" id="main-image" src="" alt="Selected Image">
+					</a>
 				</div>
 				<div class="image-list" id="image-list">
 					<?php
@@ -107,7 +111,7 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 										$image_url = wp_get_attachment_image_src( $attachment_id, 'full' );
 										?>
 										<div class="swiper-slide">
-											<a href="<?php echo esc_url( $image_url[0] ); ?>" data-fancybox="gallery">
+											<a href="<?php echo esc_url( $image_url[0] ); ?>" <?php echo esc_attr( $hide_lightbox ); ?>>
 												<img class="product-image" src="<?php echo esc_url( $image_url[0] ); ?>"  alt="slider-img" data-zoom-image="large-image-url.jpg"/>
 											</a>
 										</div>

@@ -47,6 +47,8 @@ $gallery_images = array_filter( $gallery_images );
 $image_url      = wp_get_attachment_image_src( $gallery_images[0], 'full' );
 
 $gallery_position = get_option( 'wcvi_gallery_position', 'bottom' );
+$hide_lightbox    = 'no' === get_option( 'wc_variation_images_hide_image_lightbox', 'no' ) ? 'data-fancybox=gallery' : '';
+
 ?>
 <div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"
 	data-columns="<?php echo esc_attr( $columns ); ?>"
@@ -62,7 +64,9 @@ $gallery_position = get_option( 'wcvi_gallery_position', 'bottom' );
 							$image_url = wp_get_attachment_image_src( $attachment_id, 'full' );
 							?>
 							<div class="swiper-slide">
-								<img src="<?php echo esc_url( $image_url[0] ); ?>"  alt="slider-img"/>
+								<a href="<?php echo esc_url( $image_url[0] ); ?>" <?php echo esc_attr( $hide_lightbox ); ?>>
+									<img class="product-image" src="<?php echo esc_url( $image_url[0] ); ?>"  alt="slider-img"/>
+								</a>
 							</div>
 							<?php
 						}

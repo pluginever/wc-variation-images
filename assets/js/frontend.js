@@ -132,14 +132,6 @@
 				'close'
 			],
 		});
-
-		$('.product-image').elevateZoom({
-			zoomType: "lens",
-			lensShape: "round",
-			lensSize: 200,
-			scrollZoom: true,
-			cursor: "crosshair",
-		});
 	}
 	load_slider();
 
