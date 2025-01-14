@@ -2,6 +2,8 @@
 
 namespace WooCommerceVariationImages;
 
+use WooCommerceVariationImages\Controllers\Helpers;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -155,6 +157,8 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 				'nonce'   => wp_create_nonce( 'wc_variation_images_ajax' ),
 				'i18n'    => array(
 					'hide_image_zoom' => get_option( 'wc_variation_images_hide_image_zoom', 'no' ),
+					'lightbox_data'   => Helpers::get_lightbox_data(),
+					'slider_data'     => Helpers::get_slider_data(),
 				),
 			)
 		);

@@ -103,32 +103,56 @@
 	});
 
 	function load_slider() {
+		var slider_settings = JSON.parse( WC_VARIATION_IMAGES.i18n.slider_data );
+		var enable_slider = "no" === slider_settings.enable_slider ? false : { delay: slider_settings.slider_delay, disableOnInteraction: false }
+		var navigation = "no" === slider_settings.hide_navigation ? false : {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
+		}
 		var swiper = new Swiper(".mySwiper", {
-			loop: true,
-			spaceBetween: 10,
-			slidesPerView: 4,
+			loop: slider_settings.loop ? slider_settings.loop : false,
+			spaceBetween: slider_settings.items_space ? slider_settings.items_space : 4,
+			slidesPerView: slider_settings.items_per_page ? slider_settings.items_per_page : 4,
 			freeMode: true,
 			watchSlidesProgress: true,
 		});
 		var swiper2 = new Swiper(".mySwiper2", {
-			loop: true,
-			spaceBetween: 10,
-			navigation: {
-				nextEl: ".swiper-button-next",
-				prevEl: ".swiper-button-prev",
+			loop: slider_settings.loop ? slider_settings.loop : false,
+			navigation: navigation,
+			autoplay: enable_slider,
+			effect: 'fade',
+			fadeEffect: {
+				crossFade: true
 			},
 			thumbs: {
 				swiper: swiper,
 			},
 		});
 
+		if( "no" === slider_settings.hide_navigation ) {
+			$(".swiper-button-next").hide();
+			$(".swiper-button-prev").hide();
+		}
+
+		var lightbox_data = JSON.parse( WC_VARIATION_IMAGES.i18n.lightbox_data );
 		$("[data-fancybox='gallery']").fancybox({
 			loop: true,
 			protect: true,
 			buttons: [
-				'fullScreen',
-				'close'
+				"zoom",
+				lightbox_data.slideShow,
+				lightbox_data.fullScreen,
+				lightbox_data.share,
+				"close"
 			],
+			zoom: {
+				enabled: true,
+				duration: 300
+			},
+			thumbs: {
+				autoStart: true,
+				axis: "x",
+			},
 		});
 	}
 

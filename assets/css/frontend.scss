@@ -242,3 +242,15 @@
 .light-box-icon:hover {
 	background-color: rgba(0, 0, 0, 0.8);
 }
+
+.admin-bar {
+	.fancybox-toolbar{
+		margin-top: 30px;
+	}
+	.fancybox-progress {
+		margin-top: 31px;
+	}
+	.fancybox-infobar {
+		margin-top: 30px;
+	}
+}

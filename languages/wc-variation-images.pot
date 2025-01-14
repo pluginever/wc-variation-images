@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WC Variation Images 1.2.0\n"
 "Report-Msgid-Bugs-To: https://pluginever.com/support/\n"
-"POT-Creation-Date: 2025-01-07 08:50:36+00:00\n"
+"POT-Creation-Date: 2025-01-12 04:34:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +25,8 @@ msgstr ""
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
 #: includes/Admin/Admin.php:78 includes/Admin/Admin.php:80
-#: includes/Products.php:81
+#: includes/Admin/Admin.php:111 includes/Admin/Admin.php:112
+#: includes/Products.php:147
 msgid "Variation Images"
 msgstr ""
 
@@ -41,10 +42,6 @@ msgstr ""
 msgid ""
 "Click on link below to add additional images. Click on image itself to "
 "remove the image. Click and drag image to re-order the image position."
-msgstr ""
-
-#: includes/Admin/Admin.php:111 includes/Admin/Admin.php:112
-msgid "Variation Image"
 msgstr ""
 
 #: includes/Admin/Admin.php:131
@@ -63,53 +60,61 @@ msgstr ""
 msgid "Version %s"
 msgstr ""
 
-#: includes/Admin/Settings.php:23
+#: includes/Admin/Settings.php:25
 msgid "General"
 msgstr ""
 
-#: includes/Admin/Settings.php:42
-msgid "General settings"
+#: includes/Admin/Settings.php:44
+msgid "Gallery settings"
 msgstr ""
 
-#: includes/Admin/Settings.php:44
+#: includes/Admin/Settings.php:46
 msgid "The following options affect how the plugin will work."
 msgstr ""
 
-#: includes/Admin/Settings.php:49
+#: includes/Admin/Settings.php:51
 msgid "Hide Image Zoom"
 msgstr ""
 
-#: includes/Admin/Settings.php:50
+#: includes/Admin/Settings.php:52
 msgid "Hide image zoom for variable product"
 msgstr ""
 
-#: includes/Admin/Settings.php:54 includes/Admin/Settings.php:65
-#: includes/Admin/Settings.php:76
+#: includes/Admin/Settings.php:56 includes/Admin/Settings.php:68
+#: includes/Admin/Settings.php:80
 msgid "No"
 msgstr ""
 
-#: includes/Admin/Settings.php:55 includes/Admin/Settings.php:66
-#: includes/Admin/Settings.php:77
+#: includes/Admin/Settings.php:57 includes/Admin/Settings.php:69
+#: includes/Admin/Settings.php:81
 msgid "Yes"
 msgstr ""
 
-#: includes/Admin/Settings.php:60
+#: includes/Admin/Settings.php:63
 msgid "Hide Lightbox"
 msgstr ""
 
-#: includes/Admin/Settings.php:61
+#: includes/Admin/Settings.php:64
 msgid "Hide image lightbox for variable product"
 msgstr ""
 
-#: includes/Admin/Settings.php:71
+#: includes/Admin/Settings.php:75
 msgid "Hide Image Slider"
 msgstr ""
 
-#: includes/Admin/Settings.php:72
+#: includes/Admin/Settings.php:76
 msgid "Hide image slider for variable product"
 msgstr ""
 
-#: includes/Admin/Settings.php:120
+#: includes/Admin/Settings.php:87
+msgid "Gallery Position"
+msgstr ""
+
+#: includes/Admin/Settings.php:88 includes/Admin/Settings.php:89
+msgid "Set Gallery image position"
+msgstr ""
+
+#: includes/Admin/Settings.php:134
 #: vendor-prefixed/byteever/bytekit-plugin/src/Traits/HasPlugin.php:216
 msgid "Documentation"
 msgstr ""
@@ -186,6 +191,10 @@ msgstr ""
 msgid "Upgrade now"
 msgstr ""
 
+#: includes/Controllers/Helpers.php:23
+msgid "Bottom"
+msgstr ""
+
 #: includes/Plugin.php:106
 #. translators: 1: plugin name 2: WooCommerce
 msgid "%1$s requires %2$s to be installed and active."
@@ -195,11 +204,11 @@ msgstr ""
 msgid "WooCommerce"
 msgstr ""
 
-#: includes/Products.php:105
+#: includes/Products.php:171
 msgid "Add Variation Images"
 msgstr ""
 
-#: includes/functions.php:98
+#: includes/functions.php:102 templates/product-image.php:75
 msgid "Awaiting product image"
 msgstr ""
 

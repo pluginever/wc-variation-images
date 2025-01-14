@@ -108,8 +108,8 @@ class Admin {
 	public function admin_menu() {
 		add_submenu_page(
 			'woocommerce',
-			__( 'Variation Image', 'wc-variation-images' ),
-			__( 'Variation Image', 'wc-variation-images' ),
+			__( 'Variation Images', 'wc-variation-images' ),
+			__( 'Variation Images', 'wc-variation-images' ),
 			'manage_options',
 			'wc-variation-images',
 			array( Settings::class, 'output' )

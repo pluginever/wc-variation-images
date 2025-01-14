@@ -53,5 +53,5 @@ languages/*.
 
 # Build related files
 /bin/strauss.phar
-/bin
+#/bin
 build
