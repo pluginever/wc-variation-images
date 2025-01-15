@@ -104,26 +104,22 @@
 
 	function load_slider() {
 		var slider_settings = JSON.parse( WC_VARIATION_IMAGES.i18n.slider_data );
-		var enable_slider = "no" === slider_settings.enable_slider ? false : { delay: slider_settings.slider_delay, disableOnInteraction: false }
+		var enable_slider = "yes" === slider_settings.enable_slider ? { delay: slider_settings.slider_delay, disableOnInteraction: false } : "false";
 		var navigation = "no" === slider_settings.hide_navigation ? false : {
 			nextEl: ".swiper-button-next",
 			prevEl: ".swiper-button-prev",
-		}
+		};
 		var swiper = new Swiper(".mySwiper", {
-			loop: slider_settings.loop ? slider_settings.loop : false,
+			loop: "no" === slider_settings.slider_loop ? false : true,
 			spaceBetween: slider_settings.items_space ? slider_settings.items_space : 4,
 			slidesPerView: slider_settings.items_per_page ? slider_settings.items_per_page : 4,
 			freeMode: true,
 			watchSlidesProgress: true,
 		});
 		var swiper2 = new Swiper(".mySwiper2", {
-			loop: slider_settings.loop ? slider_settings.loop : false,
+			loop: "no" === slider_settings.slider_loop ? false : true,
 			navigation: navigation,
 			autoplay: enable_slider,
-			effect: 'fade',
-			fadeEffect: {
-				crossFade: true
-			},
 			thumbs: {
 				swiper: swiper,
 			},

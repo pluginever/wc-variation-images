@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WC Variation Images 1.2.0\n"
 "Report-Msgid-Bugs-To: https://pluginever.com/support/\n"
-"POT-Creation-Date: 2025-01-12 04:34:21+00:00\n"
+"POT-Creation-Date: 2025-01-15 10:52:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,38 +24,42 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: includes/Admin/Admin.php:78 includes/Admin/Admin.php:80
-#: includes/Admin/Admin.php:111 includes/Admin/Admin.php:112
+#: includes/Admin/Admin.php:79 includes/Admin/Admin.php:81
+#: includes/Admin/Admin.php:113 includes/Admin/Admin.php:114
 #: includes/Products.php:147
 msgid "Variation Images"
 msgstr ""
 
-#: includes/Admin/Admin.php:79
+#: includes/Admin/Admin.php:80
 msgid "Add Additional Images"
 msgstr ""
 
-#: includes/Admin/Admin.php:81
+#: includes/Admin/Admin.php:82
 msgid "Add to Variation"
 msgstr ""
 
-#: includes/Admin/Admin.php:82
+#: includes/Admin/Admin.php:83
+msgid "Upload limit 3 images in free version"
+msgstr ""
+
+#: includes/Admin/Admin.php:84
 msgid ""
 "Click on link below to add additional images. Click on image itself to "
 "remove the image. Click and drag image to re-order the image position."
 msgstr ""
 
-#: includes/Admin/Admin.php:131
+#: includes/Admin/Admin.php:133
 #. translators: 1: Plugin name 2: WordPress
 msgid ""
 "Thank you for using %1$s. If you like it, please leave us a %2$s rating. A "
 "huge thank you from PluginEver in advance!"
 msgstr ""
 
-#: includes/Admin/Admin.php:133
+#: includes/Admin/Admin.php:135
 msgid "Thanks :)"
 msgstr ""
 
-#: includes/Admin/Admin.php:151
+#: includes/Admin/Admin.php:153
 #. translators: 1: Plugin version
 msgid "Version %s"
 msgstr ""
@@ -77,7 +81,11 @@ msgid "Hide Image Zoom"
 msgstr ""
 
 #: includes/Admin/Settings.php:52
-msgid "Hide image zoom for variable product"
+msgid "Hide image zoom for variable product."
+msgstr ""
+
+#: includes/Admin/Settings.php:53
+msgid "Check this box to disable the image zoom effect on hover for this product."
 msgstr ""
 
 #: includes/Admin/Settings.php:56 includes/Admin/Settings.php:68
@@ -95,7 +103,11 @@ msgid "Hide Lightbox"
 msgstr ""
 
 #: includes/Admin/Settings.php:64
-msgid "Hide image lightbox for variable product"
+msgid "Hide image lightbox for variable product."
+msgstr ""
+
+#: includes/Admin/Settings.php:65
+msgid "Enable this option to hide the lightbox on the product page."
 msgstr ""
 
 #: includes/Admin/Settings.php:75
@@ -103,15 +115,25 @@ msgid "Hide Image Slider"
 msgstr ""
 
 #: includes/Admin/Settings.php:76
-msgid "Hide image slider for variable product"
+msgid "Hide image slider for variable product."
+msgstr ""
+
+#: includes/Admin/Settings.php:77
+msgid ""
+"Enable this option to hide the image slider for this specific variation on "
+"the frontend."
 msgstr ""
 
 #: includes/Admin/Settings.php:87
 msgid "Gallery Position"
 msgstr ""
 
-#: includes/Admin/Settings.php:88 includes/Admin/Settings.php:89
-msgid "Set Gallery image position"
+#: includes/Admin/Settings.php:88
+msgid "Set product image position."
+msgstr ""
+
+#: includes/Admin/Settings.php:89
+msgid "Select the position of the product gallery on the product page."
 msgstr ""
 
 #: includes/Admin/Settings.php:134
@@ -195,12 +217,12 @@ msgstr ""
 msgid "Bottom"
 msgstr ""
 
-#: includes/Plugin.php:106
+#: includes/Plugin.php:108
 #. translators: 1: plugin name 2: WooCommerce
 msgid "%1$s requires %2$s to be installed and active."
 msgstr ""
 
-#: includes/Plugin.php:108
+#: includes/Plugin.php:110
 msgid "WooCommerce"
 msgstr ""
 

@@ -75,10 +75,12 @@ class Admin {
 			array(
 				'ajaxurl'                    => admin_url( 'admin-ajax.php' ),
 				'nonce'                      => wp_create_nonce( 'wc_variation_images' ),
+				'is_pro_active'              => is_plugin_active( 'wc-variation-images-pro/wc-variation-images-pro.php' ),
 				'variation_image_title'      => __( 'Variation Images', 'wc-variation-images' ),
 				'add_variation_image_text'   => __( 'Add Additional Images', 'wc-variation-images' ),
 				'admin_media_title'          => __( 'Variation Images', 'wc-variation-images' ),
 				'admin_media_add_image_text' => __( 'Add to Variation', 'wc-variation-images' ),
+				'media_upload_limit_text'    => __( 'Upload limit 3 images in free version', 'wc-variation-images' ),
 				'admin_tip_message'          => __( 'Click on link below to add additional images. Click on image itself to remove the image. Click and drag image to re-order the image position.', 'wc-variation-images' ),
 			)
 		);
