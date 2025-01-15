@@ -8,6 +8,8 @@
 .gitkeep
 .gitmodules
 .husky
+
+# Documentation files
 readme.md
 README.md
 
@@ -17,31 +19,27 @@ composer.*
 # NPM related files
 npm-debug.log
 /node_modules/
-postcss.config.js
-babel.config.js
 package.json
 package-lock.json
+yarn.lock
+
+# Build related files
+postcss.config.js
+babel.config.js
 gruntfile.js
 Gruntfile.js
 webpack.config.js
-yarn.lock
-bower.json
-bower_components
-.*
-
+tailwind.config.js
 
 # Test related files
 phpunit.xml
 phpunit.xml.dist
 tests
-.dist
-codeception.yml
 *.yml
 
 # PHPCS related files
 phpcs.xml
 phpcs.xml.dist
-
 
 # IDE related files
 .idea
@@ -52,17 +50,15 @@ phpcs.xml.dist
 *.tmproj
 *.vscode
 
-# Misc files
+# Miscellaneous files and folders
 .*
 .*/
 *.lock
 *.log
 *.sh
 *.zip
-/bin/
 
-
-# OS related files
+# OS specific files
 .DS_Store
 .DS_Store?
 ._*
@@ -71,14 +67,13 @@ phpcs.xml.dist
 ehthumbs.db
 Thumbs.db
 
-
 # Action related files
 .wordpress-org
 
-#Assets
+# Binary and other directories
+/bin/
+
+# Asset related files
 *.scss
 *.*.map
-
-# Build related files
-src
-/src/
+/assets

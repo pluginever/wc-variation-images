@@ -2,7 +2,7 @@
  * WC Variation Images admin
  * https://www.pluginever.com
  *
- * Copyright (c) 2018 pluginever
+ * Copyright (c) 2025 PluginEver
  * Licensed under the GPLv2+ license.
  */
 
@@ -12,7 +12,6 @@ jQuery(document).ready(function ($) {
 	'use strict';
 	$.wc_variation_images = {
 		init: function () {
-
 			$('#woocommerce-product-data').on('woocommerce_variations_loaded', function () {
 				$.wc_variation_images.add_images_box();
 			});
@@ -33,9 +32,11 @@ jQuery(document).ready(function ($) {
 		upload_images: function (e) {
 			e.preventDefault();
 			var variationID = $(this).data('wc_variation_images_variation_id');
-			if ($.wc_variation_images.is_cross_upload_limit(variationID)) {
-				alert('Upload limit 3 images in free version');
-				return false;
+			if( "1" !== WC_VARIATION_IMAGES.is_pro_active ) {
+				if ($.wc_variation_images.is_cross_upload_limit(variationID)) {
+					alert(WC_VARIATION_IMAGES.media_upload_limit_text);
+					return false;
+				}
 			}
 			var self = $(this);
 
@@ -55,9 +56,11 @@ jQuery(document).ready(function ($) {
 				var images = file_frame.state().get('selection').toJSON();
 				var image_limit = $('#wc-variation-images-image-list-' + variationID + ' li').length;
 				var total_image = image_limit + images.length;
-				if (total_image > 3) {
-					alert('Upload limit 3 images in free version');
-					return false;
+				if( "1" !== WC_VARIATION_IMAGES.is_pro_active ) {
+					if (total_image > 3) {
+						alert(WC_VARIATION_IMAGES.media_upload_limit_text);
+						return false;
+					}
 				}
 				var html = images.map(function (image) {
 					var imageID = image.id;

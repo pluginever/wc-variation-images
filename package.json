@@ -2,7 +2,7 @@
   "name": "wc-variation-images",
   "title": "WC Variation Images",
   "description": "Adds additional gallery images per product variation.",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "homepage": "https://pluginever.com/plugins/wc-variation-images-pro/",
   "author": {
     "name": "pluginever",
@@ -10,7 +10,7 @@
     "url": "https://pluginever.com"
   },
   "scripts": {
-    "build": "wp-scripts build --webpack-src-dir=.assets && grunt build",
+    "build": "wp-scripts build --webpack-src-dir=assets && grunt build",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",
     "format": "wp-scripts format",
@@ -20,7 +20,7 @@
     "lint:pkg-json": "wp-scripts lint-pkg-json",
     "packages-update": "wp-scripts packages-update",
     "plugin-zip": "wp-scripts plugin-zip",
-    "start": "wp-scripts start --webpack-src-dir=.assets",
+    "start": "wp-scripts start --webpack-src-dir=assets",
     "test:e2e": "wp-scripts test-e2e",
     "test:unit": "wp-scripts test-unit-js"
   },

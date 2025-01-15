@@ -1,14 +1,14 @@
-# Copyright (C) 2024 PluginEver
+# Copyright (C) 2025 PluginEver
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WC Variation Images 1.1.1\n"
+"Project-Id-Version: WC Variation Images 1.2.0\n"
 "Report-Msgid-Bugs-To: https://pluginever.com/support/\n"
-"POT-Creation-Date: 2024-10-23 08:47:11+00:00\n"
+"POT-Creation-Date: 2025-01-15 10:52:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -24,93 +24,121 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: includes/Actions.php:55 includes/Admin/Admin.php:54
-#: includes/Admin/Admin.php:56
+#: includes/Admin/Admin.php:79 includes/Admin/Admin.php:81
+#: includes/Admin/Admin.php:113 includes/Admin/Admin.php:114
+#: includes/Products.php:147
 msgid "Variation Images"
 msgstr ""
 
-#: includes/Actions.php:79
-msgid "Add Variation Images"
-msgstr ""
-
-#: includes/Admin/Admin.php:55
+#: includes/Admin/Admin.php:80
 msgid "Add Additional Images"
 msgstr ""
 
-#: includes/Admin/Admin.php:57
+#: includes/Admin/Admin.php:82
 msgid "Add to Variation"
 msgstr ""
 
-#: includes/Admin/Admin.php:58
+#: includes/Admin/Admin.php:83
+msgid "Upload limit 3 images in free version"
+msgstr ""
+
+#: includes/Admin/Admin.php:84
 msgid ""
 "Click on link below to add additional images. Click on image itself to "
 "remove the image. Click and drag image to re-order the image position."
 msgstr ""
 
-#: includes/Admin/Admin.php:99
-msgid "General Settings"
-msgstr ""
-
-#: includes/Admin/Admin.php:117
-msgid "Hide Image Zoom"
-msgstr ""
-
-#: includes/Admin/Admin.php:118
-msgid "Hide image zoom for variable product"
-msgstr ""
-
-#: includes/Admin/Admin.php:122 includes/Admin/Admin.php:133
-#: includes/Admin/Admin.php:144
-msgid "No"
-msgstr ""
-
-#: includes/Admin/Admin.php:123 includes/Admin/Admin.php:134
-#: includes/Admin/Admin.php:145
-msgid "Yes"
-msgstr ""
-
-#: includes/Admin/Admin.php:128
-msgid "Hide Lightbox"
-msgstr ""
-
-#: includes/Admin/Admin.php:129
-msgid "Hide image lightbox for variable product"
-msgstr ""
-
-#: includes/Admin/Admin.php:139
-msgid "Hide Image Slider"
-msgstr ""
-
-#: includes/Admin/Admin.php:140
-msgid "Hide image slider for variable product"
-msgstr ""
-
-#: includes/Admin/Admin.php:162 includes/Admin/Admin.php:163
-msgid "Variation Image"
-msgstr ""
-
-#: includes/Admin/Admin.php:183
-msgid "WC Variation Images Settings"
-msgstr ""
-
-#: includes/Admin/Admin.php:221
+#: includes/Admin/Admin.php:133
 #. translators: 1: Plugin name 2: WordPress
 msgid ""
 "Thank you for using %1$s. If you like it, please leave us a %2$s rating. A "
 "huge thank you from PluginEver in advance!"
 msgstr ""
 
-#: includes/Admin/Admin.php:223
+#: includes/Admin/Admin.php:135
 msgid "Thanks :)"
 msgstr ""
 
-#: includes/Admin/Admin.php:241
+#: includes/Admin/Admin.php:153
 #. translators: 1: Plugin version
 msgid "Version %s"
 msgstr ""
 
-#: includes/Admin/SettingsAPI.php:404
-msgid "Choose File"
+#: includes/Admin/Settings.php:25
+msgid "General"
+msgstr ""
+
+#: includes/Admin/Settings.php:44
+msgid "Gallery settings"
+msgstr ""
+
+#: includes/Admin/Settings.php:46
+msgid "The following options affect how the plugin will work."
+msgstr ""
+
+#: includes/Admin/Settings.php:51
+msgid "Hide Image Zoom"
+msgstr ""
+
+#: includes/Admin/Settings.php:52
+msgid "Hide image zoom for variable product."
+msgstr ""
+
+#: includes/Admin/Settings.php:53
+msgid "Check this box to disable the image zoom effect on hover for this product."
+msgstr ""
+
+#: includes/Admin/Settings.php:56 includes/Admin/Settings.php:68
+#: includes/Admin/Settings.php:80
+msgid "No"
+msgstr ""
+
+#: includes/Admin/Settings.php:57 includes/Admin/Settings.php:69
+#: includes/Admin/Settings.php:81
+msgid "Yes"
+msgstr ""
+
+#: includes/Admin/Settings.php:63
+msgid "Hide Lightbox"
+msgstr ""
+
+#: includes/Admin/Settings.php:64
+msgid "Hide image lightbox for variable product."
+msgstr ""
+
+#: includes/Admin/Settings.php:65
+msgid "Enable this option to hide the lightbox on the product page."
+msgstr ""
+
+#: includes/Admin/Settings.php:75
+msgid "Hide Image Slider"
+msgstr ""
+
+#: includes/Admin/Settings.php:76
+msgid "Hide image slider for variable product."
+msgstr ""
+
+#: includes/Admin/Settings.php:77
+msgid ""
+"Enable this option to hide the image slider for this specific variation on "
+"the frontend."
+msgstr ""
+
+#: includes/Admin/Settings.php:87
+msgid "Gallery Position"
+msgstr ""
+
+#: includes/Admin/Settings.php:88
+msgid "Set product image position."
+msgstr ""
+
+#: includes/Admin/Settings.php:89
+msgid "Select the position of the product gallery on the product page."
+msgstr ""
+
+#: includes/Admin/Settings.php:134
+#: vendor-prefixed/byteever/bytekit-plugin/src/Traits/HasPlugin.php:216
+msgid "Documentation"
 msgstr ""
 
 #: includes/Admin/views/notices/halloween.php:20
@@ -185,290 +213,209 @@ msgstr ""
 msgid "Upgrade now"
 msgstr ""
 
-#: includes/Plugin.php:106
+#: includes/Controllers/Helpers.php:23
+msgid "Bottom"
+msgstr ""
+
+#: includes/Plugin.php:108
 #. translators: 1: plugin name 2: WooCommerce
 msgid "%1$s requires %2$s to be installed and active."
 msgstr ""
 
-#: includes/Plugin.php:108
+#: includes/Plugin.php:110
 msgid "WooCommerce"
 msgstr ""
 
-#: includes/functions.php:113
+#: includes/Products.php:171
+msgid "Add Variation Images"
+msgstr ""
+
+#: includes/functions.php:102 templates/product-image.php:75
 msgid "Awaiting product image"
 msgstr ""
 
-#: lib/ByteKit/Admin/Notices.php:130
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:165
+#. translators: %1$s: <a> tag start, %2$s: <a> tag end, %3$s: plugin name.
+msgid ""
+"Please %1$sactivate%2$s your copy of %3$s to receive automatic updates, "
+"access to support and & other resources!"
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:187
+msgid "License"
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:213
+msgid "License is valid."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:215
+msgid "License is expired."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:217
+msgid "Please activate your license."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:220
+#. translators: %s: license status.
+msgid "License status: %s"
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:225
+msgid "Enter your license key"
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:228
+msgid "Activate"
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:230
+msgid "Deactivate"
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:231
+msgid "Check License"
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:295
+msgid "Invalid nonce"
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:298
+msgid "You do not have permission to perform this action"
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:302
+msgid "License key is required"
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:307
+msgid "License key is already activated"
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:318
+#. translators: %s: error message
+msgid "License activation failed. %s"
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:332
+msgid "License activated successfully."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:345
+#. translators: %s: error message
+msgid "License deactivation failed. %s"
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:359
+msgid "License deactivated successfully."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:372
+#. translators: %s: error message
+msgid "License check failed. %s"
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:382
+msgid "Your license key is valid."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:386
+#. translators: %s: number of activations left
+msgid "You have %s activations left."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:397
+msgid "Invalid operation"
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:422
+msgid "Please activate your license key to get the latest updates and changelog."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:560
+msgid "Item ID is required."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:577
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:585
+#. translators: %s: license expiry date.
+msgid "Your license key expired on %s."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:591
+msgid "Your license key has been disabled. Please contact support."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:594
+msgid "Invalid license."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:598
+msgid "Your license is not active for this URL."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:603
+#. translators: %s: plugin name.
+msgid "This appears to be an invalid license key for %s."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:606
+msgid "Your license key has reached its activation limit."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-license/src/License.php:609
+msgid "An error occurred, please try again."
+msgstr ""
+
+#: vendor-prefixed/byteever/bytekit-plugin/src/Admin/Notices.php:130
 msgid "Dismiss this notice"
 msgstr ""
 
-#: lib/ByteKit/Traits/HasPlugin.php:216
-msgid "Documentation"
-msgstr ""
-
-#: lib/ByteKit/Traits/HasPlugin.php:223
+#: vendor-prefixed/byteever/bytekit-plugin/src/Traits/HasPlugin.php:223
 msgid "Support"
 msgstr ""
 
-#: lib/ByteKit/Traits/HasPlugin.php:230
+#: vendor-prefixed/byteever/bytekit-plugin/src/Traits/HasPlugin.php:230
 msgid "Review"
 msgstr ""
 
-#: lib/ByteKit/Traits/HasPlugin.php:255
+#: vendor-prefixed/byteever/bytekit-plugin/src/Traits/HasPlugin.php:255
 msgid "Settings"
 msgstr ""
 
-#: vendor/lucatume/wp-browser/src/data/plugins/internationalized-plugin.php:11
-msgid "This is a dummy plugin"
+#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:90
+msgid "Settings saved."
 msgstr ""
 
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:42
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:72
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:80
-msgid "There was an error when reading this WXR file"
+#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:254
+#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:349
+msgid "Recommended"
 msgstr ""
 
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:43
-msgid ""
-"Details are shown above. The importer will now try again with a different "
-"parser..."
+#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:255
+#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:350
+msgid "Install Now"
 msgstr ""
 
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:84
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:89
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:306
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:495
-msgid "This does not appear to be a WXR file, missing/invalid WXR version number"
+#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:318
+msgid "Need Help?"
 msgstr ""
 
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:132
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:141
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:192
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:196
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:205
-msgid "Sorry, there has been an error."
+#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:364
+msgid "Join our Community"
 msgstr ""
 
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:133
-msgid "The file does not exist, please try again."
+#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:368
+msgid "Request a Feature"
 msgstr ""
 
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:176
-msgid "All done."
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:176
-msgid "Have fun!"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:177
-msgid "Remember to update the passwords and roles of imported users."
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:197
-msgid ""
-"The export file could not be found at <code>%s</code>. It is likely that "
-"this was caused by a permissions problem."
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:213
-msgid ""
-"This WXR file (version %s) may not be supported by this version of the "
-"importer. Please consider updating."
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:238
-msgid ""
-"Failed to import author %s. Their posts will be attributed to the current "
-"user."
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:264
-msgid "Assign Authors"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:265
-msgid ""
-"To make it easier for you to edit and save the imported content, you may "
-"want to reassign the author of the imported item to an existing user of "
-"this site. For example, you may want to import all the entries as "
-"<code>admin</code>s entries."
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:267
-msgid ""
-"If a new user is created by WordPress, a new password will be randomly "
-"generated and the new user&#8217;s role will be set as %s. Manually "
-"changing the new user&#8217;s details will be necessary."
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:277
-msgid "Import Attachments"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:280
-msgid "Download and import file attachments"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:284
-msgid "Submit"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:297
-msgid "Import author:"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:308
-msgid "or create new user with login name:"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:311
-msgid "as a new user:"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:319
-msgid "assign posts to an existing user:"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:321
-msgid "or assign posts to an existing user:"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:322
-msgid "- Select -"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:372
-msgid ""
-"Failed to create new user for %s. Their posts will be attributed to the "
-"current user."
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:424
-msgid "Failed to import category %s"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:467
-msgid "Failed to import post tag %s"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:516
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:738
-msgid "Failed to import %s %s"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:605
-msgid "Failed to import &#8220;%s&#8221;: Invalid post type %s"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:642
-msgid "%s &#8220;%s&#8221; already exists."
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:704
-msgid "Failed to import %s &#8220;%s&#8221;"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:869
-msgid "Menu item skipped due to missing menu slug"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:876
-msgid "Menu item skipped due to invalid menu slug: %s"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:939
-msgid "Fetching attachments is not enabled"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:952
-msgid "Invalid file type"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:996
-msgid "Remote server did not respond"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1002
-msgid "Remote server returned error response %1$d %2$s"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1009
-msgid "Remote file is incorrect size"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1014
-msgid "Zero size file downloaded"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1020
-msgid "Remote file is too large, limit is %s"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1119
-msgid "Import WordPress"
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1126
-msgid ""
-"A new version of this importer is available. Please update to version %s to "
-"ensure compatibility with newer export files."
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1141
-msgid ""
-"Howdy! Upload your WordPress eXtended RSS (WXR) file and we&#8217;ll import "
-"the posts, pages, comments, custom fields, categories, and tags into this "
-"site."
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1142
-msgid "Choose a WXR (.xml) file to upload, then click Upload file and import."
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1216
-msgid ""
-"Import <strong>posts, pages, comments, custom fields, categories, and "
-"tags</strong> from a WordPress export file."
-msgstr ""
-
-#: vendor/lucatume/wp-browser/src/data/themedir1/internationalized-theme/functions.php:7
-msgid "This is a dummy theme"
-msgstr ""
-
-#: vendor/wp-cli/core-command/src/Core_Command.php:749
-msgid "Wildcard DNS may not be configured correctly."
-msgstr ""
-
-#: vendor/wp-cli/entity-command/src/Site_Command.php:157
-msgid "Uncategorized"
-msgstr ""
-
-#: vendor/wp-cli/export-command/src/WP_Export_XML_Over_HTTP.php:20
-#: vendor/wp-cli/export-command/src/WP_Export_XML_Over_HTTP.php:25
-msgid "Export Error"
-msgstr ""
-
-#: vendor/wp-cli/extension-command/src/WP_CLI/CommandWithUpgrade.php:770
-msgid " Try again"
-msgstr ""
-
-#: vendor/wp-cli/extension-command/src/WP_CLI/CommandWithUpgrade.php:776
-msgid "API error. Try Again."
-msgstr ""
-
-#: vendor/wp-cli/media-command/src/Media_Command.php:159
-msgid "image"
-msgid_plural "images"
-msgstr[0] ""
-msgstr[1] ""
-
-#: vendor/wp-cli/wp-cli/php/utils-wp.php:247
-msgid "Inactive Widgets"
-msgstr ""
-
-#: vendor/wp-cli/wp-cli/php/utils-wp.php:250
-msgid "Drag widgets here to remove them from the sidebar but keep their settings."
+#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:372
+msgid "Report a Bug"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
@@ -489,18 +436,4 @@ msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "https://pluginever.com"
-msgstr ""
-
-#: vendor/wp-cli/core-command/src/Core_Command.php:491
-#: vendor/wp-cli/core-command/src/Core_Command.php:565
-#. translators: placeholder is blog name
-#. translators: placeholder is user supplied title
-msgctxt "Default network name"
-msgid "%s Sites"
-msgstr ""
-
-#: vendor/wp-cli/entity-command/src/Site_Command.php:160
-#. translators: Default category slug
-msgctxt "Default category slug"
-msgid "Uncategorized"
 msgstr ""
