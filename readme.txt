@@ -103,7 +103,7 @@ Yes, it does.
 9. Product Single Page Light box with Social Share.
 
 == Changelog ==
-= 1.2.0 ( 27th March, 2025 )=
+= 1.2.1 ( 27th March, 2025 )=
 * Compatibility - Checked compatibility with WC latest version
 
 = 1.2.0 ( 15th January, 2025 )=
