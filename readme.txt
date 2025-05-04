@@ -103,6 +103,12 @@ Yes, it does.
 9. Product Single Page Light box with Social Share.
 
 == Changelog ==
+
+= 1.2.2 ( 04th May 2025 ) =
+* Compatibility - Compatible with the latest WordPress version (6.8).
+* Compatibility - Compatible with the latest WooCommerce version (9.8).
+* Fix - Some Known Issues
+
 = 1.2.1 ( 27th March, 2025 )=
 * Compatibility - Checked compatibility with WC latest version
 
