@@ -2,9 +2,9 @@
 Contributors: manikmist09, pluginever
 Tags: Product Variation Images for WooCommerce, Product Variation, Variation Images, Gallery, woocommerce
 Requires at least: 5.2
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -103,6 +103,12 @@ Yes, it does.
 9. Product Single Page Light box with Social Share.
 
 == Changelog ==
+
+= 1.2.2 ( 04th May 2025 ) =
+* Compatibility - Compatible with the latest WordPress version (6.8).
+* Compatibility - Compatible with the latest WooCommerce version (9.8).
+* Fix - Some Known Issues
+
 = 1.2.1 ( 27th March, 2025 )=
 * Compatibility - Checked compatibility with WC latest version
 
