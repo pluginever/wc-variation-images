@@ -18,9 +18,7 @@
  * WC tested up to:      9.8
  *
  * @package WooCommerceVariationImages
- */
-
-/**
+ *
  * Copyright (c) 2025 PluginEver (email : support@pluginever.com)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -38,7 +36,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-// don't call the file directly.
+// Don't call the file directly.
 defined( 'ABSPATH' ) || exit();
 
 // Require the autoloader.
