@@ -57,7 +57,7 @@
   },
   "extra": {
     "strauss": {
-      "target_directory": "vendor-prefixed",
+      "target_directory": "libraries",
       "classmap_prefix": "WooCommerceVariationImages_",
       "namespace_prefix": "WooCommerceVariationImages",
       "delete_vendor_packages": true,
