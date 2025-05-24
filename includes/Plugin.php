@@ -36,13 +36,11 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 	 * @return void
 	 */
 	public function define_constants() {
-		define( 'WC_VARIATION_IMAGES_VERSION', $this->get_version() );
-		define( 'WC_VARIATION_IMAGES_FILE', $this->get_file() );
-		define( 'WC_VARIATION_IMAGES_PATH', $this->get_dir_path() );
-		define( 'WC_VARIATION_IMAGES_INCLUDES', WC_VARIATION_IMAGES_PATH . '/includes' );
-		define( 'WC_VARIATION_IMAGES_URL', plugins_url( '', WC_VARIATION_IMAGES_FILE ) );
-		define( 'WC_VARIATION_IMAGES_ASSETS_URL', $this->get_assets_url() );
-		define( 'WC_VARIATION_IMAGES_TEMPLATES_DIR', WC_VARIATION_IMAGES_PATH . '/templates' );
+		define( 'WCVI_VERSION', $this->get_version() );
+		define( 'WCVI_PLUGIN_FILE', $this->get_file() );
+		define( 'WCVI_PLUGIN_PATH', $this->get_dir_path() );
+		define( 'WCVI_PLUGIN_URL', plugins_url( '', WCVI_PLUGIN_FILE ) );
+		define( 'WCVI_PLUGIN_TEMPLATES_DIR', WCVI_PLUGIN_PATH . '/templates' );
 	}
 
 	/**
