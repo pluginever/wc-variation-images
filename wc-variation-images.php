@@ -3,7 +3,7 @@
  * Plugin Name:          WC Variation Images
  * Plugin URI:           https://pluginever.com/plugins/wc-variation-images-pro
  * Description:          Adds additional gallery images per product variation.
- * Version:              1.2.2
+ * Version:              1.2.3
  * Author:               PluginEver
  * Author URI:           https://pluginever.com
  * License:              GPL v2 or later
