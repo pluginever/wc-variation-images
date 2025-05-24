@@ -30,7 +30,6 @@ npm-debug.log
 
 # Composer related files
 /vendor
-/vendor-prefixed
 
 # PHPUnit related files
 /tmp
@@ -52,6 +51,4 @@ codeception.yml
 languages/*.
 
 # Build related files
-
-#/bin
-build
+/assets
