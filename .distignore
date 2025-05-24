@@ -76,4 +76,4 @@ Thumbs.db
 # Asset related files
 *.scss
 *.*.map
-/assets
+/resources
