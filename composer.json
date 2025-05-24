@@ -18,10 +18,6 @@
       "type": "github"
     },
     {
-      "url": "git@github.com:byteever/bytekit-license.git",
-      "type": "github"
-    },
-    {
       "url": "git@github.com:byteever/bytekit-settings.git",
       "type": "github"
     }
@@ -29,8 +25,7 @@
   "require": {
     "php": ">=7.4",
     "byteever/bytekit-plugin": "^1.0",
-    "byteever/bytekit-settings": "^1.0",
-    "byteever/bytekit-license": "^1.0"
+    "byteever/bytekit-settings": "^1.0"
   },
   "require-dev": {
     "byteever/byteever-sniffs": "dev-master"
@@ -62,14 +57,13 @@
   },
   "extra": {
     "strauss": {
-      "target_directory": "vendor-prefixed",
+      "target_directory": "libraries",
       "classmap_prefix": "WooCommerceVariationImages_",
       "namespace_prefix": "WooCommerceVariationImages",
       "delete_vendor_packages": true,
       "delete_vendor_files": true,
       "packages": [
         "byteever/bytekit-plugin",
-        "byteever/bytekit-license",
         "byteever/bytekit-settings"
       ]
     }
