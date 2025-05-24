@@ -1,10 +1,10 @@
 === WC Variation Images - Additional Variation Images for WooCommerce ===
 Contributors: manikmist09, pluginever
-Tags: Product Variation Images for WooCommerce, Product Variation, Variation Images, Gallery, woocommerce
+Tags: Variation, Product Variation, Variation Images, Gallery, woocommerce
 Requires at least: 5.2
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -103,14 +103,16 @@ Yes, it does.
 9. Product Single Page Light box with Social Share.
 
 == Changelog ==
+= 1.2.3 ( 24th May, 2025 ) =
+* Fix - Fixed some known issues.
+* Enhance - Remove unused code.
 
-= 1.2.2 ( 04th May 2025 ) =
-* Compatibility - Compatible with the latest WordPress version (6.8).
-* Compatibility - Compatible with the latest WooCommerce version (9.8).
-* Fix - Some Known Issues
+= 1.2.2 ( 04th May, 2025 ) =
+* Compatibility - Compatible with the latest version of WordPress and WooCommerce.
+* Fix - Some known issues.
 
 = 1.2.1 ( 27th March, 2025 )=
-* Compatibility - Checked compatibility with WC latest version
+* Compatibility - Checked compatibility with WC latest version.
 
 = 1.2.0 ( 15th January, 2025 )=
 * Enhance - Update Framework
