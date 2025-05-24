@@ -50,9 +50,9 @@
     "phpcs": "@php ./vendor/bin/phpcs --standard=phpcs.xml -s -v",
     "phpcbf": "@php ./vendor/bin/phpcbf --standard=phpcs.xml -v",
     "strauss": [
-      "test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.21.1/strauss.phar",
-      "@php bin/strauss.phar",
-      "@composer dump-autoload"
+      "test -d ./bin || mkdir bin",
+      "test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/latest/download/strauss.phar",
+      "@php bin/strauss.phar"
     ]
   },
   "extra": {
