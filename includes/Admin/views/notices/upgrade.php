@@ -20,8 +20,8 @@ defined( 'ABSPATH' ) || exit;
 			<?php
 			echo wp_kses_post(
 				sprintf(
-					// translators: %1$s: WC Category Slider Pro link, %2$s: Coupon code.
-					__( 'Get access to %1$s with a <strong>10%% discount</strong> for the next <strong>72 hours</strong> only! Use coupon code %2$s at checkout. Hurry up, the offer ends soon.', 'wc-variation-images' ),
+					// translators: %1$s: WC Variation Images Pro link, %2$s: Coupon code.
+					__( 'Enjoy <strong>10%% discount</strong> on %1$s! Use coupon code %2$s at checkout to grab the deal. Don’t miss out — this offer won’t last forever!', 'wc-variation-images' ),
 					'<a href="https://pluginever.com/plugins/wc-variation-images-pro/?utm_source=plugin&utm_medium=notice&utm_campaign=flash-sale" target="_blank"><strong>WC Variation Images Pro</strong></a>',
 					'<strong>FLASH10</strong>'
 				)
