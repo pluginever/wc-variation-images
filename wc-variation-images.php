@@ -41,7 +41,7 @@ defined( 'ABSPATH' ) || exit();
 
 // Require the autoloader.
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/vendor-prefixed/autoload.php';
+require_once __DIR__ . '/libraries/autoload.php';
 
 // Instantiate the plugin.
 WooCommerceVariationImages\Plugin::create(
