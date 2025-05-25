@@ -7,16 +7,16 @@ module.exports = [
 		...defaultConfig,
 		entry: {
 			...defaultConfig.entry(),
-			'css/halloween': './assets/css/halloween.scss',
-			'css/admin': './assets/css/admin.scss',
-			'css/frontend': './assets/css/frontend.scss',
-			'js/admin': './assets/js/admin.js',
-			'js/frontend': './assets/js/frontend.js',
+			'css/halloween': './resources/css/halloween.scss',
+			'css/admin': './resources/css/admin.scss',
+			'css/frontend': './resources/css/frontend.scss',
+			'js/admin': './resources/js/admin.js',
+			'js/frontend': './resources/js/frontend.js',
 		},
 		output: {
 			...defaultConfig.output,
 			filename: '[name].js',
-			path: __dirname + '/build/',
+			path: __dirname + '/assets/',
 		},
 		module: {
 			rules: [
@@ -33,20 +33,20 @@ module.exports = [
 		},
 		plugins: [
 			...defaultConfig.plugins,
-			// Copy images to the build folder.
+			// Copy files to the assets folder.
 			new CopyWebpackPlugin({
 				patterns: [
 					{
-						from: path.resolve(__dirname, 'assets/images'),
-						to: path.resolve(__dirname, 'build/images'),
+						from: path.resolve(__dirname, 'resources/images'),
+						to: path.resolve(__dirname, 'assets/images'),
 					},
 					{
-						from: path.resolve(__dirname, 'assets/js/slider'),
-						to: path.resolve(__dirname, 'build/js'),
+						from: path.resolve(__dirname, 'resources/js/slider'),
+						to: path.resolve(__dirname, 'assets/js'),
 					},
 					{
-						from: path.resolve(__dirname, 'assets/css/slider'),
-						to: path.resolve(__dirname, 'build/css'),
+						from: path.resolve(__dirname, 'resources/css/slider'),
+						to: path.resolve(__dirname, 'assets/css'),
 					},
 				]
 			}),

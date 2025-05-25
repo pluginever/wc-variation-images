@@ -2,9 +2,9 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WC Variation Images 1.2.1\n"
+"Project-Id-Version: WC Variation Images 1.2.3\n"
 "Report-Msgid-Bugs-To: https://pluginever.com/support/\n"
-"POT-Creation-Date: 2025-03-27 05:47:46+00:00\n"
+"POT-Creation-Date: 2025-05-25 07:03:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -137,7 +137,7 @@ msgid "Select the position of the product gallery on the product page."
 msgstr ""
 
 #: includes/Admin/Settings.php:134
-#: vendor-prefixed/byteever/bytekit-plugin/src/Traits/HasPlugin.php:216
+#: libraries/byteever/bytekit-plugin/src/Traits/HasPlugin.php:216
 msgid "Documentation"
 msgstr ""
 
@@ -202,11 +202,10 @@ msgid "Flash Sale Alert!"
 msgstr ""
 
 #: includes/Admin/views/notices/upgrade.php:24
-#. translators: %1$s: WC Category Slider Pro link, %2$s: Coupon code.
+#. translators: %1$s: WC Variation Images Pro link, %2$s: Coupon code.
 msgid ""
-"Get access to %1$s with a <strong>20%% discount</strong> for the next "
-"<strong>72 hours</strong> only! Use coupon code %2$s at checkout. Hurry up, "
-"the offer ends soon."
+"Enjoy <strong>10%% discount</strong> on %1$s! Use coupon code %2$s at "
+"checkout to grab the deal. Don’t miss out — this offer won’t last forever!"
 msgstr ""
 
 #: includes/Admin/views/notices/upgrade.php:36
@@ -217,12 +216,12 @@ msgstr ""
 msgid "Bottom"
 msgstr ""
 
-#: includes/Plugin.php:108
+#: includes/Plugin.php:106
 #. translators: 1: plugin name 2: WooCommerce
 msgid "%1$s requires %2$s to be installed and active."
 msgstr ""
 
-#: includes/Plugin.php:110
+#: includes/Plugin.php:108
 msgid "WooCommerce"
 msgstr ""
 
@@ -234,200 +233,49 @@ msgstr ""
 msgid "Awaiting product image"
 msgstr ""
 
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:166
-#. translators: %1$s: <a> tag start, %2$s: <a> tag end, %3$s: plugin name.
-msgid ""
-"Please %1$sactivate%2$s your copy of %3$s to receive automatic updates, "
-"access to support and & other resources!"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:188
-msgid "License"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:214
-msgid "License is valid."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:216
-msgid "License is expired."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:218
-msgid "Please activate your license."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:221
-#. translators: %s: license status.
-msgid "License status: %s"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:226
-msgid "Enter your license key"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:229
-msgid "Activate"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:231
-msgid "Deactivate"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:232
-msgid "Check License"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:296
-msgid "Invalid nonce"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:299
-msgid "You do not have permission to perform this action"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:303
-msgid "License key is required"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:308
-msgid "License key is already activated"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:319
-#. translators: %s: error message
-msgid "License activation failed. %s"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:333
-msgid "License activated successfully."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:346
-#. translators: %s: error message
-msgid "License deactivation failed. %s"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:360
-msgid "License deactivated successfully."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:373
-#. translators: %s: error message
-msgid "License check failed. %s"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:383
-msgid "Your license key is valid."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:387
-#. translators: %s: number of activations left
-msgid "You have %s activations left."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:398
-msgid "Invalid operation"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:423
-msgid "Please activate your license key to get the latest updates and changelog."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:525
-#. translators: %1$s: plugin name, %2$s: latest version
-msgid "There is a new version of %1$s available. The latest version is v%2$s"
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:531
-msgid "Contact your network administrator to install the update."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:536
-msgid "Update now."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:622
-msgid "Item ID is required."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:639
-msgid "Something went wrong. Please try again."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:647
-#. translators: %s: license expiry date.
-msgid "Your license key expired on %s."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:653
-msgid "Your license key has been disabled. Please contact support."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:656
-msgid "Invalid license."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:660
-msgid "Your license is not active for this URL."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:665
-#. translators: %s: plugin name.
-msgid "This appears to be an invalid license key for %s."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:668
-msgid "Your license key has reached its activation limit."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-license/src/License.php:671
-msgid "An error occurred, please try again."
-msgstr ""
-
-#: vendor-prefixed/byteever/bytekit-plugin/src/Admin/Notices.php:130
+#: libraries/byteever/bytekit-plugin/src/Admin/Notices.php:130
 msgid "Dismiss this notice"
 msgstr ""
 
-#: vendor-prefixed/byteever/bytekit-plugin/src/Traits/HasPlugin.php:223
+#: libraries/byteever/bytekit-plugin/src/Traits/HasPlugin.php:223
 msgid "Support"
 msgstr ""
 
-#: vendor-prefixed/byteever/bytekit-plugin/src/Traits/HasPlugin.php:230
+#: libraries/byteever/bytekit-plugin/src/Traits/HasPlugin.php:230
 msgid "Review"
 msgstr ""
 
-#: vendor-prefixed/byteever/bytekit-plugin/src/Traits/HasPlugin.php:255
+#: libraries/byteever/bytekit-plugin/src/Traits/HasPlugin.php:255
 msgid "Settings"
 msgstr ""
 
-#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:90
+#: libraries/byteever/bytekit-settings/src/Admin/Settings.php:90
 msgid "Settings saved."
 msgstr ""
 
-#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:254
-#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:349
+#: libraries/byteever/bytekit-settings/src/Admin/Settings.php:254
+#: libraries/byteever/bytekit-settings/src/Admin/Settings.php:349
 msgid "Recommended"
 msgstr ""
 
-#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:255
-#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:350
+#: libraries/byteever/bytekit-settings/src/Admin/Settings.php:255
+#: libraries/byteever/bytekit-settings/src/Admin/Settings.php:350
 msgid "Install Now"
 msgstr ""
 
-#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:318
+#: libraries/byteever/bytekit-settings/src/Admin/Settings.php:318
 msgid "Need Help?"
 msgstr ""
 
-#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:364
+#: libraries/byteever/bytekit-settings/src/Admin/Settings.php:364
 msgid "Join our Community"
 msgstr ""
 
-#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:368
+#: libraries/byteever/bytekit-settings/src/Admin/Settings.php:368
 msgid "Request a Feature"
 msgstr ""
 
-#: vendor-prefixed/byteever/bytekit-settings/src/Admin/Settings.php:372
+#: libraries/byteever/bytekit-settings/src/Admin/Settings.php:372
 msgid "Report a Bug"
 msgstr ""
 

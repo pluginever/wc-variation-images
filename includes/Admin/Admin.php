@@ -98,7 +98,7 @@ class Admin {
 	 * @return void
 	 */
 	public function admin_template_js() {
-		require_once trailingslashit( WC_VARIATION_IMAGES_TEMPLATES_DIR ) . 'wc-variation-images-variation-template.php';
+		require_once trailingslashit( WCVI_PLUGIN_TEMPLATES_DIR ) . 'wc-variation-images-variation-template.php';
 	}
 
 	/**
