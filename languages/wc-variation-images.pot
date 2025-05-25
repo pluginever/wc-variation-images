@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WC Variation Images 1.2.3\n"
 "Report-Msgid-Bugs-To: https://pluginever.com/support/\n"
-"POT-Creation-Date: 2025-05-24 10:59:50+00:00\n"
+"POT-Creation-Date: 2025-05-25 06:24:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -202,11 +202,10 @@ msgid "Flash Sale Alert!"
 msgstr ""
 
 #: includes/Admin/views/notices/upgrade.php:24
-#. translators: %1$s: WC Category Slider Pro link, %2$s: Coupon code.
+#. translators: %1$s: WC Variation Images Pro link, %2$s: Coupon code.
 msgid ""
-"Get access to %1$s with a <strong>10%% discount</strong> for the next "
-"<strong>72 hours</strong> only! Use coupon code %2$s at checkout. Hurry up, "
-"the offer ends soon."
+"Enjoy <strong>10%% discount</strong> on %1$s! Use coupon code %2$s at "
+"checkout to grab the deal. Don’t miss out — this offer won’t last forever!"
 msgstr ""
 
 #: includes/Admin/views/notices/upgrade.php:36
@@ -217,12 +216,12 @@ msgstr ""
 msgid "Bottom"
 msgstr ""
 
-#: includes/Plugin.php:108
+#: includes/Plugin.php:106
 #. translators: 1: plugin name 2: WooCommerce
 msgid "%1$s requires %2$s to be installed and active."
 msgstr ""
 
-#: includes/Plugin.php:110
+#: includes/Plugin.php:108
 msgid "WooCommerce"
 msgstr ""
 
