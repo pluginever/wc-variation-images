@@ -105,7 +105,7 @@ Yes, it does.
 == Changelog ==
 = 1.2.3 ( 24th May, 2025 ) =
 * Fix - Fixed some known issues.
-* Enhance - Remove unused code.
+* Enhance - Improve code structure, enhance functionality and remove unused code.
 
 = 1.2.2 ( 04th May, 2025 ) =
 * Compatibility - Compatible with the latest version of WordPress and WooCommerce.
