@@ -87,7 +87,7 @@ abstract class Settings {
 		$current_tab = $this->get_current_tab();
 		$settings    = $this->get_settings( $current_tab );
 		if ( $this->save_fields( $settings ) ) {
-			add_settings_error( $class_name, 'response', __( 'Settings saved.', 'wc-variation-images' ), 'updated' );
+			add_settings_error( $class_name, 'response', __( 'Settings saved.', 'bytekit-textdomain' ), 'updated' );
 			return true;
 		}
 
@@ -251,8 +251,8 @@ abstract class Settings {
 						'description' => '',
 						'basename'    => '',
 						'slug'        => '',
-						'badge'       => esc_html__( 'Recommended', 'wc-variation-images' ),
-						'button'      => esc_html__( 'Install Now', 'wc-variation-images' ),
+						'badge'       => esc_html__( 'Recommended', 'bytekit-textdomain' ),
+						'button'      => esc_html__( 'Install Now', 'bytekit-textdomain' ),
 						'installed'   => false,
 					)
 				);
@@ -315,7 +315,7 @@ abstract class Settings {
 			?>
 			<div class="bk-card">
 				<div class="bk-card__header">
-					<?php esc_html_e( 'Need Help?', 'wc-variation-images' ); ?>
+					<?php esc_html_e( 'Need Help?', 'bytekit-textdomain' ); ?>
 				</div>
 				<div class="bk-card__body">
 					<ul>
@@ -346,8 +346,8 @@ abstract class Settings {
 				'slug'        => 'wc-min-max-quantities',
 				'description' => 'Set minimum and maximum price or quantity for WooCommerce products.',
 				'link'        => 'https://wordpress.org/plugins/wc-min-max-quantities/',
-				'badge'       => esc_html__( 'Recommended', 'wc-variation-images' ),
-				'button'      => esc_html__( 'Install Now', 'wc-variation-images' ),
+				'badge'       => esc_html__( 'Recommended', 'bytekit-textdomain' ),
+				'button'      => esc_html__( 'Install Now', 'bytekit-textdomain' ),
 			),
 		);
 	}
@@ -361,15 +361,15 @@ abstract class Settings {
 	public function get_support_links() {
 		return array(
 			'facebook'        => array(
-				'label' => __( 'Join our Community', 'wc-variation-images' ),
+				'label' => __( 'Join our Community', 'bytekit-textdomain' ),
 				'url'   => 'https://www.facebook.com/groups/pluginever',
 			),
 			'feature-request' => array(
-				'label' => __( 'Request a Feature', 'wc-variation-images' ),
+				'label' => __( 'Request a Feature', 'bytekit-textdomain' ),
 				'url'   => 'https://www.pluginever.com/contact/',
 			),
 			'bug-report'      => array(
-				'label' => __( 'Report a Bug', 'wc-variation-images' ),
+				'label' => __( 'Report a Bug', 'bytekit-textdomain' ),
 				'url'   => 'https://www.pluginever.com/contact/',
 			),
 		);
