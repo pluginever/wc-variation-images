@@ -45,7 +45,7 @@ class Notices {
 			);
 		}
 
-		if ( ! defined( 'WC_VARIATION_IMAGES_PRO_VERSION' ) ) {
+		if ( ! defined( 'WCVI_PRO_VERSION' ) ) {
 			wc_variation_images()->notices->add(
 				array(
 					'message'     => __DIR__ . '/views/notices/upgrade.php',
