@@ -213,21 +213,21 @@ trait HasPlugin {
 		$links = array();
 		if ( ! empty( $this->get_docs_url() ) ) {
 			$links['docs'] = array(
-				'label' => __( 'Documentation', 'wc-variation-images' ),
+				'label' => __( 'Documentation', 'bytekit-textdomain' ),
 				'url'   => $this->get_docs_url(),
 			);
 		}
 
 		if ( ! empty( $this->get_support_url() ) ) {
 			$links['support'] = array(
-				'label' => __( 'Support', 'wc-variation-images' ),
+				'label' => __( 'Support', 'bytekit-textdomain' ),
 				'url'   => $this->get_support_url(),
 			);
 		}
 
 		if ( ! empty( $this->get_review_url() ) ) {
 			$links['review'] = array(
-				'label' => __( 'Review', 'wc-variation-images' ),
+				'label' => __( 'Review', 'bytekit-textdomain' ),
 				'url'   => $this->get_review_url(),
 			);
 		}
@@ -252,7 +252,7 @@ trait HasPlugin {
 		$links = array();
 		if ( ! empty( $this->get_settings_url() ) ) {
 			$links['settings'] = array(
-				'label' => __( 'Settings', 'wc-variation-images' ),
+				'label' => __( 'Settings', 'bytekit-textdomain' ),
 				'url'   => $this->get_settings_url(),
 			);
 		}
