@@ -103,7 +103,7 @@ Yes, it does.
 9. Product Single Page Light box with Social Share.
 
 == Changelog ==
-= 1.2.3 ( 24th May, 2025 ) =
+= 1.2.3 ( 25th May, 2025 ) =
 * Fix - Fixed some known issues.
 * Enhance - Improve code structure, enhance functionality and remove unused code.
 
