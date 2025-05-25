@@ -27,8 +27,8 @@ class Notices {
 	 * @since 1.0.0
 	 */
 	public function admin_notices() {
-		$installed_time = get_option( 'wc_variation_images_installed' );
-		$current_time   = wp_date( 'U' );
+		$installed_time = absint( get_option( 'wc_variation_images_installed' ) );
+		$current_time   = absint( wp_date( 'U' ) );
 
 		// Halloween offer notice.
 		$halloween_time = date_i18n( strtotime( '2024-11-11 00:00:00' ) );
