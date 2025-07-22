@@ -125,6 +125,7 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 			$this->set( Admin\Notices::class );
 		}
 		add_theme_support( 'wc-product-gallery-zoom' );
+
 		// Init action.
 		do_action( 'wc_variation_images_init' );
 	}
