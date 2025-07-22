@@ -14,8 +14,8 @@
  * Requires at least:    5.2
  * Tested up to:         6.8
  * Requires PHP:         7.4
- * WC requires at least: 6.0.0
- * WC tested up to:      9.8
+ * WC requires at least: 3.0.0
+ * WC tested up to:      10.0
  *
  * @package WooCommerceVariationImages
  *
