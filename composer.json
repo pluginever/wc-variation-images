@@ -6,12 +6,6 @@
   "license": "GPL-3.0-or-later",
   "prefer-stable": true,
   "minimum-stability": "dev",
-  "authors": [
-    {
-      "name": "pluginever",
-      "email": "support@pluginever.com"
-    }
-  ],
   "repositories": [
     {
       "url": "git@github.com:byteever/bytekit-plugin.git",
