@@ -103,7 +103,7 @@ Yes, it does.
 9. Product Single Page Light box with Social Share.
 
 == Changelog ==
-= 1.3.0 ( 23th July, 2025 ) =
+= 1.3.0 ( 23rd July, 2025 ) =
 * New - Added new feature to variation image gallery.
 * Enhance - Improved code structure and enhanced functionality.
 * Fix - Fixed some known issues.
