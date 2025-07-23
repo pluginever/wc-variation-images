@@ -139,17 +139,17 @@ Explore more powerful plugins by [PluginEver](https://pluginever.com):
 * Compatibility - Compatible with the latest version of WordPress and WooCommerce.
 * Fix - Some known issues.
 
-= 1.2.1 ( 27th March, 2025 )=
+= 1.2.1 ( 27th March, 2025 ) =
 * Compatibility - Checked compatibility with WC latest version.
 
-= 1.2.0 ( 15th January, 2025 )=
+= 1.2.0 ( 15th January, 2025 ) =
 * Enhance - Update Framework
 * Enhance - Add New Feature Gallery Position
 * Fix - Fixed some known issues
 * Compatibility - Checked compatibility with WP latest version
 * Compatibility - Checked compatibility with WC latest version
 
-= 1.1.1 ( 23th October, 2024 )=
+= 1.1.1 ( 23th October, 2024 ) =
 * Fix - Fixed some known issues
 * Compatibility - Checked compatibility with WP latest version
 * Compatibility - Checked compatibility with WC latest version
