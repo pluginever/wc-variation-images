@@ -61,8 +61,8 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 	 */
 	public function init_hooks() {
 		register_activation_hook( $this->get_file(), array( $this, 'install' ) );
+		add_filter( 'plugin_action_links_' . $this->get_basename(), array( $this, 'plugin_action_links' ) );
 		add_action( 'before_woocommerce_init', array( $this, 'on_before_woocommerce_init' ) );
-		add_action( 'admin_notices', array( $this, 'dependencies_notices' ) );
 		add_action( 'woocommerce_init', array( $this, 'init' ), 0 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts_handler' ) );
 	}
@@ -75,7 +75,42 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 	 */
 	public function install() {
 		// Add option for installed time.
-		add_option( 'wc_variation_images_installed', wp_date( 'U' ) );
+		add_option( 'wcvi_installed', wp_date( 'U' ) );
+
+		/**
+		 * Migrating from old option to new option.
+		 *
+		 * @since 1.2.0
+		 */
+		$options = array(
+			'wc_variation_images_installed'           => 'wcvi_installed',
+			'wc_variation_images_hide_image_zoom'     => 'wcvi_disable_image_zoom',
+			'wc_variation_images_hide_image_lightbox' => 'wcvi_disable_image_lightbox',
+			'wc_variation_images_hide_image_slider'   => 'wcvi_disable_image_slider',
+		);
+
+		foreach ( $options as $option => $new_option ) {
+			if ( get_option( $option ) ) {
+				update_option( $new_option, get_option( $option ) );
+				delete_option( $option );
+			}
+		}
+	}
+
+	/**
+	 * Add plugin action links.
+	 *
+	 * @param array $links The plugin action links.
+	 *
+	 * @since 1.0.0
+	 * @return array
+	 */
+	public function plugin_action_links( $links ) {
+		if ( ! $this->is_plugin_active( 'wc-variation-images-pro/wc-variation-images-pro.php' ) ) {
+			$links['go_pro'] = '<a href="https://pluginever.com/plugins/wc-variation-images-pro" target="_blank" style="color: #39b54a; font-weight: bold;">' . esc_html__( 'Go Pro', 'wc-variation-images' ) . '</a>';
+		}
+
+		return $links;
 	}
 
 	/**
@@ -89,26 +124,6 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', $this->get_file(), true );
 			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'cart_checkout_blocks', $this->get_file(), true );
 		}
-	}
-
-	/**
-	 * Missing dependencies notice.
-	 *
-	 * @since 1.0.0
-	 * @return void
-	 */
-	public function dependencies_notices() {
-		if ( $this->is_plugin_active( 'woocommerce' ) ) {
-			return;
-		}
-		$notice = sprintf(
-		/* translators: 1: plugin name 2: WooCommerce */
-			__( '%1$s requires %2$s to be installed and active.', 'wc-variation-images' ),
-			'<strong>' . esc_html( $this->get_name() ) . '</strong>',
-			'<strong>' . esc_html__( 'WooCommerce', 'wc-variation-images' ) . '</strong>'
-		);
-
-		echo '<div class="notice notice-error"><p>' . wp_kses_post( $notice ) . '</p></div>';
 	}
 
 	/**
@@ -129,6 +144,7 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 			$this->set( Admin\Notices::class );
 		}
 		add_theme_support( 'wc-product-gallery-zoom' );
+
 		// Init action.
 		do_action( 'wc_variation_images_init' );
 	}
@@ -154,7 +170,7 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 				'nonce'   => wp_create_nonce( 'wc_variation_images_ajax' ),
 				'i18n'    => array(
-					'hide_image_zoom' => get_option( 'wc_variation_images_hide_image_zoom', 'no' ),
+					'hide_image_zoom' => get_option( 'wcvi_disable_image_zoom', 'no' ),
 					'lightbox_data'   => Helpers::get_lightbox_data(),
 					'slider_data'     => Helpers::get_slider_data(),
 				),

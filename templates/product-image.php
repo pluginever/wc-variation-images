@@ -38,7 +38,7 @@ if ( count( $gallery_images ) > 3 && apply_filters( 'wc_variation_images_limit',
 	$gallery_images = array_slice( $gallery_images, 0, 3 );
 }
 
-$hide_gallery = get_option( 'wc_variation_images_hide_image_slider', 'no' );
+$hide_gallery = get_option( 'wcvi_disable_image_slider', 'no' );
 
 // Add product/variation image id in gallery image array.
 array_unshift( $gallery_images, $variation_image_id );
@@ -47,7 +47,7 @@ $gallery_images = array_filter( $gallery_images );
 $image_url      = wp_get_attachment_image_src( $gallery_images[0], 'full' );
 
 $gallery_position = get_option( 'wcvi_gallery_position', 'bottom' );
-$hide_lightbox    = 'no' === get_option( 'wc_variation_images_hide_image_lightbox', 'no' ) ? 'data-fancybox=gallery' : '';
+$hide_lightbox    = 'no' === get_option( 'wcvi_disable_image_lightbox', 'no' ) ? 'data-fancybox=gallery' : '';
 ?>
 <div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"
 	data-columns="<?php echo esc_attr( $columns ); ?>"

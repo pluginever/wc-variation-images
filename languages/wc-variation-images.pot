@@ -2,9 +2,9 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WC Variation Images 1.2.3\n"
+"Project-Id-Version: WC Variation Images 1.3.0\n"
 "Report-Msgid-Bugs-To: https://pluginever.com/support/\n"
-"POT-Creation-Date: 2025-05-25 09:35:02+00:00\n"
+"POT-Creation-Date: 2025-07-23 08:26:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,152 +24,125 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: includes/Admin/Admin.php:79 includes/Admin/Admin.php:81
-#: includes/Admin/Admin.php:113 includes/Admin/Admin.php:114
-#: includes/Products.php:147
+#: includes/Admin/Admin.php:78 includes/Admin/Admin.php:80
+#: includes/Admin/Admin.php:112 includes/Admin/Admin.php:113
+#: includes/Admin/Products.php:40
 msgid "Variation Images"
 msgstr ""
 
-#: includes/Admin/Admin.php:80
+#: includes/Admin/Admin.php:79
 msgid "Add Additional Images"
 msgstr ""
 
-#: includes/Admin/Admin.php:82
+#: includes/Admin/Admin.php:81
 msgid "Add to Variation"
 msgstr ""
 
-#: includes/Admin/Admin.php:83
+#: includes/Admin/Admin.php:82
 msgid "Upload limit 3 images in free version"
 msgstr ""
 
-#: includes/Admin/Admin.php:84
+#: includes/Admin/Admin.php:83
 msgid ""
 "Click on link below to add additional images. Click on image itself to "
 "remove the image. Click and drag image to re-order the image position."
 msgstr ""
 
-#: includes/Admin/Admin.php:133
+#: includes/Admin/Admin.php:132
 #. translators: 1: Plugin name 2: WordPress
 msgid ""
 "Thank you for using %1$s. If you like it, please leave us a %2$s rating. A "
 "huge thank you from PluginEver in advance!"
 msgstr ""
 
-#: includes/Admin/Admin.php:135
+#: includes/Admin/Admin.php:134
 msgid "Thanks :)"
 msgstr ""
 
-#: includes/Admin/Admin.php:153
+#: includes/Admin/Admin.php:152
 #. translators: 1: Plugin version
 msgid "Version %s"
+msgstr ""
+
+#: includes/Admin/Products.php:61
+msgid "Add Variation Images"
 msgstr ""
 
 #: includes/Admin/Settings.php:25
 msgid "General"
 msgstr ""
 
-#: includes/Admin/Settings.php:44
+#: includes/Admin/Settings.php:45
 msgid "Gallery settings"
 msgstr ""
 
-#: includes/Admin/Settings.php:46
+#: includes/Admin/Settings.php:47
 msgid "The following options affect how the plugin will work."
 msgstr ""
 
-#: includes/Admin/Settings.php:51
-msgid "Hide Image Zoom"
-msgstr ""
-
 #: includes/Admin/Settings.php:52
-msgid "Hide image zoom for variable product."
+msgid "Disable Image Zoom"
 msgstr ""
 
 #: includes/Admin/Settings.php:53
-msgid "Check this box to disable the image zoom effect on hover for this product."
+msgid "Disable image zoom for variable product."
 msgstr ""
 
-#: includes/Admin/Settings.php:56 includes/Admin/Settings.php:68
-#: includes/Admin/Settings.php:80
-msgid "No"
+#: includes/Admin/Settings.php:54
+msgid "Check this box to disable the image zoom effect on hover for this product."
 msgstr ""
 
 #: includes/Admin/Settings.php:57 includes/Admin/Settings.php:69
 #: includes/Admin/Settings.php:81
+msgid "No"
+msgstr ""
+
+#: includes/Admin/Settings.php:58 includes/Admin/Settings.php:70
+#: includes/Admin/Settings.php:82
 msgid "Yes"
 msgstr ""
 
-#: includes/Admin/Settings.php:63
-msgid "Hide Lightbox"
-msgstr ""
-
 #: includes/Admin/Settings.php:64
-msgid "Hide image lightbox for variable product."
+msgid "Disable Lightbox"
 msgstr ""
 
 #: includes/Admin/Settings.php:65
+msgid "Disable image lightbox for variable product."
+msgstr ""
+
+#: includes/Admin/Settings.php:66
 msgid "Enable this option to hide the lightbox on the product page."
 msgstr ""
 
-#: includes/Admin/Settings.php:75
-msgid "Hide Image Slider"
-msgstr ""
-
 #: includes/Admin/Settings.php:76
-msgid "Hide image slider for variable product."
+msgid "Disable Image Slider"
 msgstr ""
 
 #: includes/Admin/Settings.php:77
+msgid "Disable image slider for variable product."
+msgstr ""
+
+#: includes/Admin/Settings.php:78
 msgid ""
 "Enable this option to hide the image slider for this specific variation on "
 "the frontend."
 msgstr ""
 
-#: includes/Admin/Settings.php:87
+#: includes/Admin/Settings.php:88
 msgid "Gallery Position"
 msgstr ""
 
-#: includes/Admin/Settings.php:88
+#: includes/Admin/Settings.php:89
 msgid "Set product image position."
 msgstr ""
 
-#: includes/Admin/Settings.php:89
+#: includes/Admin/Settings.php:90
 msgid "Select the position of the product gallery on the product page."
 msgstr ""
 
-#: includes/Admin/Settings.php:134
+#: includes/Admin/Settings.php:135
 #: libraries/byteever/bytekit-plugin/src/Traits/HasPlugin.php:216
 msgid "Documentation"
-msgstr ""
-
-#: includes/Admin/views/notices/halloween.php:20
-msgid "Limited Time Offer! PluginEver Halloween Sale: 30% OFF!!"
-msgstr ""
-
-#: includes/Admin/views/notices/halloween.php:27
-#. translators: 1.Offer Percentage, 2. Coupon Code.
-msgid ""
-"Spectacular Halloween Deal! Get %1$s on all premium plugins with code %2$s. "
-"Don't miss out — this offer vanishes soon! 👻"
-msgstr ""
-
-#: includes/Admin/views/notices/halloween.php:40
-msgid "Claim your discount!!"
-msgstr ""
-
-#: includes/Admin/views/notices/halloween.php:44
-msgid "Remind me later"
-msgstr ""
-
-#: includes/Admin/views/notices/halloween.php:48
-msgid "Never show this again!"
-msgstr ""
-
-#: includes/Admin/views/notices/halloween.php:52
-msgid "DISMISS"
-msgstr ""
-
-#: includes/Admin/views/notices/halloween.php:55
-msgid "Valid until November 10, 2024"
 msgstr ""
 
 #: includes/Admin/views/notices/review.php:19
@@ -216,17 +189,8 @@ msgstr ""
 msgid "Bottom"
 msgstr ""
 
-#: includes/Plugin.php:106
-#. translators: 1: plugin name 2: WooCommerce
-msgid "%1$s requires %2$s to be installed and active."
-msgstr ""
-
-#: includes/Plugin.php:108
-msgid "WooCommerce"
-msgstr ""
-
-#: includes/Products.php:171
-msgid "Add Variation Images"
+#: includes/Plugin.php:110
+msgid "Go Pro"
 msgstr ""
 
 #: includes/functions.php:102 templates/product-image.php:75
