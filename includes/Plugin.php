@@ -75,7 +75,23 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 	 */
 	public function install() {
 		// Add option for installed time.
-		add_option( 'wc_variation_images_installed', wp_date( 'U' ) );
+		add_option( 'wcvi_installed', wp_date( 'U' ) );
+
+		/**
+		 * Migrating from old option to new option.
+		 *
+		 * @since 1.2.0
+		 */
+		$options = array(
+			'wc_variation_images_installed' => 'wcvi_installed',
+		);
+
+		foreach ( $options as $option => $new_option ) {
+			if ( get_option( $option ) ) {
+				update_option( $new_option, get_option( $option ) );
+				delete_option( $option );
+			}
+		}
 	}
 
 	/**

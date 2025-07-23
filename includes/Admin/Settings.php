@@ -24,6 +24,7 @@ class Settings extends \WooCommerceVariationImages\ByteKit\Admin\Settings {
 		$tabs = array(
 			'general' => __( 'General', 'wc-variation-images' ),
 		);
+
 		return apply_filters( 'wc_variation_images_settings_tabs', $tabs );
 	}
 
