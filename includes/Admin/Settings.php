@@ -48,9 +48,9 @@ class Settings extends \WooCommerceVariationImages\ByteKit\Admin\Settings {
 						'id'    => 'general_options',
 					),
 					array(
-						'id'       => 'wc_variation_images_hide_image_zoom',
-						'title'    => __( 'Hide Image Zoom', 'wc-variation-images' ),
-						'desc'     => __( 'Hide image zoom for variable product.', 'wc-variation-images' ),
+						'id'       => 'wcvi_disable_image_zoom',
+						'title'    => __( 'Disable Image Zoom', 'wc-variation-images' ),
+						'desc'     => __( 'Disable image zoom for variable product.', 'wc-variation-images' ),
 						'desc_tip' => __( 'Check this box to disable the image zoom effect on hover for this product.', 'wc-variation-images' ),
 						'type'     => 'select',
 						'options'  => array(
@@ -60,9 +60,9 @@ class Settings extends \WooCommerceVariationImages\ByteKit\Admin\Settings {
 						'default'  => 'no',
 					),
 					array(
-						'id'       => 'wc_variation_images_hide_image_lightbox',
-						'title'    => __( 'Hide Lightbox', 'wc-variation-images' ),
-						'desc'     => __( 'Hide image lightbox for variable product.', 'wc-variation-images' ),
+						'id'       => 'wcvi_disable_image_lightbox',
+						'title'    => __( 'Disable Lightbox', 'wc-variation-images' ),
+						'desc'     => __( 'Disable image lightbox for variable product.', 'wc-variation-images' ),
 						'desc_tip' => __( 'Enable this option to hide the lightbox on the product page.', 'wc-variation-images' ),
 						'type'     => 'select',
 						'options'  => array(
@@ -72,9 +72,9 @@ class Settings extends \WooCommerceVariationImages\ByteKit\Admin\Settings {
 						'default'  => 'no',
 					),
 					array(
-						'id'       => 'wc_variation_images_hide_image_slider',
-						'title'    => __( 'Hide Image Slider', 'wc-variation-images' ),
-						'desc'     => __( 'Hide image slider for variable product.', 'wc-variation-images' ),
+						'id'       => 'wcvi_disable_image_slider',
+						'title'    => __( 'Disable Image Slider', 'wc-variation-images' ),
+						'desc'     => __( 'Disable image slider for variable product.', 'wc-variation-images' ),
 						'desc_tip' => __( 'Enable this option to hide the image slider for this specific variation on the frontend.', 'wc-variation-images' ),
 						'type'     => 'select',
 						'options'  => array(

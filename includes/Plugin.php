@@ -83,7 +83,10 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 		 * @since 1.2.0
 		 */
 		$options = array(
-			'wc_variation_images_installed' => 'wcvi_installed',
+			'wc_variation_images_installed'           => 'wcvi_installed',
+			'wc_variation_images_hide_image_zoom'     => 'wcvi_disable_image_zoom',
+			'wc_variation_images_hide_image_lightbox' => 'wcvi_disable_image_lightbox',
+			'wc_variation_images_hide_image_slider'   => 'wcvi_disable_image_slider',
 		);
 
 		foreach ( $options as $option => $new_option ) {
@@ -167,7 +170,7 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 				'nonce'   => wp_create_nonce( 'wc_variation_images_ajax' ),
 				'i18n'    => array(
-					'hide_image_zoom' => get_option( 'wc_variation_images_hide_image_zoom', 'no' ),
+					'hide_image_zoom' => get_option( 'wcvi_disable_image_zoom', 'no' ),
 					'lightbox_data'   => Helpers::get_lightbox_data(),
 					'slider_data'     => Helpers::get_slider_data(),
 				),

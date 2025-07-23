@@ -47,7 +47,7 @@ class Products {
 		$product = wc_get_product();
 		if ( is_product() && 'variable' === $product->get_type() ) {
 			if ( 'single-product/product-image.php' === $template_name ) {
-				if ( 'no' === get_option( 'wc_variation_images_hide_image_slider', 'no' ) ) {
+				if ( 'no' === get_option( 'wcvi_disable_image_slider', 'no' ) ) {
 					$template = WCVI_PLUGIN_TEMPLATES_DIR . '/product-image-slider.php';
 				} else {
 					$template = WCVI_PLUGIN_TEMPLATES_DIR . '/product-image.php';
@@ -114,9 +114,9 @@ class Products {
 		}
 		$product = wc_get_product( $post->ID );
 		if ( is_product() && 'variable' === $product->get_type() ) {
-			$hide_zoom     = get_option( 'wc_variation_images_hide_image_zoom', 'no' );
-			$hide_lightbox = get_option( 'wc_variation_images_hide_image_lightbox', 'no' );
-			$hide_gallery  = get_option( 'wc_variation_images_hide_image_slider', 'no' );
+			$hide_zoom     = get_option( 'wcvi_disable_image_zoom', 'no' );
+			$hide_lightbox = get_option( 'wcvi_disable_image_lightbox', 'no' );
+			$hide_gallery  = get_option( 'wcvi_disable_image_slider', 'no' );
 			if ( 'yes' === $hide_zoom ) {
 				remove_theme_support( 'wc-product-gallery-zoom' );
 			}

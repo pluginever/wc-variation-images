@@ -63,13 +63,13 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 		$gallery_images = array_slice( $gallery_images, 0, 3 );
 	}
 
-	$hide_gallery = get_option( 'wc_variation_images_hide_image_slider', 'no' );
+	$hide_gallery = get_option( 'wcvi_disable_image_slider', 'no' );
 
 	// Add product/variation image id in gallery image array.
 	array_unshift( $gallery_images, $variation_image_id );
 
 	$gallery_position = get_option( 'wcvi_gallery_position', 'bottom' );
-	$hide_lightbox    = 'no' === get_option( 'wc_variation_images_hide_image_lightbox', 'no' ) ? 'data-fancybox=gallery' : '';
+	$hide_lightbox    = 'no' === get_option( 'wcvi_disable_image_lightbox', 'no' ) ? 'data-fancybox=gallery' : '';
 
 	ob_start();
 	?>
@@ -78,7 +78,7 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 		style="opacity: 1;">
 		<figure class="woocommerce-product-gallery__wrapper wc-variation-images-gallery" style="height: auto;">
 			<div class="wc-variation-images-viewer __<?php echo esc_attr( $gallery_position ); ?>">
-				<?php if ( 'no' !== get_option( 'wc_variation_images_hide_image_slider', 'no' ) ) { ?>
+				<?php if ( 'no' !== get_option( 'wcvi_disable_image_slider', 'no' ) ) { ?>
 				<div class="selected-image">
 					<a href="" id="image-link" class="light-box-icon" <?php echo esc_attr( $hide_lightbox ); ?>>
 						<svg fill="white" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1.05 1.05" enable-background="new 0 0 42 42" xml:space="preserve">
