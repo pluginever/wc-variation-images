@@ -128,23 +128,59 @@ Yes! Get support via [PluginEver Helpdesk](https://pluginever.com/support/) or t
 ---
 
 == Changelog ==
+= 1.3.0 ( 23rd July, 2025 ) =
+* New - Added new feature to variation image gallery.
+* Enhance - Improved code structure and enhanced functionality.
+* Fix - Fixed some known issues.
+* Compatibility - Checked compatibility with the latest version of WordPress and WooCommerce.
 
-= 1.2.3 – 25 May 2025 =  
-* Fix: Minor issues fixed  
-* Enhancement: Code structure & performance improvements
+= 1.2.3 ( 25th May, 2025 ) =
+* Fix - Fixed some known issues.
+* Enhance - Improve code structure, enhance functionality and remove unused code.
 
-= 1.2.2 – 04 May 2025 =  
-* Fix: General compatibility updates  
-* Update: WordPress 6.8, WooCommerce support
+= 1.2.2 ( 04th May, 2025 ) =
+* Compatibility - Compatible with the latest version of WordPress and WooCommerce.
+* Fix - Some known issues.
 
-(Full changelog continues...)
+= 1.2.1 ( 27th March, 2025 )=
+* Compatibility - Checked compatibility with WC latest version.
 
----
+= 1.2.0 ( 15th January, 2025 )=
+* Enhance - Update Framework
+* Enhance - Add New Feature Gallery Position
+* Fix - Fixed some known issues
+* Compatibility - Checked compatibility with WP latest version
+* Compatibility - Checked compatibility with WC latest version
 
-== Upgrade Notice ==
+= 1.1.1 ( 23th October, 2024 )=
+* Fix - Fixed some known issues
+* Compatibility - Checked compatibility with WP latest version
+* Compatibility - Checked compatibility with WC latest version
 
-= 1.2.3 =  
-Improved compatibility and performance. Update now to get the latest fixes and enhancements.
+= 1.1.0 =
+* Fix - Fixed some known issues
+* Fix - Fixed security issues
+* Enhance - Update Framework
+* Compatibility - Checked compatibility with WP latest version
+* Compatibility - Checked compatibility with WC latest version
+
+= 1.0.4 =
+* Fix - WC HPOS issue
+* WC compatibility with 9.1.4
+* WP compatibility with 6.6.1
+
+= 1.0.3 =
+* WC compatibility with 7.1
+* WP compatibility with 6.1
+
+= 1.0.1 =
+* WC compatibility with 3.7.1
+* WP compatibility with 5.2.4
+* [Fix] image preview in variation product
+* [Fix] Hide variation slider when reset/clear variation option
+
+= 1.0.0 =
+* First release
 
 ---
 
