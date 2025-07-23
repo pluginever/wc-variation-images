@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WC Variation Images 1.2.3\n"
 "Report-Msgid-Bugs-To: https://pluginever.com/support/\n"
-"POT-Creation-Date: 2025-07-23 06:51:47+00:00\n"
+"POT-Creation-Date: 2025-07-23 07:10:38+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: includes/Admin/Admin.php:78 includes/Admin/Admin.php:80
 #: includes/Admin/Admin.php:112 includes/Admin/Admin.php:113
-#: includes/Products.php:147
+#: includes/Admin/Products.php:40
 msgid "Variation Images"
 msgstr ""
 
@@ -62,6 +62,10 @@ msgstr ""
 #: includes/Admin/Admin.php:152
 #. translators: 1: Plugin version
 msgid "Version %s"
+msgstr ""
+
+#: includes/Admin/Products.php:61
+msgid "Add Variation Images"
 msgstr ""
 
 #: includes/Admin/Settings.php:25
@@ -187,10 +191,6 @@ msgstr ""
 
 #: includes/Plugin.php:110
 msgid "Go Pro"
-msgstr ""
-
-#: includes/Products.php:171
-msgid "Add Variation Images"
 msgstr ""
 
 #: includes/functions.php:102 templates/product-image.php:75
