@@ -125,7 +125,7 @@ Explore more powerful plugins by [PluginEver](https://pluginever.com):
 9. Lightbox preview with social sharing options
 
 == Changelog ==
-= 1.3.1 ( 06th October, 2025 ) =
+= 1.3.1 ( 6th October, 2025 ) =
 * Compatibility - Checked compatibility with the latest version of WordPress and WooCommerce.
 
 = 1.3.0 ( 23rd July, 2025 ) =
