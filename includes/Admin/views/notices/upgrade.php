@@ -4,7 +4,7 @@
  *
  * @since 1.0.0
  * @return void
- * @package WooCommerceVariationImages\Admin\Notices
+ * @package WooCommerceVariationImages\Admin\Views\Notices
  */
 
 defined( 'ABSPATH' ) || exit;
