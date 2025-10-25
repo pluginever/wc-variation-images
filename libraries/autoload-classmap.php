@@ -5,6 +5,10 @@
 $strauss_src = dirname(__FILE__);
 
 return array(
+   'WooCommerceVariationImages\Composer\Autoload\ClassLoader' => $strauss_src . '/composer/ClassLoader.php',
+   'WooCommerceVariationImages\Composer\Autoload\ComposerStaticInitc611663486000a2c78cce57f6534a6ee' => $strauss_src . '/composer/autoload_static.php',
+   'ComposerAutoloaderInitc611663486000a2c78cce57f6534a6ee' => $strauss_src . '/composer/autoload_real.php',
+   'WooCommerceVariationImages\Composer\InstalledVersions' => $strauss_src . '/composer/InstalledVersions.php',
    'WooCommerceVariationImages\ByteKit\Admin\Settings' => $strauss_src . '/byteever/bytekit-settings/src/Admin/Settings.php',
    'WooCommerceVariationImages\ByteKit\Scripts' => $strauss_src . '/byteever/bytekit-plugin/src/Scripts.php',
    'WooCommerceVariationImages\ByteKit\Traits\HasPlugin' => $strauss_src . '/byteever/bytekit-plugin/src/Traits/HasPlugin.php',

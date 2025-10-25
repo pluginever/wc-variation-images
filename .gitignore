@@ -24,7 +24,6 @@ Desktop.ini
 # NPM and Grunt.js related files
 node_modules
 bower_components
-.idea
 *.log
 npm-debug.log
 
@@ -41,7 +40,7 @@ npm-debug.log
 .husky
 *.lock
 
-# Tests related files
+# Test related files
 codeception.yml
 .env
 /tests/_data/dump.sql

@@ -3,19 +3,9 @@
   "description": "Adds additional gallery images per product variation in WooCommerce.",
   "homepage": "https://pluginever.com/plugins/wc-variation-images-pro/",
   "type": "wordpress-plugin",
-  "license": "GPL-2.0-or-later",
+  "license": "GPL v2 or later",
   "prefer-stable": true,
   "minimum-stability": "dev",
-  "repositories": [
-    {
-      "url": "git@github.com:byteever/bytekit-plugin.git",
-      "type": "github"
-    },
-    {
-      "url": "git@github.com:byteever/bytekit-settings.git",
-      "type": "github"
-    }
-  ],
   "require": {
     "php": ">=7.4",
     "byteever/bytekit-plugin": "^1.0",
@@ -24,20 +14,29 @@
   "require-dev": {
     "byteever/byteever-sniffs": "^1.1"
   },
+  "autoload": {
+    "psr-4": {
+      "WooCommerceVariationImages\\": "includes/"
+    }
+  },
+  "autoload-dev": {},
   "config": {
     "optimize-autoloader": true,
     "sort-packages": true,
     "allow-plugins": {
-      "composer/*": true,
       "dealerdirect/phpcodesniffer-composer-installer": true
     }
   },
-  "autoload" : {
-    "psr-4" : {
-      "WooCommerceVariationImages\\": ["includes/"]
+  "repositories": [
+    {
+      "type": "github",
+      "url": "git@github.com:byteever/bytekit-plugin.git"
+    },
+    {
+      "type": "github",
+      "url": "git@github.com:byteever/bytekit-settings.git"
     }
-  },
-  "autoload-dev": {},
+  ],
   "scripts": {
     "post-install-cmd":"@strauss",
     "post-update-cmd": "@strauss",

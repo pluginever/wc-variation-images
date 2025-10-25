@@ -4,7 +4,7 @@
     'name' => 'pluginever/wc-variation-images',
     'pretty_version' => 'dev-master',
     'version' => 'dev-master',
-    'reference' => '74a9e563234a48c841279ff26fadac631e8fdaf7',
+    'reference' => '79522664544044087cf064830619c8d3bf96ec63',
     'type' => 'wordpress-plugin',
     'install_path' => __DIR__ . '/../',
     'aliases' => 
