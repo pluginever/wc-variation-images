@@ -1,5 +1,5 @@
 /**
- * WC Variation Images Frontend Script
+ * Variation Images Frontend Script
  * Handles the dynamic loading of variation-specific images in the WooCommerce product gallery.
  *
  * @author      PluginEver

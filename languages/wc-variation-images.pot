@@ -2,9 +2,9 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WC Variation Images 1.3.2\n"
+"Project-Id-Version: Variation Images 1.3.3\n"
 "Report-Msgid-Bugs-To: https://pluginever.com/support/\n"
-"POT-Creation-Date: 2025-10-25 11:06:51+00:00\n"
+"POT-Creation-Date: 2025-11-24 12:40:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,42 +24,40 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: includes/Admin/Admin.php:79 includes/Admin/Admin.php:81
-#: includes/Admin/Admin.php:113 includes/Admin/Admin.php:114
-#: includes/Admin/Products.php:40
+#. Plugin Name of the plugin/theme
 msgid "Variation Images"
 msgstr ""
 
-#: includes/Admin/Admin.php:80
+#: includes/Admin/Admin.php:82
 msgid "Add Additional Images"
 msgstr ""
 
-#: includes/Admin/Admin.php:82
+#: includes/Admin/Admin.php:84
 msgid "Add to Variation"
 msgstr ""
 
-#: includes/Admin/Admin.php:83
+#: includes/Admin/Admin.php:85
 msgid "Upload limit 3 images in free version"
 msgstr ""
 
-#: includes/Admin/Admin.php:84
+#: includes/Admin/Admin.php:86
 msgid ""
 "Click on link below to add additional images. Click on image itself to "
 "remove the image. Click and drag image to re-order the image position."
 msgstr ""
 
-#: includes/Admin/Admin.php:133
+#: includes/Admin/Admin.php:135
 #. translators: 1: Plugin name 2: WordPress
 msgid ""
 "Thank you for using %1$s. If you like it, please leave us a %2$s rating. A "
 "huge thank you from PluginEver in advance!"
 msgstr ""
 
-#: includes/Admin/Admin.php:135
+#: includes/Admin/Admin.php:137
 msgid "Thanks :)"
 msgstr ""
 
-#: includes/Admin/Admin.php:153
+#: includes/Admin/Admin.php:155
 #. translators: 1: Plugin version
 msgid "Version %s"
 msgstr ""
@@ -145,43 +143,35 @@ msgstr ""
 msgid "Documentation"
 msgstr ""
 
-#: includes/Admin/views/notices/halloween.php:22
-msgid "Limited Time Offer! PluginEver Halloween Sale: 30% OFF!!"
+#: includes/Admin/views/notices/black-friday.php:19
+msgid "Black Friday Mega Sale! Get Flat 40% OFF on Variation Images Pro !!"
 msgstr ""
 
-#: includes/Admin/views/notices/halloween.php:29
-#. translators: 1.Offer Percentage, 2. Coupon Code.
+#: includes/Admin/views/notices/black-friday.php:26
+#. translators: 1. Offer Percentage, 2. Coupon Code.
 msgid ""
-"Spectacular Halloween Deal! Get %1$s on all premium plugins with code %2$s. "
-"Don't miss out — this offer vanishes soon! 👻"
+"Unlock premium features at an unbeatable price this Black Friday! Enjoy "
+"%1$s on Variation Images Pro with code %2$s. Hurry, this deal ends soon!"
 msgstr ""
 
-#: includes/Admin/views/notices/halloween.php:42
+#: includes/Admin/views/notices/black-friday.php:38
 msgid "Claim your discount!!"
 msgstr ""
 
-#: includes/Admin/views/notices/halloween.php:46
+#: includes/Admin/views/notices/black-friday.php:42
 msgid "Remind me later"
 msgstr ""
 
-#: includes/Admin/views/notices/halloween.php:50
+#: includes/Admin/views/notices/black-friday.php:46
 msgid "Never show this again!"
 msgstr ""
 
-#: includes/Admin/views/notices/halloween.php:54
-msgid "DISMISS"
-msgstr ""
-
-#: includes/Admin/views/notices/halloween.php:57
-msgid "Valid until November 8, 2025"
-msgstr ""
-
 #: includes/Admin/views/notices/review.php:19
-msgid "Enjoying WC Variation Images?"
+msgid "Enjoying Variation Images?"
 msgstr ""
 
 #: includes/Admin/views/notices/review.php:26
-#. translators: %1$s: WC Variation Images ORG link, %2$s: Review link.
+#. translators: %1$s: Variation Images ORG link, %2$s: Review link.
 msgid ""
 "We hope you had a wonderful experience using %1$s. Please take a moment to "
 "show us your support by leaving a 5-star review on <a href=\"%2$s\" "
@@ -206,7 +196,7 @@ msgid "Flash Sale Alert!"
 msgstr ""
 
 #: includes/Admin/views/notices/upgrade.php:24
-#. translators: %1$s: WC Variation Images Pro link, %2$s: Coupon code.
+#. translators: %1$s: Variation Images Pro link, %2$s: Coupon code.
 msgid ""
 "Enjoy <strong>10%% discount</strong> on %1$s! Use coupon code %2$s at "
 "checkout to grab the deal. Don’t miss out — this offer won’t last forever!"
@@ -272,10 +262,6 @@ msgstr ""
 
 #: libraries/byteever/bytekit-settings/src/Admin/Settings.php:372
 msgid "Report a Bug"
-msgstr ""
-
-#. Plugin Name of the plugin/theme
-msgid "WC Variation Images"
 msgstr ""
 
 #. Plugin URI of the plugin/theme

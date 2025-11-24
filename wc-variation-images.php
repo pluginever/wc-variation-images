@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:          WC Variation Images
+ * Plugin Name:          Variation Images
  * Plugin URI:           https://pluginever.com/plugins/wc-variation-images-pro
  * Description:          Adds additional gallery images per product variation in WooCommerce.
- * Version:              1.3.2
+ * Version:              1.3.3
  * Requires at least:    5.2
  * Requires PHP:         7.4
  * Author:               PluginEver

@@ -65,7 +65,9 @@ class Admin {
 		wp_enqueue_style( 'bytekit-components' );
 		wp_enqueue_style( 'bytekit-layout' );
 
-		wc_variation_images()->scripts->enqueue_style( 'wc-variation-image-halloween', 'css/halloween.css' );
+		// TODO: Remove this line when Black Friday offer is over.
+		wc_variation_images()->scripts->enqueue_style( 'wcvi-black-friday', 'css/black-friday.css' );
+
 		wc_variation_images()->scripts->register_style( 'wc-variation-images', 'css/admin.css' );
 		wc_variation_images()->scripts->register_script( 'wc-variation-images', 'js/admin.js' );
 
