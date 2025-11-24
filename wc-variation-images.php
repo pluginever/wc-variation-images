@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:          Category Images
+ * Plugin Name:          Variation Images
  * Plugin URI:           https://pluginever.com/plugins/wc-variation-images-pro
  * Description:          Adds additional gallery images per product variation in WooCommerce.
  * Version:              1.3.3

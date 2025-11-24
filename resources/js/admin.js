@@ -1,5 +1,5 @@
 /**
- * Category Images admin
+ * Variation Images admin
  * https://pluginever.com
  *
  * Copyright (c) 2025 PluginEver
