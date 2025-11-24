@@ -4,7 +4,7 @@ Tags: woocommerce variation image gallery, product variation image, additional v
 Requires at least: 5.2
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -133,7 +133,11 @@ Explore more WooCommerce solutions from [PluginEver](https://pluginever.com):
 9. Lightbox preview with social sharing options
 
 == Changelog ==
-= 1.3.2 ( 25th October, 2025 ) =
+= 1.3.3 ( 24th November 2025 ) =
+* Fix: Updated plugin naming to comply with WordPress.org trademark guidelines.
+* Enhance: Improved readme content clarity and removed promotional language per guidelines.
+
+= 1.3.2 ( 25th October 2025 ) =
 * Fix - Fixed minor issues.
 * Enhance: Update the plugin notices.
 * Compatibility - Checked compatibility with the latest version of WooCommerce (v10.3).
@@ -141,31 +145,31 @@ Explore more WooCommerce solutions from [PluginEver](https://pluginever.com):
 = 1.3.1 ( 6th October, 2025 ) =
 * Compatibility - Checked compatibility with the latest version of WordPress and WooCommerce.
 
-= 1.3.0 ( 23rd July, 2025 ) =
+= 1.3.0 ( 23rd July 2025 ) =
 * New - Added new feature to variation image gallery.
 * Enhance - Improved code structure and enhanced functionality.
 * Fix - Fixed some known issues.
 * Compatibility - Checked compatibility with the latest version of WordPress and WooCommerce.
 
-= 1.2.3 ( 25th May, 2025 ) =
+= 1.2.3 ( 25th May 2025 ) =
 * Fix - Fixed some known issues.
 * Enhance - Improve code structure, enhance functionality and remove unused code.
 
-= 1.2.2 ( 04th May, 2025 ) =
+= 1.2.2 ( 04th May 2025 ) =
 * Compatibility - Compatible with the latest version of WordPress and WooCommerce.
 * Fix - Some known issues.
 
-= 1.2.1 ( 27th March, 2025 ) =
+= 1.2.1 ( 27th March 2025 ) =
 * Compatibility - Checked compatibility with WC latest version.
 
-= 1.2.0 ( 15th January, 2025 ) =
+= 1.2.0 ( 15th January 2025 ) =
 * Enhance - Update Framework
 * Enhance - Add New Feature Gallery Position
 * Fix - Fixed some known issues
 * Compatibility - Checked compatibility with WP latest version
 * Compatibility - Checked compatibility with WC latest version
 
-= 1.1.1 ( 23th October, 2024 ) =
+= 1.1.1 ( 23th October 2024 ) =
 * Fix - Fixed some known issues
 * Compatibility - Checked compatibility with WP latest version
 * Compatibility - Checked compatibility with WC latest version

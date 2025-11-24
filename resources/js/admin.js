@@ -1,6 +1,6 @@
 /**
- * WC Variation Images admin
- * https://www.pluginever.com
+ * Category Images admin
+ * https://pluginever.com
  *
  * Copyright (c) 2025 PluginEver
  * Licensed under the GPLv2+ license.

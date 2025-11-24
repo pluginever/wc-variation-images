@@ -53,7 +53,7 @@ class Notices {
 				array(
 					'message'     => __DIR__ . '/views/notices/black-friday.php',
 					'dismissible' => false,
-					'notice_id'   => 'wc_variation_images_black_friday_promo_2025',
+					'notice_id'   => 'wcvi_black_friday_promo_2025',
 					'style'       => 'border-left-color: #000000;',
 					'class'       => 'notice-black-friday',
 				)
