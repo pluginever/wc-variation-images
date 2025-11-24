@@ -1,4 +1,4 @@
-=== WC Variation Images – Additional Variation Images for WooCommerce ===
+=== Variation Images – Additional Variation Images for WooCommerce ===
 Contributors: manikmist09, pluginever
 Tags: woocommerce variation image gallery, product variation image, additional variation image gallery, product variation image gallery, variation images gallery
 Requires at least: 5.2
@@ -12,28 +12,33 @@ Add multiple images per WooCommerce variation to enhance product visuals, build 
 
 == Description ==
 
-WC Variation Images is the ultimate solution to one of WooCommerce’s biggest limitations — it lets you add multiple images per variation on variable products, a feature missing in default WooCommerce.
+**[Variation Images](https://pluginever.com/plugins/wc-variation-images-pro/?utm_source=product-page-wordpress.org&utm_medium=product-page-wordpress.org&utm_campaign=product-page-wordpress.org)** lets you add **multiple images per variation** in your WooCommerce store. By default, WooCommerce only supports a single image for each product variation — forcing you to work around limited visuals. With this plugin, every variation can have its own image gallery.
 
-By default, WooCommerce allows only a single image per product variation, which often leads to a poor visual experience. This limits your ability to showcase different colors, styles, or product views effectively. WC Variation Images fixes that by enabling you to create a fully-featured variation image gallery for each product variation.
-
-Whether you're selling fashion, electronics, furniture, or digital goods, this plugin gives your customers a complete visual overview of the product they’re selecting. Adding additional variation image galleries improves trust, speeds up decision-making, and reduces cart abandonment.
+Whether you are selling fashion, electronics, furniture, or digital goods, each product variation can now be shown from every angle. The variation image gallery supports zoom, lightbox, intuitive slider navigation, and is fully responsive across devices.
 
 With support for image zoom, lightbox viewing, and flexible gallery positions, your store will look more professional and deliver an engaging shopping experience across all devices.
 
+= With this plugin, you can: =
+
+* Show realistic views and alternate angles per variation to build trust.
+* Reduce customer hesitation by giving a full visual context before they select a variation.
+* Make your product pages stand out and increase conversion rates.
+
 = ✅ Key Benefits =
 
-* Showcase multiple images per WooCommerce variation
+* Showcase complete product views with multiple images per variation
 * Replace the default single image with a complete product variation image gallery
 * Improve customer confidence with visual clarity and detailed variation views
+* Help buyers make faster decisions with clear variation gallery visuals
 * Enable advanced features like zoom, lightbox, and slider navigation
 * Fully responsive and compatible with most WooCommerce themes
 
-Whether you're looking to enhance your product pages or offer customers a better shopping journey, WC Variation Images helps your WooCommerce store stand out in a competitive market.
+Whether you're looking to enhance your product pages or offer customers a better shopping journey, Variation Images helps your WooCommerce store stand out in a competitive market.
 
 
-🎯 **[Live Demo](https://demo.pluginever.com/wc-variation-images/)** | 🚀 **[Get PRO Version](https://pluginever.com/plugins/wc-variation-images-pro/)** | 📖 **[Documentation](https://pluginever.com/docs/wc-variation-images/)** | 🛠️ **[Support](https://pluginever.com/support/)**
+🎯 **[Live Demo](https://demo.pluginever.com/wc-variation-images/)** | 🚀 **[Get PRO Version](https://pluginever.com/plugins/wc-variation-images-pro/?utm_source=product-page-wordpress.org&utm_medium=product-page-wordpress.org&utm_campaign=product-page-wordpress.org)** | 📖 **[Documentation](https://pluginever.com/docs/wc-variation-images/)** | 🛠️ **[Support](https://pluginever.com/support/)**
 
-== ✅ Why Use WC Variation Images? ==
+== ✅ Why Use Variation Images? ==
 
 - Show **complete product views** for each variation
 - Increase trust & clarity with **visual storytelling**
@@ -52,26 +57,29 @@ Whether you're looking to enhance your product pages or offer customers a better
 = Pro Version =
 
 * Upload unlimited images per variation
-* Choose from multiple gallery layouts
-* Customize lightbox: Zoom, Fullscreen, Slider Play, Thumbnails
-* Advanced slider settings: Navigation, Loop, Delay, Item Gap
+* Select from multiple gallery layouts
+* Advanced lightbox: Zoom, Fullscreen, Slider Play, Thumbnails
+* Fine-tune slider controls: Navigation, Loop, Delay, Item Gap
 * Priority support and future updates
 
 == Coming Soon ==
 
-* Video Gallery: Embed YouTube and Vimeo videos in variations
-* Custom Styles: Personalize buttons and thumbnails
-* Icon Control: Replace default gallery icons with custom SVGs
-* Add Option to Display Custom Text or Titles on Variation Images
-* Add Drag-and-Drop Sorting for Variation Gallery Images
-* Add Option to Remove Main Product Image from Variation Gallery
+* **Video Gallery**: Embed YouTube and Vimeo videos per variations
+* **Custom Styles**: Personalize buttons and thumbnails
+* **Icon Control**: Replace default gallery icons with custom SVGs
+* **Custom Text or Titles**: Add captions or titles to variation images
+* **Drag-and-Drop Sorting**:  Easily reorder gallery images
+* **Remove Main Product Image**: Add Option to remove main product image from variation gallery
 
 == Installation ==
 
 = 📦 From WordPress Dashboard =
 1. Navigate to **Plugins > Add New**
-2. Search **“WC Variation Images”**
+2. Search **“Variation Images for WooCommerce”**
+3. Locate the plugin from the search result
 3. Click **Install Now**, then **Activate**
+
+Please note that if you didn’t find the plugin in the search result, you can try searching with the “PluginEver” keyword.
 
 = 💻 Manual Upload =
 1. Download the ZIP file
@@ -85,32 +93,32 @@ Whether you're looking to enhance your product pages or offer customers a better
 
 == Frequently Asked Questions ==
 
-= How do I add multiple images to product variations? =
-Edit a variable product → Go to Variations → You’ll see image upload options for each variation.
+= How do I add multiple images to a product variation? =
+Edit a variable product → Go to Variations tab → You’ll see image upload options for each variation.
 
-= Does this plugin work with all WooCommerce themes? =
+= Does Variation Images work with all WooCommerce themes? =
 Yes! It’s compatible with major WooCommerce themes like **Astra**, **OceanWP**, **Flatsome**, **Storefront**, and others.
 
-= Is this plugin compatible with Multisite? =
-Yes, WC Variation Images works with WordPress Multisite networks.
+= Is Variation Images compatible with Multisite? =
+Yes, Variation Images works with WordPress Multisite networks.
 
-= Will it slow down my site? =
+= Will it slow down my store? =
 No. The plugin is lightweight, well-coded, and optimized for performance.
 
 = How many images can I add per variation? =
 The free version supports **3 images per variation**. The Pro version allows **unlimited images**.
 
-= Is support available? =
-Yes! Get support via [PluginEver Helpdesk](https://pluginever.com/support/) or the WordPress.org forum.
+= Where can I get support? =
+Support is available via our [PluginEver Helpdesk](https://pluginever.com/support/) or through the WordPress.org support forum.
 
 == 🙌 You Might Also Like ==
 
-Explore more powerful plugins by [PluginEver](https://pluginever.com):
+Explore more WooCommerce solutions from [PluginEver](https://pluginever.com):
 
-- 🔑 [WC Key Manager](https://wordpress.org/plugins/wc-key-manager/) – License key delivery for digital products
-- 💬 [WC Back in Stock Notifier](https://pluginever.com/plugins/wc-back-in-stock-notifier/) – Notify customers when out-of-stock items return
-- 📥 [WC Digital Checkout](https://pluginever.com/plugins/wc-digital-product-checkout/) – Simplify digital product checkout
-- 👥 [WC Registration Approval](https://pluginever.com/plugins/wc-registration-approval/) – Manually approve new user registrations
+- 🔑 [Key Manager](https://wordpress.org/plugins/wc-key-manager/) – License key delivery for digital products
+- 💬 [Back in Stock Notifier for WooCommerce](https://pluginever.com/plugins/wc-back-in-stock-notifier/) – Notify customers when out-of-stock items return
+- 📥 [Digital Checkout for WooCommerce](https://pluginever.com/plugins/wc-digital-product-checkout/) – Simplify digital product checkout
+- 👥 [Registration Approval for WooCommerce](https://pluginever.com/plugins/wc-registration-approval/) – Manually approve new user registrations
 
 == Screenshots ==
 
