@@ -5,17 +5,17 @@
 $strauss_src = dirname(__FILE__);
 
 return array(
-   'WooCommerceVariationImages\Composer\Autoload\ClassLoader' => $strauss_src . '/composer/ClassLoader.php',
-   'WooCommerceVariationImages\Composer\Autoload\ComposerStaticInitc611663486000a2c78cce57f6534a6ee' => $strauss_src . '/composer/autoload_static.php',
-   'ComposerAutoloaderInitc611663486000a2c78cce57f6534a6ee' => $strauss_src . '/composer/autoload_real.php',
-   'WooCommerceVariationImages\Composer\InstalledVersions' => $strauss_src . '/composer/InstalledVersions.php',
    'WooCommerceVariationImages\ByteKit\Admin\Settings' => $strauss_src . '/byteever/bytekit-settings/src/Admin/Settings.php',
-   'WooCommerceVariationImages\ByteKit\Scripts' => $strauss_src . '/byteever/bytekit-plugin/src/Scripts.php',
    'WooCommerceVariationImages\ByteKit\Traits\HasPlugin' => $strauss_src . '/byteever/bytekit-plugin/src/Traits/HasPlugin.php',
    'WooCommerceVariationImages\ByteKit\Services' => $strauss_src . '/byteever/bytekit-plugin/src/Services.php',
-   'WooCommerceVariationImages\ByteKit\Plugin' => $strauss_src . '/byteever/bytekit-plugin/src/Plugin.php',
+   'WooCommerceVariationImages\ByteKit\Scripts' => $strauss_src . '/byteever/bytekit-plugin/src/Scripts.php',
    'WooCommerceVariationImages\ByteKit\Admin\Flash' => $strauss_src . '/byteever/bytekit-plugin/src/Admin/Flash.php',
    'WooCommerceVariationImages\ByteKit\Admin\Notices' => $strauss_src . '/byteever/bytekit-plugin/src/Admin/Notices.php',
-   'WooCommerceVariationImages\ByteKit\Interfaces\Pluginable' => $strauss_src . '/byteever/bytekit-plugin/src/Interfaces/Pluginable.php',
+   'WooCommerceVariationImages\ByteKit\Plugin' => $strauss_src . '/byteever/bytekit-plugin/src/Plugin.php',
    'WooCommerceVariationImages\ByteKit\Interfaces\Scriptable' => $strauss_src . '/byteever/bytekit-plugin/src/Interfaces/Scriptable.php',
+   'WooCommerceVariationImages\ByteKit\Interfaces\Pluginable' => $strauss_src . '/byteever/bytekit-plugin/src/Interfaces/Pluginable.php',
+   'WooCommerceVariationImages\Composer\Autoload\ComposerStaticInitc611663486000a2c78cce57f6534a6ee' => $strauss_src . '/composer/autoload_static.php',
+   'WooCommerceVariationImages\Composer\Autoload\ClassLoader' => $strauss_src . '/composer/ClassLoader.php',
+   'ComposerAutoloaderInitc611663486000a2c78cce57f6534a6ee' => $strauss_src . '/composer/autoload_real.php',
+   'WooCommerceVariationImages\Composer\InstalledVersions' => $strauss_src . '/composer/InstalledVersions.php',
 );
