@@ -1,38 +1,59 @@
 {
-  "name": "wc-variation-images",
-  "title": "Variation Images",
-  "description": "Adds additional gallery images per product variation in WooCommerce.",
-  "version": "1.3.3",
-  "homepage": "https://pluginever.com/plugins/wc-variation-images-pro/",
-  "scripts": {
-    "build": "wp-scripts build --webpack-src-dir=assets && grunt build",
-    "check-engines": "wp-scripts check-engines",
-    "check-licenses": "wp-scripts check-licenses",
-    "format": "wp-scripts format",
-    "lint:css": "wp-scripts lint-style",
-    "lint:js": "wp-scripts lint-js",
-    "lint:md:docs": "wp-scripts lint-md-docs",
-    "lint:pkg-json": "wp-scripts lint-pkg-json",
-    "packages-update": "wp-scripts packages-update",
-    "plugin-zip": "wp-scripts plugin-zip",
-    "start": "wp-scripts start --webpack-src-dir=assets",
-    "test:e2e": "wp-scripts test-e2e",
-    "test:unit": "wp-scripts test-unit-js"
-  },
-  "devDependencies": {
-    "@lodder/time-grunt": "^4.0.0",
-    "@wordpress/scripts": "^31.0.0",
-    "clean-webpack-plugin": "^4.0.0",
-    "copy-webpack-plugin": "^11.0.0",
-    "grunt": "^1.6.1",
-    "grunt-checktextdomain": "^1.0.1",
-    "grunt-wp-i18n": "^1.0.3",
-    "load-grunt-tasks": "^5.1.0",
-    "webpack-remove-empty-scripts": "^1.0.4"
-  },
-  "browserslist": [
-    "> 0.1%",
-    "ie 8",
-    "ie 9"
-  ]
+	"name": "wc-variation-images",
+	"version": "1.3.3",
+	"description": "Adds additional gallery images per product variation in WooCommerce.",
+	"author": "ByteEver Team",
+	"license": "GPL-2.0-or-later",
+	"homepage": "https://pluginever.com/plugins/wc-variation-images-pro/",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pluginever/wc-variation-images.git"
+	},
+	"bugs": {
+		"url": "https://github.com/pluginever/wc-variation-images/issues"
+	},
+	"engines": {
+		"node": ">=20.11.1"
+	},
+	"devDependencies": {
+		"@byteever/scripts": "^3.0.4",
+		"@wordpress/browserslist-config": "^6.36.0",
+		"@wordpress/prettier-config": "^4.36.0",
+		"@wordpress/scripts": "^31.1.0"
+	},
+	"scripts": {
+		"build": "wp-scripts build && composer run makepot",
+		"build:wp": "wp-scripts build && composer run makepot",
+		"start": "wp-scripts start",
+		"lint": "npm run lint:js && npm run lint:css",
+		"lint:js": "wp-scripts lint-js",
+		"lint:css": "wp-scripts lint-style",
+		"lint:pkg-json": "wp-scripts lint-pkg-json",
+		"format:js": "wp-scripts format",
+		"update": "npx npm-check-updates -u && npm i"
+	},
+	"browserslist": [
+		"extends @wordpress/browserslist-config"
+	],
+	"postcss": {
+		"plugins": {
+			"autoprefixer": {
+				"grid": "autoplace"
+			},
+			"cssnano": {
+				"preset": [
+					"default",
+					{
+						"minifyFontValues": {
+							"removeQuotes": false
+						},
+						"colormin": false
+					}
+				]
+			},
+			"css-declaration-sorter": {
+				"order": "smacss"
+			}
+		}
+	}
 }
