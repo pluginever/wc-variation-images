@@ -1,79 +1,44 @@
-# Default dist ignore list
+# ═══════════════════════════════════════════════════════════════════════════
+# Distribution Ignore - Production Build Exclusions
+# ═══════════════════════════════════════════════════════════════════════════
 
-# Git related files
-.git
-.github
-.gitignore
+# ───────────────────────────────
+# Version Control
+# ───────────────────────────────
+.git/
+.github/
 .gitattributes
-.gitkeep
-.gitmodules
-.husky
+.gitignore
 
-# Documentation files
-readme.md
-README.md
-
-# Composer related files
-composer.*
-
-# NPM related files
-npm-debug.log
-/node_modules/
-package.json
+# ───────────────────────────────
+# Development Tooling
+# ───────────────────────────────
+bin/
+composer.lock
+node_modules/
 package-lock.json
-yarn.lock
+package.json
+packages/
+tests/
 
-# Build related files
-postcss.config.js
-babel.config.js
-gruntfile.js
-Gruntfile.js
-webpack.config.js
-tailwind.config.js
-
-# Test related files
-phpunit.xml
-phpunit.xml.dist
-tests
-*.yml
-
-# PHPCS related files
-phpcs.xml
-phpcs.xml.dist
-
-# IDE related files
-.idea
-*.iml
-*.sublime-project
-*.sublime-workspace
-*.project
-*.tmproj
-*.vscode
-
-# Miscellaneous files and folders
-.*
-.*/
-*.lock
+# ───────────────────────────────
+# Catch All ( Miscellaneous )
+# ───────────────────────────────
 *.log
-*.sh
-*.zip
-
-# OS specific files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Action related files
-.wordpress-org
-
-# Binary and other directories
-/bin/
-
-# Asset related files
+*.map
+*.md
 *.scss
-*.*.map
-/resources
+*.sh
+*.tmp
+*.ts
+*.tsx
+*.yml
+*.zip
+.*
+/*.js
+/*.xml
+
+# ───────────────────────────────
+# Custom Exclusions
+# ───────────────────────────────
+/assets/src/

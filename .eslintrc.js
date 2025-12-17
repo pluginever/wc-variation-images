@@ -22,7 +22,7 @@ module.exports = {
 		'@wordpress/i18n-text-domain': [
 			'error',
 			{
-				allowedTextDomain: 'wc-key-manager',
+				allowedTextDomain: 'wc-variation-images',
 			},
 		],
 	},
