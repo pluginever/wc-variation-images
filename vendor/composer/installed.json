@@ -1,0 +1,76 @@
+{
+    "packages": [
+        {
+            "name": "byteever/bytekit-plugin",
+            "version": "dev-trunk",
+            "version_normalized": "dev-trunk",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:byteever/bytekit-plugin.git",
+                "reference": "43692c253b4d83879f5302dc6feff5eb2448428d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/byteever/bytekit-plugin/zipball/43692c253b4d83879f5302dc6feff5eb2448428d",
+                "reference": "43692c253b4d83879f5302dc6feff5eb2448428d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "time": "2025-12-11T10:51:47+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "WooCommerceVariationImages\\ByteKit\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "support": {
+                "source": "https://github.com/byteever/bytekit-plugin/tree/trunk",
+                "issues": "https://github.com/byteever/bytekit-plugin/issues"
+            },
+            "install-path": "../byteever/bytekit-plugin"
+        },
+        {
+            "name": "byteever/bytekit-settings",
+            "version": "dev-trunk",
+            "version_normalized": "dev-trunk",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:byteever/bytekit-settings.git",
+                "reference": "49c9d9488c0130356059b3d086e6d8487ca434ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/byteever/bytekit-settings/zipball/49c9d9488c0130356059b3d086e6d8487ca434ef",
+                "reference": "49c9d9488c0130356059b3d086e6d8487ca434ef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "time": "2025-12-11T09:07:47+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "WooCommerceVariationImages\\ByteKit\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "support": {
+                "source": "https://github.com/byteever/bytekit-settings/tree/trunk",
+                "issues": "https://github.com/byteever/bytekit-settings/issues"
+            },
+            "install-path": "../byteever/bytekit-settings"
+        }
+    ],
+    "dev": false,
+    "dev-package-names": []
+}

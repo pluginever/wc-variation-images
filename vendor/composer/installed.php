@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'pluginever/wc-variation-images',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => 'e21ff5b936c0436104801a97d251ffe0dccca490',
+        'type' => 'wordpress-plugin',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => false,
+    ),
+    'versions' => array(
+        'byteever/bytekit-plugin' => array(
+            'pretty_version' => 'dev-trunk',
+            'version' => 'dev-trunk',
+            'reference' => '43692c253b4d83879f5302dc6feff5eb2448428d',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../byteever/bytekit-plugin',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'byteever/bytekit-settings' => array(
+            'pretty_version' => 'dev-trunk',
+            'version' => 'dev-trunk',
+            'reference' => '49c9d9488c0130356059b3d086e6d8487ca434ef',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../byteever/bytekit-settings',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'pluginever/wc-variation-images' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'e21ff5b936c0436104801a97d251ffe0dccca490',
+            'type' => 'wordpress-plugin',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);
