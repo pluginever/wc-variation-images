@@ -2,9 +2,9 @@
 Contributors: manikmist09, pluginever
 Tags: woocommerce variation image gallery, product variation image, additional variation image gallery, product variation image gallery, variation images gallery
 Requires at least: 5.2
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -133,6 +133,10 @@ Explore more WooCommerce solutions from [PluginEver](https://pluginever.com):
 9. Lightbox preview with social sharing options
 
 == Changelog ==
+= 1.3.4 ( 22nd January 2026 ) =
+* Fix - Fixed minor issues.
+* Enhance: Update the plugin notices.
+
 = 1.3.3 ( 24th November 2025 ) =
 * Fix: Updated plugin naming to comply with WordPress.org trademark guidelines.
 * Enhance: Improved readme content clarity and removed promotional language per guidelines.
@@ -155,7 +159,7 @@ Explore more WooCommerce solutions from [PluginEver](https://pluginever.com):
 * Fix - Fixed some known issues.
 * Enhance - Improve code structure, enhance functionality and remove unused code.
 
-= 1.2.2 ( 04th May 2025 ) =
+= 1.2.2 ( 4th May 2025 ) =
 * Compatibility - Compatible with the latest version of WordPress and WooCommerce.
 * Fix - Some known issues.
 
