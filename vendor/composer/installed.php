@@ -3,7 +3,7 @@
         'name' => 'pluginever/wc-variation-images',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'e21ff5b936c0436104801a97d251ffe0dccca490',
+        'reference' => '49ccdcbd63573a1b1d86d4caa89efda644146697',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'pluginever/wc-variation-images' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'e21ff5b936c0436104801a97d251ffe0dccca490',
+            'reference' => '49ccdcbd63573a1b1d86d4caa89efda644146697',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

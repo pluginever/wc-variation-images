@@ -33,6 +33,7 @@
                 "source": "https://github.com/byteever/bytekit-plugin/tree/trunk",
                 "issues": "https://github.com/byteever/bytekit-plugin/issues"
             },
+            "abandoned": true,
             "install-path": "../byteever/bytekit-plugin"
         },
         {
@@ -68,6 +69,7 @@
                 "source": "https://github.com/byteever/bytekit-settings/tree/trunk",
                 "issues": "https://github.com/byteever/bytekit-settings/issues"
             },
+            "abandoned": true,
             "install-path": "../byteever/bytekit-settings"
         }
     ],
