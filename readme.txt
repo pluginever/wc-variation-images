@@ -133,9 +133,9 @@ Explore more WooCommerce solutions from [PluginEver](https://pluginever.com):
 9. Lightbox preview with social sharing options
 
 == Changelog ==
-= 1.3.4 ( 22nd January 2026 ) =
-* Fix - Fixed minor issues.
-* Enhance: Update the plugin notices.
+= 1.3.4 ( 26th January 2026 ) =
+* Fix - Fixed compatibility issue with WooCommerce 10.4
+* Enhance - Improved plugin performance and stability.
 
 = 1.3.3 ( 24th November 2025 ) =
 * Fix: Updated plugin naming to comply with WordPress.org trademark guidelines.
