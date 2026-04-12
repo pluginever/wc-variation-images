@@ -17,9 +17,9 @@
 	},
 	"devDependencies": {
 		"@byteever/scripts": "^3.0.4",
-		"@wordpress/browserslist-config": "^6.38.0",
-		"@wordpress/prettier-config": "^4.38.0",
-		"@wordpress/scripts": "^31.3.0"
+		"@wordpress/browserslist-config": "^6.43.0",
+		"@wordpress/prettier-config": "^4.43.0",
+		"@wordpress/scripts": "^31.8.0"
 	},
 	"scripts": {
 		"build": "wp-scripts build && composer run makepot",

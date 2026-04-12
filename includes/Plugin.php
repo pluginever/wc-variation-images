@@ -156,12 +156,13 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 	 * @return void
 	 */
 	public function frontend_scripts_handler() {
-		wc_variation_images()->scripts->register_style( 'wc-variation-images-frontend', 'css/frontend.css' );
 		wc_variation_images()->scripts->register_style( 'wc-variation-images-slider', 'css/slider.css' );
 		wc_variation_images()->scripts->register_style( 'wc-variation-images-fancybox', 'css/fancybox.css' );
-		wc_variation_images()->scripts->register_script( 'wc-variation-images-frontend', 'js/frontend.js', array( 'jquery' ), true );
+
 		wc_variation_images()->scripts->register_script( 'wc-variation-images-slider', 'js/slider.js', array(), true );
 		wc_variation_images()->scripts->register_script( 'wc-variation-images-fancybox', 'js/fancybox.js', array(), true );
+		wc_variation_images()->scripts->register_style( 'wc-variation-images-frontend', 'css/frontend.css' );
+		wc_variation_images()->scripts->register_script( 'wc-variation-images-frontend', 'js/frontend.js', array( 'jquery', 'wc-variation-images-slider', 'wc-variation-images-fancybox' ), true );
 
 		wp_localize_script(
 			'wc-variation-images-frontend',

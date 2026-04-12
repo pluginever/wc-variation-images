@@ -133,9 +133,10 @@ Explore more WooCommerce solutions from [PluginEver](https://pluginever.com):
 9. Lightbox preview with social sharing options
 
 == Changelog ==
-= 1.3.5 ( 9th March 2026 ) =
-* Fix - Fixed minor issues.
-* Compatibility - Checked compatibility with the latest version of WooCommerce (v10.5).
+= 1.3.5 ( 12th April 2026 ) =
+* Fix: Fixed missing slider and lightbox assets causing broken gallery display on frontend.
+* Fix: Fixed Swiper and Fancybox libraries not loading correctly after build process changes.
+* Compatibility: Tested with WooCommerce 10.6.
 
 = 1.3.4 ( 26th January 2026 ) =
 * Fix - Fixed compatibility issue with WooCommerce 10.4
