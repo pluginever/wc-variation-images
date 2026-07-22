@@ -1,8 +1,9 @@
 <?php
 
-namespace WooCommerceVariationImages\Admin;
+namespace PluginEver\VariationImages\Admin;
 
-use WooCommerceVariationImages\Controllers\Helpers;
+use PluginEver\VariationImages\B8\SettingsUI;
+use PluginEver\VariationImages\Controllers\Helpers;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -10,9 +11,47 @@ defined( 'ABSPATH' ) || exit;
  * Class Settings.
  *
  * @since   1.0.0
- * @package WooCommerceVariationImages\Admin
+ * @package PluginEver\VariationImages\Admin
  */
-class Settings extends \WooCommerceVariationImages\ByteKit\Admin\Settings {
+class Settings extends SettingsUI {
+
+	/**
+	 * Capability required to manage the settings.
+	 *
+	 * @since 1.0.0
+	 * @var string
+	 */
+	protected string $capability = 'manage_woocommerce';
+
+	/**
+	 * Register hooks.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function register(): void {
+		$this->app->on_filter( 'admin_pages', array( $this, 'register_page' ) );
+		$this->app->on_filter( 'settings_wrap_classes', array( $this, 'wrap_classes' ) );
+		$this->app->on_filter( 'settings', array( $this, 'register_settings' ) );
+	}
+
+	/**
+	 * Filter the admin pages.
+	 *
+	 * @since 1.0.0
+	 * @param array<int, array<string, mixed>> $pages Admin page configurations.
+	 * @return array<int, array<string, mixed>>
+	 */
+	public function register_page( array $pages ): array {
+		$pages[] = array(
+			'title'    => __( 'Variation Images', 'wc-variation-images' ),
+			'slug'     => 'wc-variation-images-settings',
+			'callback' => array( $this, 'render' ),
+			'position' => 55,
+		);
+
+		return $pages;
+	}
 
 	/**
 	 * Get settings tabs.

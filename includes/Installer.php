@@ -2,6 +2,8 @@
 
 namespace PluginEver\VariationImages;
 
+use PluginEver\VariationImages\B8\Component;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -10,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
  * @since   1.0.0
  * @package PluginEver\VariationImages
  */
-class Installer extends B8\Component {
+class Installer extends Component {
 
 	/**
 	 * Update hook name.

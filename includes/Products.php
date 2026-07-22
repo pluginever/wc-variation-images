@@ -1,8 +1,9 @@
 <?php
 
-namespace WooCommerceVariationImages;
+namespace PluginEver\VariationImages;
 
 use PHP_CodeSniffer\Generators\HTML;
+use PluginEver\VariationImages\B8\Component;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -11,15 +12,16 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0.0
  *
- * @package WooCommerceVariationImages
+ * @package PluginEver\VariationImages
  */
-class Products {
+class Products extends Component {
 	/**
-	 * Products constructor
+	 * Register hooks.
 	 *
 	 * @since 1.0.0
+	 * @return void
 	 */
-	public function __construct() {
+	public function register(): void {
 		add_filter( 'woocommerce_single_product_image_gallery_classes', array( $this, 'add_gallery_class' ) );
 		add_filter( 'wc_get_template', array( $this, 'gallery_template_override' ), 60, 2 );
 		add_action( 'wp', array( $this, 'wc_variation_images_gallery_control' ), 100 );

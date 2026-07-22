@@ -1,6 +1,8 @@
 <?php
 
-namespace WooCommerceVariationImages\Admin;
+namespace PluginEver\VariationImages\Admin;
+
+use PluginEver\VariationImages\B8\Component;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -9,15 +11,16 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0.0
  *
- * @package WooCommerceVariationImages\Admin
+ * @package PluginEver\VariationImages\Admin
  */
-class Products {
+class Products extends Component {
 	/**
-	 * Products constructor
+	 * Register hooks.
 	 *
 	 * @since 1.0.0
+	 * @return void
 	 */
-	public function __construct() {
+	public function register(): void {
 		add_action( 'woocommerce_product_after_variable_attributes', array( $this, 'handle_upload_variation_images' ), 10, 3 );
 		add_action( 'woocommerce_save_product_variation', array( $this, 'wc_variation_images_save_product_variation' ), 10, 1 );
 	}
