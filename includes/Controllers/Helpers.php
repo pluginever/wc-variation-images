@@ -1,6 +1,6 @@
 <?php
 
-namespace WooCommerceVariationImages\Controllers;
+namespace PluginEver\VariationImages\Controllers;
 
 defined( 'ABSPATH' ) || exit;
 
