@@ -2,7 +2,7 @@
 Contributors: manikmist09, pluginever
 Tags: woocommerce variation image gallery, product variation image, additional variation image gallery, product variation image gallery, variation images gallery
 Requires at least: 5.2
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
 Stable tag: 1.4.0
 License: GPLv2 or later
