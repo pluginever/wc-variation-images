@@ -5,7 +5,7 @@
  * Description:          Adds additional gallery images per product variation in WooCommerce.
  * Version:              1.4.0
  * Requires at least:    5.2
- * Tested up to:         6.9
+ * Tested up to:         7.0
  * Requires PHP:         7.4
  * Author:               PluginEver
  * Author URI:           https://pluginever.com
