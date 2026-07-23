@@ -3,7 +3,7 @@
  * Upgrade notice.
  *
  * @since   1.0.0
- * @package PluginEver\StarterPlugin
+ * @package PluginEver\VariationImages
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 	echo wp_kses_post(
 		sprintf(
 			/* translators: 1: opening anchor tag, 2: closing anchor tag. */
-			__( 'You are using the free version of WC Starter Plugin. %1$sUpgrade to Pro%2$s to unlock the full feature set.', 'wc-starter-plugin' ),
+			__( 'You are using the free version of WC Starter Plugin. %1$sUpgrade to Pro%2$s to unlock the full feature set.', 'wc-variation-images' ),
 			'<a href="' . esc_url( wc_starter_plugin_upgrade_url( 'upgrade_notice', 'notice' ) ) . '" target="_blank" rel="noopener noreferrer"><strong>',
 			'</strong></a>'
 		)
