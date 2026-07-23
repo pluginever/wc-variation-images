@@ -160,29 +160,6 @@ class Plugin extends B8\App {
 	}
 
 	/**
-	 * Init the plugin after plugins_loaded so environment variables are set.
-	 *
-	 * @since 1.0.0
-	 * @return void
-	 */
-//	public function init() {
-//		$this->set( Actions::class );
-//		$this->set( Products::class );
-//		$this->set( Controllers\Helpers::class );
-//
-//		if ( is_admin() ) {
-//			$this->set( Admin\Admin::class );
-//			$this->set( Admin\Settings::instance() );
-//			$this->set( Admin\Products::class );
-//			$this->set( Admin\Notices::class );
-//		}
-//		add_theme_support( 'wc-product-gallery-zoom' );
-//
-//		// Init action.
-//		do_action( 'wc_variation_images_init' );
-//	}
-
-	/**
 	 * Enqueue Scripts.
 	 *
 	 * @since 1.0.0

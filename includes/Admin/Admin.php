@@ -24,6 +24,7 @@ class Admin extends Component {
 		Menu::class,
 		Products::class,
 		Feedback::class,
+		Notices::class,
 	);
 
 	/**

@@ -3,7 +3,7 @@
  * Deactivation feedback modal.
  *
  * @since   1.0.0
- * @package PluginEver\StarterPlugin
+ * @package PluginEver\VariationImages
  *
  * @var string                $basename Plugin basename.
  * @var string                $nonce    Feedback nonce.

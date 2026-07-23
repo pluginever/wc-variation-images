@@ -1,54 +1,45 @@
 <?php
 
-namespace WooCommerceVariationImages\Admin;
+namespace PluginEver\VariationImages\Admin;
+
+use PluginEver\VariationImages\B8\Component;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Notices class.
+ * Handles the admin notices.
  *
- * @since 1.0.0
- * @package WooCommerceVariationImages\Admin
+ * @since   1.0.0
+ * @package PluginEver\VariationImages\Admin
  */
-class Notices {
+class Notices extends Component {
 
 	/**
-	 * Notices constructor.
+	 * Register hooks.
 	 *
 	 * @since 1.0.0
+	 * @return void
 	 */
-	public function __construct() {
-		add_action( 'admin_init', array( $this, 'admin_notices' ) );
+	public function register(): void {
+		add_action( 'admin_init', array( $this, 'register_notices' ) );
 	}
 
 	/**
-	 * Admin notices.
+	 * Register the admin notices.
 	 *
 	 * @since 1.0.0
+	 * @return void
 	 */
-	public function admin_notices() {
-		$installed_time = absint( get_option( 'wc_variation_images_installed' ) );
-		$current_time   = absint( wp_date( 'U' ) );
+	public function register_notices(): void {
+		$installed_on = strtotime( (string) $this->app->options->get( 'installed_on' ) );
 
-		if ( ! defined( 'WCVI_PRO_VERSION' ) ) {
-			wc_variation_images()->notices->add(
+		if ( $installed_on && ( time() - $installed_on ) > WEEK_IN_SECONDS ) {
+			$this->app->notices->add(
 				array(
-					'message'     => __DIR__ . '/views/notices/upgrade.php',
-					'notice_id'   => 'wc_variation_images_upgrade',
-					'style'       => 'border-left-color: #0542fa;',
-					'dismissible' => false,
-				)
-			);
-		}
-
-		// Show after 5 days.
-		if ( $installed_time && $current_time > ( $installed_time + ( 5 * DAY_IN_SECONDS ) ) ) {
-			wc_variation_images()->notices->add(
-				array(
-					'message'     => __DIR__ . '/views/notices/review.php',
-					'dismissible' => false,
-					'notice_id'   => 'wc_variation_images_review',
-					'style'       => 'border-left-color: #0542fa;',
+					'notice_id' => 'wc_variation_images_review',
+					'type'      => 'info',
+					'class'     => 'wc-variation-images-notice',
+					'message'   => $this->app->templates_path( 'admin/notices/review.php' ),
 				)
 			);
 		}
