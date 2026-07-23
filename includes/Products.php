@@ -49,9 +49,9 @@ class Products extends Component {
 		if ( is_product() && 'variable' === $product->get_type() ) {
 			if ( 'single-product/product-image.php' === $template_name ) {
 				if ( 'no' === get_option( 'wcvi_disable_image_slider', 'no' ) ) {
-					$template = WCVI_PLUGIN_TEMPLATES_DIR . '/product-image-slider.php';
+					$template = $this->app->templates_path( 'product-image-slider.php' );
 				} else {
-					$template = WCVI_PLUGIN_TEMPLATES_DIR . '/product-image.php';
+					$template = $this->app->templates_path( 'product-image.php' );
 				}
 			}
 		}

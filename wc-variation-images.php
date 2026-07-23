@@ -44,7 +44,7 @@ require_once __DIR__ . '/includes/functions.php';
 
 $data = array(
 	'version'      => '1.3.5',
-	'settings_url' => admin_url( 'admin.php?page=wc-variation-images' ),
+	'settings_url' => admin_url( 'admin.php?page=wc-variation-images-settings' ),
 	'pro_basename' => 'wc-variation-images-pro/wc-variation-images-pro.php',
 	'store_url'    => 'https://pluginever.com',
 	'upgrade_url'  => 'https://pluginever.com/plugins/wc-variation-images-pro/',

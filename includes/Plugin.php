@@ -23,6 +23,10 @@ class Plugin extends B8\App {
 	 */
 	protected array $components = array(
 		Installer::class,
+		Admin\Admin::class,
+		Admin\Settings::class,
+		Actions::class,
+		Products::class,
 	);
 
 	/**

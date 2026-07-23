@@ -2,6 +2,8 @@
 
 namespace PluginEver\VariationImages\Admin;
 
+use PluginEver\VariationImages\B8\Component;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -10,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.0.0
  * @package PluginEver\VariationImages\Admin
  */
-class Admin {
+class Admin extends Component {
 
 	/**
 	 * Child components.
@@ -20,6 +22,8 @@ class Admin {
 	 */
 	public array $components = array(
 		Menu::class,
+		Products::class,
+		Feedback::class,
 	);
 
 	/**
@@ -43,7 +47,6 @@ class Admin {
 		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ), PHP_INT_MAX );
 		add_filter( 'update_footer', array( $this, 'update_footer' ), PHP_INT_MAX );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'admin_footer', array( $this, 'admin_template_js' ) );
 	}
 
@@ -67,7 +70,7 @@ class Admin {
 	 */
 	public static function get_screen_ids() {
 		$screen_ids = array(
-			'woocommerce_page_wc-variation-images',
+			'woocommerce_page_wc-variation-images-settings',
 			'post.php',
 			'post-new.php',
 		);
@@ -119,7 +122,7 @@ class Admin {
 	 * @return void
 	 */
 	public function admin_template_js() {
-		require_once trailingslashit( WCVI_PLUGIN_TEMPLATES_DIR ) . 'wc-variation-images-variation-template.php';
+		wc_variation_images()->template->view( 'wc-variation-images-variation-template' );
 	}
 
 	/**
@@ -131,7 +134,7 @@ class Admin {
 	 * @return string
 	 */
 	public function admin_footer_text( $footer_text ) {
-		if ( wc_variation_images()->review_url && in_array( get_current_screen()->id, array( 'woocommerce_page_wc-variation-images' ), true ) ) {
+		if ( wc_variation_images()->review_url && in_array( get_current_screen()->id, array( 'woocommerce_page_wc-variation-images-settings' ), true ) ) {
 			$footer_text = sprintf(
 			/* translators: 1: Plugin name 2: WordPress */
 				__( 'Thank you for using %1$s. If you like it, please leave us a %2$s rating. A huge thank you from PluginEver in advance!', 'wc-variation-images' ),
@@ -152,7 +155,7 @@ class Admin {
 	 * @return string
 	 */
 	public function update_footer( $footer_text ) {
-		if ( in_array( get_current_screen()->id, array( 'woocommerce_page_wc-variation-images' ), true ) ) {
+		if ( in_array( get_current_screen()->id, array( 'woocommerce_page_wc-variation-images-settings' ), true ) ) {
 			/* translators: 1: Plugin version */
 			$footer_text = sprintf( esc_html__( 'Version %s', 'wc-variation-images' ), wc_variation_images()->version );
 		}

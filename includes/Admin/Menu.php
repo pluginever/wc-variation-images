@@ -113,14 +113,4 @@ class Menu extends Component {
 	public function render(): void {
 		echo '<div id="app"></div>';
 	}
-
-	/**
-	 * Get the screen ids.
-	 *
-	 * @since 1.0.0
-	 * @return array<int, string> Screen IDs.
-	 */
-	public function get_screen_ids(): array {
-		return $this->screen_ids;
-	}
 }

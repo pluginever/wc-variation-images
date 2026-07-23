@@ -3,9 +3,10 @@
 	"private": true,
 	"scripts": {
 		"css": "sass assets/src:assets/build",
-		"js": "esbuild assets/src/*.js --bundle --outdir=assets/build",
-		"start": "npm run css -- --watch & npm run js -- --watch",
-		"build": "npm run css -- --style=compressed --no-source-map && npm run js -- --minify",
+		"js": "esbuild assets/src/js/admin.js assets/src/js/frontend.js --bundle --outdir=assets/build/js",
+		"vendor": "cp assets/src/js/slider.js assets/src/js/fancybox.js assets/build/js/ && cp assets/src/css/slider/slider.css assets/build/css/slider.css && cp assets/src/css/slider/fancybox.css assets/build/css/fancybox.css",
+		"start": "npm run vendor && npm run css -- --watch & npm run js -- --watch",
+		"build": "npm run css -- --style=compressed --no-source-map && npm run js -- --minify && npm run vendor",
 		"update": "npx npm-check-updates -u && npm i"
 	},
 	"devDependencies": {
