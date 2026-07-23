@@ -152,11 +152,11 @@ class Plugin extends B8\App {
 	/**
 	 * Whether the Pro add-on is active.
 	 *
-	 * @since 1.0.0
+	 * @since 2.4.0
 	 * @return bool True when the Pro add-on is active.
 	 */
 	public function is_pro_active(): bool {
-		return ! empty( $this->pro_basename ) && $this->plugin_active( $this->pro_basename );
+		return $this->has( 'pro_basename' ) && $this->plugin_active( $this->pro_basename );
 	}
 
 	/**
