@@ -1,116 +1,221 @@
 <?php
 
-// Functions and constants
-
-namespace {
-
-}
 
 
-namespace WooCommerceVariationImages {
+namespace PluginEver\VariationImages {
 
     class AliasAutoloader
     {
         private string $includeFilePath;
 
         private array $autoloadAliases = array (
-  'ByteKit\\Admin\\Flash' => 
+  'B8\\App' => 
   array (
     'type' => 'class',
-    'classname' => 'Flash',
-    'isabstract' => false,
-    'namespace' => 'ByteKit\\Admin',
-    'extends' => 'WooCommerceVariationImages\\ByteKit\\Admin\\Flash',
-    'implements' => 
-    array (
-    ),
-  ),
-  'ByteKit\\Admin\\Notices' => 
-  array (
-    'type' => 'class',
-    'classname' => 'Notices',
-    'isabstract' => false,
-    'namespace' => 'ByteKit\\Admin',
-    'extends' => 'WooCommerceVariationImages\\ByteKit\\Admin\\Notices',
-    'implements' => 
-    array (
-    ),
-  ),
-  'ByteKit\\Plugin' => 
-  array (
-    'type' => 'class',
-    'classname' => 'Plugin',
+    'classname' => 'App',
     'isabstract' => true,
-    'namespace' => 'ByteKit',
-    'extends' => 'WooCommerceVariationImages\\ByteKit\\Plugin',
+    'namespace' => 'B8',
+    'extends' => 'PluginEver\\VariationImages\\B8\\App',
     'implements' => 
     array (
-      0 => 'ByteKit\\Interfaces\\Pluginable',
     ),
   ),
-  'ByteKit\\Scripts' => 
+  'B8\\Component' => 
   array (
     'type' => 'class',
-    'classname' => 'Scripts',
-    'isabstract' => false,
-    'namespace' => 'ByteKit',
-    'extends' => 'WooCommerceVariationImages\\ByteKit\\Scripts',
+    'classname' => 'Component',
+    'isabstract' => true,
+    'namespace' => 'B8',
+    'extends' => 'PluginEver\\VariationImages\\B8\\Component',
     'implements' => 
     array (
-      0 => 'ByteKit\\Interfaces\\Scriptable',
     ),
   ),
-  'ByteKit\\Services' => 
+  'B8\\Container\\Container' => 
   array (
     'type' => 'class',
-    'classname' => 'Services',
+    'classname' => 'Container',
     'isabstract' => false,
-    'namespace' => 'ByteKit',
-    'extends' => 'WooCommerceVariationImages\\ByteKit\\Services',
+    'namespace' => 'B8\\Container',
+    'extends' => 'PluginEver\\VariationImages\\B8\\Container\\Container',
     'implements' => 
     array (
       0 => 'ArrayAccess',
     ),
   ),
-  'ByteKit\\Admin\\Settings' => 
+  'B8\\Container\\ContainerException' => 
   array (
     'type' => 'class',
-    'classname' => 'Settings',
-    'isabstract' => true,
-    'namespace' => 'ByteKit\\Admin',
-    'extends' => 'WooCommerceVariationImages\\ByteKit\\Admin\\Settings',
+    'classname' => 'ContainerException',
+    'isabstract' => false,
+    'namespace' => 'B8\\Container',
+    'extends' => 'PluginEver\\VariationImages\\B8\\Container\\ContainerException',
     'implements' => 
     array (
     ),
   ),
-  'ByteKit\\Traits\\HasPlugin' => 
+  'B8\\Services\\Cache' => 
+  array (
+    'type' => 'class',
+    'classname' => 'Cache',
+    'isabstract' => false,
+    'namespace' => 'B8\\Services',
+    'extends' => 'PluginEver\\VariationImages\\B8\\Services\\Cache',
+    'implements' => 
+    array (
+    ),
+  ),
+  'B8\\Services\\Filesystem' => 
+  array (
+    'type' => 'class',
+    'classname' => 'Filesystem',
+    'isabstract' => false,
+    'namespace' => 'B8\\Services',
+    'extends' => 'PluginEver\\VariationImages\\B8\\Services\\Filesystem',
+    'implements' => 
+    array (
+    ),
+  ),
+  'B8\\Services\\Flash' => 
+  array (
+    'type' => 'class',
+    'classname' => 'Flash',
+    'isabstract' => false,
+    'namespace' => 'B8\\Services',
+    'extends' => 'PluginEver\\VariationImages\\B8\\Services\\Flash',
+    'implements' => 
+    array (
+    ),
+  ),
+  'B8\\Services\\Logger' => 
+  array (
+    'type' => 'class',
+    'classname' => 'Logger',
+    'isabstract' => false,
+    'namespace' => 'B8\\Services',
+    'extends' => 'PluginEver\\VariationImages\\B8\\Services\\Logger',
+    'implements' => 
+    array (
+    ),
+  ),
+  'B8\\Services\\Notices' => 
+  array (
+    'type' => 'class',
+    'classname' => 'Notices',
+    'isabstract' => false,
+    'namespace' => 'B8\\Services',
+    'extends' => 'PluginEver\\VariationImages\\B8\\Services\\Notices',
+    'implements' => 
+    array (
+    ),
+  ),
+  'B8\\Services\\Options' => 
+  array (
+    'type' => 'class',
+    'classname' => 'Options',
+    'isabstract' => false,
+    'namespace' => 'B8\\Services',
+    'extends' => 'PluginEver\\VariationImages\\B8\\Services\\Options',
+    'implements' => 
+    array (
+      0 => 'ArrayAccess',
+    ),
+  ),
+  'B8\\Services\\Queue' => 
+  array (
+    'type' => 'class',
+    'classname' => 'Queue',
+    'isabstract' => false,
+    'namespace' => 'B8\\Services',
+    'extends' => 'PluginEver\\VariationImages\\B8\\Services\\Queue',
+    'implements' => 
+    array (
+    ),
+  ),
+  'B8\\Services\\Request' => 
+  array (
+    'type' => 'class',
+    'classname' => 'Request',
+    'isabstract' => false,
+    'namespace' => 'B8\\Services',
+    'extends' => 'PluginEver\\VariationImages\\B8\\Services\\Request',
+    'implements' => 
+    array (
+    ),
+  ),
+  'B8\\Services\\Router' => 
+  array (
+    'type' => 'class',
+    'classname' => 'Router',
+    'isabstract' => false,
+    'namespace' => 'B8\\Services',
+    'extends' => 'PluginEver\\VariationImages\\B8\\Services\\Router',
+    'implements' => 
+    array (
+    ),
+  ),
+  'B8\\Services\\Scripts' => 
+  array (
+    'type' => 'class',
+    'classname' => 'Scripts',
+    'isabstract' => false,
+    'namespace' => 'B8\\Services',
+    'extends' => 'PluginEver\\VariationImages\\B8\\Services\\Scripts',
+    'implements' => 
+    array (
+    ),
+  ),
+  'B8\\Services\\Settings' => 
+  array (
+    'type' => 'class',
+    'classname' => 'Settings',
+    'isabstract' => false,
+    'namespace' => 'B8\\Services',
+    'extends' => 'PluginEver\\VariationImages\\B8\\Services\\Settings',
+    'implements' => 
+    array (
+    ),
+  ),
+  'B8\\Services\\Template' => 
+  array (
+    'type' => 'class',
+    'classname' => 'Template',
+    'isabstract' => false,
+    'namespace' => 'B8\\Services',
+    'extends' => 'PluginEver\\VariationImages\\B8\\Services\\Template',
+    'implements' => 
+    array (
+    ),
+  ),
+  'B8\\SettingsUI' => 
+  array (
+    'type' => 'class',
+    'classname' => 'SettingsUI',
+    'isabstract' => false,
+    'namespace' => 'B8',
+    'extends' => 'PluginEver\\VariationImages\\B8\\SettingsUI',
+    'implements' => 
+    array (
+    ),
+  ),
+  'B8\\Traits\\HookableTrait' => 
   array (
     'type' => 'trait',
-    'traitname' => 'HasPlugin',
-    'namespace' => 'ByteKit\\Traits',
+    'traitname' => 'HookableTrait',
+    'namespace' => 'B8\\Traits',
     'use' => 
     array (
-      0 => 'WooCommerceVariationImages\\ByteKit\\Traits\\HasPlugin',
+      0 => 'PluginEver\\VariationImages\\B8\\Traits\\HookableTrait',
     ),
   ),
-  'ByteKit\\Interfaces\\Pluginable' => 
+  'B8\\Traits\\PathableTrait' => 
   array (
-    'type' => 'interface',
-    'interfacename' => 'Pluginable',
-    'namespace' => 'ByteKit\\Interfaces',
-    'extends' => 
+    'type' => 'trait',
+    'traitname' => 'PathableTrait',
+    'namespace' => 'B8\\Traits',
+    'use' => 
     array (
-      0 => 'WooCommerceVariationImages\\ByteKit\\Interfaces\\Pluginable',
-    ),
-  ),
-  'ByteKit\\Interfaces\\Scriptable' => 
-  array (
-    'type' => 'interface',
-    'interfacename' => 'Scriptable',
-    'namespace' => 'ByteKit\\Interfaces',
-    'extends' => 
-    array (
-      0 => 'WooCommerceVariationImages\\ByteKit\\Interfaces\\Scriptable',
+      0 => 'PluginEver\\VariationImages\\B8\\Traits\\PathableTrait',
     ),
   ),
 );

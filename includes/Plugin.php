@@ -1,8 +1,8 @@
 <?php
 
-namespace WooCommerceVariationImages;
+namespace PluginEver\VariationImages;
 
-use WooCommerceVariationImages\Controllers\Helpers;
+use PluginEver\VariationImages\Controllers\Helpers;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -11,60 +11,57 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0.0
  *
- * @package WooCommerceVariationImages
+ * @package PluginEver\VariationImages
  */
-final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
+class Plugin extends B8\App {
 
 	/**
-	 * Plugin constructor.
-	 *
-	 * @param array $data The plugin data.
+	 * Components to register.
 	 *
 	 * @since 1.0.0
+	 * @var array<int|string, class-string>
 	 */
-	protected function __construct( $data ) {
-		parent::__construct( $data );
-		$this->define_constants();
-		$this->includes();
-		$this->init_hooks();
-	}
+	protected array $components = array(
+		Installer::class,
+		Admin\Admin::class,
+		Admin\Settings::class,
+		Actions::class,
+		Products::class,
+	);
 
 	/**
-	 * Define constants.
+	 * Register hooks.
 	 *
 	 * @since 1.0.0
 	 * @return void
 	 */
-	public function define_constants() {
-		define( 'WCVI_VERSION', $this->get_version() );
-		define( 'WCVI_PLUGIN_FILE', $this->get_file() );
-		define( 'WCVI_PLUGIN_PATH', $this->get_dir_path() );
+	public function bootstrap(): void {
+		define( 'WCVI_VERSION', $this->version );
+		define( 'WCVI_PLUGIN_FILE', $this->file );
 		define( 'WCVI_PLUGIN_URL', plugins_url( '', WCVI_PLUGIN_FILE ) );
-		define( 'WCVI_PLUGIN_TEMPLATES_DIR', WCVI_PLUGIN_PATH . '/templates' );
-	}
 
-	/**
-	 * Include required files.
-	 *
-	 * @since 1.0.0
-	 * @return void
-	 */
-	public function includes() {
-		require_once __DIR__ . '/functions.php';
-	}
-
-	/**
-	 * Hook into actions and filters.
-	 *
-	 * @since 1.0.0
-	 * @return void
-	 */
-	public function init_hooks() {
-		register_activation_hook( $this->get_file(), array( $this, 'install' ) );
-		add_filter( 'plugin_action_links_' . $this->get_basename(), array( $this, 'plugin_action_links' ) );
-		add_action( 'before_woocommerce_init', array( $this, 'on_before_woocommerce_init' ) );
-		add_action( 'woocommerce_init', array( $this, 'init' ), 0 );
+		register_activation_hook( $this->file, array( $this, 'install' ) );
+		add_action( 'woocommerce_loaded', array( $this, 'woocommerce_loaded' ), 0 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts_handler' ) );
+		add_filter( 'plugin_action_links_' . $this->basename(), array( $this, 'plugin_action_links' ) );
+		add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
+	}
+
+	/**
+	 * Initialize the plugin.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function woocommerce_loaded(): void {
+		$this->boot( $this->components );
+
+		/**
+		 * Fires after the plugin has booted its components.
+		 *
+		 * @since 1.0.0
+		 */
+		$this->do_action( 'loaded' );
 	}
 
 	/**
@@ -100,53 +97,66 @@ final class Plugin extends \WooCommerceVariationImages\ByteKit\Plugin {
 	/**
 	 * Add plugin action links.
 	 *
-	 * @param array $links The plugin action links.
-	 *
 	 * @since 1.0.0
-	 * @return array
+	 * @param array<string, string> $links Plugin action links.
+	 * @return array<string, string>
 	 */
-	public function plugin_action_links( $links ) {
-		if ( ! $this->is_plugin_active( 'wc-variation-images-pro/wc-variation-images-pro.php' ) ) {
-			$links['go_pro'] = '<a href="https://pluginever.com/plugins/wc-variation-images-pro" target="_blank" style="color: #39b54a; font-weight: bold;">' . esc_html__( 'Go Pro', 'wc-variation-images' ) . '</a>';
+	public function plugin_action_links( array $links ): array {
+		$settings = sprintf(
+			'<a href="%s">%s</a>',
+			esc_url( (string) $this->get( 'settings_url' ) ),
+			esc_html__( 'Settings', 'wc-variation-images' )
+		);
+
+		$links = array_merge( array( 'settings' => $settings ), $links );
+
+		if ( ! $this->is_pro_active() ) {
+			$links['go_pro'] = sprintf(
+				'<a href="%s" target="_blank" rel="noopener noreferrer" style="color: #39b54a; font-weight: bold;">%s</a>',
+				esc_url( (string) $this->get( 'upgrade_url' ) ),
+				esc_html__( 'Go Pro', 'wc-variation-images' )
+			);
 		}
 
 		return $links;
 	}
 
 	/**
-	 * Run on before WooCommerce init.
+	 * Add the plugin row meta links.
 	 *
 	 * @since 1.0.0
-	 * @return void
+	 * @param array<int, string> $links Plugin row meta links.
+	 * @param string             $file  Plugin file path relative to the plugins directory.
+	 * @return array<int, string>
 	 */
-	public function on_before_woocommerce_init() {
-		if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
-			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', $this->get_file(), true );
-			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'cart_checkout_blocks', $this->get_file(), true );
+	public function plugin_row_meta( array $links, string $file ): array {
+		if ( $file !== $this->basename() ) {
+			return $links;
 		}
+
+		$links[] = sprintf(
+			'<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+			esc_url( (string) $this->get( 'docs_url' ) ),
+			esc_html__( 'Docs', 'wc-variation-images' )
+		);
+
+		$links[] = sprintf(
+			'<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+			esc_url( (string) $this->get( 'support_url' ) ),
+			esc_html__( 'Support', 'wc-variation-images' )
+		);
+
+		return $links;
 	}
 
 	/**
-	 * Init the plugin after plugins_loaded so environment variables are set.
+	 * Whether the Pro add-on is active.
 	 *
-	 * @since 1.0.0
-	 * @return void
+	 * @since 2.4.0
+	 * @return bool True when the Pro add-on is active.
 	 */
-	public function init() {
-		$this->set( Actions::class );
-		$this->set( Products::class );
-		$this->set( Controllers\Helpers::class );
-
-		if ( is_admin() ) {
-			$this->set( Admin\Admin::class );
-			$this->set( Admin\Settings::instance() );
-			$this->set( Admin\Products::class );
-			$this->set( Admin\Notices::class );
-		}
-		add_theme_support( 'wc-product-gallery-zoom' );
-
-		// Init action.
-		do_action( 'wc_variation_images_init' );
+	public function is_pro_active(): bool {
+		return $this->has( 'pro_basename' ) && $this->plugin_active( $this->pro_basename );
 	}
 
 	/**

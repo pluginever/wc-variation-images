@@ -4,7 +4,7 @@ Tags: woocommerce variation image gallery, product variation image, additional v
 Requires at least: 5.2
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.3.5
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -133,9 +133,18 @@ Explore more WooCommerce solutions from [PluginEver](https://pluginever.com):
 9. Lightbox preview with social sharing options
 
 == Changelog ==
+= 1.4.0 ( 13th July 2026 ) =
+* New: Updated the plugin core architecture for improved performance, maintainability, and compatibility.
+* New: Added a deactivation feedback survey to help improve the plugin experience.
+* New: Added helpful admin notifications and a Pro panel in the settings page.
+* Enhanced: Improved the settings page, admin interface, and overall plugin experience.
+* Enhanced: Improved the plugin installation and update process.
+* Fix: Fixed the frontend slider display and several minor issues related to plugin functionality and stability.
+* Compatibility: Checked compatibility with the latest version of WordPress and WooCommerce.
+
 = 1.3.5 ( 12th April 2026 ) =
 * Fix: Fixed missing slider and lightbox assets causing broken gallery display on frontend.
-* Fix: Fixed Swiper and Fancybox libraries not loading correctly after build process changes.
+* Fix: Fixed Swiper and FancyBox libraries not loading correctly after build process changes.
 * Compatibility: Tested with WooCommerce 10.6.
 
 = 1.3.4 ( 26th January 2026 ) =
@@ -150,7 +159,7 @@ Explore more WooCommerce solutions from [PluginEver](https://pluginever.com):
 * Enhance: Update the plugin notices.
 * Compatibility - Checked compatibility with the latest version of WooCommerce (v10.3).
 
-= 1.3.1 ( 6th October, 2025 ) =
+= 1.3.1 ( 6th October 2025 ) =
 * Compatibility - Checked compatibility with the latest version of WordPress and WooCommerce.
 
 = 1.3.0 ( 23rd July 2025 ) =
@@ -177,7 +186,7 @@ Explore more WooCommerce solutions from [PluginEver](https://pluginever.com):
 * Compatibility - Checked compatibility with WP latest version
 * Compatibility - Checked compatibility with WC latest version
 
-= 1.1.1 ( 23th October 2024 ) =
+= 1.1.1 ( 23rd October 2024 ) =
 * Fix - Fixed some known issues
 * Compatibility - Checked compatibility with WP latest version
 * Compatibility - Checked compatibility with WC latest version

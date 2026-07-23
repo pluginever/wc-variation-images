@@ -1,0 +1,13 @@
+{
+  "name": "byteever/plugin",
+  "type": "library",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": ">=7.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "B8\\": "src/"
+    }
+  }
+}
