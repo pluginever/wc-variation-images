@@ -25,6 +25,7 @@ class Admin extends Component {
 		Products::class,
 		Feedback::class,
 		Notices::class,
+		Premium::class,
 	);
 
 	/**
