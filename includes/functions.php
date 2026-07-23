@@ -1,18 +1,8 @@
 <?php
 
-use WooCommerceVariationImages\Plugin;
+use PluginEver\VariationImages\Plugin;
 
 defined( 'ABSPATH' ) || exit;
-
-/**
- * Get the plugin instance.
- *
- * @since 1.0.1
- * @return WooCommerceVariationImages\Plugin
- */
-function wc_variation_images() {
-	return Plugin::instance();
-}
 
 /**
  * retrieve product variation image
@@ -155,4 +145,32 @@ function wc_variation_images_get_variation_images( $product_id, $variation_id ) 
 	</div>
 	<?php
 	return ob_get_clean();
+}
+
+
+if ( ! function_exists( 'wc_variation_images_upgrade_url' ) ) {
+	/**
+	 * Build a UTM-tagged upgrade URL.
+	 *
+	 * @since 1.0.0
+	 * @param string $campaign Placement identifier, used as the utm_campaign value.
+	 * @param string $medium   Link medium, used as the utm_medium value.
+	 * @return string Upgrade URL, or an empty string when no upgrade URL is configured.
+	 */
+	function wc_variation_images_upgrade_url( string $campaign = 'upgrade', string $medium = 'link' ): string {
+		$base = (string) wc_variation_images()->upgrade_url;
+
+		if ( '' === $base ) {
+			return '';
+		}
+
+		return add_query_arg(
+			array(
+				'utm_source'   => 'wc-variation-images',
+				'utm_medium'   => $medium,
+				'utm_campaign' => $campaign,
+			),
+			$base
+		);
+	}
 }

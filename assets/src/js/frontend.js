@@ -21,12 +21,13 @@
 	const GALLERY_IMAGE_SELECTOR = '.woocommerce-product-gallery__image';
 
 	/**
-	 * Event: On variation select blur
+	 * Event: On variation found
 	 * Handles updating the product gallery with variation-specific images.
+	 * Uses WooCommerce's found_variation event so the variation ID is available.
 	 */
-	$(VARIATION_FORM_SELECTOR).on('blur', VARIATION_SELECT_SELECTOR, function () {
+	$(VARIATION_FORM_SELECTOR).on('found_variation', function (event, variation) {
 		const productId = $(VARIATION_FORM_SELECTOR).data('product_id');
-		const variationId = $(VARIATION_INPUT_SELECTOR).val();
+		const variationId = variation.variation_id;
 		const $gallery = $(GALLERY_SELECTOR);
 		const $galleryImage = $(GALLERY_IMAGE_SELECTOR);
 

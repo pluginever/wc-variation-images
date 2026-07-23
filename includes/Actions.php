@@ -1,6 +1,8 @@
 <?php
 
-namespace WooCommerceVariationImages;
+namespace PluginEver\VariationImages;
+
+use PluginEver\VariationImages\B8\Component;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -9,15 +11,15 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0.0
  *
- * @package WooCommerceVariationImages
+ * @package PluginEver\VariationImages
  */
-class Actions {
+class Actions extends Component {
 	/**
 	 * Actions constructor
 	 *
 	 * @since 1.0.0
 	 */
-	public function __construct() {
+	public function register(): void {
 		add_action( 'wp_ajax_wc_variation_images_load_variation_images', array( $this, 'wc_variation_images_load_variation_images' ) );
 		add_action( 'wp_ajax_nopriv_wc_variation_images_load_variation_images', array( $this, 'wc_variation_images_load_variation_images' ) );
 	}

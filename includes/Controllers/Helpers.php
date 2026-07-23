@@ -1,6 +1,6 @@
 <?php
 
-namespace WooCommerceVariationImages\Controllers;
+namespace PluginEver\VariationImages\Controllers;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0.0
  *
- * @package WooCommerceVariationImages\Controllers
+ * @package PluginEver\VariationImages\Controllers
  */
 class Helpers {
 	/**

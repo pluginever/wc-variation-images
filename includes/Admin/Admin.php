@@ -1,6 +1,8 @@
 <?php
 
-namespace WooCommerceVariationImages\Admin;
+namespace PluginEver\VariationImages\Admin;
+
+use PluginEver\VariationImages\B8\Component;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -8,20 +10,45 @@ defined( 'ABSPATH' ) || exit;
  * Admin class.
  *
  * @since 1.0.0
- * @package WooCommerceVariationImages\Admin
+ * @package PluginEver\VariationImages\Admin
  */
-class Admin {
+class Admin extends Component {
+
 	/**
-	 * Admin constructor.
+	 * Child components.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0.0
+	 * @var array<int|string, class-string>
 	 */
-	public function __construct() {
+	public array $components = array(
+		Menu::class,
+		Products::class,
+		Feedback::class,
+		Notices::class,
+		Premium::class,
+	);
+
+	/**
+	 * Whether to load.
+	 *
+	 * @since 1.0.0
+	 * @return bool
+	 */
+	public function autoload(): bool {
+		return is_admin();
+	}
+
+	/**
+	 * Register hooks.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function register(): void {
 		add_filter( 'woocommerce_screen_ids', array( $this, 'screen_ids' ) );
 		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ), PHP_INT_MAX );
 		add_filter( 'update_footer', array( $this, 'update_footer' ), PHP_INT_MAX );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'admin_footer', array( $this, 'admin_template_js' ) );
 	}
 
@@ -45,7 +72,7 @@ class Admin {
 	 */
 	public static function get_screen_ids() {
 		$screen_ids = array(
-			'woocommerce_page_wc-variation-images',
+			'woocommerce_page_wc-variation-images-settings',
 			'post.php',
 			'post-new.php',
 		);
@@ -62,8 +89,8 @@ class Admin {
 	 */
 	public function enqueue_scripts( $hook ) {
 		$screen_ids = self::get_screen_ids();
-		wp_enqueue_style( 'bytekit-components' );
-		wp_enqueue_style( 'bytekit-layout' );
+		wp_enqueue_style( 'b8-components' );
+		wp_enqueue_style( 'b8-layout' );
 
 		wc_variation_images()->scripts->register_style( 'wc-variation-images', 'css/admin.css' );
 		wc_variation_images()->scripts->register_script( 'wc-variation-images', 'js/admin.js' );
@@ -97,24 +124,7 @@ class Admin {
 	 * @return void
 	 */
 	public function admin_template_js() {
-		require_once trailingslashit( WCVI_PLUGIN_TEMPLATES_DIR ) . 'wc-variation-images-variation-template.php';
-	}
-
-	/**
-	 * Admin Menu
-	 *
-	 * @since 1.0.0
-	 * @return void
-	 */
-	public function admin_menu() {
-		add_submenu_page(
-			'woocommerce',
-			__( 'Variation Images', 'wc-variation-images' ),
-			__( 'Variation Images', 'wc-variation-images' ),
-			'manage_options',
-			'wc-variation-images',
-			array( Settings::class, 'output' )
-		);
+		wc_variation_images()->template->view( 'wc-variation-images-variation-template' );
 	}
 
 	/**
@@ -126,12 +136,12 @@ class Admin {
 	 * @return string
 	 */
 	public function admin_footer_text( $footer_text ) {
-		if ( wc_variation_images()->get_review_url() && in_array( get_current_screen()->id, array( 'woocommerce_page_wc-variation-images' ), true ) ) {
+		if ( wc_variation_images()->review_url && in_array( get_current_screen()->id, array( 'woocommerce_page_wc-variation-images-settings' ), true ) ) {
 			$footer_text = sprintf(
 			/* translators: 1: Plugin name 2: WordPress */
 				__( 'Thank you for using %1$s. If you like it, please leave us a %2$s rating. A huge thank you from PluginEver in advance!', 'wc-variation-images' ),
-				'<strong>' . esc_html( wc_variation_images()->get_name() ) . '</strong>',
-				'<a href="' . esc_url( wc_variation_images()->get_review_url() ) . '" target="_blank" class="wc-variation-images-rating-link" data-rated="' . esc_attr__( 'Thanks :)', 'wc-variation-images' ) . '">&#9733;&#9733;&#9733;&#9733;&#9733;</a>'
+				'<strong>WC Variation Swatches</strong>',
+				'<a href="' . esc_url( wc_variation_images()->review_url ) . '" target="_blank" class="wc-variation-images-rating-link" data-rated="' . esc_attr__( 'Thanks :)', 'wc-variation-images' ) . '">&#9733;&#9733;&#9733;&#9733;&#9733;</a>'
 			);
 		}
 
@@ -147,9 +157,9 @@ class Admin {
 	 * @return string
 	 */
 	public function update_footer( $footer_text ) {
-		if ( in_array( get_current_screen()->id, array( 'woocommerce_page_wc-variation-images' ), true ) ) {
+		if ( in_array( get_current_screen()->id, array( 'woocommerce_page_wc-variation-images-settings' ), true ) ) {
 			/* translators: 1: Plugin version */
-			$footer_text = sprintf( esc_html__( 'Version %s', 'wc-variation-images' ), wc_variation_images()->get_version() );
+			$footer_text = sprintf( esc_html__( 'Version %s', 'wc-variation-images' ), wc_variation_images()->version );
 		}
 
 		return $footer_text;
