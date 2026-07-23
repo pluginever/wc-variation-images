@@ -33,9 +33,6 @@
 		"makepot": "wp --allow-root i18n make-pot . --include=*.php,assets,includes,templates --domain=wc-variation-images",
 		"phpcs": "phpcs --standard=phpcs.xml -s",
 		"phpcbf": "phpcbf --standard=phpcs.xml",
-		"phpstan": "phpstan analyse --memory-limit=1G",
-		"test:setup": "bash ./tests/bin/install.sh wordpress_test root root localhost trunk",
-		"test": "phpunit",
 		"strauss": [
 			"test -f /tmp/strauss.phar || curl -o /tmp/strauss.phar -L https://github.com/BrianHenryIE/strauss/releases/download/0.24.1/strauss.phar",
 			"@php /tmp/strauss.phar",
